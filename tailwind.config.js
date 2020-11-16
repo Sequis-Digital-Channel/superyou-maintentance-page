@@ -1,14 +1,18 @@
 module.exports = {
-  purge: [
-    './src/**/*.svelte',
-  ],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.svelte'],
+  },
   variants: {},
   theme: {
-    extend: {}
+    extend: {},
+    fontFamily: {
+      osans: ['Open Sans', '-apple-system', 'BlinkMacSystemFont']
+    }
   },
   plugins: [],
   future: {
       removeDeprecatedGapUtilities: true,
       purgeLayersByDefault: true,
-  },
+  }
 }
