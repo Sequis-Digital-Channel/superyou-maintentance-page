@@ -1,40 +1,16 @@
+<script>
+  import AboveTheFold from "../components/AboveTheFold.svelte";
+
+  const backgroudColor = `
+  linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
+  `;
+</script>
+
 <style lang="postcss">
-	h1, figure, p {
-		@apply text-center my-0 mx-auto;
-	}
-
-	h1 {
-		@apply text-3xl uppercase font-bold m-0 mb-4 text-orange-500 font-sans;
-	}
-	
-	figure {
-		@apply m-0 mb-4;
-	}
-	
-	img {
-		@apply w-full max-w-5xl m-0 mb-4;
-	}
-	
-	p {
-		@apply my-0 mx-auto;
-	}
-
-	@screen md {
-		h1 {
-			@apply text-5xl;
-		}
-	}
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+  <title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-	<img alt='Success Kid' src='successkid.jpg'>
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<AboveTheFold bgGradient={backgroudColor} />

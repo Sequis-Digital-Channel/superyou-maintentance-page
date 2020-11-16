@@ -1,24 +1,25 @@
 <script>
-	import Nav from '../components/Nav.svelte';
-	import GlobalStyle from "../components/GlobalStyle.svelte";
+  import GlobalStyle from "../components/GlobalStyle.svelte";
+  import BaseHeader from "../components/BaseHeader.svelte";
 
-	export let segment;
+  // export let segment;
 </script>
 
-<style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-</style>
+<svelte:head>
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
+  </noscript>
+</svelte:head>
 
-<Nav {segment}/>
-
+<BaseHeader />
 <main>
-	<GlobalStyle />
-	<slot></slot>
+  <GlobalStyle />
+  <slot />
 </main>
