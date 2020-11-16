@@ -22,15 +22,22 @@
       margin: 0 auto;
 
       @media (min-width: 768px) {
-        padding-top: 20px;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
       }
 
+      @media (min-width: 768px) and (max-width: 800px) {
+        max-height: 244px;
+        overflow: hidden;
+      }
+
       &_icon {
         display: block;
         margin-bottom: 10px;
+        @media (min-width: 768px) {
+          padding-top: 20px;
+        }
       }
 
       &_meta {
@@ -42,10 +49,10 @@
           align-items: flex-start;
           max-width: 360px;
           margin-left: 15px;
+          padding-top: 20px;
         }
 
         @media (min-width: 1024px) {
-          margin-left: 0;
           max-width: 540px;
         }
 
@@ -82,10 +89,15 @@
       }
 
       &_hero {
-        @media (min-width: 768px) {
+        @media (min-width: 1100px) {
           & img {
             width: 100%;
-            height: auto;
+          }
+        }
+        @media (min-width: 1200px) {
+          & img {
+            width: 468px;
+            height: 322px;
           }
         }
       }
@@ -121,10 +133,10 @@
     <div class="product_hero">
       <picture>
         <source
-          media="(min-width: 768px)"
+          media="(min-width: 801px)"
           srcset="/icons/products/care/care_hero_desktop.png" />
         <source
-          media="(max-width: 767px)"
+          media="(max-width: 800px)"
           srcset="/icons/products/care/care_hero.png" />
         <img
           class="product_hero"
