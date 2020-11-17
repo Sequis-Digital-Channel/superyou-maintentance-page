@@ -6,16 +6,10 @@
 </script>
 
 <svelte:head>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
-    rel="preload"
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-    as="style"
-    onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
-  </noscript>
+    rel="stylesheet" />
 </svelte:head>
 
 <BaseHeader />
