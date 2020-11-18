@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 14px;
+    padding: 14px 18px;
     border-radius: 12px;
     background-color: #00aaae;
     color: #fff;
