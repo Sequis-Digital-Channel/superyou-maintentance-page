@@ -1,5 +1,7 @@
 <script>
-  import BenefitItem from "./BenefitItem.svelte";
+  import InfoItem from "../InfoItem.svelte";
+  import Tooltip from "../Tooltip.svelte";
+
   export let benefits_group = [
     {
       title: {
@@ -105,24 +107,24 @@
     &__title {
       text-align: center;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 40px;
+      color: #0d294a;
 
       @media (min-width: 768px) {
         font-size: 28px;
-        color: #0d294a;
       }
     }
 
     .benefit_group__title {
-      font-size: 18px;
+      font-size: 20px;
       text-align: center;
       font-weight: bold;
       margin-bottom: 32px;
+      color: #0d294a;
 
       @media (min-width: 768px) {
         font-size: 24px;
-        color: #0d294a;
       }
     }
 
@@ -134,7 +136,11 @@
       @media (min-width: 640px) {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 2.4rem 10%;
+        grid-gap: 3rem 10%;
+
+        &:last-child {
+          margin-bottom: 40px;
+        }
       }
     }
   }
@@ -145,12 +151,19 @@
 
   {#each benefits_group as bene_section, i (`${i}${bene_section.title.name}`)}
     {#if bene_section.title.name !== ''}
-      <h2 class="benefit_group__title">{bene_section.title.name}</h2>
+      <h2 class="benefit_group__title">
+        {bene_section.title.name}
+        {#if bene_section.title.tooltip !== ''}
+          <Tooltip indentifier={`head-tooltip-${i}`}>
+            {bene_section.title.tooltip}
+          </Tooltip>
+        {/if}
+      </h2>
     {/if}
 
     <div class="benefit_wrapper">
       {#each bene_section.benefits as { icon, title, description }, i (`${description}${i}`)}
-        <BenefitItem {icon} {title} {description} />
+        <InfoItem {icon} {title} {description} />
       {/each}
     </div>
   {/each}
