@@ -1,6 +1,7 @@
 <script>
+  import Tooltip from "../components/Tooltip.svelte";
   export let icon;
-  export let title;
+  export let title = "";
   export let description;
 </script>
 
@@ -41,11 +42,13 @@
 
     &__left {
       flex: 1 0 50px;
+      max-width: 50px;
       margin-right: 16px;
       @media (min-width: 640px) {
         align-self: center;
         margin-right: 0;
         margin-bottom: 12px;
+        max-width: 100%;
         & > img {
           width: 80px;
           height: 80px;
@@ -57,10 +60,21 @@
 
 <div class="benefit_item">
   <div class="benefit_item__left">
-    <img src={icon} width="50" height="50" />
+    <img
+      src={icon}
+      width="50"
+      height="50"
+      alt="Icon Manfaat dan Ketentuan Produk" />
   </div>
   <div class="benefit_item__right">
-    <h4>{title.name}</h4>
+    {#if title}
+      <h4>
+        {title.name}
+        {#if title.hasOwnProperty('tooltip') && title.tooltip !== ''}
+          <Tooltip>{title.tooltip}</Tooltip>
+        {/if}
+      </h4>
+    {/if}
     <p>{description}</p>
   </div>
 </div>
