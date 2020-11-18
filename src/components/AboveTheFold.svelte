@@ -124,7 +124,7 @@
         cashless.
       </p>
 
-      <BaseButton style="max-width: 294px;font-size:14px;margin-bottom:20px;">
+      <BaseButton style="max-width: 314px;font-size:14px;margin-bottom:20px;">
         YUK HITUNG BIAYA PREMI KAMU
         <RightArrow />
       </BaseButton>
