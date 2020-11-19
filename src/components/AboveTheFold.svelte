@@ -1,6 +1,5 @@
 <script>
   import BaseButton from "../components/BaseButton.svelte";
-  import RightArrow from "../components/svg/RightArrow.svelte";
   export let bgGradient = "#fff";
   export let height = "auto";
 </script>
@@ -126,7 +125,6 @@
 
       <BaseButton style="max-width: 314px;font-size:14px;margin-bottom:20px;">
         YUK HITUNG BIAYA PREMI KAMU
-        <RightArrow />
       </BaseButton>
     </div>
 
