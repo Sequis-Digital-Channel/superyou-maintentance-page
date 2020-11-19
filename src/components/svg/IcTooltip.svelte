@@ -1,7 +1,17 @@
+<style lang="postcss">
+  @media (min-width: 640px) {
+    .ic-tooltip {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
+
 <svg
+  class="ic-tooltip"
   xmlns="http://www.w3.org/2000/svg"
-  width="16"
-  height="16"
+  width="14"
+  height="14"
   viewBox="0 0 16 16">
   <g fill="none" fill-rule="evenodd">
     <g fill="#03A3A6" fill-rule="nonzero">

@@ -3,7 +3,7 @@
   import ProductBenefits from "../components/Product/ProductBenefits.svelte";
   import ProductTnc from "../components/Product/ProductTnc.svelte";
   import BaseButton from "../components/BaseButton.svelte";
-  import RightArrow from "../components/svg/RightArrow.svelte";
+  import IcPdf from "../components/svg/IcPdf.svelte";
 
   const backgroudColor = `
   linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
@@ -14,7 +14,7 @@
       icon: "/icons/products/care/tnc/entry-age.svg",
       description:
         "Usia masuk adalah 30 hari - 70 tahun dan perlindungan dapat diperpanjang hingga usia 75 tahun.",
-      tooltip: "",
+      tooltip: "Usia masuk adalah usia Tertanggung ketika memulai asuransi.",
     },
     {
       icon: "/icons/products/care/tnc/payment.svg",
@@ -77,10 +77,26 @@
 
   <BaseButton style="max-width: 314px;font-size:14px;margin:0 auto 20px;">
     CEK MANFAAT & DETAIL PLAN
-    <RightArrow />
   </BaseButton>
 </section>
 
 <section class="su_container tnc">
   <ProductTnc listTnc={tnc} />
+  <p
+    class="product_tnc__more-info"
+    style="text-align:center;color: #0d294a;font-size: 14px;">
+    Baca dan download informasi selengkapnya mengenai produk ini di
+  </p>
+  <div style="margin:20px auto 20px;padding: 0 10px; max-width:324px;">
+    <BaseButton
+      style="font-size:14px;
+      color: #0d294a;
+      border: 1px solid #0d294a;"
+      bgColor={'transparent'}>
+      RINGKASAN INFORMASI PRODUK
+      <span slot="icon">
+        <IcPdf />
+      </span>
+    </BaseButton>
+  </div>
 </section>

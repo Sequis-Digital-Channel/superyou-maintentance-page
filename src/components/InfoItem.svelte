@@ -3,6 +3,8 @@
   export let icon;
   export let title = "";
   export let description;
+  export let tooltipDescription = null;
+  export let key = "";
 </script>
 
 <style lang="postcss">
@@ -71,10 +73,17 @@
       <h4>
         {title.name}
         {#if title.hasOwnProperty('tooltip') && title.tooltip !== ''}
-          <Tooltip>{title.tooltip}</Tooltip>
+          <Tooltip indentifier={key}>{title.tooltip}</Tooltip>
         {/if}
       </h4>
     {/if}
-    <p>{description}</p>
+    <p>
+      {description}
+      {#if tooltipDescription}
+        <Tooltip indentifier={key}>
+          {@html tooltipDescription}
+        </Tooltip>
+      {/if}
+    </p>
   </div>
 </div>

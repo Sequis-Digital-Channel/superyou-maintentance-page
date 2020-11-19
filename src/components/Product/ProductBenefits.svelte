@@ -163,7 +163,7 @@
 
     <div class="benefit_wrapper">
       {#each bene_section.benefits as { icon, title, description }, i (`${description}${i}`)}
-        <InfoItem {icon} {title} {description} />
+        <InfoItem {icon} {title} {description} key={`bene-tooltip-${i}`} />
       {/each}
     </div>
   {/each}

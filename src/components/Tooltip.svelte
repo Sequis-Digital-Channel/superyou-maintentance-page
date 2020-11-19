@@ -58,6 +58,7 @@
   .tooltip_wrapper {
     display: inline-block;
     margin-left: 6px;
+    vertical-align: text-top;
   }
   #tooltip {
     background-color: #03a3a6;
@@ -95,7 +96,6 @@
     background: #03a3a6;
   }
 
-  /* popper.js style */
   :global(#tooltip[data-popper-placement^="top"] > #arrow) {
     bottom: -4px;
   }
@@ -111,7 +111,6 @@
   :global(#tooltip[data-popper-placement^="right"] > #arrow) {
     left: -4px;
   }
-  /* end popper.js style */
 </style>
 
 <div class="tooltip_wrapper">
