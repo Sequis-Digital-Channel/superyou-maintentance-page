@@ -6,6 +6,7 @@
   import IcPdf from "../components/svg/IcPdf.svelte";
   import BaseSelectMenu from "../components/BaseSelectMenu.svelte";
   import BaseInputRadio from "../components/BaseInputRadio.svelte";
+  import BaseInputDate from "../components/BaseInputDate.svelte";
 
   const backgroudColor = `
   linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
@@ -183,6 +184,8 @@
       items={insuredFor} />
     <br />
     <BaseInputRadio />
+    <br />
+    <BaseInputDate name="insured_dob" minAge={1} maxAge={60} />
   </div>
 </section>
 
