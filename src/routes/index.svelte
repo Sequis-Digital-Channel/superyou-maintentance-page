@@ -5,6 +5,7 @@
   import BaseButton from "../components/BaseButton.svelte";
   import IcPdf from "../components/svg/IcPdf.svelte";
   import BaseSelectMenu from "../components/BaseSelectMenu.svelte";
+  import BaseInputRadio from "../components/BaseInputRadio.svelte";
 
   const backgroudColor = `
   linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
@@ -53,6 +54,58 @@
       tooltip: "",
     },
   ];
+
+  const productPlan = [
+    { name: "Bronze Plan", value: "bronze", selected: true },
+    { name: "Silver Plan", value: "silver" },
+    { name: "Gold Plan", value: "gold" },
+  ];
+  const insuredFor = [
+    {
+      name: "Saya Sendiri",
+      value: "SELF",
+    },
+    {
+      name: "Suami",
+      value: "HUSBAND",
+    },
+    {
+      name: "Istri",
+      value: "WIFE",
+    },
+    {
+      name: "Ayah Kandung",
+      value: "FATHER",
+    },
+    {
+      name: "Ibu Kandung",
+      value: "MOTHER",
+    },
+    {
+      name: "Saudara Laki laki",
+      value: "BROTHER",
+    },
+    {
+      name: "Saudara Perempuan",
+      value: "SISTER",
+    },
+    {
+      name: "Anak Laki laki",
+      value: "SON",
+    },
+    {
+      name: "Anak Perempuan",
+      value: "DAUGHTER",
+    },
+  ];
+  const protection = [
+    { name: "Ya, dengan santunan tuna rawat inap 1 juta/hari", val: "YES" },
+  ];
+  const gender = [
+    { name: "Laki laki", value: "male" },
+    { name: "Perempuan", value: "female" },
+  ];
+  let selectedProductPlan;
 </script>
 
 <style lang="postcss">
@@ -116,7 +169,20 @@
     Cari Tahu Biaya Perlindungan Super Care Protection
   </h2>
   <div class="premi-calculation__wrapper" style="padding-bottom: 50px;">
-    <BaseSelectMenu />
+    <BaseSelectMenu
+      label="Pilih Plan"
+      items={productPlan}
+      bind:selectedItem={selectedProductPlan} />
+    <br />
+    <BaseSelectMenu label="Jenis Kelamin Tertanggung" items={gender} />
+    <br />
+    <BaseSelectMenu
+      label="Tertanggung"
+      withtooltip={true}
+      tooltiptext="Orang yang ditanggung di dalam Polis"
+      items={insuredFor} />
+    <br />
+    <BaseInputRadio />
   </div>
 </section>
 

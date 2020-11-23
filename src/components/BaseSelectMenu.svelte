@@ -1,16 +1,20 @@
 <script>
   import { clickOutside } from "../utils/_clickoutside";
-  import { onMount } from "svelte";
+  import Tooltip from "../components/Tooltip.svelte";
+  import IcTooltip from "./svg/IcTooltip.svelte";
 
-  export let items = [
-    { name: "Bronze Plan", value: "bronze", selected: true },
-    { name: "Silver Plan", value: "silver" },
-    { name: "Gold Plan", value: "gold" },
-  ];
-  let selectedItem = {
+  export let items = [];
+  export let selectedItem = {
     name: "",
     value: "",
   };
+  export let error = {
+    status: false,
+    msg: "Plan wajib di isi",
+  };
+  export let label;
+  export let withtooltip = false;
+  export let tooltiptext = "";
 
   let focused = false;
   let isMenuShowing = false;
@@ -69,7 +73,8 @@
         break;
       case "Escape":
         e.preventDefault();
-        e.target.blur();
+        focused = false;
+        isMenuShowing = false;
         break;
       case "Enter":
         e.preventDefault();
@@ -86,8 +91,6 @@
     );
     selectedItem = { ...filteredSelectedItem[0] };
   }
-
-  onMount(() => {});
 </script>
 
 <style lang="postcss">
@@ -129,12 +132,21 @@
         }
       }
 
+      &.error {
+        &::after {
+          transform: scaleX(1);
+          z-index: 2;
+          background-color: #e54b4b;
+        }
+      }
+
       & > #select-menu {
         padding: 8px 0;
         width: 100%;
         text-align: left;
         display: flex;
         align-items: center;
+        height: 40px;
 
         &:focus {
           outline: none;
@@ -153,6 +165,7 @@
 
       .select-menu-options {
         max-height: 224px;
+        z-index: 3;
         overflow-y: auto;
         display: flex;
         padding: 10px 0;
@@ -164,9 +177,7 @@
         background-color: #fff;
         box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
           0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-        /* &.show {
-          display: flex;
-        } */
+
         & > ul {
           width: 100%;
           .listbox-item {
@@ -184,12 +195,31 @@
         }
       }
     }
+
+    .msg {
+      span {
+        font-size: 11px;
+        color: #0d294a;
+      }
+      &.error {
+        span {
+          color: #e54b4b;
+        }
+      }
+    }
   }
 </style>
 
 <div id="base-select-menu">
-  <label for="select-menu">Pilih Plan</label>
-  <div class={`input-box ${focused ? 'focused' : ''}`}>
+  <label for="select-menu">
+    {label}
+    {#if withtooltip}
+      <Tooltip indentifier={label.split(' ').join('')}>{tooltiptext}</Tooltip>
+    {/if}
+  </label>
+  <div
+    class={`input-box${focused ? ' focused' : ''}`}
+    class:error={error.status}>
     <button
       id="select-menu"
       name="select-menu"
@@ -200,7 +230,7 @@
       on:focus={handleFocused}
       on:blur={handleBlured}
       on:keydown={handleKeyboardEvent}>
-      {selectedItem.name}
+      {selectedItem.hasOwnProperty('name') ? selectedItem.name : ''}
     </button>
     <svg
       class:focused={isMenuShowing}
@@ -287,5 +317,8 @@
         </ul>
       </div>
     {/if}
+  </div>
+  <div class="msg" class:error={error.status}>
+    {#if error.status}<span>{error.msg}</span>{/if}
   </div>
 </div>
