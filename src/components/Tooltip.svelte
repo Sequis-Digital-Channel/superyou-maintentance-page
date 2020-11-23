@@ -1,6 +1,7 @@
 <script>
   import { createPopper } from "@popperjs/core";
   import { onMount } from "svelte";
+  import { focusout } from "../utils/_focusout";
   import IcTooltip from "../components/svg/IcTooltip.svelte";
 
   export let maxWidth = "300px";
@@ -14,9 +15,6 @@
   let toggleTooltip;
 
   onMount(() => {
-    // button = document.querySelector("#tooltip-btn");
-    // tooltip = document.querySelector("#tooltip");
-
     button = document.querySelector(`.${indentifier}-btn`);
     tooltip = document.querySelector(`.${indentifier}`);
 
@@ -118,7 +116,9 @@
     id="tooltip-btn"
     class={`${indentifier}-btn`}
     aria-describedby="tooltip"
-    on:click={toggleTooltip}>
+    on:click={toggleTooltip}
+    use:focusout
+    on:focus_out={toggleTooltip}>
     <IcTooltip />
   </button>
   <div
