@@ -129,7 +129,7 @@
     </div>
 
     <div class="product_hero">
-      <picture>
+      <!-- <picture>
         <source
           media="(min-width: 801px)"
           srcset="/icons/products/care/care_hero_desktop.png" />
@@ -142,7 +142,7 @@
           alt="super care hero"
           width="374"
           height="308" />
-      </picture>
+      </picture> -->
     </div>
   </div>
 </section>
