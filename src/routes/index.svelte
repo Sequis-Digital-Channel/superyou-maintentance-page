@@ -4,6 +4,7 @@
   import ProductTnc from "../components/Product/ProductTnc.svelte";
   import BaseButton from "../components/BaseButton.svelte";
   import IcPdf from "../components/svg/IcPdf.svelte";
+  import BaseSelectMenu from "../components/BaseSelectMenu.svelte";
 
   const backgroudColor = `
   linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
@@ -64,6 +65,15 @@
       padding-right: 24px;
     }
   }
+
+  .premi-calculation {
+    padding-top: 36px;
+
+    &__wrapper {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
 </style>
 
 <svelte:head>
@@ -100,3 +110,14 @@
     </BaseButton>
   </div>
 </section>
+
+<section class="su_container premi-calculation">
+  <h2 class="text-2xl text-center font-bold mb-10">
+    Cari Tahu Biaya Perlindungan Super Care Protection
+  </h2>
+  <div class="premi-calculation__wrapper" style="padding-bottom: 50px;">
+    <BaseSelectMenu />
+  </div>
+</section>
+
+<br /><br /><br /><br />
