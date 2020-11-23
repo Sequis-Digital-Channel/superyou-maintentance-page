@@ -38,7 +38,6 @@
   .radio {
     display: inline-block;
     position: relative;
-    /* margin: 0 0 10px; */
     font-size: 16px;
     line-height: 24px;
 
@@ -60,7 +59,7 @@
       &:before {
         content: "";
         position: absolute;
-        top: 3px;
+        top: 2px;
         left: 0;
         width: 22px;
         height: 22px;
@@ -69,13 +68,12 @@
         border-radius: 14px;
         z-index: 1;
         transition: border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-        /* box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.3); */
       }
 
       &:after {
         content: "";
         position: absolute;
-        top: 8px;
+        top: 7px;
         left: 5px;
         width: 12px;
         height: 12px;
