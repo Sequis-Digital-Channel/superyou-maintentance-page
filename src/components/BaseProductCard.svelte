@@ -135,7 +135,11 @@
             }
 
             .left {
-              /* flex: 1 0 65%; */
+              .description .info {
+                line-height: 1.4;
+                display: inline-block;
+                margin-top: 5px;
+              }
             }
 
             .right {
@@ -185,7 +189,7 @@
               <div class="left">
                 <div class="description">
                   <p class="color-lightgray tx-sm">{title}</p>
-                  <span class="color-lightgray tx-xs">{info}</span>
+                  <span class="info color-lightgray tx-xs">{info}</span>
                 </div>
               </div>
               <div class="right">
