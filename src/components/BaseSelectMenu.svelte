@@ -145,7 +145,8 @@
         text-align: left;
         display: flex;
         align-items: center;
-        height: 40px;
+        min-height: 40px;
+        padding-right: 34px;
 
         &:focus {
           outline: none;
@@ -190,6 +191,16 @@
               background-color: rgba(0, 170, 174, 0.7);
               color: #fff;
             }
+
+            .item-wrapper {
+              position: relative;
+              display: flex;
+              justify-content: space-between;
+              .item-checked {
+                width: 30px;
+                padding-top: 1.7px;
+              }
+            }
           }
         }
       }
@@ -233,7 +244,7 @@
     </button>
     <svg
       class:focused={isMenuShowing}
-      style="margin-right: 8px;"
+      style="margin-right: 2px;"
       width="12px"
       height="7px"
       viewBox="0 0 12 7"
@@ -282,37 +293,27 @@
               tabindex="0"
               index-value={i}
               on:click={() => handleSelectedItem(item)}>
-              <div><span>{item.name}</span></div>
-
-              {#if selectedItem.value === item.value}
-                <span
-                  style="position: absolute;
-              right: 0;
-              top: 0;
-              bottom: 0;
-              padding-right: 10px;
-              display: flex;
-              align-items: center;">
-                  <!-- Heroicon name: check -->
-                  <svg
-                    width="22"
-                    height="22"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 22 22"
-                    fill="#00aaae"
-                    aria-hidden="true">
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </span>
-              {/if}
+              <div class="item-wrapper">
+                <span>{item.name}</span>
+                {#if selectedItem.value === item.value}
+                  <span class="item-checked">
+                    <svg
+                      width="22"
+                      height="22"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 22 22"
+                      fill="#00aaae"
+                      aria-hidden="true">
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                {/if}
+              </div>
             </li>
           {/each}
-          <!-- <li id="listbox-item-1" class="listbox-item" role="option" tabindex="0">
-          <div><span>World</span></div>
-        </li> -->
         </ul>
       </div>
     {/if}
