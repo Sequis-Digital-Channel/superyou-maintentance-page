@@ -100,7 +100,11 @@
     },
   ];
   const protection = [
-    { name: "Ya, dengan santunan tuna rawat inap 1 juta/hari", val: "YES" },
+    { name: "Ya, dengan santunan tunai rawat inap 1 juta/hari", value: "YES" },
+    {
+      name: "Tidak, dengan santunan tunai rawat inap 1 juta/hari",
+      value: "NO",
+    },
   ];
   const gender = [
     { name: "Laki laki", value: "male" },
@@ -175,13 +179,15 @@
       items={productPlan}
       bind:selectedItem={selectedProductPlan} />
     <br />
-    <BaseSelectMenu label="Jenis Kelamin Tertanggung" items={gender} />
+    <BaseSelectMenu label="Perlindungan COVID-19" items={protection} />
     <br />
     <BaseSelectMenu
       label="Tertanggung"
       withtooltip={true}
       tooltiptext="Orang yang ditanggung di dalam Polis"
       items={insuredFor} />
+    <br />
+    <BaseSelectMenu label="Jenis Kelamin Tertanggung" items={gender} />
     <br />
     <BaseInputRadio />
     <br />
