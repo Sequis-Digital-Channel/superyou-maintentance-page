@@ -14,7 +14,7 @@
   };
 
   let focused = false;
-
+  let isDateComplete = false;
   const options = {
     mask: "DD/MM/YYYY",
     blocks: {
@@ -42,11 +42,13 @@
   };
 
   function accept({ detail: imask }) {
-    console.log("accepted", imask);
+    // console.log("accepted", imask);
+    isDateComplete = false;
   }
 
   function complete({ detail: imask }) {
-    console.log("completed", imask);
+    value = imask._value;
+    isDateComplete = true;
   }
 </script>
 
