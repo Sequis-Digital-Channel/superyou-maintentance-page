@@ -1,17 +1,17 @@
 <script>
-  export let listOfOptions = [
-    {
-      val: "cashless",
-      label: "Cashless",
-    },
-    {
-      val: "reimbursement",
-      label: "Reimbursement",
-    },
-  ];
-  export let name = "hola";
+  import { onMount } from "svelte";
+  export let items = [];
+  export let name = "base-input-radio";
   export let direction = "row";
-  let picked = "";
+  export let selectedItemValue = "";
+
+  onMount(() => {
+    items.forEach((item) => {
+      if (item.selected) {
+        selectedItemValue = item.val;
+      }
+    });
+  });
 </script>
 
 <style lang="postcss">
@@ -55,6 +55,7 @@
       display: block;
       padding: 0 0 0 32px;
       cursor: pointer;
+      color: #0d294a;
 
       &:before {
         content: "";
@@ -100,16 +101,17 @@
 <div class="radio-input-wrapper">
   <span class="radio-input-title">Metode klaim</span>
   <div id="base-radio-input" :style={{ flexDirection: direction }}>
-    {#each listOfOptions as option, i (option.val)}
+    {#each items as option, i (option.val)}
       <div class="radio-input-wrapper">
         <div class="radio">
           <input
             type="radio"
-            name={option.name}
+            {name}
             id={`${name}-${i}`}
             class="radio__input"
             value={option.val}
-            bind:group={picked} />
+            bind:group={selectedItemValue}
+            checked={option.selected} />
           <label
             for={`${name}-${i}`}
             class="radio__label">{option.label}</label>
