@@ -37,7 +37,8 @@
     focused = false;
   }
 
-  function handleClickInput() {
+  function handleClickInput(e) {
+    e.preventDefault();
     isMenuShowing = true;
     focused = true;
   }
