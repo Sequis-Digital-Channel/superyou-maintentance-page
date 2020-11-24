@@ -7,6 +7,7 @@
   import BaseSelectMenu from "../components/BaseSelectMenu.svelte";
   import BaseInputRadio from "../components/BaseInputRadio.svelte";
   import BaseInputDate from "../components/BaseInputDate.svelte";
+  import BaseProductCard from "../components/BaseProductCard.svelte";
 
   const backgroudColor = `
   linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
@@ -56,6 +57,7 @@
     },
   ];
 
+  // FORM FIELD SELECT OPTION ITEMS
   const productPlan = [
     { name: "Bronze Plan", value: "bronze", selected: true },
     { name: "Silver Plan", value: "silver" },
@@ -110,7 +112,64 @@
     { name: "Laki laki", value: "male" },
     { name: "Perempuan", value: "female" },
   ];
-  let selectedProductPlan;
+  const claim_method = [
+    {
+      val: "cashless",
+      label: "Cashless",
+      selected: false,
+    },
+    {
+      val: "reimbursement",
+      label: "Reimbursement",
+      selected: false,
+    },
+  ];
+
+  // FORM DATA CONTROLLER
+  let calculationData = {
+    plan: {
+      val: "",
+      error: {
+        status: false,
+        msg: "",
+      },
+    },
+    protection: {
+      val: "",
+      error: {
+        status: false,
+        msg: "",
+      },
+    },
+    insured_for: {
+      val: "",
+      error: {
+        status: false,
+        msg: "",
+      },
+    },
+    insured_gender: {
+      val: "",
+      error: {
+        status: false,
+        msg: "",
+      },
+    },
+    claim_method: {
+      val: "",
+      error: {
+        status: false,
+        msg: "",
+      },
+    },
+    insured_dob: {
+      val: "",
+      error: {
+        status: false,
+        msg: "",
+      },
+    },
+  };
 </script>
 
 <style lang="postcss">
@@ -173,26 +232,52 @@
   <h2 class="text-2xl text-center font-bold mb-10">
     Cari Tahu Biaya Perlindungan Super Care Protection
   </h2>
-  <div class="premi-calculation__wrapper" style="padding-bottom: 50px;">
+
+  <form
+    class="premi-calculation__wrapper"
+    style="padding-bottom: 50px;"
+    on:submit|preventDefault={() => {
+      console.log('FORM SUBMITTED');
+    }}>
     <BaseSelectMenu
       label="Pilih Plan"
       items={productPlan}
-      bind:selectedItem={selectedProductPlan} />
+      bind:selectedItem={calculationData.plan.val}
+      error={calculationData.plan.error} />
     <br />
-    <BaseSelectMenu label="Perlindungan COVID-19" items={protection} />
+    <BaseSelectMenu
+      label="Perlindungan COVID-19"
+      items={protection}
+      bind:selectedItem={calculationData.protection.val}
+      error={calculationData.protection.error} />
     <br />
     <BaseSelectMenu
       label="Tertanggung"
       withtooltip={true}
       tooltiptext="Orang yang ditanggung di dalam Polis"
-      items={insuredFor} />
+      items={insuredFor}
+      bind:selectedItem={calculationData.insured_for.val}
+      error={calculationData.insured_for.error} />
     <br />
-    <BaseSelectMenu label="Jenis Kelamin Tertanggung" items={gender} />
+    <BaseSelectMenu
+      label="Jenis Kelamin Tertanggung"
+      items={gender}
+      bind:selectedItem={calculationData.insured_gender.val}
+      error={calculationData.insured_gender.error} />
     <br />
-    <BaseInputRadio />
+    <BaseInputRadio
+      name="claim_method"
+      items={claim_method}
+      bind:selectedItemValue={calculationData.claim_method.val} />
     <br />
     <BaseInputDate name="insured_dob" minAge={1} maxAge={60} />
-  </div>
-</section>
+    <br />
+    <BaseButton style="max-width: 330px;font-size:14px;margin:30px auto 20px;">
+      HITUNG BIAYA PREMI
+    </BaseButton>
+  </form>
 
-<br /><br /><br /><br />
+  <br /><br />
+  <BaseProductCard />
+  <br /><br /><br /><br /><br />
+</section>
