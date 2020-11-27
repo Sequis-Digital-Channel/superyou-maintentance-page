@@ -7,7 +7,24 @@
   import BaseSelectMenu from "../components/BaseSelectMenu.svelte";
   import BaseInputRadio from "../components/BaseInputRadio.svelte";
   import BaseInputDate from "../components/BaseInputDate.svelte";
-  import BaseProductCard from "../components/BaseProductCard.svelte";
+  import CircleSocmed from "../components/CircleSocmed.svelte";
+
+  import ProductRecommendationContainer from "../components/ProductRecomendation/ProductRecommendationContainer.svelte";
+
+  let cmp;
+  const setComponent = (module) => {
+    cmp = module.default;
+  };
+  const logError = (err) => {
+    console.error((err && err.stack) || err);
+  };
+
+  const loadFoo = (e) => {
+    e.preventDefault();
+    import("../components/BaseProductCard.svelte")
+      .then(setComponent)
+      .catch(logError);
+  };
 
   const backgroudColor = `
   linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
@@ -236,8 +253,9 @@
   <form
     class="premi-calculation__wrapper"
     style="padding-bottom: 50px;"
-    on:submit|preventDefault={() => {
+    on:submit|preventDefault={(e) => {
       console.log('FORM SUBMITTED');
+      loadFoo(e);
     }}>
     <BaseSelectMenu
       label="Pilih Plan"
@@ -277,7 +295,69 @@
     </BaseButton>
   </form>
 
-  <br /><br />
-  <BaseProductCard />
+  {#if cmp}
+    <svelte:component this={cmp} />
+  {/if}
+  <BaseButton style="max-width: 330px;font-size:14px;margin:30px auto 20px;">
+    TAMBAH KE KERANJANG
+    <img
+      src="/icons/basket-white.svg"
+      alt="Add to cart"
+      slot="icon"
+      width="27"
+      height="27" />
+  </BaseButton>
+  <BaseButton
+    style="max-width: 330px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
+    bgColor={'transparent'}>
+    BAYAR SEKARANG
+  </BaseButton>
+
+  <p
+    style="display:flex;align-items:center;text-align:center;justify-content:center;font-weight:bold;color:#0d294a;text-align:center;margin: 20px auto;font-size:14px;cursor:pointer;">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="12"
+      height="12"
+      viewBox="0 0 12 12">
+      <defs>
+        <path
+          id="xopfgbdqwa"
+          d="M7.253.293c.423.39.423 1.024 0 1.414l-3.558 3.29h7.224c.597 0 1.081.448 1.081 1s-.484 1-1.081 1h-7.23l3.564 3.296c.423.39.423 1.024 0 1.414-.422.39-1.107.39-1.53 0l-5.406-5c-.423-.39-.423-1.024 0-1.414l5.407-5c.422-.39 1.107-.39 1.53 0z" />
+      </defs>
+      <g fill="none" fill-rule="evenodd">
+        <g>
+          <g transform="translate(-20 -42) translate(20 42)">
+            <use
+              fill="#0D294A"
+              fill-rule="nonzero"
+              transform="matrix(1 0 0 -1 0 12)"
+              xlink:href="#xopfgbdqwa" />
+          </g>
+        </g>
+      </g>
+    </svg>
+    <span style="display:inline-block;margin-left: 14px;">LIHAT HARGA PLAN LAIN</span>
+  </p>
+
+  <div style="max-width: 400px;margin: 50px auto 20px;">
+    <p style="text-align:center;color:#0d294a;font-weight:bold;">SHARE</p>
+
+    <div
+      class="socmed"
+      style="display:flex;justify-content:space-between;max-width:110px;margin: 14px auto;">
+      <CircleSocmed />
+      <CircleSocmed>
+        <img
+          slot="icon"
+          src="/icons/socialmedia/twitter.svg"
+          alt="Superyou Twitter" />
+      </CircleSocmed>
+    </div>
+  </div>
+
+  <ProductRecommendationContainer />
+
   <br /><br /><br /><br /><br />
 </section>
