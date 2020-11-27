@@ -56,7 +56,7 @@
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
 
-      @media (min-width: 650px) {
+      @media (min-width: 640px) {
         padding: 10px;
       }
 
@@ -65,14 +65,14 @@
 
       .text-sm-white {
         font-size: 10px;
-        @media (min-width: 650px) {
+        @media (min-width: 640px) {
           font-size: 12px;
         }
       }
       .text-lg-white {
         font-size: 18px;
         font-weight: bold;
-        @media (min-width: 650px) {
+        @media (min-width: 640px) {
           font-size: 22px;
         }
       }
@@ -135,10 +135,14 @@
             }
 
             .left {
-              .description .info {
-                line-height: 1.4;
-                display: inline-block;
-                margin-top: 5px;
+              .description {
+                display: flex;
+                flex-direction: column;
+                .info {
+                  line-height: 1.4;
+                  display: inline-block;
+                  margin-top: 5px;
+                }
               }
             }
 
