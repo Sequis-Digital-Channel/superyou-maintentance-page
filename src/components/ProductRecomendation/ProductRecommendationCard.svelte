@@ -16,12 +16,15 @@
     grid-template-columns: 50px 1fr;
     grid-template-rows: auto;
     grid-gap: 10px 15px;
+
+    @media (min-width: 640px) {
+      max-width: 1017px;
+    }
+
     @media (min-width: 768px) {
       grid-template-columns: auto 1fr auto;
       grid-template-rows: auto;
       grid-gap: 6px 20px;
-
-      margin-bottom: 44px;
     }
 
     .product-icon {

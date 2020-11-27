@@ -4,8 +4,9 @@
   export let products = [1, 2, 3];
 
   function scrollXToElement(index) {
+    const parentEl = document.querySelector(".recommendation-wrapper");
     const el = document.querySelector(`div[cell-index='${index}']`);
-    el.scrollIntoView();
+    parentEl.scrollLeft = index > 0 ? el.scrollWidth * index : 0;
   }
 
   onMount(() => {
@@ -40,6 +41,12 @@
     padding-bottom: 20px;
 
     .recommendation-wrapper {
+      /* hide horizontal scrollbar */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none; /* IE 11 */
+      scrollbar-width: none; /* Firefox 64 */
       padding: 30px 0;
       display: flex;
       flex-wrap: nowrap;
@@ -49,18 +56,30 @@
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
+
+      @media (min-width: 640px) {
+        flex-direction: column;
+        overflow: hidden;
+        margin: 0 auto;
+      }
       .carousel-cell {
         scroll-snap-align: center;
         width: 100%;
         flex: 1 0 100%;
-        &:first-child {
-          margin-left: 20px;
-        }
+
         &:not(:last-child) {
           margin-right: 50px;
         }
         &:last-child {
           margin-right: 30px;
+        }
+        @media (min-width: 640px) {
+          padding-left: 15px;
+          padding-right: 15px;
+          margin-bottom: 44px;
+          &:not(:last-child) {
+            margin-right: 0;
+          }
         }
       }
     }
