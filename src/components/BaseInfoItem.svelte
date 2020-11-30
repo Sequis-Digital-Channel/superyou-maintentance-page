@@ -1,5 +1,5 @@
 <script>
-  import Tooltip from "../components/Tooltip.svelte";
+  import Tooltip from "../components/BaseTooltip.svelte";
   export let icon;
   export let title = "";
   export let description;

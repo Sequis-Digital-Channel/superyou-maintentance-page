@@ -1,5 +1,5 @@
 <script>
-  import InfoItem from "../InfoItem.svelte";
+  import InfoItem from "../../components/BaseInfoItem.svelte";
   export let listTnc = [];
 </script>
 

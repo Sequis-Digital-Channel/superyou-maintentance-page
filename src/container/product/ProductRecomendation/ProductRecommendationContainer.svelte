@@ -38,7 +38,6 @@
   .recommendation-container {
     position: relative;
     overflow: hidden;
-    padding-bottom: 20px;
 
     .recommendation-wrapper {
       /* hide horizontal scrollbar */
@@ -76,8 +75,8 @@
         @media (min-width: 640px) {
           padding-left: 15px;
           padding-right: 15px;
-          margin-bottom: 44px;
           &:not(:last-child) {
+            margin-bottom: 44px;
             margin-right: 0;
           }
         }
@@ -93,6 +92,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      @media (min-width: 640px) {
+        display: none;
+      }
       .bullet {
         width: 12px;
         height: 12px;

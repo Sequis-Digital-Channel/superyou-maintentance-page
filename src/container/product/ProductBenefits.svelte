@@ -1,6 +1,6 @@
 <script>
-  import InfoItem from "../InfoItem.svelte";
-  import Tooltip from "../Tooltip.svelte";
+  import InfoItem from "../../components/BaseInfoItem.svelte";
+  import Tooltip from "../../components/BaseTooltip.svelte";
 
   export let benefits_group = [
     {
