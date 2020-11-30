@@ -1,15 +1,21 @@
 <script>
-  import AboveTheFold from "../components/AboveTheFold.svelte";
-  import ProductBenefits from "../components/Product/ProductBenefits.svelte";
-  import ProductTnc from "../components/Product/ProductTnc.svelte";
+  import AboveTheFold from "../container/AboveTheFold.svelte";
+  import ProductBenefits from "../container/product/ProductBenefits.svelte";
+  import ProductTnc from "../container/product/ProductTnc.svelte";
   import BaseButton from "../components/BaseButton.svelte";
   import IcPdf from "../components/svg/IcPdf.svelte";
   import BaseSelectMenu from "../components/BaseSelectMenu.svelte";
   import BaseInputRadio from "../components/BaseInputRadio.svelte";
   import BaseInputDate from "../components/BaseInputDate.svelte";
-  import CircleSocmed from "../components/CircleSocmed.svelte";
+  import CircleSocmed from "../components/BaseCircleSocmed.svelte";
 
-  import ProductRecommendationContainer from "../components/ProductRecomendation/ProductRecommendationContainer.svelte";
+  import ProductRecommendationContainer from "../container/product/ProductRecomendation/ProductRecommendationContainer.svelte";
+
+  import Faq from "../container/Faq.svelte";
+  import ProductNotCovered from "../container/product/ProductNotCovered.svelte";
+  import { dataFaqSuperCare } from "../data/faq";
+  import { tncSuperCare as tnc } from "../data/tnc";
+  import { superCareNotCovered } from "../data/productNotCovered";
 
   let cmp;
   const setComponent = (module) => {
@@ -29,50 +35,6 @@
   const backgroudColor = `
   linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
   `;
-
-  let tnc = [
-    {
-      icon: "/icons/products/care/tnc/entry-age.svg",
-      description:
-        "Usia masuk adalah 30 hari - 70 tahun dan perlindungan dapat diperpanjang hingga usia 75 tahun.",
-      tooltip: "Usia masuk adalah usia Tertanggung ketika memulai asuransi.",
-    },
-    {
-      icon: "/icons/products/care/tnc/payment.svg",
-      description:
-        "Pembayaran premi dilakukan bulanan atau tahunan, dan asuransi otomatis diperpanjang setiap tahun.",
-      tooltip: "",
-    },
-    {
-      icon: "/icons/products/care/tnc/health-history.svg",
-      description: "Terdapat pertanyaan riwayat kesehatan.",
-      tooltip: "",
-    },
-    {
-      icon: "/icons/products/care/tnc/cashless.svg",
-      description:
-        "Metode klaim Cashless maupun Reimbursement. Tersedia 4000+ rumah sakit rekanan seluruh indonesia.",
-      tooltip: "",
-    },
-    {
-      icon: "/icons/products/care/tnc/premicost.svg",
-      description:
-        "Usia, pekerjaan, & metode klaim berpengaruh terhadap besarnya biaya premi.",
-      tooltip: "",
-    },
-    {
-      icon: "/icons/products/care/tnc/waiting-period.svg",
-      description:
-        "Tidak ada Masa tunggu untuk Penyakit Menular. Masa Tunggu kecelakaan yaitu 30 hari kalender sejak tanggal mulai kontrak asuransi.",
-      tooltip: "",
-    },
-    {
-      icon: "/icons/products/care/tnc/coverage-location.svg",
-      description:
-        "Cakupan wilayah pertanggungan manfaat asuransi di seluruh dunia.",
-      tooltip: "",
-    },
-  ];
 
   // FORM FIELD SELECT OPTION ITEMS
   const productPlan = [
@@ -246,7 +208,7 @@
 </section>
 
 <section class="su_container premi-calculation">
-  <h2 class="text-2xl text-center font-bold mb-10">
+  <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
     Cari Tahu Biaya Perlindungan Super Care Protection
   </h2>
 
@@ -358,7 +320,12 @@
   </div>
 
   <ProductRecommendationContainer />
+</section>
 
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<section class="su_container faq">
+  <Faq FAQtitle="Tanya Jawab Super Care" accordionData={dataFaqSuperCare} />
+</section>
+
+<section class="su_container notcovered">
+  <ProductNotCovered data={superCareNotCovered} />
 </section>
