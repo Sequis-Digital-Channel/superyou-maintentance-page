@@ -1,156 +1,58 @@
 <script>
-  let benefit_group = [
-    {
-      title: "Perlindungan untuk Penyakit Menular",
-      list_benefit: [
-        {
-          title: "Biaya Perawatan Rumah Sakit",
-          info: "Maks per Penyakit",
-          amount: "25 Juta",
-        },
-        {
-          title: "Santunan Tunai Harian Rawat Inap (akibat Covid-19)",
-          info: "Maks 30 hari per Tahun Polis. Per hari sebesar ",
-          amount: "1 Juta",
-        },
-        {
-          title: "Santunan Kematian",
-          info: "",
-          amount: "100 Juta",
-        },
-      ],
-    },
-    {
-      title: "Perlindungan untuk Kecelakaan",
-      list_benefit: [
-        {
-          title: "Biaya Perawatan Rumah Sakit",
-          info: "Maks per Kecelakaan",
-          amount: "25 Juta",
-        },
-        {
-          title: "Biaya Pembedahan Gigi & Bedah Rekonstruktift",
-          info: "Maks per Kecelakaan",
-          amount: "5 Juta",
-        },
-        {
-          title: "Biaya Fisioterapi/Pengobatan Tradisional Tiongkok",
-          info: "Maks per Kecelakaan",
-          amount: "2,5 Juta",
-        },
-      ],
-    },
-  ];
+  import BaseButton from "./BaseButton.svelte";
+  import BasePrice from "./BasePrice.svelte";
 </script>
 
 <style lang="postcss">
   .product-card {
-    max-width: 400px;
-    margin: 0 auto;
-    box-shadow: 0 4px 15px 8px rgba(109, 131, 172, 0.25);
     border-radius: 12px;
-    &__header {
-      background-color: #0d294a;
-      color: #fff;
-      padding: 6px 10px;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
+    box-shadow: 0 5px 20px 10px rgba(187, 204, 236, 0.35);
+    max-width: 308px;
+    background-color: #fff;
+    position: relative;
 
-      @media (min-width: 640px) {
-        padding: 10px;
-      }
-
+    &__top {
       display: flex;
-      flex-wrap: nowrap;
-
-      .text-sm-white {
-        font-size: 10px;
-        @media (min-width: 640px) {
-          font-size: 12px;
-        }
-      }
-      .text-lg-white {
-        font-size: 18px;
-        font-weight: bold;
-        @media (min-width: 640px) {
-          font-size: 22px;
-        }
-      }
-      .name,
-      .price {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        line-height: 1.4;
-      }
-
-      .price {
-        margin-left: auto;
-        text-align: right;
-      }
-    }
-    &__body {
-      background-color: #fff;
-      padding: 18px 20px;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-      .bold {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0 16px;
+      border-bottom: 1px solid #979797;
+      .product-card__feature {
+        color: var(--primary-text-color);
         font-weight: bold;
       }
-      .semi-bold {
-        font-weight: 600;
-      }
-      .tx-sm {
+
+      .product-card__name {
+        color: var(--primary-text-color);
         font-size: 14px;
       }
-      .tx-xs {
+    }
+
+    &__bottom {
+      padding: 10px 16px 20px;
+      .start-from {
+        color: var(--secondary-text-color);
         font-size: 12px;
       }
-      .tx-lg {
-        font-size: 18px;
-      }
-      .color-darkblue {
-        color: #0d294a;
-      }
-      .color-lightgray {
-        color: #708697;
-      }
-      .benefit-title {
-        margin: 10px 0 12px 0;
-      }
-
-      .benefit-group {
-        &:not(:last-child) {
-          margin-bottom: 32px;
+      .benefit-summary {
+        color: var(--secondary-text-color);
+        font-size: 14px;
+        & > p {
+          margin: 14px 0 12px 0;
+          font-weight: 600;
         }
-        .benefit-items {
-          margin-top: 15px;
-          .benefit {
-            display: flex;
+        & ul {
+          li {
+            display: inline-grid;
+            grid-template-columns: 10px 1fr;
+            grid-gap: 8px;
 
-            &:not(:last-child) {
-              border-bottom: 1px solid #979797;
-              margin-bottom: 15px;
-              padding-bottom: 15px;
+            &:not(:first-child) {
+              margin-top: 10px;
             }
-
-            .left {
-              .description {
-                display: flex;
-                flex-direction: column;
-                .info {
-                  line-height: 1.4;
-                  display: inline-block;
-                  margin-top: 5px;
-                }
-              }
-            }
-
-            .right {
-              margin-left: auto;
-              align-self: center;
-              flex: 1 0 27%;
-              text-align: right;
+            span:first-child {
+              font-weight: 600;
+              color: var(--primary-color);
             }
           }
         }
@@ -159,50 +61,42 @@
   }
 </style>
 
-<div class="product-card">
-  <div class="product-card__header">
-    <div class="icon">
+<div class="product-card" style="margin: 0 auto;">
+  <div class="product-card__top">
+    <div class="icon lazy-image">
       <img
-        src="/icons/products/care/with-badge/super-care-silver.svg"
-        alt="Super Care"
-        width="50"
-        height="50" />
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        data-src="/icons/products/strong/super-strong.svg"
+        alt="super strong"
+        width="70"
+        height="70" />
     </div>
-    <div class="name">
-      <span class="product text-sm-white">Super Care Protection</span>
-      <h3 class="plan text-lg-white">Silver Plan</h3>
-    </div>
-    <div class="price">
-      <span class="term text-sm-white">Total Pembayaran / bulan</span>
-      <h3 class="price text-lg-white">Rp 45,000</h3>
-    </div>
+    <h6 class="product-card__feature">Proteksi Jiwa + 3 Penyakit Kritis</h6>
+    <span class="product-card__name">Super Strong Protection</span>
   </div>
-  <div class="product-card__body">
-    <p class="color-darkblue bold tx-sm">Manfaat</p>
+  <div class="product-card__bottom">
+    <span class="start-from">Mulai dari</span><br />
+    <BasePrice />
 
-    {#each benefit_group as benefits (benefits.title)}
-      <div class="benefit-group">
-        <h4 class="benefit-title color-darkblue semi-bold tx-sm">
-          {benefits.title}
-        </h4>
-        <!-- benefit item -->
-        <div class="benefit-items">
-          <!-- LOOP HERE -->
-          {#each benefits.list_benefit as { title, info, amount } (title)}
-            <div class="benefit">
-              <div class="left">
-                <div class="description">
-                  <p class="color-lightgray tx-sm">{title}</p>
-                  <span class="info color-lightgray tx-xs">{info}</span>
-                </div>
-              </div>
-              <div class="right">
-                <p class="tx-lg bold color-darkblue">{amount}</p>
-              </div>
-            </div>
-          {/each}
-        </div>
-      </div>
-    {/each}
+    <div class="benefit-summary">
+      <p>Memberi manfaat berupa :</p>
+      <ul>
+        <li>
+          <span>✓</span>
+          <span>Santunan saat terdiagnosa kanker, stroke, atau serangan jantung</span>
+        </li>
+        <li>
+          <span>✓</span>
+          <span>Santunan kematian karena apapun yang tidak disebabkan oleh
+            kecelakaan</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cta-btn">
+      <BaseButton style="max-width: 330px;font-size:14px;margin:30px auto 0;">
+        LIHAT DETAIL
+      </BaseButton>
+    </div>
   </div>
 </div>
