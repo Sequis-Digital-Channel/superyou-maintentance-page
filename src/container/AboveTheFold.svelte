@@ -113,6 +113,7 @@
       alt="super care icon"
       width="40"
       height="60"
+      loading="lazy"
       class="product_icon" />
 
     <div class="product_meta">
@@ -141,7 +142,8 @@
           src="/icons/products/care/care_hero.png"
           alt="super care hero"
           width="374"
-          height="308" />
+          height="308"
+          loading="lazy" />
       </picture>
     </div>
   </div>

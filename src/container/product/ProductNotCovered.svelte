@@ -71,9 +71,10 @@
   <div class="product-notcovered__wrapper">
     {#each data as { icon, description } (icon)}
       <div class="notcovered-item">
-        <div class="notcovered-item__icon">
+        <div class="notcovered-item__icon lazy-image">
           <img
-            src={icon}
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            data-src={icon}
             width="42"
             height="42"
             alt="super care product not covered" />

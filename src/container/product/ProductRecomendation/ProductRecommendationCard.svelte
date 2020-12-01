@@ -115,9 +115,10 @@
 </style>
 
 <div class="product-rec-card">
-  <div class="product-icon">
+  <div class="product-icon lazy-image">
     <img
-      src="https://superyou.co.id/img/icons/prod-umbrella.svg"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      data-src="https://superyou.co.id/img/icons/prod-umbrella.svg"
       alt="Super Safe"
       width="50"
       height="50" />

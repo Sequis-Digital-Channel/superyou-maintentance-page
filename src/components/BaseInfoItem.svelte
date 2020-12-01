@@ -61,9 +61,10 @@
 </style>
 
 <div class="benefit_item">
-  <div class="benefit_item__left">
+  <div class="benefit_item__left lazy-image">
     <img
-      src={icon}
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      data-src={icon}
       width="50"
       height="50"
       alt="Icon Manfaat dan Ketentuan Produk" />
