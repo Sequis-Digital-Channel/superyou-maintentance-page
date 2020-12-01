@@ -316,6 +316,8 @@
           slot="icon"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
           data-src="/icons/socialmedia/twitter.svg"
+          width="15"
+          height="13"
           alt="Superyou Twitter" />
       </CircleSocmed>
     </div>
