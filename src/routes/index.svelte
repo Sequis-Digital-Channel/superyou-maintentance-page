@@ -16,7 +16,6 @@
   import { dataFaqSuperCare } from "../data/faq";
   import { tncSuperCare as tnc } from "../data/tnc";
   import { superCareNotCovered } from "../data/productNotCovered";
-  import OtherProductsContainer from "../container/product/OtherProducts/OtherProductsContainer.svelte";
 
   let cmp;
   const setComponent = (module) => {
