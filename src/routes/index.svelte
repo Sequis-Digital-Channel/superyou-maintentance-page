@@ -334,6 +334,6 @@
   <ProductNotCovered data={superCareNotCovered} />
 </section>
 
-<section class="su_container otherproduct" style="background-color: #e7eaef;">
+<!-- <section class="su_container otherproduct" style="background-color: #e7eaef;">
   <OtherProductsContainer />
-</section>
+</section> -->
