@@ -1,8 +1,14 @@
 <style global lang="postcss">
   @import "../global.pcss";
+  :root {
+    --primary-color: #00aaae;
+    --primary-text-color: #0d294a;
+    --secondary-text-color: #708697;
+  }
   :focus {
     outline: none;
   }
+
   .lazy-image {
     img {
       opacity: 0;
