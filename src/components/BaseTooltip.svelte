@@ -127,7 +127,9 @@
     role="tooltip"
     data-show="false"
     style={`max-width:${maxWidth}`}>
-    <slot />
+    {#if isTooltipShowing}
+      <slot />
+    {/if}
     <div id="arrow" data-popper-arrow />
   </div>
 </div>
