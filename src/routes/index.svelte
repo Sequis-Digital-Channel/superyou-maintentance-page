@@ -16,6 +16,7 @@
   import { dataFaqSuperCare } from "../data/faq";
   import { tncSuperCare as tnc } from "../data/tnc";
   import { superCareNotCovered } from "../data/productNotCovered";
+  import OtherProductsContainer from "../container/product/OtherProducts/OtherProductsContainer.svelte";
 
   let cmp;
   const setComponent = (module) => {
@@ -27,7 +28,7 @@
 
   const loadFoo = (e) => {
     e.preventDefault();
-    import("../components/BaseProductCard.svelte")
+    import("../components/BasePlanResultCard.svelte")
       .then(setComponent)
       .catch(logError);
   };
@@ -313,7 +314,8 @@
       <CircleSocmed>
         <img
           slot="icon"
-          src="/icons/socialmedia/twitter.svg"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          data-src="/icons/socialmedia/twitter.svg"
           alt="Superyou Twitter" />
       </CircleSocmed>
     </div>
@@ -328,4 +330,8 @@
 
 <section class="su_container notcovered">
   <ProductNotCovered data={superCareNotCovered} />
+</section>
+
+<section class="su_container otherproduct" style="background-color: #e7eaef;">
+  <OtherProductsContainer />
 </section>
