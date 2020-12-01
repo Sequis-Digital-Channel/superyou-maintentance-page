@@ -177,10 +177,10 @@
     </div>
     <nav id="su-nav">
       <ul>
-        <li><a href="/">Tentang Super You</a></li>
+        <li><a rel="prefetch" href="/about">Tentang Super You</a></li>
         <li><a href="/">Produk</a></li>
-        <li><a href="/">FAQ</a></li>
-        <li><a href="/">Blog</a></li>
+        <li><a rel="prefetch" href="/">FAQ</a></li>
+        <li><a rel="prefetch" href="/blog">Blog</a></li>
         <li><a href="/">Hubungi Kami</a></li>
         <li class="auth-and-menu">
           <button aria-label="login">
