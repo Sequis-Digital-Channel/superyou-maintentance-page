@@ -1,6 +1,5 @@
 <script>
   import BaseButton from "../components/BaseButton.svelte";
-  export let height = "auto";
 </script>
 
 <style lang="postcss">
@@ -103,7 +102,7 @@
   }
 </style>
 
-<section id="above-the-fold" style="height: {height}">
+<section id="above-the-fold" style="height: auto;">
   <div class="product">
     <img
       src="/icons/products/care/care.png"
