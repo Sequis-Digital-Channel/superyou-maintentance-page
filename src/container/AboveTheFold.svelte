@@ -144,8 +144,7 @@
           src="/icons/products/care/care_hero.png"
           alt="super care hero"
           width="374"
-          height="308"
-          loading="lazy" />
+          height="308" />
       </picture>
     </div>
   </div>
