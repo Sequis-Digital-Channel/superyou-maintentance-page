@@ -24,7 +24,6 @@
       const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(entry.target);
             const image = entry.target;
             image.src = image.dataset.src;
             image.classList.add("lazyloaded");
@@ -177,6 +176,15 @@
 </script>
 
 <style lang="postcss">
+  .above-the-fold-wrapper {
+    background-image: linear-gradient(
+        151deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.4) 100%
+      ),
+      linear-gradient(143deg, #f7b500 22%, #e8d556 87%),
+      linear-gradient(321deg, #fff546 95%, #e8d556 57%);
+  }
   .su_container {
     padding-left: 10px;
     padding-right: 10px;
@@ -201,7 +209,9 @@
   <title>Sapper project template</title>
 </svelte:head>
 
-<AboveTheFold bgGradient={backgroudColor} />
+<section class="above-the-fold-wrapper">
+  <AboveTheFold />
+</section>
 
 <section class="su_container benefits">
   <ProductBenefits />

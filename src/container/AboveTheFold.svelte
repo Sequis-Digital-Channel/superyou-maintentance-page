@@ -1,6 +1,5 @@
 <script>
   import BaseButton from "../components/BaseButton.svelte";
-  export let bgGradient = "#fff";
   export let height = "auto";
 </script>
 
@@ -104,9 +103,7 @@
   }
 </style>
 
-<section
-  id="above-the-fold"
-  style="background-image: {bgGradient}; height: {height}">
+<section id="above-the-fold" style="height: {height}">
   <div class="product">
     <img
       src="/icons/products/care/care.png"
