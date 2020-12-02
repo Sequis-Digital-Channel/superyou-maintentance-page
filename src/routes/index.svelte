@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import AboveTheFold from "../container/AboveTheFold.svelte";
   import ProductBenefits from "../container/product/ProductBenefits.svelte";
   import ProductTnc from "../container/product/ProductTnc.svelte";
@@ -16,6 +17,30 @@
   import { dataFaqSuperCare } from "../data/faq";
   import { tncSuperCare as tnc } from "../data/tnc";
   import { superCareNotCovered } from "../data/productNotCovered";
+
+  onMount(() => {
+    const images = Array.from(document.querySelectorAll(".lazy-image img"));
+    if ("IntersectionObserver" in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(entry.target);
+            const image = entry.target;
+            image.src = image.dataset.src;
+            image.classList.add("lazyloaded");
+            imageObserver.unobserve(image);
+          }
+        });
+      });
+
+      images.forEach((img) => imageObserver.observe(img));
+    } else {
+      console.log("asdasdasasd");
+      images.forEach((img) => {
+        img.src = img.dataset.src;
+      });
+    }
+  });
 
   let cmp;
   const setComponent = (module) => {
