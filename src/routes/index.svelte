@@ -56,10 +56,6 @@
       .catch(logError);
   };
 
-  const backgroudColor = `
-  linear-gradient(151deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 100%), linear-gradient(143deg, #f7b500 22%, #e8d556 87%), linear-gradient(321deg, #fff546 95%, #e8d556 57%);
-  `;
-
   // FORM FIELD SELECT OPTION ITEMS
   const productPlan = [
     { name: "Bronze Plan", value: "bronze", selected: true },
