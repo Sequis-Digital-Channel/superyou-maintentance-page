@@ -78,6 +78,8 @@
 
 <svelte:head>
   <title>Sapper project template</title>
+  <script src="https://unpkg.com/@popperjs/core@2" defer>
+  </script>
 </svelte:head>
 
 <section class="above-the-fold-wrapper">

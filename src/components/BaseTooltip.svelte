@@ -1,7 +1,5 @@
 <script>
-  import { createPopper } from "@popperjs/core";
   import { onMount } from "svelte";
-  import { focusout } from "../utils/_focusout";
   import IcTooltip from "../components/svg/IcTooltip.svelte";
 
   export let maxWidth = "300px";
@@ -19,7 +17,7 @@
     tooltip = document.querySelector(`.${indentifier}`);
 
     function popperCreate() {
-      popperInstance = createPopper(button, tooltip, {
+      popperInstance = Popper.createPopper(button, tooltip, {
         modifiers: [
           {
             name: "offset",
@@ -49,6 +47,25 @@
         isTooltipShowing = true;
       }
     };
+
+    if ("IntersectionObserver" in window) {
+      const tooltipObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(entry.target);
+            const tooltipBtn = entry.target;
+            tooltipBtn.addEventListener("click", toggleTooltip);
+            tooltipObserver.unobserve(button);
+          }
+        });
+      });
+      tooltipObserver.observe(button);
+    }
+
+    //directive
+    // on:click={toggleTooltip}
+    // use:focusout
+    // on:focus_out={toggleTooltip}
   });
 </script>
 
@@ -115,10 +132,7 @@
   <button
     id="tooltip-btn"
     class={`${indentifier}-btn`}
-    aria-describedby="tooltip"
-    on:click={toggleTooltip}
-    use:focusout
-    on:focus_out={toggleTooltip}>
+    aria-describedby="tooltip">
     <IcTooltip />
   </button>
   <div
