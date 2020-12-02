@@ -18,7 +18,7 @@
   };
 
   const loadSelectPlanCare = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     import("../container/product/SelectPlanCare.svelte")
       .then((module) => {
         selectPlanCare = module.default;
@@ -46,6 +46,8 @@
         img.src = img.dataset.src;
       });
     }
+
+    setTimeout(loadSelectPlanCare, 3000);
   });
 </script>
 
@@ -112,14 +114,43 @@
 </section>
 
 <section class="su_container premi-calculation">
-  <h2
-    class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10"
-    on:click={loadSelectPlanCare}>
+  <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
     Cari Tahu Biaya Perlindungan Super Care Protection
   </h2>
 
   {#if selectPlanCare}
     <svelte:component this={selectPlanCare} />
+  {:else}
+    <div
+      class="border border-light-gray-300 shadow rounded-md p-4 w-full mx-auto"
+      style="max-width:400px">
+      <div class="animate-pulse flex flex-col space-x-4">
+        <div class="flex-1 space-y-4 py-1">
+          <div class="space-y-2">
+            <div class="h-5 bg-gray-300 rounded" />
+            <div class="h-4 bg-gray-300 rounded w-5/6" />
+            <div
+              class="h-4 bg-gray-300 rounded mb-4"
+              style="width:340px;margin-bottom: 24px;" />
+            <div class="h-5 bg-gray-300 rounded" />
+            <div class="h-4 bg-gray-300 rounded w-5/6" />
+            <div
+              class="h-4 bg-gray-300 rounded mb-4"
+              style="width:340px;margin-bottom: 24px;" />
+            <div class="h-5 bg-gray-300 rounded" />
+            <div class="h-4 bg-gray-300 rounded w-5/6" />
+            <div
+              class="h-4 bg-gray-300 rounded mb-4"
+              style="width:340px;margin-bottom: 24px;" />
+            <div class="h-5 bg-gray-300 rounded" />
+            <div class="h-4 bg-gray-300 rounded w-5/6" />
+            <div
+              class="h-4 bg-gray-300 rounded mb-4"
+              style="width:340px;margin-bottom: 24px;" />
+          </div>
+        </div>
+      </div>
+    </div>
   {/if}
 </section>
 
