@@ -130,7 +130,13 @@
       <picture>
         <source
           media="(min-width: 801px)"
+          srcset="/icons/products/care/care_hero_desktop.webp" />
+        <source
+          media="(min-width: 801px)"
           srcset="/icons/products/care/care_hero_desktop.png" />
+        <source
+          media="(max-width: 800px)"
+          srcset="/icons/products/care/care_hero.webp" />
         <source
           media="(max-width: 800px)"
           srcset="/icons/products/care/care_hero.png" />
