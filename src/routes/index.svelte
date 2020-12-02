@@ -28,6 +28,8 @@
 
   onMount(() => {
     const images = Array.from(document.querySelectorAll(".lazy-image img"));
+    const premiCalcContainer = document.querySelector(".premi-calculation");
+
     if ("IntersectionObserver" in window) {
       const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
@@ -39,15 +41,21 @@
           }
         });
       });
-
       images.forEach((img) => imageObserver.observe(img));
+
+      const formObserver = new IntersectionObserver((entries, observer) => {
+        const elForm = entries[0];
+        if (elForm.isIntersecting) {
+          loadSelectPlanCare();
+          formObserver.unobserve(premiCalcContainer);
+        }
+      });
+      formObserver.observe(premiCalcContainer);
     } else {
       images.forEach((img) => {
         img.src = img.dataset.src;
       });
     }
-
-    setTimeout(loadSelectPlanCare, 3000);
   });
 </script>
 
@@ -78,7 +86,7 @@
 
 <svelte:head>
   <title>Sapper project template</title>
-  <script src="https://unpkg.com/@popperjs/core@2" defer>
+  <script src="/js/popper.js" defer>
   </script>
 </svelte:head>
 
