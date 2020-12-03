@@ -115,7 +115,6 @@
 <div class="other-products">
   <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-6">
     Lihat Produk Super You Lainnya
-    {name}
   </h2>
   <div>
     <div class="other-products__wrapper">

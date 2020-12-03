@@ -102,10 +102,6 @@
 <svelte:head>
   <title>Sapper project template</title>
   <script src="/js/popper.js" defer>
-  
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" defer>
-
   </script>
 </svelte:head>
 
