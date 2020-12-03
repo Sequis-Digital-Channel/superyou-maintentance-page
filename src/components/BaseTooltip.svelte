@@ -52,7 +52,6 @@
       const tooltipObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(entry.target);
             const tooltipBtn = entry.target;
             tooltipBtn.addEventListener("click", toggleTooltip);
             tooltipObserver.unobserve(button);
