@@ -11,9 +11,11 @@
   import { dataFaqSuperCare } from "../data/faq";
   import { tncSuperCare as tnc } from "../data/tnc";
   import { superCareNotCovered } from "../data/productNotCovered";
-  import OtherProductsContainer from "../container/product/OtherProducts/OtherProductsContainer.svelte";
+
+  import { loadFlickity } from "../utils/_loadflickity";
 
   let selectPlanCare;
+  let OtherProductsContainer;
   const logError = (err) => {
     console.error((err && err.stack) || err);
   };
@@ -27,11 +29,20 @@
       .catch(logError);
   };
 
+  const loadOtherProductsContainer = (e) => {
+    import("../container/product/OtherProducts/OtherProductsContainer.svelte")
+      .then((module) => {
+        OtherProductsContainer = module.default;
+      })
+      .catch(logError);
+  };
+
   onMount(() => {
     const images = Array.from(document.querySelectorAll(".lazy-image img"));
     const premiCalcContainer = document.querySelector(".premi-calculation");
 
     if ("IntersectionObserver" in window) {
+      // lazyload image observer
       const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -44,11 +55,14 @@
       });
       images.forEach((img) => imageObserver.observe(img));
 
+      // Form image observer
       const formObserver = new IntersectionObserver((entries, observer) => {
         const elForm = entries[0];
         if (elForm.isIntersecting) {
           loadSelectPlanCare();
           formObserver.unobserve(premiCalcContainer);
+          loadFlickity();
+          setTimeout(loadOtherProductsContainer, 500);
         }
       });
       formObserver.observe(premiCalcContainer);
@@ -178,5 +192,7 @@
 </section>
 
 <section class="su_container otherproduct" style="background-color: #e7eaef;">
-  <OtherProductsContainer />
+  {#if OtherProductsContainer}
+    <svelte:component this={OtherProductsContainer} />
+  {/if}
 </section>
