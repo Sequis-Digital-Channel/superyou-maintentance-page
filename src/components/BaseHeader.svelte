@@ -1,12 +1,37 @@
 <script>
+  import { onMount } from "svelte";
   import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
   import IcLock from "./svg/IcLock.svelte";
+  let navScrolled = false;
+  onMount(() => {
+    const aboveTheFold = document.getElementById("above-the-fold");
+    const aboveTheFoldObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            navScrolled = true;
+          } else {
+            navScrolled = false;
+          }
+        });
+      },
+      {
+        rootMargin: "-100px 0px 0px 0px",
+      }
+    );
+
+    aboveTheFoldObserver.observe(aboveTheFold);
+  });
 </script>
 
 <style lang="postcss">
   header {
+    --text: #fff;
+    --text-inverse: #0d294a;
+    --background: transparent;
+
     height: 64px;
-    background: transparent;
+    background: var(--background);
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -14,6 +39,14 @@
     top: 0;
     left: 0;
     width: 100%;
+    transition: background 250ms ease-in;
+    z-index: 2;
+
+    &.nav-scrolled {
+      --text: #0d294a;
+      --background: #fff;
+      box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    }
 
     @media (min-width: 768px) {
       padding: 0 24px;
@@ -53,7 +86,7 @@
 
             a {
               font-size: 14px;
-              color: #fff;
+              color: var(--text);
               font-weight: 600;
               line-height: 1;
               padding: 10px;
@@ -170,10 +203,12 @@
   }
 </style>
 
-<header>
+<header class:nav-scrolled={navScrolled}>
   <div class="header-wrapper">
     <div id="su-logo" aria-label="superyou-logo">
-      <SuperyouColorLogo />
+      <a href="/">
+        <SuperyouColorLogo color={navScrolled ? '#03a3a6' : '#FFF'} />
+      </a>
     </div>
     <nav id="su-nav">
       <ul>
