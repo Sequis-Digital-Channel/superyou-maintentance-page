@@ -11,6 +11,7 @@
   import { dataFaqSuperCare } from "../data/faq";
   import { tncSuperCare as tnc } from "../data/tnc";
   import { superCareNotCovered } from "../data/productNotCovered";
+  import OtherProductsContainer from "../container/product/OtherProducts/OtherProductsContainer.svelte";
 
   let selectPlanCare;
   const logError = (err) => {
@@ -87,6 +88,10 @@
 <svelte:head>
   <title>Sapper project template</title>
   <script src="/js/popper.js" defer>
+  
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" defer>
+
   </script>
 </svelte:head>
 
@@ -172,6 +177,6 @@
   <ProductNotCovered data={superCareNotCovered} />
 </section>
 
-<!-- <section class="su_container otherproduct" style="background-color: #e7eaef;">
+<section class="su_container otherproduct" style="background-color: #e7eaef;">
   <OtherProductsContainer />
-</section> -->
+</section>
