@@ -10,7 +10,7 @@
   }
 
   onMount(() => {
-    const carouselItems = document.querySelectorAll(".carousel-cell");
+    const carouselItems = document.querySelectorAll(".product-cell");
 
     let callback = (entries, observer) => {
       entries.forEach((entry) => {
@@ -61,7 +61,7 @@
         overflow: hidden;
         margin: 0 auto;
       }
-      .carousel-cell {
+      .product-cell {
         scroll-snap-align: center;
         width: 100%;
         flex: 1 0 100%;
@@ -114,7 +114,7 @@
 <div class="recommendation-container">
   <div class="recommendation-wrapper">
     {#each products as product, i (i)}
-      <div class={`carousel-cell cell-${i}`} cell-index={i}>
+      <div class={`product-cell cell-${i}`} cell-index={i}>
         <ProductRecommendationCard />
       </div>
     {/each}
