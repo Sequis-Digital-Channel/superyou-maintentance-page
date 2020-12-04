@@ -2,7 +2,15 @@
   import { onMount } from "svelte";
   import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
   import IcLock from "./svg/IcLock.svelte";
+
+  export let segment;
+  let currentSegment = segment;
   let navScrolled = false;
+
+  $: if (segment !== currentSegment) {
+    navScrolled = false;
+  }
+
   onMount(() => {
     const aboveTheFold = document.getElementById("above-the-fold");
     const aboveTheFoldObserver = new IntersectionObserver(
