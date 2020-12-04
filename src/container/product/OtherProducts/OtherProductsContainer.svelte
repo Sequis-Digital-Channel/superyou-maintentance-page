@@ -3,35 +3,38 @@
   import BaseProductCard from "../../../components/BaseProductCard.svelte";
 
   let products = [1, 2, 3, 4, 5];
-
   onMount(() => {
-    const carouselItems = document.querySelectorAll(".card-cell");
-
+    const cells = document.querySelectorAll(".carousel-cell");
     const otherProducts = new Flickity(".other-products__wrapper", {
       cellAlign: "center",
       contain: true,
       wrapAround: true,
-    });
-
-    if ("IntersectionObserver" in window) {
-      const cardCellObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting === false) {
-              entry.target.classList.add("grayscale");
-            } else {
-              entry.target.classList.remove("grayscale");
-            }
-          });
+      on: {
+        ready: function () {
+          cells[0].classList.add("item-active");
+          cells[1].classList.add("item-active");
+          cells[products.length - 1].classList.add("item-active");
         },
-        {
-          root: document.querySelector(".other-products__wrapper"),
-          threshold: 0.7,
-        }
-      );
-
-      carouselItems.forEach((item) => cardCellObserver.observe(item));
-    }
+        change: function (index) {
+          cells.forEach((cell) => {
+            cell.classList.remove("item-active");
+          });
+          if (index === products.length - 1) {
+            cells[index].classList.add("item-active");
+            cells[index].previousElementSibling.classList.add("item-active");
+            cells[0].classList.add("item-active");
+          } else if (index === 0) {
+            cells[0].classList.add("item-active");
+            cells[1].classList.add("item-active");
+            cells[products.length - 1].classList.add("item-active");
+          } else {
+            cells[index].classList.add("item-active");
+            cells[index].nextElementSibling.classList.add("item-active");
+            cells[index].previousElementSibling.classList.add("item-active");
+          }
+        },
+      },
+    });
   });
 </script>
 
@@ -62,13 +65,14 @@
 
       .card-cell {
         white-space: normal;
-        opacity: 1;
-        transition: transform 0.2s, opacity 0.2s ease-in-out;
+        transition: transform 0.3s, opacity 0.3s ease-in-out;
+        transform: scale(0.9);
+        opacity: 0.4;
         @media (min-width: 640px) {
           padding: 24px 10px;
         }
 
-        &.grayscale {
+        /* &.grayscale {
           transform: scale(0.9);
           opacity: 0.5;
           padding-left: 0;
@@ -77,8 +81,21 @@
           @media (min-width: 640px) {
             transform: scale(0.8);
           }
-          /* transform-origin: left; */
-        }
+        } */
+        /* transform-origin: left; */
+      }
+    }
+
+    :global(.carousel-cell.item-active .card-cell) {
+      @media (min-width: 768px) {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    :global(.carousel-cell.is-selected .card-cell) {
+      @media (max-width: 768px) {
+        transform: scale(1);
+        opacity: 1;
       }
     }
 
