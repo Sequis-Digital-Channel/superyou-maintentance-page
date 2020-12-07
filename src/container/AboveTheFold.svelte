@@ -105,10 +105,10 @@
 <section id="above-the-fold" style="height: auto;">
   <div class="product">
     <img
-      src="/icons/products/care/care.png"
+      src="/icons/products/care/super-care.svg"
       alt="super care icon"
-      width="40"
-      height="60"
+      width="80"
+      height="100"
       loading="lazy"
       class="product_icon" />
 
