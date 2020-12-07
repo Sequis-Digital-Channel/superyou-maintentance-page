@@ -13,6 +13,13 @@
   let productListShow = false;
   let aside = false;
 
+  let fetchAllProductIcon = false;
+  let initImgSrc =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
+  const handleHoverNavProduct = () => {
+    fetchAllProductIcon = true;
+  };
+
   $: if (segment !== currentSegment) {
     navScrolled = false;
   }
@@ -112,14 +119,14 @@
                 }
               }
               .products__ddown {
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
                 transition: transform 0.25s, opacity 0.25s,
                   visibility 0.6s ease-in-out;
-                opacity: 0;
-                visibility: hidden;
                 transform: translateY(5%);
                 background-color: #fff;
                 border-radius: 12px;
-                position: absolute;
                 top: 150%;
                 width: 690px;
                 height: 380px;
@@ -336,7 +343,7 @@
     <nav id="su-nav">
       <ul>
         <li><a rel="prefetch" href="/about">Tentang Super You</a></li>
-        <li class="products">
+        <li class="products" on:mouseenter={handleHoverNavProduct}>
           <button
             on:click={() => {
               productListShow = !productListShow;
@@ -386,7 +393,7 @@
                   <div class="product-item-nav">
                     <div class="icon">
                       <img
-                        src={navItem.icon}
+                        src={fetchAllProductIcon ? navItem.icon : initImgSrc}
                         alt={navItem.name}
                         width="50"
                         height="50" />
@@ -412,7 +419,7 @@
                   <div class="product-item-nav">
                     <div class="icon">
                       <img
-                        src={navItem.icon}
+                        src={fetchAllProductIcon ? navItem.icon : initImgSrc}
                         alt={navItem.name}
                         width="50"
                         height="50" />
