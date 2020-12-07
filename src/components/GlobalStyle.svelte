@@ -9,6 +9,10 @@
     outline: none;
   }
 
+  .no-scroll {
+    overflow: hidden;
+  }
+
   .lazy-image {
     img {
       opacity: 0;
