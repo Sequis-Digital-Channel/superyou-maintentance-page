@@ -1,11 +1,22 @@
 <script>
   import { onMount } from "svelte";
+  import { productNavItems } from "../data/productNavItems";
+  import BgOverlay from "../components/BgOverlay.svelte";
   import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
   import IcLock from "./svg/IcLock.svelte";
 
   export let segment;
+
   let currentSegment = segment;
   let navScrolled = false;
+  let productListShow = false;
+
+  const handleToggleNavProducts = (e) => {
+    console.log(e);
+    if (!productListShow) {
+      productListShow = true;
+    }
+  };
 
   $: if (segment !== currentSegment) {
     navScrolled = false;
@@ -82,6 +93,112 @@
             &:not(:first-child) {
               margin-left: 36px;
             }
+            &.products {
+              position: relative;
+              display: flex;
+              justify-content: center;
+
+              button[aria-label="products"] {
+                display: flex;
+                align-items: center;
+                outline: none;
+                & > span {
+                  display: inline-block;
+                  margin-right: 6px;
+                }
+
+                svg {
+                  transition: transform 0.3s ease-in-out;
+                  &.show {
+                    transform: rotate(180deg);
+                  }
+                }
+              }
+              .products__ddown {
+                transition: transform 0.25s, opacity 0.25s,
+                  visibility 0.6s ease-in-out;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(5%);
+                background-color: #fff;
+                border-radius: 12px;
+                position: absolute;
+                top: 150%;
+                width: 690px;
+                height: 380px;
+                box-shadow: 0 3px 20px 0 rgba(187, 204, 236, 0.45);
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+                &.show {
+                  opacity: 1;
+                  visibility: visible;
+                  transform: translateY(0%);
+                  z-index: 10;
+                }
+
+                .left,
+                .right {
+                  & > a {
+                    display: block;
+
+                    &:hover {
+                      background-color: #03a3a6;
+                      .meta {
+                        .meta-name,
+                        .meta-desc {
+                          color: #fff;
+                        }
+                      }
+                    }
+                  }
+                  & > h4 {
+                    padding: 16px 0 16px 24px;
+                    font-weight: bold;
+                    color: var(--primary-text-color);
+                  }
+
+                  .product-item-nav {
+                    display: flex;
+                    padding: 10px 10px 10px 12px;
+
+                    .icon {
+                      width: 50px;
+                      margin-right: 10px;
+                    }
+                    .meta {
+                      .meta-name {
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: var(--primary-text-color);
+                        margin-bottom: 4px;
+                      }
+                      .meta-desc {
+                        font-size: 12px;
+                        color: var(--primary-text-color);
+                      }
+                    }
+                  }
+                }
+
+                .left {
+                  border-right: 1px solid #c4cbd9;
+
+                  & > a {
+                    &:last-child {
+                      border-bottom-left-radius: 12px;
+                    }
+                  }
+                }
+
+                .right {
+                  & > a {
+                    &:last-child {
+                      border-bottom-right-radius: 12px;
+                    }
+                  }
+                }
+              }
+            }
 
             @media (min-width: 1024px) {
               display: inline-grid;
@@ -92,7 +209,8 @@
               align-items: center;
             }
 
-            a {
+            & > a,
+            button[aria-label="products"] {
               font-size: 14px;
               color: var(--text);
               font-weight: 600;
@@ -100,7 +218,7 @@
               padding: 10px;
               white-space: nowrap;
             }
-            button {
+            button[aria-label="login"] {
               display: none;
               background-color: #0d294a;
               padding: 8px 14px;
@@ -221,7 +339,102 @@
     <nav id="su-nav">
       <ul>
         <li><a rel="prefetch" href="/about">Tentang Super You</a></li>
-        <li><a href="/">Produk</a></li>
+        <li class="products">
+          <button
+            on:click={handleToggleNavProducts}
+            aria-expanded={productListShow}
+            aria-label="products">
+            <span>Produk</span>
+            <svg
+              class:show={productListShow}
+              width="12px"
+              height="7px"
+              viewBox="0 0 12 7"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>Path 3 Copy</title>
+              <desc>Created with Sketch.</desc>
+              <defs />
+              <g
+                id="Mobile_Landing"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <g
+                  id="101_Mobile-Landing"
+                  transform="translate(-344.000000, -4810.000000)"
+                  fill-rule="nonzero"
+                  stroke={navScrolled ? '#0d294a' : '#FFF'}
+                  stroke-width="2">
+                  <g id="Footer" transform="translate(0.000000, 4766.000000)">
+                    <polyline
+                      id="Path-3-Copy"
+                      points="345 45 349.86184 50 355 45" />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <div class="products__ddown" class:show={productListShow}>
+            <div class="left">
+              <h4>Asuransi Jiwa & Kecelakaan Diri</h4>
+              {#each productNavItems.life as navItem (navItem.icon)}
+                <a href={navItem.url} target="_blank">
+                  <div class="product-item-nav">
+                    <div class="icon">
+                      <img
+                        src={navItem.icon}
+                        alt={navItem.name}
+                        width="50"
+                        height="50" />
+                    </div>
+                    <div class="meta">
+                      <p class="meta-name">{navItem.name}</p>
+                      <p class="meta-desc">
+                        {navItem.desc}
+                        <br />
+                        {navItem.info}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              {/each}
+            </div>
+            <div class="right">
+              <h4>Asuransi Kesehatan & Penyakit Kritis</h4>
+              {#each productNavItems.health as navItem (navItem.icon)}
+                <a
+                  href="https://superyou.co.id/produk/super-life-protection"
+                  target="_blank">
+                  <div class="product-item-nav">
+                    <div class="icon">
+                      <img
+                        src={navItem.icon}
+                        alt={navItem.name}
+                        width="50"
+                        height="50" />
+                    </div>
+                    <div class="meta">
+                      <p class="meta-name">{navItem.name}</p>
+                      <p class="meta-desc">
+                        {navItem.desc}
+                        <br />
+                        {navItem.info}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              {/each}
+            </div>
+          </div>
+          {#if productListShow}
+            <BgOverlay on:click={() => (productListShow = false)} />
+          {/if}
+        </li>
         <li><a rel="prefetch" href="/">FAQ</a></li>
         <li><a rel="prefetch" href="/blog">Blog</a></li>
         <li><a href="/">Hubungi Kami</a></li>
