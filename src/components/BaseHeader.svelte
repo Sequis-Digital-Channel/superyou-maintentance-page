@@ -13,11 +13,11 @@
   let productListShow = false;
   let aside = false;
 
-  let fetchAllProductIcon = false;
+  let isProductIconFetch = false;
   let initImgSrc =
     "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
-  const handleHoverNavProduct = () => {
-    fetchAllProductIcon = true;
+  const fetchAllProductIcon = () => {
+    isProductIconFetch = true;
   };
 
   $: if (segment !== currentSegment) {
@@ -333,7 +333,7 @@
   }
 </style>
 
-<header class:nav-scrolled={navScrolled}>
+<header class:nav-scrolled={navScrolled} on:mouseenter={fetchAllProductIcon}>
   <div class="header-wrapper">
     <div id="su-logo" aria-label="superyou-logo">
       <a href="/">
@@ -343,7 +343,7 @@
     <nav id="su-nav">
       <ul>
         <li><a rel="prefetch" href="/about">Tentang Super You</a></li>
-        <li class="products" on:mouseenter={handleHoverNavProduct}>
+        <li class="products">
           <button
             on:click={() => {
               productListShow = !productListShow;
@@ -393,7 +393,7 @@
                   <div class="product-item-nav">
                     <div class="icon">
                       <img
-                        src={fetchAllProductIcon ? navItem.icon : initImgSrc}
+                        src={isProductIconFetch ? navItem.icon : initImgSrc}
                         alt={navItem.name}
                         width="50"
                         height="50" />
@@ -419,7 +419,7 @@
                   <div class="product-item-nav">
                     <div class="icon">
                       <img
-                        src={fetchAllProductIcon ? navItem.icon : initImgSrc}
+                        src={isProductIconFetch ? navItem.icon : initImgSrc}
                         alt={navItem.name}
                         width="50"
                         height="50" />
