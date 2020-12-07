@@ -129,19 +129,13 @@
       <picture>
         <source
           media="(min-width: 801px)"
-          srcset="/icons/products/care/care_hero_desktop.webp" />
-        <source
-          media="(min-width: 801px)"
-          srcset="/icons/products/care/care_hero_desktop.png" />
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/q_auto,f_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png" />
         <source
           media="(max-width: 800px)"
-          srcset="/icons/products/care/care_hero.webp" />
-        <source
-          media="(max-width: 800px)"
-          srcset="/icons/products/care/care_hero.png" />
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/q_auto,f_auto/v1607341464/superyou/care/care_hero_r4qmt0.png" />
         <img
           class="product_hero"
-          src="/icons/products/care/care_hero.png"
+          src="https://res.cloudinary.com/supercdnstrg/image/upload/q_auto,f_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png"
           alt="super care hero"
           width="374"
           height="308" />
