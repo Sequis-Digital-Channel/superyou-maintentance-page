@@ -11,11 +11,10 @@
   }
 </style>
 
-<div class="circle-sosmed lazy-image">
+<div class="circle-sosmed">
   <slot name="icon">
     <img
-      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-      data-src="/icons/socialmedia/facebook.svg"
+      src="/icons/socialmedia/facebook.svg"
       alt="social media"
       width="8"
       height="17" />
