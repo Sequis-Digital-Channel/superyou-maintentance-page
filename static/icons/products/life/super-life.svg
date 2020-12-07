@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="53" viewBox="0 0 50 53">
+    <defs>
+        <linearGradient id="pi7zgouw9b" x1="21.67%" x2="79.689%" y1="63.896%" y2="16.681%">
+            <stop offset="0%" stop-color="#FF2855"/>
+            <stop offset="38.05%" stop-color="#9F0029"/>
+            <stop offset="57.97%" stop-color="#9F0029"/>
+            <stop offset="100%" stop-color="#FF2855"/>
+        </linearGradient>
+        <linearGradient id="i16iqrh8xc" x1="-5.084%" x2="97.234%" y1="43.296%" y2="61.49%">
+            <stop offset="0%" stop-color="#FF3F62"/>
+            <stop offset="100%" stop-color="#AE123E"/>
+        </linearGradient>
+        <filter id="4mv97yg7na" width="109.2%" height="113.7%" x="-4.6%" y="-6.4%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.207987325 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g filter="url(#4mv97yg7na)" transform="translate(-461 -140) translate(431 57)">
+                <g>
+                    <g>
+                        <g>
+                            <g>
+                                <path d="M0 1H50V51H0z" transform="translate(0 68.062) translate(30 15)"/>
+                                <g fill-rule="nonzero">
+                                    <path fill="url(#pi7zgouw9b)" d="M28.935 12.155C29.607 10.99 30 9.663 30 8.254c0-4.362-3.673-7.91-8.187-7.91-2.86 0-5.355 1.408-6.813 3.548C13.542 1.752 11.019.343 8.187.343 3.673.343 0 3.893 0 8.253c0 1.41.393 2.764 1.065 3.902 0 0 0 .027.028.027.365.623.842 1.22 1.374 1.707 3.197 3.63 9.757 9.454 12.561 9.454 2.804 0 9.365-5.824 12.56-9.454.505-.515.954-1.084 1.347-1.734 0 .027 0 0 0 0z" transform="translate(0 68.062) translate(30 15) translate(10 16)"/>
+                                    <path fill="url(#i16iqrh8xc)" d="M12.04 12.163c9.858 8.06 15.325 2.245 16.657.784.198-.243.368-.513.538-.784 0 0 0-.027.028-.027.312-.514.567-1.082.737-1.677-3.116 4.328-11.218-2.407-14.816-6.6C13.683 1.75 11.134.344 8.272.344 3.711.343 0 3.887 0 8.241 0 9.648.397 11 1.076 12.136c0 0 0 .027.029.027.368.622.85 1.217 1.388 1.704-1.473-1.542-.283-9.764 9.547-1.704z" transform="translate(0 68.062) translate(30 15) translate(10 16)"/>
+                                    <path fill="#FFF" d="M29.243 11.559c.028-.081.084-.163.112-.244.028-.081.056-.135.084-.217.028-.08.056-.135.084-.216l.084-.244c.029-.054.029-.081.057-.136.224-.704.336-1.462.336-2.248 0-4.362-3.673-7.91-8.187-7.91-2.86 0-5.355 1.408-6.813 3.548C13.542 1.752 11.019.343 8.187.343 3.673.343 0 3.893 0 8.253c0 1.41.393 2.764 1.065 3.902 0 0 0 .027.028.027.365.623.842 1.22 1.374 1.707 3.197 3.63 9.757 9.454 12.561 9.454 2.804 0 9.365-5.824 12.56-9.454.31-.271.562-.596.814-.921 0 0 0-.027.028-.027.028-.055.084-.109.112-.163.056-.054.084-.135.14-.19.084-.135.197-.27.28-.433 0 0 0-.027.029-.027.084-.136.168-.271.224-.406-.028-.028 0-.109.028-.163z" opacity=".1" transform="translate(0 68.062) translate(30 15) translate(10 16)"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
