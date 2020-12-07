@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { productNavItems } from "../data/productNavItems";
+  import AsideNavigation from "../container/AsideNavigation.svelte";
   import BgOverlay from "../components/BgOverlay.svelte";
   import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
   import IcLock from "./svg/IcLock.svelte";
@@ -10,13 +11,7 @@
   let currentSegment = segment;
   let navScrolled = false;
   let productListShow = false;
-
-  const handleToggleNavProducts = (e) => {
-    console.log(e);
-    if (!productListShow) {
-      productListShow = true;
-    }
-  };
+  let aside = false;
 
   $: if (segment !== currentSegment) {
     navScrolled = false;
@@ -94,8 +89,10 @@
               margin-left: 36px;
             }
             &.products {
+              @media (min-width: 1024px) {
+                display: flex;
+              }
               position: relative;
-              display: flex;
               justify-content: center;
 
               button[aria-label="products"] {
@@ -174,7 +171,7 @@
                       }
                       .meta-desc {
                         font-size: 12px;
-                        color: var(--primary-text-color);
+                        color: var(--secondary-text-color);
                       }
                     }
                   }
@@ -341,7 +338,9 @@
         <li><a rel="prefetch" href="/about">Tentang Super You</a></li>
         <li class="products">
           <button
-            on:click={handleToggleNavProducts}
+            on:click={() => {
+              productListShow = !productListShow;
+            }}
             aria-expanded={productListShow}
             aria-label="products">
             <span>Produk</span>
@@ -444,14 +443,18 @@
             <span>MASUK</span>
           </button>
           <div
+            on:click={() => (aside = !aside)}
             class="menu-wrapper"
             tabindex="0"
             role="button"
-            aria-label="mega-menu">
+            aria-label="aside">
             <div class="menu" />
           </div>
         </li>
       </ul>
     </nav>
   </div>
+  {#if aside}
+    <AsideNavigation bind:aside />
+  {/if}
 </header>
