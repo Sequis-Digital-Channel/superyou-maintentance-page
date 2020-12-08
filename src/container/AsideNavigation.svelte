@@ -40,6 +40,7 @@
 
       .aside-body {
         margin: 30px 0;
+        user-select: none;
 
         .aside-body-wrapper {
           @media (min-width: 1024px) {
