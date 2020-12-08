@@ -63,14 +63,14 @@
     transition: background 250ms ease-in;
     z-index: 2;
 
+    @media (min-width: 768px) {
+      padding: 0 24px;
+    }
+
     &.nav-scrolled {
       --text: #0d294a;
       --background: #fff;
       box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (min-width: 768px) {
-      padding: 0 24px;
     }
 
     .header-wrapper {
