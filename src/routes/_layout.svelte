@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import GlobalStyle from "../components/GlobalStyle.svelte";
   import BaseHeader from "../components/BaseHeader.svelte";
+  import BaseFooter from "../components/BaseFooter.svelte";
 
   import { bodyScroll } from "../stores/bodyscroll";
 
@@ -23,3 +24,4 @@
   <GlobalStyle />
   <slot />
 </main>
+<BaseFooter />
