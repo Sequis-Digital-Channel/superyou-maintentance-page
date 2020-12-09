@@ -16,6 +16,8 @@
 
   let selectPlanCare;
   let OtherProductsContainer;
+  let isFlicktyLoaded = false;
+
   const logError = (err) => {
     console.error((err && err.stack) || err);
   };
@@ -55,14 +57,21 @@
       });
       images.forEach((img) => imageObserver.observe(img));
 
-      // Form image observer
-      const formObserver = new IntersectionObserver((entries, observer) => {
+      // Form observer
+      const formObserver = new IntersectionObserver((entries) => {
         const elForm = entries[0];
         if (elForm.isIntersecting) {
           loadSelectPlanCare();
           formObserver.unobserve(premiCalcContainer);
+          if (!isFlicktyLoaded) {
+            loadFlickity();
+            isFlicktyLoaded = true;
+            setTimeout(loadOtherProductsContainer, 500);
+          }
+        } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
           loadFlickity();
           setTimeout(loadOtherProductsContainer, 500);
+          isFlicktyLoaded = true;
         }
       });
       formObserver.observe(premiCalcContainer);
@@ -96,6 +105,13 @@
 
   .premi-calculation {
     padding-top: 36px;
+  }
+
+  .otherproduct_progress {
+    height: 675px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 38px 0;
   }
 </style>
 
@@ -172,6 +188,11 @@
             <div
               class="h-4 bg-gray-300 rounded mb-4"
               style="width:340px;margin-bottom: 24px;" />
+            <div class="h-5 bg-gray-300 rounded" />
+            <div class="h-4 bg-gray-300 rounded w-5/6" />
+            <div
+              class="h-4 bg-gray-300 rounded mb-4"
+              style="width:340px;margin-bottom: 24px;" />
           </div>
         </div>
       </div>
@@ -190,5 +211,7 @@
 <section class="su_container otherproduct" style="background-color: #e7eaef;">
   {#if OtherProductsContainer}
     <svelte:component this={OtherProductsContainer} />
+  {:else}
+    <div class="otherproduct_progress" />
   {/if}
 </section>

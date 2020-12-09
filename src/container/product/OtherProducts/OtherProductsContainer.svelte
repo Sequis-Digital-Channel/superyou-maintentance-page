@@ -42,11 +42,12 @@
   .other-products {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 56px 0;
+    padding: 38px 0;
     overflow: hidden;
 
     &__wrapper {
       padding-top: 20px;
+      white-space: no-wrap;
     }
 
     .carousel-cell {
@@ -130,8 +131,10 @@
 </style>
 
 <div class="other-products">
-  <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-6">
-    Lihat Produk Super You Lainnya
+  <h2
+    class="md:text-xl text-darkblue text-center mx-auto font-bold mb-4 lg:mb-4 lg:max-w-screen-md">
+    Tambahkan Manfaat Perlindungan Untukmu dan Keluarga. Mereka yang membeli
+    Super Care juga membeli
   </h2>
   <div>
     <div class="other-products__wrapper">
