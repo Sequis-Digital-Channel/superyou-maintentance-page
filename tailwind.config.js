@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: {
     enabled: true,
@@ -8,7 +9,12 @@ module.exports = {
     extend: {},
     fontFamily: {
       osans: ['Open Sans', '-apple-system', 'BlinkMacSystemFont']
-    }
+    },
+    colors: {
+      ...defaultTheme.colors,
+      primary: "#00aaae",
+      darkblue: "#0d294a",
+    },
   },
   plugins: [],
   future: {
