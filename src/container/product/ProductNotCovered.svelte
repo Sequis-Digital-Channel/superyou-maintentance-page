@@ -64,7 +64,7 @@
 </style>
 
 <div class="product-notcovered">
-  <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
+  <h2 class="text-xl text-darkblue text-center font-bold mb-6 lg:mb-10">
     Apa saja yang tidak di-cover oleh Super Care?
   </h2>
 
