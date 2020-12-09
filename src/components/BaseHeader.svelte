@@ -125,7 +125,6 @@
                 transition: transform 0.25s, opacity 0.25s,
                   visibility 0.6s ease-in-out;
                 transform: translateY(5%);
-                background-color: #fff;
                 border-radius: 12px;
                 top: 150%;
                 width: 690px;
@@ -157,8 +156,6 @@
                   }
                   & > h4 {
                     padding: 16px 0 16px 24px;
-                    font-weight: bold;
-                    color: var(--primary-text-color);
                   }
 
                   .product-item-nav {
@@ -385,9 +382,11 @@
               </g>
             </svg>
           </button>
-          <div class="products__ddown" class:show={productListShow}>
+          <div class="products__ddown bg-white" class:show={productListShow}>
             <div class="left">
-              <h4>Asuransi Jiwa & Kecelakaan Diri</h4>
+              <h4 class="text-darkblue font-bold">
+                Asuransi Jiwa & Kecelakaan Diri
+              </h4>
               {#each productNavItems.life as navItem (navItem.icon)}
                 <a href={navItem.url} target="_blank">
                   <div class="product-item-nav">
@@ -411,7 +410,9 @@
               {/each}
             </div>
             <div class="right">
-              <h4>Asuransi Kesehatan & Penyakit Kritis</h4>
+              <h4 class="text-darkblue font-bold">
+                Asuransi Kesehatan & Penyakit Kritis
+              </h4>
               {#each productNavItems.health as navItem (navItem.icon)}
                 <a
                   href="https://superyou.co.id/produk/super-life-protection"
