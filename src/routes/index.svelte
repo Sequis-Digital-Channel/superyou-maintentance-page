@@ -7,7 +7,9 @@
   import IcPdf from "../components/svg/IcPdf.svelte";
 
   import Faq from "../container/Faq.svelte";
+  import Testimony from "../container/Testimony.svelte";
   import ProductNotCovered from "../container/product/ProductNotCovered.svelte";
+
   import { dataFaqSuperCare } from "../data/faq";
   import { tncSuperCare as tnc } from "../data/tnc";
   import { superCareNotCovered } from "../data/productNotCovered";
@@ -203,6 +205,10 @@
 <section class="su_container faq">
   <Faq FAQtitle="Tanya Jawab Super Care" accordionData={dataFaqSuperCare} />
 </section>
+
+<div class="su_container testimonies bg-darkblue relative">
+  <Testimony />
+</div>
 
 <section class="su_container notcovered">
   <ProductNotCovered data={superCareNotCovered} />
