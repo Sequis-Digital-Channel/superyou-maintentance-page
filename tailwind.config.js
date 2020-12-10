@@ -12,8 +12,9 @@ module.exports = {
     },
     colors: {
       ...defaultTheme.colors,
-      primary: "#00aaae",
+      teal: "#00aaae",
       darkblue: "#0d294a",
+      bluegray: "#708697"
     },
   },
   plugins: [],
