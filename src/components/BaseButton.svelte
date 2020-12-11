@@ -2,6 +2,7 @@
   export let textAlign = "text-left";
   export let style = "";
   export let bgColor = "#00aaae";
+  export let ariaLabel = "";
 </script>
 
 <style lang="postcss">
@@ -39,6 +40,7 @@
 <button
   class={`base-button ${textAlign}`}
   style={`background-color:${bgColor};${style}`}
+  aria-label={ariaLabel}
   on:click>
   <slot />
 
