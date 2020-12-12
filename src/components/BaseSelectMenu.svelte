@@ -94,7 +94,7 @@
 </script>
 
 <style lang="postcss">
-  #base-select-menu {
+  .base-select-menu {
     position: relative;
     label {
       font-size: 14px;
@@ -140,7 +140,7 @@
         }
       }
 
-      & > #select-menu {
+      & > .btn-select-menu {
         padding: 8px 0;
         width: 100%;
         text-align: left;
@@ -221,7 +221,7 @@
   }
 </style>
 
-<div id="base-select-menu">
+<div class="base-select-menu">
   <label for="select-menu">
     {label}
     {#if withtooltip}
@@ -232,7 +232,7 @@
     class={`input-box${focused ? ' focused' : ''}`}
     class:error={error.status}>
     <button
-      id="select-menu"
+      class="btn-select-menu"
       name="select-menu"
       aria-haspopup="listbox"
       aria-expanded="true"
