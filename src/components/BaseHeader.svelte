@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { productNavItems } from "../data/productNavItems";
+  import productNavItems from "../data/json/product-nav-items.json";
   import AsideNavigation from "../container/AsideNavigation.svelte";
   import BgOverlay from "../components/BgOverlay.svelte";
   import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
