@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="20" viewBox="0 0 16 20">
+    <defs>
+        <filter id="prefix__c" width="119.3%" height="115.3%" x="-9.7%" y="-6.8%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="shadowSpreadOuter1"/>
+            <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.42745098 0 0 0 0 0.51372549 0 0 0 0 0.674509804 0 0 0 0.25 0"/>
+        </filter>
+        <filter id="prefix__e" width="124.4%" height="115.8%" x="-12.2%" y="-6.5%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="shadowSpreadOuter1"/>
+            <feOffset dy="11" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="16.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.211764706 0 0 0 0 0.211764706 0 0 0 0 0.211764706 0 0 0 0.3 0"/>
+        </filter>
+        <filter id="prefix__h" width="116.9%" height="117.1%" x="-8.4%" y="-7.6%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="shadowSpreadOuter1"/>
+            <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.42745098 0 0 0 0 0.51372549 0 0 0 0 0.674509804 0 0 0 0.25 0"/>
+        </filter>
+        <rect id="prefix__a" width="1366" height="774" x="37" y="21" rx="12"/>
+        <rect id="prefix__d" width="378" height="477" x="12" y="0" rx="12"/>
+        <rect id="prefix__i" width="432" height="428" x="0" y="10" rx="12"/>
+        <linearGradient id="prefix__g" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#06D0D2"/>
+            <stop offset="100%" stop-color="#03A3A6"/>
+        </linearGradient>
+        <path id="prefix__f" d="M12 0h488v762c0 6.627-5.373 12-12 12H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(-230 -508)">
+        <path fill="#FFF" d="M0 0H1440V815H0z"/>
+        <path fill="#0D294A" d="M0 0H1521V868H0z" opacity=".537"/>
+        <mask id="prefix__b" fill="#fff">
+            <use xlink:href="#prefix__a"/>
+        </mask>
+        <use fill="#D8D8D8" xlink:href="#prefix__a"/>
+        <path fill="#F4F4F4" d="M10 168h1441v863c0 4.418-3.582 8-8 8H18c-4.418 0-8-3.582-8-8V168z" mask="url(#prefix__b)"/>
+        <g mask="url(#prefix__b)">
+            <g transform="translate(125 192)">
+                <use fill="#000" filter="url(#prefix__c)" xlink:href="#prefix__d"/>
+                <use fill="#FFF" xlink:href="#prefix__d"/>
+                <g>
+                    <path fill="#0D294A" fill-rule="nonzero" d="M0 0L378 0 378 48 0 48z" transform="translate(12 288)"/>
+                    <text fill="#FFF" font-family="OpenSans, Open Sans" font-size="14" transform="translate(12 288)">
+                        <tspan x="84" y="29">Super Motor Protection</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+        <rect width="1441" height="815" fill="#000" stroke="#979797" opacity=".755" rx="8"/>
+        <g transform="translate(37 21)">
+            <use fill="#000" filter="url(#prefix__e)" xlink:href="#prefix__f"/>
+            <use fill="url(#prefix__g)" xlink:href="#prefix__f"/>
+            <g>
+                <g transform="translate(0 40) translate(34 158)">
+                    <use fill="#000" filter="url(#prefix__h)" xlink:href="#prefix__i"/>
+                    <use fill="#FFF" xlink:href="#prefix__i"/>
+                    <g>
+                        <g transform="translate(24 288) translate(135 1)">
+                            <rect width="13.933" height="18.1" x=".95" y=".95" stroke="#03A3A6" stroke-width="1.9" rx="2.714"/>
+                            <path fill="#03A3A6" d="M3.54 4.447h1.396c.685 0 1.149.438 1.149 1.11 0 .667-.489 1.103-1.198 1.103h-.536v.918H3.54V4.447zm.81.612v1h.367c.345 0 .548-.174.548-.5 0-.329-.201-.5-.543-.5H4.35zm2.329-.615h1.338c.95 0 1.491.558 1.491 1.537 0 1.029-.532 1.597-1.49 1.597h-1.34V4.444zm.81.64v1.854h.383c.525 0 .81-.321.81-.942 0-.584-.3-.911-.81-.911h-.383zm3.43 2.494h-.81V4.447h2.17v.64h-1.36V5.8h1.233v.61H10.92v1.167z"/>
+                            <path stroke="#03A3A6" stroke-linecap="square" stroke-width="1.9" d="M3.958 11.667L11.875 11.667M3.958 15L11.875 15"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
