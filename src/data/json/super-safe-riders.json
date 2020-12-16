@@ -1,0 +1,44 @@
+{
+  "riders": [
+    {
+      "name": "Super Motor Protection",
+      "icon":
+        "/icons/products/motor/super-motor.png",
+      "benefits": [
+        {
+          "desc":
+            "Tambahan perlindungan biaya medis untuk operasi gigi, patah tulang, dan koma akibat kecelakaan sepeda motor",
+            "value": {
+              "10": "10000000",
+              "11": "25000000",
+              "12": "50000000"
+            }
+        }
+      ]
+    },
+    {
+      "name": "Super Holiday Protection",
+      "icon":
+        "https://superyou.co.id/storage/products/plans/q6osdJiJcS932Lg1unz1eOnAP8w4wbt3teO0mcW7.svg",
+      "benefits": [
+        {
+          "desc": "Jaminan pertanggungan tambahan selama masa liburan",
+          "value": {
+            "10": "200000000",
+            "11": "500000000",
+            "12": "1000000000"
+          }
+        },
+        {
+          "desc":
+            "Tambahan perlindungan biaya medis karena kecelakaan saat liburan",
+            "value": {
+              "10": "10000000",
+              "11": "25000000",
+              "12": "50000000"
+            }
+        }
+      ]
+    }
+  ]
+}

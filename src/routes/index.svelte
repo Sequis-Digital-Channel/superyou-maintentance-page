@@ -24,8 +24,7 @@
     console.error((err && err.stack) || err);
   };
 
-  const loadSelectPlanCare = (e) => {
-    // e.preventDefault();
+  const loadSelectPlanCare = () => {
     import("../container/product/SelectPlanCare.svelte")
       .then((module) => {
         selectPlanCare = module.default;
@@ -130,7 +129,9 @@
 <section class="su_container benefits">
   <ProductBenefits />
 
-  <BaseButton style="max-width: 314px;font-size:14px;margin:0 auto 20px;">
+  <BaseButton
+    style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
+    ariaLabel="Lihat manfaat & Detail Plan">
     CEK MANFAAT & DETAIL PLAN
   </BaseButton>
 </section>

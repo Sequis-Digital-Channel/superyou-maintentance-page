@@ -3,23 +3,29 @@
   import GlobalStyle from "../components/GlobalStyle.svelte";
   import BaseHeader from "../components/BaseHeader.svelte";
   import BaseFooter from "../components/BaseFooter.svelte";
+  import CartContainer from "../container/cart/CartContainer.svelte";
 
   import { bodyScroll } from "../stores/bodyscroll";
 
   export let segment;
-  let bodyElement = false;
 
-  $: if ($bodyScroll && bodyElement) {
-    document.querySelector("body").classList.remove("no-scroll");
-  } else if (!$bodyScroll && bodyElement) {
-    document.querySelector("body").classList.add("no-scroll");
-  }
+  let bodyHTMLElement = false;
+
+  bodyScroll.subscribe((currentVal) => {
+    if (currentVal && bodyHTMLElement) {
+      document.querySelector("body").classList.remove("no-scroll");
+    } else if (!currentVal && bodyHTMLElement) {
+      document.querySelector("body").classList.add("no-scroll");
+    }
+  });
+
   onMount(() => {
-    bodyElement = true;
+    bodyHTMLElement = true;
   });
 </script>
 
 <BaseHeader {segment} />
+<CartContainer />
 <main>
   <GlobalStyle />
   <slot />
