@@ -1,3 +1,7 @@
+<script context="module">
+  import safeRiders from "../../data/json/super-safe-riders.json";
+</script>
+
 <script>
   import { slide } from "svelte/transition";
   import {
@@ -10,7 +14,6 @@
     substractQuantityPlan,
     updateProductPrice,
   } from "../../stores/cart/actions";
-  import safeRiders from "../../data/json/super-safe-riders.json";
   import BaseInputCheck from "../../components/BaseInputCheck.svelte";
   import { moneyFormat, toBillion } from "../../utils/_moneyandtobillion";
 

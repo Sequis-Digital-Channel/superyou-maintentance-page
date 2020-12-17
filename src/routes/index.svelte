@@ -10,9 +10,9 @@
   import Testimony from "../container/Testimony.svelte";
   import ProductNotCovered from "../container/product/ProductNotCovered.svelte";
 
-  import { dataFaqSuperCare } from "../data/faq";
-  import { tncSuperCare as tnc } from "../data/tnc";
-  import { superCareNotCovered } from "../data/productNotCovered";
+  import dataFaqSuperCare from "../data/json/faq-super-care.json";
+  import tnc from "../data/json/tnc";
+  import notcovered from "../data/json/not-covered-super-care.json";
 
   import { loadFlickity } from "../utils/_loadflickity";
 
@@ -137,7 +137,7 @@
 </section>
 
 <section class="su_container tnc">
-  <ProductTnc listTnc={tnc} />
+  <ProductTnc listTnc={tnc.care} />
   <p
     class="product_tnc__more-info"
     style="text-align:center;color: #0d294a;font-size: 14px;">
@@ -204,7 +204,9 @@
 </section>
 
 <section class="su_container faq">
-  <Faq FAQtitle="Tanya Jawab Super Care" accordionData={dataFaqSuperCare} />
+  <Faq
+    FAQtitle="Tanya Jawab Super Care"
+    accordionData={dataFaqSuperCare['faq-care']} />
 </section>
 
 <div class="su_container testimonies bg-darkblue relative">
@@ -212,7 +214,7 @@
 </div>
 
 <section class="su_container notcovered">
-  <ProductNotCovered data={superCareNotCovered} />
+  <ProductNotCovered data={notcovered.care} />
 </section>
 
 <section class="su_container otherproduct" style="background-color: #e7eaef;">
