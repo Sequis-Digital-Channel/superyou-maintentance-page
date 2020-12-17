@@ -4,7 +4,7 @@
 
 <script>
   import InfoItem from "../../components/BaseInfoItem.svelte";
-  import Tooltip from "../../components/BaseTooltip.svelte";
+  // import Tooltip from "../../components/BaseTooltip.svelte";
 </script>
 
 <style lang="postcss">
@@ -62,11 +62,11 @@
     {#if bene_section.title.name !== ''}
       <h2 class="benefit_group__title">
         {bene_section.title.name}
-        {#if bene_section.title.tooltip !== ''}
+        <!-- {#if bene_section.title.tooltip !== ''}
           <Tooltip indentifier={`head-tooltip-${i}`}>
             {bene_section.title.tooltip}
           </Tooltip>
-        {/if}
+        {/if} -->
       </h2>
     {/if}
 

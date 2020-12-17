@@ -1,5 +1,5 @@
 <script>
-  import Tooltip from "../components/BaseTooltip.svelte";
+  // import Tooltip from "../components/BaseTooltip.svelte";
   export let icon;
   export let title = "";
   export let description;
@@ -73,18 +73,18 @@
     {#if title}
       <h4>
         {title.name}
-        {#if title.hasOwnProperty('tooltip') && title.tooltip !== ''}
+        <!-- {#if title.hasOwnProperty('tooltip') && title.tooltip !== ''}
           <Tooltip indentifier={key}>{title.tooltip}</Tooltip>
-        {/if}
+        {/if} -->
       </h4>
     {/if}
     <p>
       {description}
-      {#if tooltipDescription}
+      <!-- {#if tooltipDescription}
         <Tooltip indentifier={key}>
           {@html tooltipDescription}
         </Tooltip>
-      {/if}
+      {/if} -->
     </p>
   </div>
 </div>
