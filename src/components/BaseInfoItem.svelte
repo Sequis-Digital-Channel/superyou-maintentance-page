@@ -3,8 +3,8 @@
   export let icon;
   export let title = "";
   export let description;
-  export let tooltipDescription = null;
-  export let key = "";
+  // export let tooltipDescription = null;
+  // export let key = "";
 </script>
 
 <style lang="postcss">
