@@ -15,10 +15,11 @@
 <style lang="postcss">
   aside {
     position: fixed;
-    inset: 0 0 0 0;
-    overflow-y: auto;
     width: 100%;
     height: 100%;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
     background-color: #fff;
     padding: 0 10px;
 
