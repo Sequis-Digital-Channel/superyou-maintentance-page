@@ -11,7 +11,7 @@
   import ProductNotCovered from "../container/product/ProductNotCovered.svelte";
 
   import dataFaqSuperCare from "../data/json/faq-super-care.json";
-  import tnc from "../data/json/tnc";
+  import tnc from "../data/json/tnc-super-care.json";
   import notcovered from "../data/json/not-covered-super-care.json";
 
   import { loadFlickity } from "../utils/_loadflickity";
