@@ -4,6 +4,7 @@
   import BaseHeader from "../components/BaseHeader.svelte";
   import BaseFooter from "../components/BaseFooter.svelte";
   import CartContainer from "../container/cart/CartContainer.svelte";
+  import BaseMobileBottomNav from "../components/BaseMobileBottomNav.svelte";
 
   import { bodyScroll } from "../stores/bodyscroll";
 
@@ -31,3 +32,4 @@
   <slot />
 </main>
 <BaseFooter />
+<BaseMobileBottomNav />
