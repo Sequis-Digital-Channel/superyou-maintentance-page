@@ -3,7 +3,6 @@
   import {
     cartStore,
     cartShow,
-    derivedCartProducts,
     paymentTermYearly,
   } from "../../stores/cart/store";
   import { calculateSumAssuredTotal } from "../../stores/cart/actions";
@@ -29,24 +28,26 @@
       .catch(logError);
   };
 
-  let itemsDetail = [];
+  let itemsDetail = {};
 
   async function fetchProductsCart() {
     let sumAssuredTotal = 0;
-    const productsNotYetFetched = $derivedCartProducts.filter(
-      (el) => el.fetched === false
+
+    const productsNotYetFetched = Object.keys($cartStore.products).filter(
+      (planId) => $cartStore.products[planId].fetched === false
     );
 
     // stop if all products already fetech
     if (!productsNotYetFetched) return;
 
     const productsDetails = await Promise.all(
-      productsNotYetFetched.map(({ planId }) =>
+      productsNotYetFetched.map((planId) =>
         getPlanById(productApiUrl, planId, "1992-01-09")
       )
     );
     productsDetails.forEach(function (response, index) {
-      itemsDetail = [...itemsDetail, { ...response }];
+      // itemsDetail = [...itemsDetail, { ...response }];
+      itemsDetail[response.id] = response;
       cartStore.update((cart) => {
         cart.products[response.id].fetched = true;
         cart.products[response.id].price =
@@ -61,7 +62,6 @@
     calculateSumAssuredTotal(sumAssuredTotal);
     loadCartItem();
   }
-
   $: if ($cartShow) {
     fetchProductsCart();
   }
@@ -74,9 +74,9 @@
   }
 </style>
 
-{#each $derivedCartProducts as item, i}
-  {#if item.fetched && cartItem}
-    <svelte:component this={cartItem} item={itemsDetail[i]} />
+{#each Object.keys($cartStore.products) as planid (planid)}
+  {#if $cartStore.products[planid].fetched && cartItem}
+    <svelte:component this={cartItem} item={itemsDetail[planid]} />
   {:else}
     <div class="cart-item-load bg-white mt-4 p-3" style="height: 85px;">
       <div class="animate-pulse flex">

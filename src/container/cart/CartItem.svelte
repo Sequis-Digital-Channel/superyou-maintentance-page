@@ -13,6 +13,7 @@
     addQuantityPlan,
     substractQuantityPlan,
     updateProductPrice,
+    deleteCartItem,
   } from "../../stores/cart/actions";
   import BaseInputCheck from "../../components/BaseInputCheck.svelte";
   import { moneyFormat, toBillion } from "../../utils/_moneyandtobillion";
@@ -35,22 +36,23 @@
     }
   });
 
-  const handleClickRider = ({ target }) => {
+  function handleClickRider({ target }) {
     const value = Number(target.value);
     if (target.checked) {
       selectedRiders = [...selectedRiders, value];
     } else {
       selectedRiders = selectedRiders.filter((id) => value !== id);
     }
-  };
+  }
 
-  const handleToggleExpandRiders = (riderId) => {
+  function handleToggleExpandRiders(riderId) {
     expandRiders.includes(riderId)
       ? (expandRiders = expandRiders.filter((id) => id !== riderId))
       : (expandRiders = [...expandRiders, riderId]);
-  };
+  }
+
   $: btnSubstractQty = $cartStore.products[item.id].quantity <= 1;
-  $: $sumAssuredTotal + item.sum_assured >= 1500000000
+  $: $sumAssuredTotal + item.sum_assured > 1500000000
     ? (btnAddQty = true)
     : (btnAddQty = false);
 </script>
@@ -182,6 +184,7 @@
       </p>
     </div>
     <button
+      on:click={() => deleteCartItem(item.id, item.sum_assured * $cartStore.products[item.id].quantity)}
       class="bg-white w-5 h-5 rounded-full border border-teal flex items-center justify-center absolute"
       style="right:-6px; top: -6px;"
       aria-label="Hapus Keranjang Item">
