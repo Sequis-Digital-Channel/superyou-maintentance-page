@@ -390,16 +390,28 @@
               <h4 class="text-darkblue font-bold">
                 Asuransi Jiwa & Kecelakaan Diri
               </h4>
-              {#each productNavItems.life as navItem (navItem.icon)}
+              {#each productNavItems.life as navItem, i (navItem.icon)}
                 <a href={navItem.url} target="_blank">
                   <div class="product-item-nav">
-                    <div class="icon">
-                      <img
-                        src={isProductIconFetch ? navItem.icon : initImgSrc}
-                        alt={navItem.name}
-                        width="50"
-                        height="50" />
-                    </div>
+                    {#if i !== 2}
+                      <div class="icon">
+                        <img
+                          src={isProductIconFetch ? navItem.icon : initImgSrc}
+                          alt={navItem.name}
+                          width="50"
+                          height="50" />
+                      </div>
+                    {:else}
+                      <div
+                        class="icon"
+                        style="display:flex;align-items: flex-start;justify-content:center;padding-top: 12px;">
+                        <img
+                          src={isProductIconFetch ? navItem.icon : initImgSrc}
+                          alt={navItem.name}
+                          width="32"
+                          height="32" />
+                      </div>
+                    {/if}
                     <div class="meta">
                       <p class="meta-name">{navItem.name}</p>
                       <p class="meta-desc">
