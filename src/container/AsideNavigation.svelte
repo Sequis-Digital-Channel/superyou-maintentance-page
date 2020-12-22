@@ -4,6 +4,7 @@
   import SuperyouColorLogo from "../components/svg/SuperyouColorLogo.svelte";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
   export let aside = false;
+  export let APP_URL;
 
   $: if (aside) {
     bodyScroll.update(() => false);
@@ -52,9 +53,10 @@
 
           .aside-item {
             margin-top: 20px;
-
-            &:not(:first-child) {
-              margin-top: 30px;
+            @media (max-width: 1023px) {
+              &:not(:first-child) {
+                margin-top: 20px;
+              }
             }
             h4 {
               color: var(--primary-text-color);
@@ -62,6 +64,9 @@
               font-size: 20px;
 
               @media (min-width: 1024px) {
+                border-bottom: solid 3px #dee9f0;
+                padding-bottom: 6px;
+                display: inline-block;
                 font-size: 36px;
               }
             }
@@ -187,9 +192,19 @@
     <div class="aside-body">
       <div class="aside-body-wrapper">
         <div class="aside-item">
-          <h4>SOVIA</h4>
+          <h4 style="display: inline-flex;">
+            <img
+              src="/icons/sovia/sovia-circle.svg"
+              alt="SOVIA ICON"
+              width="40"
+              height="40" />
+            <span style="display:inline-block;margin-left: 10px;">SOVIA</span>
+          </h4>
           <ul>
-            <li><a href="/">Sequis Online Virtual Assistant</a></li>
+            <li>
+              <a href={`${APP_URL}/sovia?p=general&r=main-sovia`}>Sequis Online
+                Virtual Assistant</a>
+            </li>
           </ul>
         </div>
 
@@ -206,29 +221,53 @@
         <div class="aside-item">
           <h4>Produk</h4>
           <ul>
-            <li><a href="/">Super Safe</a></li>
-            <li><a href="/">Super Life</a></li>
-            <li><a href="/">Super Strong</a></li>
-            <li><a href="/">Super Care</a></li>
-            <li><a href="/">My Hospital</a></li>
+            <li>
+              <a href={`${APP_URL}/produk/super-safe-protection`}>Super Safe</a>
+            </li>
+            <li>
+              <a href={`${APP_URL}/produk/super-life-protection`}>Super Life</a>
+            </li>
+            <li>
+              <a href={`${APP_URL}/produk/super-strong-protection`}>Super Strong</a>
+            </li>
+            <li>
+              <a href={`${APP_URL}/produk/super-care-protection`}>Super Care</a>
+            </li>
+            <li>
+              <a href={`${APP_URL}/produk/my-hospital-protection`}>My Hospital</a>
+            </li>
           </ul>
         </div>
 
         <div class="aside-item">
           <h4>Supports</h4>
           <ul>
-            <li><a href="/">Hubungi Kami</a></li>
-            <li><a href="/">FAQ</a></li>
-            <li><a href="/">Rumah Sakit Terdekat</a></li>
+            <li><a href={`${APP_URL}/hubungi-kami`}>Hubungi Kami</a></li>
+            <li><a href={`${APP_URL}/faq`}>FAQ</a></li>
+            <li>
+              <a href={`${APP_URL}/rumah-sakit-terdekat`}>Rumah Sakit Terdekat</a>
+            </li>
+            <li>
+              <a href={`${APP_URL}/kalkulator-bmi-berat-badan-ideal`}>Kalkulator
+                Berat Badan Ideal</a>
+            </li>
           </ul>
         </div>
 
         <div class="aside-item">
           <h4>Blog</h4>
           <ul>
-            <li><a href="/">Family</a></li>
-            <li><a href="/">Lifestyle</a></li>
-            <li><a href="/">Finance</a></li>
+            <li><a href={`${APP_URL}/blog/category/keuangan/`}>Keuangan</a></li>
+            <li>
+              <a href={`${APP_URL}/blog/category/kesehatan/`}>Kesehatan</a>
+            </li>
+            <li>
+              <a href={`${APP_URL}/blog/category/gayahidup/`}>Gaya Hidup &
+                Keluarga</a>
+            </li>
+            <li>
+              <a href={`${APP_URL}/blog/category/promo/`}>Berita & Promo</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -247,10 +286,12 @@
             alt="Superyou Twitter" />
         </BaseCircleSocmed>
       </div>
-      <p>Hubungi Kami di <b>(021) 2994 2929</b></p>
+      <p class="text-bluegray">Hubungi Kami di <b>(021) 2994 2929</b></p>
       <div class="links">
-        <a href="/">SYARAT DAN KETENTUAN</a>
-        <a href="/">KEBIJAKAN PRIVASI</a>
+        <a class="text-bluegray" href={`${APP_URL}/syarat-dan-ketentuan`}>Syarat
+          dan Ketentuan</a>
+        <a class="text-bluegray" href={`${APP_URL}/kebijakan-privasi`}>Kebijakan
+          Privasi</a>
       </div>
     </div>
   </div>

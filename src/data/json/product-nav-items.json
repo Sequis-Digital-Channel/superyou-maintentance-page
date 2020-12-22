@@ -6,7 +6,7 @@
       "desc": "Proteksi Jiwa",
       "info": "Mulai dari Rp 33.000/Bulan",
       "product_type": "basic",
-      "url": "https://superyou.co.id/produk/super-life-protection"
+      "url": "/produk/super-life-protection"
     },
     {
       "icon": "/icons/products/safe/super-safe.svg",
@@ -14,7 +14,7 @@
       "desc": "Proteksi Kecelakaan",
       "info": "Mulai dari Rp 36.500/Bulan",
       "product_type": "basic",
-      "url": "https://superyou.co.id/produk/super-safe-protection"
+      "url": "/produk/super-safe-protection"
     },
     {
       "icon": "/icons/products/motor/super-motor.png",
@@ -22,7 +22,7 @@
       "desc": "Proteksi Berkendara",
       "info": "Tambahan Mulai dari Rp 9.500/Bulan",
       "product_type": "rider",
-      "url": "https://superyou.co.id/produk/super-safe-protection"
+      "url": "/produk/super-safe-protection"
     },
     {
       "icon": "/icons/products/holiday/super-holiday.svg",
@@ -30,7 +30,7 @@
       "desc": "Proteksi Saat Liburan",
       "info": "Tambahan Mulai dari Rp 21.000/Bulan",
       "product_type": "rider",
-      "url": "https://superyou.co.id/produk/super-safe-protection"
+      "url": "/produk/super-safe-protection"
     }
   ],
   "health": [
@@ -40,7 +40,7 @@
       "desc": "Santunan Rawat Inap",
       "info": "Mulai Dari Rp 39.500/Bulan",
       "product_type": "basic",
-      "url": "https://superyou.co.id/produk/my-hospital-protection"
+      "url": "/produk/my-hospital-protection"
     },
     {
       "icon": "/icons/products/well/super-well.svg",
@@ -64,7 +64,7 @@
       "desc": "Proteksi Jiwa + 3 Penyakit Kritis",
       "info": "Mulai dari Rp 28.500/Bulan",
       "product_type": "basic",
-      "url": "https://superyou.co.id/produk/super-strong-protection"
+      "url": "/produk/super-strong-protection"
     }
   ]
 }

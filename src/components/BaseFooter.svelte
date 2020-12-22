@@ -1,6 +1,7 @@
 <script>
   import BaseCircleSocmed from "./BaseCircleSocmed.svelte";
   import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
+  export let APP_URL;
   let outerWidth;
   let footerNav = {
     about: false,
@@ -218,7 +219,7 @@
       </div>
 
       <ul class:show={footerNav.about}>
-        <li><a href="/tentang-kami">Visi & Misi</a></li>
+        <li><a href={`${APP_URL}/tentang-kami`}>Visi & Misi</a></li>
       </ul>
     </div>
 
@@ -238,10 +239,15 @@
       </div>
 
       <ul class:show={footerNav.support}>
-        <li><a href="/tentang-kami">Hubungi Kami</a></li>
-        <li><a href="/tentang-kami">FAQ</a></li>
-        <li><a href="/tentang-kami">Rumah Sakit Terdekat</a></li>
-        <li><a href="/tentang-kami">Kalkulator Berat Badan</a></li>
+        <li><a href={`${APP_URL}/hubungi-kami`}>Hubungi Kami</a></li>
+        <li><a href={`${APP_URL}/faq`}>FAQ</a></li>
+        <li>
+          <a href={`${APP_URL}/rumah-sakit-terdekat`}>Rumah Sakit Terdekat</a>
+        </li>
+        <li>
+          <a href={`${APP_URL}/kalkulator-bmi-berat-badan-ideal`}>Kalkulator
+            Berat Badan Ideal</a>
+        </li>
       </ul>
     </div>
 
@@ -260,10 +266,12 @@
         </span>
       </div>
       <ul class:show={footerNav.blog}>
-        <li><a href="/tentang-kami">Keluarga</a></li>
-        <li><a href="/tentang-kami">Gaya Hidup</a></li>
-        <li><a href="/tentang-kami">Keuangan</a></li>
-        <li><a href="/tentang-kami">Kesehatan</a></li>
+        <li><a href={`${APP_URL}/blog/category/keuangan/`}>Keuangan</a></li>
+        <li><a href={`${APP_URL}/blog/category/kesehatan/`}>Kesehatan</a></li>
+        <li>
+          <a href={`${APP_URL}/blog/category/gayahidup/`}>Gaya Hidup & Keluarga</a>
+        </li>
+        <li><a href={`${APP_URL}/blog/category/promo/`}>Berita & Promo</a></li>
       </ul>
     </div>
 
@@ -283,11 +291,21 @@
       </div>
 
       <ul class:show={footerNav.products}>
-        <li><a href="/tentang-kami">Super Safe</a></li>
-        <li><a href="/tentang-kami">Super Life</a></li>
-        <li><a href="/tentang-kami">Super Strong</a></li>
-        <li><a href="/tentang-kami">Super Care</a></li>
-        <li><a href="/tentang-kami">My Hospital</a></li>
+        <li>
+          <a href={`${APP_URL}/produk/super-safe-protection`}>Super Safe</a>
+        </li>
+        <li>
+          <a href={`${APP_URL}/produk/super-life-protection`}>Super Life</a>
+        </li>
+        <li>
+          <a href={`${APP_URL}/produk/super-strong-protection`}>Super Strong</a>
+        </li>
+        <li>
+          <a href={`${APP_URL}/produk/super-care-protection`}>Super Care</a>
+        </li>
+        <li>
+          <a href={`${APP_URL}/produk/my-hospital-protection`}>My Hospital</a>
+        </li>
       </ul>
     </div>
 
@@ -436,8 +454,8 @@
   </div>
   <div class="footer-bottom-text">
     <p>
-      <a href="/">Syarat dan Ketentuan</a>
-      <a href="/">Kebijakan Privasi</a>
+      <a href={`${APP_URL}/syarat-dan-ketentuan`}>Syarat dan Ketentuan</a>
+      <a href={`${APP_URL}/kebijakan-privasi`}>Kebijakan Privasi</a>
     </p>
     <p>
       © 2018-2020. PT Asuransi Jiwa Sequis Life terdaftar dan diawasi oleh

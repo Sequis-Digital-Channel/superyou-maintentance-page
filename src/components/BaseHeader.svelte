@@ -10,7 +10,7 @@
   import IcLock from "./svg/IcLock.svelte";
 
   export let segment;
-
+  export let APP_URL;
   let currentSegment = segment;
   let navScrolled = false;
   let productListShow = false;
@@ -342,7 +342,7 @@
     </div>
     <nav id="su-nav">
       <ul>
-        <li><a rel="prefetch" href="/about">Tentang Super You</a></li>
+        <li><a href={`${APP_URL}/tentang-kami`}>Tentang Super You</a></li>
         <li class="products">
           <button
             on:click={() => {
@@ -391,7 +391,7 @@
                 Asuransi Jiwa & Kecelakaan Diri
               </h4>
               {#each productNavItems.life as navItem, i (navItem.icon)}
-                <a href={navItem.url} target="_blank">
+                <a href={`${APP_URL}${navItem.url}`} target="_blank">
                   <div class="product-item-nav">
                     {#if i !== 2}
                       <div class="icon">
@@ -429,9 +429,7 @@
                 Asuransi Kesehatan & Penyakit Kritis
               </h4>
               {#each productNavItems.health as navItem (navItem.icon)}
-                <a
-                  href="https://superyou.co.id/produk/super-life-protection"
-                  target="_blank">
+                <a href={`${APP_URL}${navItem.url}`}>
                   <div class="product-item-nav">
                     <div class="icon">
                       <img
@@ -457,9 +455,9 @@
             <BgOverlay on:click={() => (productListShow = false)} />
           {/if}
         </li>
-        <li><a rel="prefetch" href="/">FAQ</a></li>
-        <li><a rel="prefetch" href="/blog">Blog</a></li>
-        <li><a href="/">Hubungi Kami</a></li>
+        <li><a href={`${APP_URL}/faq`}>FAQ</a></li>
+        <li><a href={`${APP_URL}/blog`}>Blog</a></li>
+        <li><a href={`${APP_URL}/hubungi-kami`}>Hubungi Kami</a></li>
         <li class="auth-and-menu">
           <button aria-label="login">
             <IcLock />
@@ -478,6 +476,6 @@
     </nav>
   </div>
   {#if aside}
-    <AsideNavigation bind:aside />
+    <AsideNavigation bind:aside {APP_URL} />
   {/if}
 </header>

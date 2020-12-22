@@ -1,3 +1,13 @@
+<script context="module">
+  export async function preload(page, session) {
+    const { APP_URL } = session;
+
+    return {
+      APP_URL,
+    };
+  }
+</script>
+
 <script>
   import { onMount } from "svelte";
   import GlobalStyle from "../components/GlobalStyle.svelte";
@@ -9,6 +19,7 @@
   import { bodyScroll } from "../stores/bodyscroll";
 
   export let segment;
+  export let APP_URL;
 
   let bodyHTMLElement = false;
 
@@ -25,11 +36,11 @@
   });
 </script>
 
-<BaseHeader {segment} />
+<BaseHeader {segment} {APP_URL} />
 <CartContainer />
 <main>
   <GlobalStyle />
   <slot />
 </main>
-<BaseFooter />
+<BaseFooter {APP_URL} />
 <BaseMobileBottomNav />
