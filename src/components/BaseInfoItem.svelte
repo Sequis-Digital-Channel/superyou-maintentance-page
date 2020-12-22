@@ -1,5 +1,5 @@
 <script>
-  import Tooltip from "../components/BaseTooltip.svelte";
+  import Tooltip from "../components/Tooltip.svelte";
   export let icon;
   export let title = "";
   export let description;
@@ -57,6 +57,12 @@
         }
       }
     }
+
+    .tooltip-body {
+      color: #fff;
+      font-size: 12px;
+      font-weight: normal;
+    }
   }
 </style>
 
@@ -74,15 +80,23 @@
       <h4>
         {title.name}
         {#if title.hasOwnProperty('tooltip') && title.tooltip !== ''}
-          <Tooltip indentifier={key}>{title.tooltip}</Tooltip>
+          <!-- <Tooltip indentifier={key}></Tooltip> -->
+          <Tooltip className={key}>
+            <p class="tooltip-body">{title.tooltip}</p>
+          </Tooltip>
         {/if}
       </h4>
     {/if}
     <p>
       {description}
       {#if tooltipDescription}
-        <Tooltip indentifier={key}>
+        <!-- <Tooltip indentifier={key}>
           {@html tooltipDescription}
+        </Tooltip> -->
+        <Tooltip className={key}>
+          <div class="tooltip-body">
+            {@html tooltipDescription}
+          </div>
         </Tooltip>
       {/if}
     </p>

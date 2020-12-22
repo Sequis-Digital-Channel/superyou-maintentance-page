@@ -117,9 +117,7 @@
 </style>
 
 <svelte:head>
-  <title>Sapper project template</title>
-  <script src="/js/popper.js" defer>
-  </script>
+  <title>Asuransi Kesehatan | Super Care Protection</title>
 </svelte:head>
 
 <section class="above-the-fold-wrapper">
