@@ -75,6 +75,7 @@
         width: 2px;
       }
       .cart-bottom {
+        bottom: 56px;
         #next-step-buy {
           &:disabled {
             background: #b8bcbf;
@@ -143,7 +144,7 @@
           </div>
         </div>
         <div
-          class="cart-bottom fixed h-16 bg-darkblue px-3 py-2 md:px-4 bottom-0 inset-x-0 flex justify-between items-center">
+          class="cart-bottom fixed h-16 bg-darkblue px-3 py-2 md:px-4 inset-x-0 flex justify-between items-center">
           <div class="flex flex-col">
             <span class="text-white text-xxs">Total Pembayaran / Bulan</span>
             <p class="text-lg text-white font-bold">
