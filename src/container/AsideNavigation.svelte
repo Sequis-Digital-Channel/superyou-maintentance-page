@@ -192,7 +192,7 @@
     <div class="aside-body">
       <div class="aside-body-wrapper">
         <div class="aside-item">
-          <h4 style="display: inline-flex;">
+          <h4 style="display: inline-flex;align-items:center;">
             <img
               src="/icons/sovia/sovia-circle.svg"
               alt="SOVIA ICON"
