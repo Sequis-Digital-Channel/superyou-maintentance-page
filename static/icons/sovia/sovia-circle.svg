@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="152" height="152" viewBox="0 0 152 152">
+    <defs>
+        <filter id="a" width="142.5%" height="142.5%" x="-21.2%" y="-18.8%" filterUnits="objectBoundingBox">
+            <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="8"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.149019608 0 0 0 0 0.247058824 0 0 0 0 0.4 0 0 0 0.4 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <circle id="b" cx="60" cy="60" r="52.105"/>
+        <filter id="c" width="132.6%" height="132.6%" x="-16.3%" y="-16.3%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="16"/>
+            <feOffset dx="-2" dy="-2" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0509803922 0 0 0 0 0.160784314 0 0 0 0 0.290196078 0 0 0 0.23194067 0"/>
+        </filter>
+        <radialGradient id="d" cx="42.734%" cy="38.852%" r="76.552%" fx="42.734%" fy="38.852%">
+            <stop offset="0%" stop-color="#FFF" stop-opacity=".5"/>
+            <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+    <g fill="none" fill-rule="nonzero" filter="url(#a)" transform="translate(16 13)">
+        <path fill="#FFF" d="M60 120C26.92 120 0 93.08 0 60S26.92 0 60 0s60 26.92 60 60-26.92 60-60 60z"/>
+        <use fill="#BDF7FF" xlink:href="#b"/>
+        <use fill="#000" filter="url(#c)" xlink:href="#b"/>
+        <g fill="#0D294A">
+            <path d="M37.547 78.704c-2.011 0-3.687-1.68-3.687-3.694V48.987c0-2.014 1.676-3.693 3.687-3.693 2.01 0 3.686 1.679 3.686 3.693v25.939c0 2.099-1.592 3.778-3.686 3.778zM52.544 94.15c-2.011 0-3.687-1.68-3.687-3.694V59.06c0-2.015 1.676-3.694 3.687-3.694 2.01 0 3.686 1.679 3.686 3.694V90.54c.084 2.014-1.592 3.61-3.686 3.61zM67.456 77.193c-2.01 0-3.686-1.68-3.686-3.694V32.702c0-2.014 1.676-3.693 3.686-3.693 2.011 0 3.687 1.679 3.687 3.693V73.5c.084 2.015-1.592 3.694-3.687 3.694zM82.453 60.152c-2.01 0-3.686-1.679-3.686-3.694v-18.3c0-2.014 1.676-3.693 3.686-3.693 2.011 0 3.687 1.679 3.687 3.694v18.3c0 2.014-1.676 3.693-3.687 3.693zM22.634 60.152c-2.011 0-3.687-1.679-3.687-3.694 0-2.014 1.676-3.693 3.687-3.693 2.01 0 3.686 1.679 3.686 3.693.084 2.015-1.592 3.694-3.686 3.694zM82.453 70.729c-2.01 0-3.686-1.679-3.686-3.694 0-2.014 1.676-3.693 3.686-3.693 2.011 0 3.687 1.679 3.687 3.693 0 2.015-1.676 3.694-3.687 3.694zM97.366 60.152c-2.01 0-3.686-1.679-3.686-3.694 0-2.014 1.676-3.693 3.686-3.693 2.011 0 3.687 1.679 3.687 3.693 0 2.015-1.676 3.694-3.687 3.694z"/>
+        </g>
+        <circle cx="60" cy="60" r="52.105" fill="url(#d)" fill-opacity=".2"/>
+    </g>
+</svg>
