@@ -75,7 +75,10 @@
         width: 2px;
       }
       .cart-bottom {
-        bottom: 56px;
+        bottom: 0;
+        @media (max-width: 639px) {
+          bottom: 56px;
+        }
         #next-step-buy {
           &:disabled {
             background: #b8bcbf;
