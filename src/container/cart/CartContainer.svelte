@@ -92,6 +92,8 @@
       .cart-item-qty {
         top: 4px;
         right: 3px;
+        display: inline-block;
+        line-height: 1.36;
       }
     }
   }
