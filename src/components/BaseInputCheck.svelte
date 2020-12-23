@@ -43,7 +43,7 @@
 <div class="base-input-check relative flex items-center">
   <div class="check-wrap" class:checked>
     <input
-      class="absolute opacity-0"
+      class="absolute opacity-0 cursor-pointer"
       {value}
       on:input
       type="checkbox"
