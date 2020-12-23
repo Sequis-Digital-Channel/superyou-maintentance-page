@@ -5,19 +5,26 @@ export const cartStore = writable({
     insured: "",
     // products: {}
     products: {
-      "2338cbee-7b35-490a-b0c5-e9f428edc306": {
-        productId: "3534f624-496e-42d5-8471-94da52d05c2a",
-        planId: "2338cbee-7b35-490a-b0c5-e9f428edc306",
+      // "2338cbee-7b35-490a-b0c5-e9f428edc306": {
+      //   productId: "3534f624-496e-42d5-8471-94da52d05c2a",
+      //   planId: "2338cbee-7b35-490a-b0c5-e9f428edc306",
+      //   fetched: false,
+      //   quantity: 1,
+      //   price: 0,
+      // },
+      "8e760dd1-ea79-4a9e-b755-836e732df14d": {
+        planId: "8e760dd1-ea79-4a9e-b755-836e732df14d",
         fetched: false,
         quantity: 1,
         price: 0,
+        riders: {}
       },
-      "5bce1947-a883-4a6b-8257-f503f5b169d5": {
-        productId: "ad0621b9-fa90-496c-bbb1-f6097b0f94f5",
-        planId: "5bce1947-a883-4a6b-8257-f503f5b169d5",
+      "3d8347d9-5f17-4868-9c2d-e7406e0d5df4": {
+        planId: "3d8347d9-5f17-4868-9c2d-e7406e0d5df4",
         fetched: false,
         quantity: 1,
         price: 0,
+        riders: {}
       }
     },
 });
@@ -26,16 +33,25 @@ export const sumAssuredTotal = writable(0);
 export const paymentTermYearly = writable(false);
 export const cartShow = writable(false);
 
-export const derivedTotalPrice = derived(cartStore, $cartStore => {
+export const derivedTotalPricePerPlan = derived(cartStore, $cartStore => {
+  
   const {products} = $cartStore;
-  if($cartStore.products) {
-    return Object.keys(products).reduce((accumulator, planId) => {
-      return accumulator + products[planId].price
-    }, 0)
-  } else {
-    return 0;
+  if(Object.keys(products).length) {
+    
+    return Object.keys(products).map(planId => {
+      let totalPricePerPlan = 0;
+      Object.keys(products[planId].riders).forEach(riderId => {
+        totalPricePerPlan += products[planId].riders[riderId].price * products[planId].quantity
+      })
+      totalPricePerPlan += products[planId].price;
+
+      return {
+        planId: planId,
+        totalPricePerPlan
+      }
+    })
   }
-});
+})
 
 export const derivedTotalQuantity = derived(cartStore, $cartStore => {
   const {products} = $cartStore;
@@ -48,11 +64,11 @@ export const derivedTotalQuantity = derived(cartStore, $cartStore => {
   }
 });
 
-export const derivedLocalStorageData = derived([cartStore, paymentTermYearly], ([$cartStore, $paymentTermYearly]) => {
+export const derivedLocalStorageData = derived([cartStore, paymentTermYearly, sumAssuredTotal], ([$cartStore, $paymentTermYearly, $sumAssuredTotal]) => {
   let expiry = new Date();
   return ({
     ...$cartStore,
-    sum_assured: 0,
+    sum_assured: $sumAssuredTotal,
     payment_term_yearly: $paymentTermYearly,
     expiry: expiry.setDate(expiry.getDate() + 14)
   })

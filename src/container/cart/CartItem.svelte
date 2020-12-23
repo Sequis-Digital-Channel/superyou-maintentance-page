@@ -8,12 +8,15 @@
     cartStore,
     sumAssuredTotal,
     paymentTermYearly,
+    derivedTotalPricePerPlan,
+    derivedTotalQuantity,
   } from "../../stores/cart/store";
   import {
     addQuantityPlan,
     substractQuantityPlan,
     updateProductPrice,
     deleteCartItem,
+    addRemoveUpdateRider,
   } from "../../stores/cart/actions";
   import BaseInputCheck from "../../components/BaseInputCheck.svelte";
   import { moneyFormat, toBillion } from "../../utils/_moneyandtobillion";
@@ -26,22 +29,55 @@
   let btnAddQty = false;
   let btnSubstractQty = false;
   let basePrice = 0;
+  let term = "Bulan";
   paymentTermYearly.subscribe((isYearlyPayment) => {
     if (isYearlyPayment) {
+      term = "Tahun";
       updateProductPrice(item.id, item.yearly_premium);
       basePrice = item.yearly_premium;
+      if (selectedRiders.length) {
+        selectedRiders.forEach((riderId) => {
+          const currentRider = item.riders.filter(
+            (rider) => rider.id === riderId
+          );
+          addRemoveUpdateRider(
+            "UPDATE_RIDER_PRICE",
+            item.id,
+            riderId,
+            currentRider[0].yearly_premium
+          );
+        });
+      }
     } else {
+      term = "Bulan";
       updateProductPrice(item.id, item.monthly_premium);
       basePrice = item.monthly_premium;
+      if (selectedRiders.length) {
+        selectedRiders.forEach((riderId) => {
+          const currentRider = item.riders.filter(
+            (rider) => rider.id === riderId
+          );
+          addRemoveUpdateRider(
+            "UPDATE_RIDER_PRICE",
+            item.id,
+            riderId,
+            currentRider[0].monthly_premium
+          );
+        });
+      }
     }
   });
 
-  function handleClickRider({ target }) {
-    const value = Number(target.value);
+  function handleClickRider({ target }, planId, riderId, riderPrice) {
+    console.log(planId, riderId, riderPrice);
     if (target.checked) {
-      selectedRiders = [...selectedRiders, value];
+      console.log("add");
+      selectedRiders = [...selectedRiders, target.value];
+      addRemoveUpdateRider("ADD_RIDER", planId, riderId, riderPrice);
     } else {
-      selectedRiders = selectedRiders.filter((id) => value !== id);
+      console.log("remove");
+      selectedRiders = selectedRiders.filter((id) => target.value !== id);
+      addRemoveUpdateRider("REMOVE_RIDER", planId, riderId, riderPrice);
     }
   }
 
@@ -52,9 +88,18 @@
   }
 
   $: btnSubstractQty = $cartStore.products[item.id].quantity <= 1;
-  $: $sumAssuredTotal + item.sum_assured > 1500000000
-    ? (btnAddQty = true)
-    : (btnAddQty = false);
+  $: if (
+    $sumAssuredTotal + item.sum_assured > 1500000000 ||
+    $derivedTotalQuantity >= 5
+  ) {
+    btnAddQty = true;
+  } else {
+    btnAddQty = false;
+  }
+
+  $: itemPrice = $derivedTotalPricePerPlan.filter(
+    ({ planId }) => planId === item.id
+  )[0].totalPricePerPlan;
 </script>
 
 <style lang="postcss">
@@ -178,9 +223,9 @@
         disabled={btnAddQty}>+</button>
     </div>
     <div class="item-price flex flex-col items-end">
-      <span class="374:text-xxs text-xs text-darkblue">Biaya Premi/Bulan</span>
+      <span class="374:text-xxs text-xs text-darkblue">Biaya Premi/{term}</span>
       <p class="text-sm text-darkblue font-bold my-2px">
-        {moneyFormat($cartStore.products[item.id].price)}
+        {moneyFormat(itemPrice)}
       </p>
     </div>
     <button
@@ -209,7 +254,7 @@
   </div>
 
   {#if isDetailExpanded}
-    <div transition:slide|local>
+    <div class="pb-2" transition:slide|local>
       <div class="cart-item-spec bg-white">
         <div
           class="item-up px-3 py-2 flex justify-between items-center border-b border-t border-gray-400">
@@ -251,10 +296,10 @@
                 <BaseInputCheck
                   id={`rider${i}`}
                   value={rider.id}
-                  on:input={handleClickRider}>
+                  on:input={(e) => handleClickRider(e, item.id, rider.id, $paymentTermYearly ? rider.yearly_premium : rider.monthly_premium)}>
                   <div
                     slot="label"
-                    class="rider-label flex items-center pl-2 py-1">
+                    class="rider-label flex items-center pl-2 py-1 cursor-pointer">
                     <img
                       class="select-none"
                       src={safeRiders.riders[i].icon}
@@ -268,8 +313,10 @@
 
                 <div
                   on:click={() => handleToggleExpandRiders(item.riders[i].id)}
-                  class="rider-price flex items-center justify-end">
-                  <p class="text-darkblue font-bold text-sm">Rp 9.500</p>
+                  class="rider-price flex items-center justify-end cursor-pointer">
+                  <p class="text-darkblue font-bold text-sm">
+                    {$paymentTermYearly ? moneyFormat(rider.yearly_premium) : moneyFormat(rider.monthly_premium)}
+                  </p>
                   <svg
                     class="ml-2"
                     viewBox="0 0 32 32"

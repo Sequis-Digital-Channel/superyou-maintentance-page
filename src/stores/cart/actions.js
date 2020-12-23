@@ -25,7 +25,7 @@ export function addQuantityPlan(planId, sumAssuredPlan, price) {
 }
 
 export function substractQuantityPlan(planId, sumAssuredPlan, price) {
-  // add +1
+  // substract -1
   calculateSumAssuredTotal(-sumAssuredPlan);
   cartStore.update(($cartStore) => {
     let updatedCart = $cartStore;
@@ -41,6 +41,7 @@ export function substractQuantityPlan(planId, sumAssuredPlan, price) {
 }
 
 export function updateProductPrice(planId, price) {
+  // function for calculate and update total price if user change the toggle of payment term yearly or monthly
   cartStore.update(($cartStore) => {
     let updatedCart = $cartStore;
     updatedCart.products[planId].price = updatedCart.products[planId].quantity * price;
@@ -51,6 +52,32 @@ export function updateProductPrice(planId, price) {
 
 export function calculateSumAssuredTotal(amount) {
   sumAssuredTotal.update((currentAmount) => currentAmount + amount);
+}
+
+export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice) {
+  cartStore.update(($cartStore) => {
+    let updatedCart = $cartStore;
+    switch(actionType) {
+      case "ADD_RIDER":
+        updatedCart.products[planId].riders[riderId] = {
+          id: riderId,
+          price: riderPrice
+        }
+        return updatedCart;
+      case "REMOVE_RIDER":
+        delete updatedCart.products[planId].riders[riderId];
+        return updatedCart;
+      case "UPDATE_RIDER_PRICE":
+        updatedCart.products[planId].riders[riderId].price = riderPrice;
+        return updatedCart;
+      default:
+        return updatedCart;
+    }
+  })
+  // save to localStorage
+  setTimeout(() => {
+    setToLocalStorage()
+  }, 100)
 }
 
 export function deleteCartItem(planId, sumAssuredPlan) {

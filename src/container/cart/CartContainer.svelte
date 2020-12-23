@@ -7,9 +7,9 @@
     cartStore,
     cartShow,
     paymentTermYearly,
-    derivedTotalPrice,
     derivedTotalQuantity,
     sumAssuredTotal,
+    derivedTotalPricePerPlan,
   } from "../../stores/cart/store";
   import { getCartLocalStorage } from "../../stores/cart/actions";
   import CartItems from "./CartItems.svelte";
@@ -33,6 +33,14 @@
 
   $: if ($sumAssuredTotal > 1500000000) {
     isNextStepToBuyValid = true;
+  }
+
+  let grandTotal = 0;
+  $: if ($derivedTotalPricePerPlan) {
+    grandTotal = $derivedTotalPricePerPlan.reduce(
+      (acc, plan) => acc + plan.totalPricePerPlan,
+      0
+    );
   }
 
   onMount(() => {
@@ -149,9 +157,10 @@
         <div
           class="cart-bottom fixed h-16 bg-darkblue px-3 py-2 md:px-4 inset-x-0 flex justify-between items-center">
           <div class="flex flex-col">
-            <span class="text-white text-xxs">Total Pembayaran / Bulan</span>
+            <span class="text-white text-xxs">Total Pembayaran /
+              {$paymentTermYearly ? 'Tahunan' : 'Bulanan'}</span>
             <p class="text-lg text-white font-bold">
-              {moneyFormat($derivedTotalPrice)}
+              {moneyFormat(grandTotal)}
             </p>
           </div>
           <button
