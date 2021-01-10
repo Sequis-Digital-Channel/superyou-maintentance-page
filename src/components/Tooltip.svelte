@@ -6,7 +6,6 @@
   onMount(() => {
     if (process.browser && window.outerWidth <= 639) {
       setTimeout(() => {
-        console.log("window loaded");
         let el = document.querySelector(`.t-wrapper.${className}`);
         let elXposition = el.getBoundingClientRect();
 
@@ -19,7 +18,7 @@
         } else if (divide >= 3) {
           tooltipBody.classList.add("left");
         }
-      }, 800);
+      }, 1000);
     }
   });
 </script>
