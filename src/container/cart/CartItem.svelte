@@ -20,6 +20,7 @@
   } from "../../stores/cart/actions";
   import BaseInputCheck from "../../components/BaseInputCheck.svelte";
   import { moneyFormat, toBillion } from "../../utils/_moneyandtobillion";
+  import { onMount } from "svelte";
 
   export let item = {};
 
@@ -69,13 +70,10 @@
   });
 
   function handleClickRider({ target }, planId, riderId, riderPrice) {
-    console.log(planId, riderId, riderPrice);
     if (target.checked) {
-      console.log("add");
       selectedRiders = [...selectedRiders, target.value];
       addRemoveUpdateRider("ADD_RIDER", planId, riderId, riderPrice);
     } else {
-      console.log("remove");
       selectedRiders = selectedRiders.filter((id) => target.value !== id);
       addRemoveUpdateRider("REMOVE_RIDER", planId, riderId, riderPrice);
     }
@@ -90,7 +88,8 @@
   $: btnSubstractQty = $cartStore.products[item.id].quantity <= 1;
   $: if (
     $sumAssuredTotal + item.sum_assured > 1500000000 ||
-    $derivedTotalQuantity >= 5
+    $derivedTotalQuantity >= 5 ||
+    item.validation_type === "only_one"
   ) {
     btnAddQty = true;
   } else {
@@ -100,6 +99,10 @@
   $: itemPrice = $derivedTotalPricePerPlan.filter(
     ({ planId }) => planId === item.id
   )[0].totalPricePerPlan;
+
+  onMount(() => {
+    selectedRiders = Object.keys($cartStore.products[item.id].riders);
+  });
 </script>
 
 <style lang="postcss">
@@ -187,7 +190,8 @@
     </div>
     <div class="item-meta flex justify-center">
       <div class="item-meta-wrapper flex flex-col">
-        <span class="374:text-xxs text-xs text-darkblue">Super Safe</span>
+        <span
+          class="374:text-xxs text-xs text-darkblue">{item.product_name.replace('Protection', '')}</span>
         <p class="text-sm text-darkblue font-bold my-2px">{item.name}</p>
         <span
           on:click={() => {
@@ -213,13 +217,13 @@
     <div class="item-buttons flex items-center justify-center">
       <button
         class="minus text-white text-sm2 bg-teal font-bold flex items-center justify-center mr-2"
-        on:click={() => substractQuantityPlan(item.id, item.sum_assured, basePrice)}
+        on:click={() => substractQuantityPlan(item.id, item.sum_assured, basePrice, item.validation_type)}
         disabled={btnSubstractQty}>-</button>
       <span
         class="text-sm text-darkblue font-bold">{$cartStore.products[item.id].quantity}</span>
       <button
         class="plus text-white text-sm bg-teal font-bold flex items-center justify-center ml-2"
-        on:click={() => addQuantityPlan(item.id, item.sum_assured, basePrice)}
+        on:click={() => addQuantityPlan(item.id, item.sum_assured, basePrice, item.validation_type)}
         disabled={btnAddQty}>+</button>
     </div>
     <div class="item-price flex flex-col items-end">
@@ -265,10 +269,18 @@
         </div>
         <div class="item-benefits px-3 py-2">
           <p class="text-darkblue text-sm2 font-bold mb-3">Manfaat per Polis</p>
-          {#each item.benefits as { benefit, value, id } (id)}
-            <div class="item-up flex justify-between items-center mb-2">
-              <p class="text-bluegray text-sm max-w-3/4">{benefit}</p>
-              <p class="text-darkblue text-sm font-bold">{toBillion(value)}</p>
+
+          {#each item.benefit_group_categories as { benefits, name, id } (id)}
+            <div class="benefit-group mb-3">
+              <p class="text-darkblue text-sm font-bold mb-3">{name}</p>
+              {#each benefits as { benefit, value, id } (id)}
+                <div class="item-up flex justify-between items-center mb-2">
+                  <p class="text-bluegray text-sm max-w-3/4">{benefit}</p>
+                  <p class="text-darkblue text-sm font-bold">
+                    {toBillion(value)}
+                  </p>
+                </div>
+              {/each}
             </div>
           {/each}
         </div>
@@ -296,6 +308,7 @@
                 <BaseInputCheck
                   id={`rider${i}`}
                   value={rider.id}
+                  checked={selectedRiders.includes(rider.id)}
                   on:input={(e) => handleClickRider(e, item.id, rider.id, $paymentTermYearly ? rider.yearly_premium : rider.monthly_premium)}>
                   <div
                     slot="label"
@@ -307,7 +320,7 @@
                       height="30px"
                       alt="Pilih Rider" />
                     <span
-                      class="text-darkblue text-sm inline-block ml-2 max-w-3/4">{rider.name}</span>
+                      class="text-darkblue text-sm inline-block ml-2 max-w-3/4">{rider.product_name.replace('Protection', '')}</span>
                   </div>
                 </BaseInputCheck>
 

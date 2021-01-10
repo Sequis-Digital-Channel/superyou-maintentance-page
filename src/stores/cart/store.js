@@ -2,31 +2,17 @@ import {derived, writable} from "svelte/store";
 
 // what fields neet to be update when product or quantity changes
 export const cartStore = writable({
-    insured: "",
-    // products: {}
-    products: {
-      // "2338cbee-7b35-490a-b0c5-e9f428edc306": {
-      //   productId: "3534f624-496e-42d5-8471-94da52d05c2a",
-      //   planId: "2338cbee-7b35-490a-b0c5-e9f428edc306",
-      //   fetched: false,
-      //   quantity: 1,
-      //   price: 0,
-      // },
-      "8e760dd1-ea79-4a9e-b755-836e732df14d": {
-        planId: "8e760dd1-ea79-4a9e-b755-836e732df14d",
-        fetched: false,
-        quantity: 1,
-        price: 0,
-        riders: {}
-      },
-      "3d8347d9-5f17-4868-9c2d-e7406e0d5df4": {
-        planId: "3d8347d9-5f17-4868-9c2d-e7406e0d5df4",
-        fetched: false,
-        quantity: 1,
-        price: 0,
-        riders: {}
-      }
-    },
+    insuredFor: "",
+    products: {}
+    // products: {
+    //   "8e760dd1-ea79-4a9e-b755-836e732df14d": {
+    //     planId: "8e760dd1-ea79-4a9e-b755-836e732df14d",
+    //     fetched: false,
+    //     quantity: 1,
+    //     price: 0,
+    //     riders: {}
+    //   },
+    // },
 });
 
 export const sumAssuredTotal = writable(0);

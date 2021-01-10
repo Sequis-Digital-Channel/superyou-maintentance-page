@@ -1,0 +1,162 @@
+{
+  "insuredFor":"SELF",
+  "dobTimestamp":694890000000,
+  "age":29,
+  "averageCost":3,
+  "type":"form",
+  "path":"DHP",
+  "products":[
+     {
+        "productId":"c4b23ff9-d71e-4836-b9c0-39b0fd226870",
+        "productName":"Super Safe Protection",
+        "productSlug":"super-safe-protection",
+        "planId":"54aac6af-2812-4d3c-8d08-84fdd042457e",
+        "planName":"Gold Plan",
+        "benefits":[
+           {
+              "product_plan_benefit_group_id":"0d2786b3-1f1e-490a-944e-443d49b06dd9",
+              "benefit":"Perlindungan biaya medis karena kecelakaan",
+              "value":"50000000",
+              "value_type":"money",
+              "order":null,
+              "tooltip_text":null,
+              "id":"190a89ed-2666-4388-8ab1-ca98b85e1289"
+           },
+           {
+              "product_plan_benefit_group_id":"0d2786b3-1f1e-490a-944e-443d49b06dd9",
+              "benefit":"Pertanggungan tutup usia/ perlindungan cacat total dan tetap karena kecelakaan",
+              "value":"1000000000",
+              "value_type":"money",
+              "order":null,
+              "tooltip_text":null,
+              "id":"b12a001f-2551-4ae6-b5c3-e9bcf0b4a499"
+           }
+        ],
+        "riders":[
+           {
+              "id":"6212d7a9-d522-4754-bdb1-130be62caced",
+              "monthly":105000,
+              "yearly":1164000
+           },
+           {
+              "id":"9ad460ac-fec3-45ef-82a0-37f0bd92eecd",
+              "monthly":47500,
+              "yearly":525000
+           }
+        ],
+        "monthlyPremi":181500,
+        "yearlyPremi":2013500,
+        "sumAssured":1000000000,
+        "chosenRider":[
+           "6212d7a9-d522-4754-bdb1-130be62caced",
+           "9ad460ac-fec3-45ef-82a0-37f0bd92eecd"
+        ],
+        "qty":1,
+        "pdfUrl":"/pdf/RIP-Super-Safe-Protection_V1_D1.pdf",
+        "validationType":"sum_assured"
+     },
+     {
+        "productId":"c4b23ff9-d71e-4836-b9c0-39b0fd226870",
+        "productName":"Super Safe Protection",
+        "productSlug":"super-safe-protection",
+        "planId":"afc64601-ec7c-43fd-a35d-628b293e71f1",
+        "planName":"Silver Plan",
+        "benefits":[
+           {
+              "product_plan_benefit_group_id":"5d0dcb04-fe7a-4494-83b5-13c14912b89f",
+              "benefit":"Perlindungan biaya medis karena kecelakaan",
+              "value":"25000000",
+              "value_type":"money",
+              "order":null,
+              "tooltip_text":null,
+              "id":"f4a19d62-c818-4682-9744-89fbcb976904"
+           },
+           {
+              "product_plan_benefit_group_id":"5d0dcb04-fe7a-4494-83b5-13c14912b89f",
+              "benefit":"Pertanggungan tutup usia/ perlindungan cacat total dan tetap karena kecelakaan",
+              "value":"500000000",
+              "value_type":"money",
+              "order":null,
+              "tooltip_text":null,
+              "id":"f4a4cb71-dc0f-4f23-aead-cd6e5965e64a"
+           }
+        ],
+        "riders":[
+           {
+              "id":"050086fb-ecca-43df-bcfc-5b96992d9521",
+              "monthly":52500,
+              "yearly":582000
+           },
+           {
+              "id":"a0d470fa-4ec2-4a99-8e4d-49eeed86905c",
+              "monthly":24000,
+              "yearly":262500
+           }
+        ],
+        "monthlyPremi":91000,
+        "yearlyPremi":1007000,
+        "sumAssured":500000000,
+        "chosenRider":[
+           
+        ],
+        "qty":1,
+        "pdfUrl":"/pdf/RIP-Super-Safe-Protection_V1_D1.pdf",
+        "validationType":"sum_assured"
+     },
+     {
+        "productId":"2dd2b1b0-7d52-4b74-85c4-c0485a7bd3b2",
+        "productName":"My Hospital Protection",
+        "productSlug":"my-hospital-protection",
+        "planId":"16f37b15-2765-42e5-8c6f-480304d24ee6",
+        "planName":"Gold Plan",
+        "benefits":[
+           {
+              "product_plan_benefit_group_id":"c3240ef9-aef7-41b8-b56b-97ddd09fc544",
+              "benefit":"Biaya rawat harian rumah sakit",
+              "value":"400000",
+              "value_type":"moneyperday",
+              "order":null,
+              "tooltip_text":null,
+              "id":"4fa26453-67f1-4044-9d1f-ae28a5d1caeb"
+           },
+           {
+              "product_plan_benefit_group_id":"c3240ef9-aef7-41b8-b56b-97ddd09fc544",
+              "benefit":"Pertanggungan tutup usia",
+              "value":"40000000",
+              "value_type":"money",
+              "order":null,
+              "tooltip_text":null,
+              "id":"67aee0e5-f72d-46e4-9d18-9b8ff48f0a04"
+           },
+           {
+              "product_plan_benefit_group_id":"c3240ef9-aef7-41b8-b56b-97ddd09fc544",
+              "benefit":"Biaya rawat harian ICU",
+              "value":"800000",
+              "value_type":"moneyperday",
+              "order":null,
+              "tooltip_text":null,
+              "id":"6b329380-ae2a-4988-bf96-84dc84309b1c"
+           }
+        ],
+        "riders":[
+           
+        ],
+        "monthlyPremi":73100,
+        "yearlyPremi":812300,
+        "sumAssured":40000000,
+        "chosenRider":[
+           
+        ],
+        "qty":1,
+        "pdfUrl":"/my-hospital-protection.pdf",
+        "validationType":"only_one"
+     }
+  ],
+  "newProduct":{
+     "productName":"My Hospital Protection",
+     "planName":"Gold Plan"
+  },
+  "sumAssuredTotal":1500000000,
+  "totalProducts":3,
+  "paymentFrequent":"monthly"
+}

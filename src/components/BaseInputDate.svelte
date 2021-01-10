@@ -10,7 +10,7 @@
 
   export let error = {
     status: false,
-    msg: "Plan wajib di isi",
+    msg: "",
   };
 
   let focused = false;
@@ -41,14 +41,28 @@
     overwrite: true,
   };
 
-  function accept({ detail: imask }) {
-    // console.log("accepted", imask);
+  function onAccept({ detail: imask }) {
     isDateComplete = false;
   }
 
-  function complete({ detail: imask }) {
+  function onComplete({ detail: imask }) {
     value = imask._value;
     isDateComplete = true;
+
+    error.msg = "";
+    error.status = false;
+  }
+
+  function onBlured() {
+    focused = false;
+    if (!isDateComplete) {
+      error.msg = "Tanggal lahir tidak valid";
+      error.status = true;
+    }
+  }
+
+  function onFocus() {
+    focused = true;
   }
 </script>
 
@@ -90,6 +104,9 @@
     }
 
     &.error {
+      & > label {
+        color: #e54b4b;
+      }
       &::after {
         transform: scaleX(1);
         z-index: 2;
@@ -140,14 +157,10 @@
     {value}
     placeholder="dd/mm/yyyy"
     use:imask={options}
-    on:accept={accept}
-    on:complete={complete}
-    on:focus={() => {
-      focused = true;
-    }}
-    on:blur={() => {
-      focused = false;
-    }}
+    on:accept={onAccept}
+    on:complete={onComplete}
+    on:focus={onFocus}
+    on:blur={onBlured}
     type="tel"
     autocomplete="off" />
 

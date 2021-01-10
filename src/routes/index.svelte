@@ -1,3 +1,20 @@
+<script context="module">
+  import { getProductBySlugName } from "../api/products.services";
+  export async function preload(page, session) {
+    const { API_PRODUCT_CATALOGUE } = session;
+    const super_care_data = await getProductBySlugName(
+      API_PRODUCT_CATALOGUE,
+      "super-care-protection",
+      this
+    );
+
+    return {
+      plans: super_care_data.plans,
+      api_product_url: API_PRODUCT_CATALOGUE,
+    };
+  }
+</script>
+
 <script>
   import { onMount } from "svelte";
   import AboveTheFold from "../container/AboveTheFold.svelte";
@@ -15,6 +32,9 @@
   import notcovered from "../data/json/not-covered-super-care.json";
 
   import { loadFlickity } from "../utils/_loadflickity";
+
+  export let plans;
+  export let api_product_url;
 
   let selectPlanCare;
   let OtherProductsContainer;
@@ -161,7 +181,7 @@
   </h2>
 
   {#if selectPlanCare}
-    <svelte:component this={selectPlanCare} />
+    <svelte:component this={selectPlanCare} {plans} {api_product_url} />
   {:else}
     <div
       class="border border-light-gray-300 shadow rounded-md p-4 w-full mx-auto"

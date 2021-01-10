@@ -11,7 +11,8 @@
     sumAssuredTotal,
     derivedTotalPricePerPlan,
   } from "../../stores/cart/store";
-  import { getCartLocalStorage } from "../../stores/cart/actions";
+  import { addToCart } from "../../stores/cart/actions";
+  import { getCookie } from "../../utils/_getcookie";
   import CartItems from "./CartItems.svelte";
   import BaseSwitch from "../../components/BaseSwitch.svelte";
   import { moneyFormat } from "../../utils/_moneyandtobillion";
@@ -45,9 +46,32 @@
 
   onMount(() => {
     if (process.browser) {
-      if (!Object.keys($cartStore.products).length) {
-        getCartLocalStorage("cart");
-        console.log("get from local storage", $cartStore);
+      let cartCookie = getCookie("_cart");
+
+      if (cartCookie) {
+        cartCookie = JSON.parse(cartCookie);
+        cartCookie.products.forEach((product) => {
+          const { planId, qty, price, riders, chosenRider } = product;
+
+          let selectedRiders = {};
+          chosenRider.forEach((riderId) => {
+            const rider = riders.filter((r) => r.id === riderId)[0];
+            selectedRiders[rider.id] = {
+              id: rider.id,
+              price: rider.monthly,
+            };
+          });
+
+          addToCart(
+            {
+              planId,
+              quantity: qty,
+              price,
+              riders: selectedRiders,
+            },
+            product.insuredFor
+          );
+        });
       }
 
       setTimeout(() => {

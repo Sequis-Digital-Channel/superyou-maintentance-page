@@ -1,4 +1,7 @@
 <script>
+  import { moneyFormat, toBillion } from "../utils/_moneyandtobillion";
+
+  export let plan_data;
   let benefit_group = [
     {
       title: "Perlindungan untuk Penyakit Menular",
@@ -47,7 +50,7 @@
   .result-card {
     max-width: 400px;
     margin: 0 auto;
-    box-shadow: 0 4px 15px 8px rgba(109, 131, 172, 0.25);
+    box-shadow: 0px 0px 12px 0px rgb(109 131 172 / 26%);
     border-radius: 12px;
     &__header {
       background-color: #0d294a;
@@ -169,35 +172,36 @@
         height="50" />
     </div>
     <div class="name">
-      <span class="product text-sm-white">Super Care Protection</span>
-      <h3 class="plan text-lg-white">Silver Plan</h3>
+      <span class="product text-sm-white">{plan_data.product_name}</span>
+      <h3 class="plan text-lg-white">{plan_data.name}</h3>
     </div>
     <div class="price">
       <span class="term text-sm-white">Total Pembayaran / bulan</span>
-      <h3 class="price text-lg-white">Rp 45,000</h3>
+      <h3 class="price text-lg-white">
+        {moneyFormat(plan_data.monthly_premium)}
+      </h3>
     </div>
   </div>
   <div class="result-card__body">
     <p class="color-darkblue bold tx-sm">Manfaat</p>
 
-    {#each benefit_group as benefits (benefits.title)}
+    {#each plan_data.benefit_group_categories as { benefits, name, id } (id)}
       <div class="benefit-group">
-        <h4 class="benefit-title color-darkblue semi-bold tx-sm">
-          {benefits.title}
-        </h4>
+        <h4 class="benefit-title color-darkblue semi-bold tx-sm">{name}</h4>
         <!-- benefit item -->
         <div class="benefit-items">
           <!-- LOOP HERE -->
-          {#each benefits.list_benefit as { title, info, amount } (title)}
+          {#each benefits as { benefit, benefit_notes, value, id } (id)}
             <div class="benefit">
               <div class="left">
                 <div class="description">
-                  <p class="color-lightgray tx-sm">{title}</p>
-                  <span class="info color-lightgray tx-xs">{info}</span>
+                  <p class="color-lightgray tx-sm">{benefit}</p>
+                  <span
+                    class="info color-lightgray tx-xs">{benefit_notes}</span>
                 </div>
               </div>
               <div class="right">
-                <p class="tx-lg bold color-darkblue">{amount}</p>
+                <p class="tx-lg bold color-darkblue">{toBillion(value)}</p>
               </div>
             </div>
           {/each}
@@ -206,3 +210,10 @@
     {/each}
   </div>
 </div>
+
+{#if plan_data.is_cashless}
+  <p class="mb-4 text-teal font-semibold text-sm py-4 px-2">
+    Metode Klaim:
+    <span class="text-darkblue font-normal"><em>Cashless</em></span>
+  </p>
+{/if}

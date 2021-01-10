@@ -1,6 +1,6 @@
 <script>
   import { clickOutside } from "../utils/_clickoutside";
-  import Tooltip from "../components/BaseTooltip.svelte";
+  import Tooltip from "../components/Tooltip.svelte";
 
   export let items = [];
   export let selectedItem = {
@@ -9,7 +9,7 @@
   };
   export let error = {
     status: false,
-    msg: "Plan wajib di isi",
+    msg: "",
   };
   export let label;
   export let withtooltip = false;
@@ -28,13 +28,23 @@
 
     focused = false;
     isMenuShowing = false;
+
+    error.msg = "";
+    error.status = false;
   }
 
   function handleFocused() {
     focused = true;
   }
-  function handleBlured(e) {
+
+  function handleBlured() {
     focused = false;
+    setTimeout(() => {
+      if (selectedItem.value === "" && error.status === false) {
+        error.msg = `${label} wajib di isi`;
+        error.status = true;
+      }
+    }, 100);
   }
 
   function handleClickInput(e) {
@@ -89,7 +99,14 @@
     const filteredSelectedItem = items.filter(
       (items) => items.selected === true
     );
-    selectedItem = { ...filteredSelectedItem[0] };
+    if (filteredSelectedItem.length) {
+      selectedItem = { ...filteredSelectedItem[0] };
+    } else {
+      selectedItem = {
+        name: "",
+        value: "",
+      };
+    }
   }
 </script>
 
@@ -99,6 +116,10 @@
     label {
       font-size: 14px;
       color: #708697;
+
+      &.error {
+        color: #e54b4b;
+      }
     }
     .input-box {
       position: relative;
@@ -218,14 +239,22 @@
         }
       }
     }
+
+    .tooltip-body {
+      color: #fff;
+      font-size: 12px;
+      font-weight: normal;
+    }
   }
 </style>
 
 <div class="base-select-menu">
-  <label for="select-menu">
+  <label for="select-menu" class:error={error.status}>
     {label}
     {#if withtooltip}
-      <Tooltip indentifier={label.split(' ').join('')}>{tooltiptext}</Tooltip>
+      <Tooltip className={label.toLowerCase()}>
+        <p class="tooltip-body">{tooltiptext}</p>
+      </Tooltip>
     {/if}
   </label>
   <div

@@ -7,7 +7,7 @@
   } from "../../stores/cart/store";
   import { calculateSumAssuredTotal } from "../../stores/cart/actions";
   import { onDestroy } from "svelte";
-  import { getPlanById } from "../../api/products_services";
+  import { getPlanById } from "../../api/products.services";
 
   let cartItem;
   let productApiUrl = "";
@@ -56,7 +56,9 @@
             : response.monthly_premium;
         return cart;
       });
-      sumAssuredTotal += response.sum_assured;
+      if (response.validation_type === "sum_assured") {
+        sumAssuredTotal += response.sum_assured;
+      }
     });
 
     calculateSumAssuredTotal(sumAssuredTotal);

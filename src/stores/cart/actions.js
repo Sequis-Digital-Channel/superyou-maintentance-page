@@ -7,24 +7,60 @@ sumAssuredTotal.subscribe(amount => {
 
 let cartData;
 derivedLocalStorageData.subscribe(data => cartData = data);
-export function addQuantityPlan(planId, sumAssuredPlan, price) {
+
+export function addToCart({planId, quantity, price, riders }, insuredFor) {
+  // argument planDetail is object
+  // { planId: string, fetched: boolean, quantity: number, price: number, riders: object}
+  cartStore.update(($cartStore) => {
+    let updatedCart = $cartStore;
+    updatedCart.insuredFor = insuredFor;
+    if (planId in updatedCart.products) {
+      updatedCart.products[planId] = {
+        planId: planId,
+        quantity: updatedCart.products[planId].quantity + quantity,
+        price: updatedCart.products[planId].price + price,
+        riders,
+        fetched: false,
+      }
+    } else {
+      updatedCart.products[planId] = { planId, quantity, price, riders, fetched: false }
+    }
+
+    return updatedCart;
+  })
+}
+
+export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
   // add +1
-  if((totalSumAssured + sumAssuredPlan) <= 1500000000 ) {
-    calculateSumAssuredTotal(sumAssuredPlan);
+  
     cartStore.update(($cartStore) => {
       let updatedCart = $cartStore;
-      updatedCart.products[planId].quantity += 1;
-      updatedCart.products[planId].price = updatedCart.products[planId].quantity * price;
-      return updatedCart;
+      switch (validationType) {
+        case "only_one":
+          return updatedCart;
+        case "sum_assured":
+          if((totalSumAssured + sumAssuredPlan) <= 1500000000 ) {
+            calculateSumAssuredTotal(sumAssuredPlan);
+          }
+          updatedCart.products[planId].quantity += 1;
+          updatedCart.products[planId].price = updatedCart.products[planId].quantity * price;
+          return updatedCart;
+        case "":
+          updatedCart.products[planId].quantity += 1;
+          updatedCart.products[planId].price = updatedCart.products[planId].quantity * price;
+          return updatedCart;
+        default:
+          return updatedCart
+      }
     })
-  }
+  
   // save to localStorage
   setTimeout(() => {
     setToLocalStorage()
   }, 100)
 }
 
-export function substractQuantityPlan(planId, sumAssuredPlan, price) {
+export function substractQuantityPlan(planId, sumAssuredPlan, price, validationType) {
   // substract -1
   calculateSumAssuredTotal(-sumAssuredPlan);
   cartStore.update(($cartStore) => {
@@ -81,7 +117,6 @@ export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice) {
 }
 
 export function deleteCartItem(planId, sumAssuredPlan) {
-  // console.log(planId, sumAssuredPlan);
   cartStore.update($cartStore => {
     let updatedCart = $cartStore;
     delete updatedCart.products[planId];

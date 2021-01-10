@@ -1,3 +1,7 @@
+<script>
+  import { fade } from "svelte/transition";
+</script>
+
 <style lang="postcss">
   .bg-overlay {
     background-color: rgba(0, 0, 0, 0.8);
@@ -14,4 +18,4 @@
   }
 </style>
 
-<div class="bg-overlay" on:click />
+<div class="bg-overlay" transition:fade={{ duration: 200 }} on:click />
