@@ -1,8 +1,11 @@
+<script context="module">
+  import { testimonies } from "../data/json/testimonies.json";
+</script>
+
 <script>
   import { onMount } from "svelte";
   const lazySrc =
     "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
-  const testimonies = [1, 2, 3, 4, 5];
 
   let container;
   let translatePostion = 0;
@@ -104,6 +107,13 @@
           width: 100%;
           height: 100%;
           white-space: normal;
+
+          .testimony_content {
+            min-height: 136px;
+            @media (min-width: 1024px) {
+              min-height: 128px;
+            }
+          }
         }
       }
     }
@@ -142,25 +152,32 @@
           <div class="testimony">
             <div class="pl-2 pr-2">
               <div class="testimony_card bg-white rounded-lg p-6">
-                <h5 class="text-teal font-bold text-lg md:text-xl mb-4">
-                  "Hidup saya jadi lebih mudah
-                  {testimony}"
-                </h5>
-                <p
-                  class="testimony-content text-bluegray text-sm md:text-base mb-6">
-                  Gak perlu ketemu orang lagi. Semua bisa dilakukan hanya dengan
-                  akses internet dan laptop saja
-                </p>
+                <div class="testimony_product mb-4">
+                  <h3 class="text-darkblue md:text-xl font-bold">
+                    {testimony.product_name}
+                  </h3>
+                  <span
+                    class="text-bluegray text-sm">{testimony.insurance_type}</span>
+                </div>
+                <div class="testimony_content mb-3 md:mb-4">
+                  <h5 class="text-teal font-bold md:text-xl mb-2 text-ita">
+                    "{testimony.caption}"
+                  </h5>
+                  <p class="testimony-content text-bluegray text-sm">
+                    {testimony.body}
+                  </p>
+                </div>
 
                 <div class="testimony-user flex">
                   <div class="lazy-image mr-2">
                     <img
-                      class="rounded-full"
+                      class="rounded-full object-cover"
                       src={lazySrc}
-                      data-src="https://superyou.co.id/storage/testimony/fhRaM0NXq6GAC2Qigg9rvsEKRybujhjCofOqeSDs.png"
+                      data-src={testimony.person.avatar_url}
                       alt="User Testimony"
                       width="48"
-                      height="48" />
+                      height="48"
+                      style="height:48px" />
                   </div>
                   <div class="flex flex-col">
                     <p class="text-darkblue font-bold text-lg">Stephanie</p>
