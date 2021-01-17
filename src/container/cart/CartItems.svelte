@@ -54,11 +54,13 @@
           cart.products[response.id].quantity * $paymentTermYearly
             ? response.monthly_premium
             : response.monthly_premium;
+
+        if (response.validation_type === "sum_assured") {
+          sumAssuredTotal +=
+            response.sum_assured * cart.products[response.id].quantity;
+        }
         return cart;
       });
-      if (response.validation_type === "sum_assured") {
-        sumAssuredTotal += response.sum_assured;
-      }
     });
 
     calculateSumAssuredTotal(sumAssuredTotal);
@@ -67,14 +69,9 @@
   $: if ($cartShow) {
     fetchProductsCart();
   }
+
   onDestroy(unsubscribe);
 </script>
-
-<style lang="postcss">
-  .cart-item-load {
-    border-radius: 12px;
-  }
-</style>
 
 {#each Object.keys($cartStore.products) as planid (planid)}
   {#if $cartStore.products[planid].fetched && cartItem}
@@ -84,7 +81,8 @@
       <div class="animate-pulse flex">
         <div
           class="h-full bg-gray-300 rounded mr-3"
-          style="height:60px; width: 18%;" />
+          style="height:60px; width: 18%;"
+        />
         <div class="flex flex-col w-full justify-between">
           <div class="flex justify-between">
             <div class="h-4 w-3/4 bg-gray-300 rounded mr-2" />
@@ -97,3 +95,9 @@
     </div>
   {/if}
 {/each}
+
+<style lang="postcss">
+  .cart-item-load {
+    border-radius: 12px;
+  }
+</style>

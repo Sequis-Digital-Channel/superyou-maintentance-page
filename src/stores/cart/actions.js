@@ -1,8 +1,14 @@
-import {cartStore, sumAssuredTotal, paymentTermYearly, derivedLocalStorageData} from "./store";
+import {cartStore, sumAssuredTotal, paymentTermYearly, derivedLocalStorageData, derivedTotalQuantity} from "./store";
+import { cookieAddAndSubstractQuantity, cookieDeleteCartPlan } from "../../utils/_cartcookie";
 
 let totalSumAssured;
 sumAssuredTotal.subscribe(amount => {
   totalSumAssured = amount;
+})
+
+let totalQuantity;
+derivedTotalQuantity.subscribe(count => {
+  totalQuantity = count;
 })
 
 let cartData;
@@ -32,9 +38,9 @@ export function addToCart({planId, quantity, price, riders }, insuredFor) {
 
 export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
   // add +1
-  
+    let updatedCart;
     cartStore.update(($cartStore) => {
-      let updatedCart = $cartStore;
+      updatedCart = $cartStore;
       switch (validationType) {
         case "only_one":
           return updatedCart;
@@ -53,26 +59,31 @@ export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
           return updatedCart
       }
     })
+
+    
   
   // save to localStorage
   setTimeout(() => {
-    setToLocalStorage()
+    const { quantity, price } = updatedCart.products[planId];
+    cookieAddAndSubstractQuantity(planId, quantity, price, totalSumAssured, totalQuantity);
   }, 100)
 }
 
 export function substractQuantityPlan(planId, sumAssuredPlan, price, validationType) {
   // substract -1
   calculateSumAssuredTotal(-sumAssuredPlan);
+  let updatedCart
   cartStore.update(($cartStore) => {
-    let updatedCart = $cartStore;
+    updatedCart = $cartStore;
     updatedCart.products[planId].quantity -= 1;
     updatedCart.products[planId].price = updatedCart.products[planId].quantity * price;
     return updatedCart;
   });
 
-  // save to localStorage
   setTimeout(() => {
-    setToLocalStorage()
+    // save to cookie
+    const { quantity, price } = updatedCart.products[planId];
+    cookieAddAndSubstractQuantity(planId, quantity, price, totalSumAssured, totalQuantity);
   }, 100)
 }
 
@@ -87,6 +98,7 @@ export function updateProductPrice(planId, price) {
 }
 
 export function calculateSumAssuredTotal(amount) {
+  console.log(amount);
   sumAssuredTotal.update((currentAmount) => currentAmount + amount);
 }
 
@@ -127,9 +139,9 @@ export function deleteCartItem(planId, sumAssuredPlan) {
     calculateSumAssuredTotal(-sumAssuredPlan);
   }, 100);
 
-  // save to localStorage
+  // save to cookie
   setTimeout(() => {
-    setToLocalStorage()
+    cookieDeleteCartPlan(planId, totalSumAssured, totalQuantity)
   }, 100)
 }
 

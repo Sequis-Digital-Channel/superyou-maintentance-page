@@ -4,15 +4,6 @@ import {derived, writable} from "svelte/store";
 export const cartStore = writable({
     insuredFor: "",
     products: {}
-    // products: {
-    //   "8e760dd1-ea79-4a9e-b755-836e732df14d": {
-    //     planId: "8e760dd1-ea79-4a9e-b755-836e732df14d",
-    //     fetched: false,
-    //     quantity: 1,
-    //     price: 0,
-    //     riders: {}
-    //   },
-    // },
 });
 
 export const sumAssuredTotal = writable(0);
