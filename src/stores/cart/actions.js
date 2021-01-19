@@ -1,5 +1,5 @@
 import {cartStore, sumAssuredTotal, paymentTermYearly, derivedLocalStorageData, derivedTotalQuantity} from "./store";
-import { cookieAddAndSubstractQuantity, cookieDeleteCartPlan } from "../../utils/_cartcookie";
+import { cookieAddAndSubstractQuantity, cookieDeleteCartPlan, cookieAddToCart, cookieAddAndRemoveChoosenRider } from "../../utils/_cartcookie";
 
 let totalSumAssured;
 sumAssuredTotal.subscribe(amount => {
@@ -14,11 +14,12 @@ derivedTotalQuantity.subscribe(count => {
 let cartData;
 derivedLocalStorageData.subscribe(data => cartData = data);
 
-export function addToCart({planId, quantity, price, riders }, insuredFor) {
+export function addToCart({planId, quantity, price, riders }, insuredFor, insuredDob, planDetail, productSlug, actionType = "READ") {
   // argument planDetail is object
   // { planId: string, fetched: boolean, quantity: number, price: number, riders: object}
+  let updatedCart;
   cartStore.update(($cartStore) => {
-    let updatedCart = $cartStore;
+    updatedCart = $cartStore;
     updatedCart.insuredFor = insuredFor;
     if (planId in updatedCart.products) {
       updatedCart.products[planId] = {
@@ -33,7 +34,14 @@ export function addToCart({planId, quantity, price, riders }, insuredFor) {
     }
 
     return updatedCart;
-  })
+  });
+
+  if (actionType === "SUBMIT") {
+    setTimeout(() => {
+      cookieAddToCart(planDetail, productSlug, insuredFor, insuredDob);
+    }, 100);
+  }
+
 }
 
 export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
@@ -71,7 +79,9 @@ export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
 
 export function substractQuantityPlan(planId, sumAssuredPlan, price, validationType) {
   // substract -1
-  calculateSumAssuredTotal(-sumAssuredPlan);
+  if (validationType === "sum_assured") {
+    calculateSumAssuredTotal(-sumAssuredPlan);
+  }
   let updatedCart
   cartStore.update(($cartStore) => {
     updatedCart = $cartStore;
@@ -103,8 +113,9 @@ export function calculateSumAssuredTotal(amount) {
 }
 
 export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice) {
+  let updatedCart
   cartStore.update(($cartStore) => {
-    let updatedCart = $cartStore;
+    updatedCart = $cartStore;
     switch(actionType) {
       case "ADD_RIDER":
         updatedCart.products[planId].riders[riderId] = {
@@ -124,7 +135,7 @@ export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice) {
   })
   // save to localStorage
   setTimeout(() => {
-    setToLocalStorage()
+    cookieAddAndRemoveChoosenRider(planId, Object.keys(updatedCart.products[planId].riders));
   }, 100)
 }
 
