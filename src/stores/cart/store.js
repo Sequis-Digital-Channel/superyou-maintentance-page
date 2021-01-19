@@ -49,18 +49,4 @@ export const derivedLocalStorageData = derived([cartStore, paymentTermYearly, su
     payment_term_yearly: $paymentTermYearly,
     expiry: expiry.setDate(expiry.getDate() + 14)
   })
-})
-
-    // insuredFor: "SELF",
-    // dobString: "1992-01-09",
-    // paymentFrequent: "monthly",
-    // sumAssuredTotal: 0,
-
-
-    // "ebe649b3-20ac-4f7c-8526-d814c0560e3a": {
-      //   productId: "3534f624-496e-42d5-8471-94da52d05c2a",
-      //   planId: "ebe649b3-20ac-4f7c-8526-d814c0560e3a",
-      //   fetched: false,
-      //   quantity: 1,
-      //   price: 0,
-      // },
+});
