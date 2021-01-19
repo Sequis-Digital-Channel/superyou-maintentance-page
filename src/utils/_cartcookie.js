@@ -27,6 +27,79 @@ export function saveToCookies(data, h = 4) {
     "; path=/;";
 }
 
+export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
+  let cartCookie = getCookie("_cart");
+  if (cartCookie) {
+    cartCookie = JSON.parse(cartCookie);
+    if (plan.validation_type === "sum_assured") {
+      cartCookie.sumAssuredTotal += plan.sum_assured;
+    }
+    cartCookie.totalProducts += 1;
+    cartCookie.insuredFor = insuredFor;
+    const indexOfTargetProduct = cartCookie.products.findIndex(product => product.planId === plan.id)
+
+    if (indexOfTargetProduct !== -1) {
+      cartCookie.products[indexOfTargetProduct].qty += 1;
+      cartCookie.products[indexOfTargetProduct].price += plan.monthly_premium;
+      saveToCookies(cartCookie);
+    } else {
+      cartCookie.products.push({
+        productSlug: productSlug,
+        planId: plan.id,
+        riders: [],
+        monthlyPremi: plan.monthly_premium,
+        yearlyPremi: plan.yearly_premium,
+        sumAssured: plan.validation_type === "sum_assured" ? plan.sum_assured : 0,
+        chosenRider: [],
+        qty: 1,
+        pdfUrl: "pdf",
+        validationType: plan.validation_type,
+        product_code: plan.product_code,
+        product_slug: productSlug,
+        product_plan_code: plan.product_plan_code,
+      });
+      cartCookie.newProduct = {
+        "productName": plan.product_name,
+        "planName": plan.name_text
+      }
+      saveToCookies(cartCookie);
+    }
+  } else {
+    var selectedPlanData = {
+      insuredFor: insuredFor,
+      dobTimestamp: insuredDob, // timestamp
+      age: insuredDob, // age
+      type: "form",
+      path: plan.product_code,
+      products: [
+        {
+          productSlug: productSlug,
+          planId: plan.id,
+          riders: [],
+          monthlyPremi: plan.monthly_premium,
+          yearlyPremi: plan.yearly_premium,
+          sumAssured: plan.validation_type === "sum_assured" ? plan.sum_assured : 0,
+          chosenRider: [],
+          qty: 1,
+          pdfUrl: "pdf",
+          validationType: plan.validation_type,
+          product_code: plan.product_code,
+          product_slug: productSlug,
+          product_plan_code: plan.product_plan_code,
+        }
+      ],
+      "sumAssuredTotal": plan.validation_type === "sum_assured" ? plan.sum_assured : 0,
+      "totalProducts": 1,
+      "paymentFrequent":"monthly",
+      "newProduct":{
+        "productName": plan.product_name,
+        "planName": plan.name_text
+      }
+    };
+    saveToCookies(selectedPlanData);
+  }
+}
+
 export function cookieAddAndSubstractQuantity(planId, quantity, price, sumAssuredTotal, totalQuantity) {
   let cartCookie = getCookie("_cart");
   if (cartCookie) {
@@ -37,6 +110,18 @@ export function cookieAddAndSubstractQuantity(planId, quantity, price, sumAssure
       cartCookie.products[indexOfTargetProduct].price = price;
       cartCookie.sumAssuredTotal = sumAssuredTotal;
       cartCookie.totalProducts = totalQuantity;
+      saveToCookies(cartCookie);
+    }
+  }
+}
+
+export function cookieAddAndRemoveChoosenRider(planId, chosenRider) {
+  let cartCookie = getCookie("_cart");
+  if (cartCookie) {
+    cartCookie = JSON.parse(cartCookie);
+    const indexOfTargetProduct = cartCookie.products.findIndex(product => product.planId === planId)
+    if (indexOfTargetProduct !== -1) {
+      cartCookie.products[indexOfTargetProduct].chosenRider = chosenRider;
       saveToCookies(cartCookie);
     }
   }
