@@ -10,6 +10,7 @@
 
     return {
       plans: super_care_data.plans,
+      slug: super_care_data.slug,
       api_product_url: API_PRODUCT_CATALOGUE,
     };
   }
@@ -34,6 +35,7 @@
   import { loadFlickity } from "../utils/_loadflickity";
 
   export let plans;
+  export let slug;
   export let api_product_url;
 
   let selectPlanCare;
@@ -181,7 +183,7 @@
   </h2>
 
   {#if selectPlanCare}
-    <svelte:component this={selectPlanCare} {plans} {api_product_url} />
+    <svelte:component this={selectPlanCare} {plans} {api_product_url} productSlug={slug} />
   {:else}
     <div
       class="border border-light-gray-300 shadow rounded-md p-4 w-full mx-auto"
