@@ -46,19 +46,27 @@
       )
     );
     productsDetails.forEach(function (response, index) {
+      console.log(response);
       // itemsDetail = [...itemsDetail, { ...response }];
       itemsDetail[response.id] = response;
       cartStore.update((cart) => {
         cart.products[response.id].fetched = true;
         cart.products[response.id].price =
-          cart.products[response.id].quantity * $paymentTermYearly
-            ? response.monthly_premium
-            : response.monthly_premium;
+          cart.products[response.id].quantity * response.monthly_premium;
 
         if (response.validation_type === "sum_assured") {
           sumAssuredTotal +=
             response.sum_assured * cart.products[response.id].quantity;
         }
+
+        // Update riders price if any plan with choosen riders
+        Object.keys(cart.products[response.id].riders).forEach((riderId) => {
+          const rider = response.riders.find((rider) => rider.id === riderId);
+          cart.products[response.id].riders[rider.id] = {
+            id: rider.id,
+            price: rider.monthly_premium,
+          };
+        });
         return cart;
       });
     });

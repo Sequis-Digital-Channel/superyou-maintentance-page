@@ -54,21 +54,16 @@
       if (cartCookie) {
         cartCookie = JSON.parse(cartCookie);
         cartCookie.products.forEach((product) => {
-          const {
-            planId,
-            qty,
-            price,
-            riders,
-            chosenRider,
-            sumAssured,
-          } = product;
+          const { planId, qty, price, chosenRider, sumAssured } = product;
 
           let selectedRiders = {};
+          let riders = {};
           chosenRider.forEach((riderId) => {
-            const rider = riders.filter((r) => r.id === riderId)[0];
-            selectedRiders[rider.id] = {
-              id: rider.id,
-              price: rider.monthly,
+            console.log(riderId);
+            // const rider = riders.filter((r) => r.id === riderId)[0];
+            riders[riderId] = {
+              id: "",
+              price: 0,
             };
           });
 
@@ -77,7 +72,7 @@
               planId,
               quantity: qty,
               price,
-              riders: selectedRiders,
+              riders,
             },
             product.insuredFor
           );
