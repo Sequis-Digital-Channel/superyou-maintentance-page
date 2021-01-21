@@ -43,7 +43,7 @@
     e.preventDefault();
     const cartData = getCookie("_cart");
     if (cartData) {
-      let test = JSON.parse(cartData);
+      let parsedCart = JSON.parse(cartData);
       const response = await fetch(`${superApiUrl}/api/v1/crypting`, {
         method: "POST",
         headers: {
@@ -54,7 +54,7 @@
           "Access-Control-Allow-Headers":
             "Content-type,Accept,X-Access-Token,X-Key",
         },
-        body: JSON.stringify({ data: test }),
+        body: JSON.stringify({ data: parsedCart }),
       });
       const encrypted = await response.json();
       window.location.href = `${appUrl}/form-data?q=${encrypted}`;
@@ -115,23 +115,6 @@
       setTimeout(() => {
         isDOMloaded = true;
       }, 500);
-
-      // (async () => {
-      //   console.log("runnin");
-      //   const rawResponse = await fetch(
-      //     "https://staging-api.test/api/v1/crypting",
-      //     {
-      //       method: "POST",
-      //       headers: {
-      //         Accept: "application/json",
-      //         "Content-Type": "application/json",
-      //       },
-      //       body: JSON.stringify({ a: 1, b: "Textual content" }),
-      //     }
-      //   );
-      //   const content = await rawResponse.json();
-      //   console.log(content);
-      // })();
     }
   });
 </script>
