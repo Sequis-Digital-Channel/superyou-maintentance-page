@@ -19,6 +19,16 @@
   import CartItems from "./CartItems.svelte";
   import BaseSwitch from "../../components/BaseSwitch.svelte";
   import { moneyFormat } from "../../utils/_moneyandtobillion";
+  import { stores } from "@sapper/app";
+
+  let superApiUrl;
+  let appUrl;
+
+  const { session } = stores();
+  session.subscribe((value) => {
+    superApiUrl = value.SUPER_API_URL;
+    appUrl = value.APP_URL;
+  });
 
   let isDOMloaded = false;
   let isNextStepToBuyValid;
@@ -28,6 +38,28 @@
   const handleCartClose = () => {
     cartShow.update(() => false);
   };
+
+  async function handleSubmitCart(e) {
+    e.preventDefault();
+    const cartData = getCookie("_cart");
+    if (cartData) {
+      let test = JSON.parse(cartData);
+      const response = await fetch(`${superApiUrl}/api/v1/crypting`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,POST",
+          "Access-Control-Allow-Headers":
+            "Content-type,Accept,X-Access-Token,X-Key",
+        },
+        body: JSON.stringify({ data: test }),
+      });
+      const encrypted = await response.json();
+      window.location.href = `${appUrl}/form-data?q=${encrypted}`;
+    }
+  }
 
   $: if ($cartShow) {
     bodyScroll.update(() => false);
@@ -48,6 +80,7 @@
   }
 
   onMount(() => {
+    console.log(superApiUrl);
     if (process.browser) {
       let cartCookie = getCookie("_cart");
 
@@ -82,6 +115,23 @@
       setTimeout(() => {
         isDOMloaded = true;
       }, 500);
+
+      // (async () => {
+      //   console.log("runnin");
+      //   const rawResponse = await fetch(
+      //     "https://staging-api.test/api/v1/crypting",
+      //     {
+      //       method: "POST",
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify({ a: 1, b: "Textual content" }),
+      //     }
+      //   );
+      //   const content = await rawResponse.json();
+      //   console.log(content);
+      // })();
     }
   });
 </script>
@@ -150,7 +200,10 @@
             class="bg-teal rounded-lg py-2 px-4 font-bold text-white text-sm flex justify-between items-center"
             style="width:9rem;"
             aria-label="buy action"
-            disabled={isNextStepToBuyValid}>
+            disabled={isNextStepToBuyValid}
+            on:click={(e) => {
+              handleSubmitCart(e);
+            }}>
             LANJUT BELI
             <svg
               xmlns="http://www.w3.org/2000/svg"
