@@ -234,7 +234,7 @@
         riders: {},
       },
       calculationData.insured_for.val.value,
-      calculationData.insured_dob.val.value,
+      calculationData.insured_dob.val,
       basePlanResultData,
       productSlug,
       "SUBMIT"
