@@ -80,7 +80,6 @@
   }
 
   onMount(() => {
-    console.log(superApiUrl);
     if (process.browser) {
       let cartCookie = getCookie("_cart");
 
@@ -92,8 +91,6 @@
           let selectedRiders = {};
           let riders = {};
           chosenRider.forEach((riderId) => {
-            console.log(riderId);
-            // const rider = riders.filter((r) => r.id === riderId)[0];
             riders[riderId] = {
               id: "",
               price: 0,
