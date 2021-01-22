@@ -1,3 +1,5 @@
+import { dobStringToMillis, calculateAge } from "../utils/_date";
+
 export function getCookie(cookieName) {
   var name = cookieName + "=";
   var ca = document.cookie.split(";");
@@ -28,6 +30,7 @@ export function saveToCookies(data, h = 4) {
 }
 
 export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
+  console.log(insuredDob);
   let cartCookie = getCookie("_cart");
   if (cartCookie) {
     cartCookie = JSON.parse(cartCookie);
@@ -67,8 +70,8 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
   } else {
     var selectedPlanData = {
       insuredFor: insuredFor,
-      dobTimestamp: insuredDob, // timestamp
-      age: insuredDob, // age
+      dobTimestamp: dobStringToMillis(insuredDob), // timestamp
+      age: calculateAge(insuredDob, "DD/MM/YYYY"), // age
       type: "form",
       path: plan.product_code,
       products: [
