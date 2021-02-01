@@ -72,8 +72,8 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
       insuredFor: insuredFor,
       dobTimestamp: dobStringToMillis(insuredDob), // timestamp
       age: calculateAge(insuredDob, "DD/MM/YYYY"), // age
-      type: "general",
-      path: plan.product_code,
+      type: "form",
+      path: "general",
       products: [
         {
           productSlug: productSlug,
