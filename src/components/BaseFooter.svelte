@@ -22,6 +22,8 @@
 
 <style lang="postcss">
   footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 420px; /* Explained in the next section. */
     padding: 0 10px;
     @media (min-width: 768px) {
       padding: 0 24px;
