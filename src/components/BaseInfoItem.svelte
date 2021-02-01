@@ -27,10 +27,10 @@
         font-weight: bold;
         margin-bottom: 8px;
       }
-      p {
+      /* p {
         font-size: 14px;
         color: #708697;
-      }
+      } */
       @media (min-width: 640px) {
         & > h4 {
           font-size: 20px;
@@ -87,7 +87,7 @@
         {/if}
       </h4>
     {/if}
-    <p>
+    <p class="text-sm text-bluegray">
       {@html description}
       {#if tooltipDescription}
         <Tooltip className={key} type="body">
