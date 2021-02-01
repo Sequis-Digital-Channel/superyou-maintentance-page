@@ -2,7 +2,7 @@
   import { getProductBySlugName } from "../../api/products.services";
   import superCareProtection from "../../data/json/staging-super-care-protection.json";
   export async function preload(page, session) {
-    const { API_PRODUCT_CATALOGUE } = session;
+    const { API_PRODUCT_CATALOGUE, APP_URL } = session;
     const super_care_data = await getProductBySlugName(
       API_PRODUCT_CATALOGUE,
       "super-care-protection",
@@ -12,7 +12,10 @@
     return {
       plans: super_care_data ? super_care_data.plans : superCareProtection.plans,
       slug: super_care_data ? super_care_data.slug : superCareProtection.slug,
+      benefit_groups: super_care_data ? super_care_data.benefit_groups : superCareProtection.benefit_groups,
+      rip_link: super_care_data ? super_care_data.rip_link : superCareProtection.rip_link,
       api_product_url: API_PRODUCT_CATALOGUE,
+      app_url : APP_URL
     };
   }
 </script>
@@ -37,7 +40,10 @@
 
   export let plans;
   export let slug;
+  export let benefit_groups;
+  export let rip_link;
   export let api_product_url;
+  export let app_url;
 
   let selectPlanCare;
   let OtherProductsContainer;
@@ -118,7 +124,7 @@
 </section>
 
 <section class="su_container benefits">
-  <ProductBenefits />
+  <ProductBenefits benefitGroups={benefit_groups}/>
 
   <BaseButton
     style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
@@ -134,6 +140,7 @@
     style="text-align:center;color: #0d294a;font-size: 14px;"
   >Baca dan download informasi selengkapnya mengenai produk ini di</p>
   <div style="margin:20px auto 20px;padding: 0 10px; max-width:324px;">
+    <a href={`${app_url}/${rip_link}`} target="_blank">
     <BaseButton
       style="font-size:14px;
       color: #0d294a;
@@ -145,6 +152,7 @@
         <IcPdf />
       </span>
     </BaseButton>
+    </a>
   </div>
 </section>
 
