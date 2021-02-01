@@ -21,6 +21,8 @@
   let planSelected = false;
   let basePlanResultData;
   let basePlanResultCard;
+  let selectedDob = "";
+
   const setComponent = (module) => {
     basePlanResultCard = module.default;
   };
@@ -153,7 +155,11 @@
     const selectedPlanData = filterPlanCashlessOrNotByPlanNameSlug();
     const insuredDob = formatDob(calculationData.insured_dob.val);
 
-    if (basePlanResultData && basePlanResultData.id === selectedPlanData.id) {
+    if (
+        basePlanResultData
+        && basePlanResultData.id === selectedPlanData.id
+        && insuredDob === selectedDob
+      ) {
       planSelected = true;
       focusView();
     } else {
@@ -165,6 +171,7 @@
       loadBasePlanResultCard();
       planSelected = true;
       focusView();
+      selectedDob = insuredDob;
     }
   }
 
@@ -282,6 +289,14 @@
         bind:error={calculationData.insured_for.error}
       />
       <br />
+      <BaseInputDate
+        name="insured_dob"
+        minAge={1}
+        maxAge={60}
+        bind:value={calculationData.insured_dob.val}
+        bind:error={calculationData.insured_dob.error}
+      />
+      <br />
       <BaseSelectMenu
         label="Jenis Kelamin Tertanggung"
         items={gender}
@@ -293,14 +308,6 @@
         name="claim_method"
         items={claim_method}
         bind:selectedItemValue={calculationData.claim_method.val}
-      />
-      <br />
-      <BaseInputDate
-        name="insured_dob"
-        minAge={1}
-        maxAge={60}
-        bind:value={calculationData.insured_dob.val}
-        bind:error={calculationData.insured_dob.error}
       />
       <br />
       <BaseButton style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
