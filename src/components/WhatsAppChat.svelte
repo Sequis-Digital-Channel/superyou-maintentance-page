@@ -9,7 +9,6 @@ onMount(() => {
   const aboveTheFoldWrapper = document.querySelector(".above-the-fold-wrapper");
   const whatsAppChatObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      console.log(entry);
       if (!entry.isIntersecting) {
             whatsAppShowing = true;
           } else {
@@ -24,7 +23,6 @@ onMount(() => {
   const premiCalcSection = document.querySelector(".premi-calculation");
   const windowNotifObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      console.log(entry, "windowNotifObserver");
       if (!entry.isIntersecting && !userClosedWindowNotif) {
         windowNotifShowing = true;
       } else if (windowNotifShowing) {
@@ -136,6 +134,15 @@ onMount(() => {
     bottom: 12%;
     cursor: pointer;
     z-index: 3;
+    @media (max-width: 639px) {
+      bottom: 9%;
+      right: 1px;
+
+      & > img {
+        width: 60px;
+        height: 60px;
+      }
+    }
   }
   .window-notification {
     width: 350px;
@@ -151,6 +158,11 @@ onMount(() => {
     pointer-events: auto;
     border-radius: 12px;
     box-shadow: 0px 2px 15px 0px rgba(143, 143, 143, 0.8);
+
+    @media (max-width: 639px) {
+      width: 90%;
+      right: 5%;
+    }
 
     &:before {
       content: "";
