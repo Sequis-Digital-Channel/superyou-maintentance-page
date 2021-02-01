@@ -16,7 +16,8 @@ polka() // You can also use Express
 			session: () => ({
 				API_PRODUCT_CATALOGUE,
 				APP_URL,
-				SUPER_API_URL
+				SUPER_API_URL,
+				NODE_ENV
 			})
 		})
 	)
