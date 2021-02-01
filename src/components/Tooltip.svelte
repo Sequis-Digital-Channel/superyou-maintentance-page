@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import IcTooltip from "../components/svg/IcTooltip.svelte";
   export let className = "";
+  export let type = "body";
 
   onMount(() => {
     if (process.browser && window.outerWidth <= 639) {
@@ -29,6 +30,12 @@
     display: inline-block;
     margin-left: 6px;
     cursor: pointer;
+    &.body {
+      margin-bottom: -3px;
+    }
+    &.title {
+      margin-bottom: -1px;
+    }
     .arrow-up {
       visibility: hidden;
       opacity: 0;
@@ -83,7 +90,7 @@
   }
 </style>
 
-<div class={`t-wrapper ${className}`}>
+<div class={`t-wrapper ${type} ${className}`}>
   <IcTooltip />
   <span class="arrow-up" />
   <span class={`tooltip-holder ${className}`}>

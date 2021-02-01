@@ -1,10 +1,8 @@
-<script context="module">
-  import benefits from "../../data/json/benefits-group.json";
-</script>
-
 <script>
   import InfoItem from "../../components/BaseInfoItem.svelte";
   import Tooltip from "../../components/Tooltip.svelte";
+
+  export let benefitGroups = [];
 </script>
 
 <style lang="postcss">
@@ -58,14 +56,14 @@
 <div class="product_benefits">
   <h1 class="product_benefits__title">Manfaat apa yang akan kamu dapatkan?</h1>
 
-  {#each benefits.benefits_group as bene_section, i (`${i}${bene_section.title.name}`)}
-    {#if bene_section.title.name !== ''}
+  {#each benefitGroups as bene_section, i (bene_section.id)}
+    {#if bene_section.name !== ''}
       <h2 class="benefit_group__title">
-        {bene_section.title.name}
-        {#if bene_section.title.tooltip !== ''}
-          <Tooltip className={`benetitle-${i}`}>
+        {bene_section.name}
+        {#if bene_section.tooltip_text}
+          <Tooltip className={`benetitle-${i}`} type="title">
             <div class="text-xs text-white font-medium">
-              {bene_section.title.tooltip}
+              {bene_section.tooltip_text}
             </div>
           </Tooltip>
         {/if}
@@ -73,8 +71,8 @@
     {/if}
 
     <div class="benefit_wrapper">
-      {#each bene_section.benefits as { icon, title, description }, i (`${description}${i}`)}
-        <InfoItem {icon} {title} {description} key={`bene-tooltip-${i}`} />
+      {#each bene_section.benefits as { icon_svg, name, benefit, id, tooltip_text }, i (id)}
+        <InfoItem icon={icon_svg} title={name} description={benefit} tooltipTitle={tooltip_text} key={`bene-tooltip-${i}`} />
       {/each}
     </div>
   {/each}
