@@ -22,12 +22,12 @@
 
 <script>
   import { onMount } from "svelte";
-  import AboveTheFold from "../../container/AboveTheFold.svelte";
-  import ProductBenefits from "../../container/product/ProductBenefits.svelte";
-  import ProductTnc from "../../container/product/ProductTnc.svelte";
   import BaseButton from "../../components/BaseButton.svelte";
   import IcPdf from "../../components/svg/IcPdf.svelte";
 
+  import AboveTheFold from "../../container/AboveTheFold.svelte";
+  import ProductBenefits from "../../container/product/ProductBenefits.svelte";
+  import ProductTnc from "../../container/product/ProductTnc.svelte";
   import Faq from "../../container/Faq.svelte";
   import Testimony from "../../container/Testimony.svelte";
   import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
@@ -47,6 +47,7 @@
 
   let selectPlanCare;
   let OtherProductsContainer;
+  let WhatsAppChat;
   let isFlicktyLoaded = false;
 
   const logError = (err) => {
@@ -70,6 +71,14 @@
       })
       .catch(logError);
   };
+
+  const loadWhatsAppChat = (e) => {
+    import("../../components/WhatsAppChat.svelte")
+    .then((module) => {
+      WhatsAppChat = module.default
+    })
+    .catch(logError);
+  }
 
   onMount(() => {
     const images = Array.from(document.querySelectorAll(".lazy-image img"));
@@ -112,6 +121,16 @@
         img.src = img.dataset.src;
       });
     }
+
+    function initWhatsAppUi () {
+      console.log("body scrolled");
+      loadWhatsAppChat()
+      setTimeout(() => {
+        document.removeEventListener("scroll", initWhatsAppUi)
+      }, 0)
+    }
+    document.addEventListener("scroll", initWhatsAppUi);
+    
   });
 </script>
 
@@ -235,6 +254,10 @@
     <div class="otherproduct_progress" />
   {/if}
 </section>
+
+{#if WhatsAppChat}
+  <svelte:component this={WhatsAppChat} />
+{/if}
 
 <style lang="postcss">
   .above-the-fold-wrapper {
