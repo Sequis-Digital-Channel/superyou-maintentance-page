@@ -1,19 +1,15 @@
 <script context="module">
-  import { getProductBySlugName } from "../../api/products.services";
-  import superCareProtection from "../../data/json/staging-super-care-protection.json";
+  
+  
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL } = session;
-    const super_care_data = await getProductBySlugName(
-      API_PRODUCT_CATALOGUE,
-      "super-care-protection",
-      this
-    );
+    // const super_care_data = await getProductBySlugName(
+    //   API_PRODUCT_CATALOGUE,
+    //   "super-care-protection",
+    //   this
+    // );
 
     return {
-      plans: super_care_data ? super_care_data.plans : superCareProtection.plans,
-      slug: super_care_data ? super_care_data.slug : superCareProtection.slug,
-      benefit_groups: super_care_data ? super_care_data.benefit_groups : superCareProtection.benefit_groups,
-      rip_link: super_care_data ? super_care_data.rip_link : superCareProtection.rip_link,
       api_product_url: API_PRODUCT_CATALOGUE,
       app_url : APP_URL
     };
@@ -35,15 +31,18 @@
   import dataFaqSuperCare from "../../data/json/faq-super-care.json";
   import tnc from "../../data/json/tnc-super-care.json";
   import notcovered from "../../data/json/not-covered-super-care.json";
+  import superCareProtection from "../../data/json/staging-super-care-protection.json";
 
   import { loadFlickity } from "../../utils/_loadflickity";
+  import { getProductBySlugNameClient } from "../../api/products.services";
 
-  export let plans;
-  export let slug;
-  export let benefit_groups;
-  export let rip_link;
   export let api_product_url;
   export let app_url;
+
+  let plans = [];
+  let slug = superCareProtection.slug
+  let benefit_groups = superCareProtection.benefit_groups;
+  let rip_link = superCareProtection.rip_link;
 
   let selectPlanCare;
   let OtherProductsContainer;
@@ -54,7 +53,12 @@
     console.error((err && err.stack) || err);
   };
 
-  const loadSelectPlanCare = () => {
+  const loadSelectPlanCare = async () => {
+    const product = await getProductBySlugNameClient(
+      api_product_url,
+      "super-care-protection"
+    );
+    plans = product.plans;
     import("../../container/product/SelectPlanCare.svelte")
       .then((module) => {
         selectPlanCare = module.default;
@@ -130,7 +134,6 @@
       }, 0)
     }
     document.addEventListener("scroll", initWhatsAppUi);
-    
   });
 </script>
 
@@ -180,7 +183,7 @@
     Cari Tahu Biaya Perlindungan Super Care Protection
   </h2>
 
-  {#if selectPlanCare}
+  {#if selectPlanCare && plans.length}
     <svelte:component
       this={selectPlanCare}
       {plans}
@@ -288,5 +291,16 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 38px 0;
+  }
+
+  .su_container.tnc,
+  .su_container.premi-calculation,
+  .su_container.faq,
+  .su_container.testimonies,
+  .su_container.notcovered,
+  .su_container.otherproduct 
+  {
+    content-visibility: auto;
+    contain-intrinsic-size: 700px;
   }
 </style>
