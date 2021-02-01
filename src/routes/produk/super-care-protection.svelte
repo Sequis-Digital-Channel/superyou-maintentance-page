@@ -1,5 +1,6 @@
 <script context="module">
   import { getProductBySlugName } from "../../api/products.services";
+  import superCareProtection from "../../data/json/staging-super-care-protection.json";
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE } = session;
     const super_care_data = await getProductBySlugName(
@@ -9,8 +10,8 @@
     );
 
     return {
-      plans: super_care_data.plans,
-      slug: super_care_data.slug,
+      plans: super_care_data ? super_care_data.plans : superCareProtection.plans,
+      slug: super_care_data ? super_care_data.slug : superCareProtection.slug,
       api_product_url: API_PRODUCT_CATALOGUE,
     };
   }
