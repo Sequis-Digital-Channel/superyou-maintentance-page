@@ -46,7 +46,6 @@
       )
     );
     productsDetails.forEach(function (response, index) {
-      console.log(response);
       // itemsDetail = [...itemsDetail, { ...response }];
       itemsDetail[response.id] = response;
       cartStore.update((cart) => {
