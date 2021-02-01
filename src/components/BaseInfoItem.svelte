@@ -3,6 +3,7 @@
   export let icon;
   export let title = "";
   export let description;
+  export let tooltipTitle = "";
   export let tooltipDescription = null;
   export let key = "";
 </script>
@@ -78,22 +79,18 @@
   <div class="benefit_item__right">
     {#if title}
       <h4>
-        {title.name}
-        {#if title.hasOwnProperty('tooltip') && title.tooltip !== ''}
-          <!-- <Tooltip indentifier={key}></Tooltip> -->
-          <Tooltip className={key}>
-            <p class="tooltip-body">{title.tooltip}</p>
+        {title}
+        {#if tooltipTitle !== ''}
+          <Tooltip className={key} type="title">
+            <p class="tooltip-body">{tooltipTitle}</p>
           </Tooltip>
         {/if}
       </h4>
     {/if}
     <p>
-      {description}
+      {@html description}
       {#if tooltipDescription}
-        <!-- <Tooltip indentifier={key}>
-          {@html tooltipDescription}
-        </Tooltip> -->
-        <Tooltip className={key}>
+        <Tooltip className={key} type="body">
           <div class="tooltip-body">
             {@html tooltipDescription}
           </div>
