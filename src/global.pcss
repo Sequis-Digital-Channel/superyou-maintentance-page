@@ -13,3 +13,24 @@ p {
 .f-sans {
   @apply font-osans;
 }
+
+.benefit_item__left {
+  flex: 1 0 50px;
+  max-width: 50px;
+  margin-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .benefit_item__left {
+    align-self: center;
+    margin-right: 0;
+    margin-bottom: 12px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+  .benefit_item__right {
+    text-align: center;
+  }
+}
