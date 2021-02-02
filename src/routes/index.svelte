@@ -156,7 +156,7 @@
   >
 </section>
 
-<!--
+
 <section class="su_container tnc">
   <ProductTnc listTnc={tnc.care} />
   <p
@@ -178,7 +178,7 @@
     </BaseButton>
     </a>
   </div>
-</section> -->
+</section>
 
 
 <section class="su_container premi-calculation">
