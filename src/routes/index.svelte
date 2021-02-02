@@ -145,6 +145,7 @@
   <AboveTheFold />
 </section>
 
+
 <section class="su_container benefits">
   <ProductBenefits benefitGroups={benefit_groups}/>
 
@@ -155,6 +156,7 @@
   >
 </section>
 
+<!--
 <section class="su_container tnc">
   <ProductTnc listTnc={tnc.care} />
   <p
@@ -176,7 +178,8 @@
     </BaseButton>
     </a>
   </div>
-</section>
+</section> -->
+
 
 <section class="su_container premi-calculation">
   <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
@@ -234,6 +237,7 @@
     </div>
   {/if}
 </section>
+
 
 <section class="su_container faq">
   <Faq
@@ -293,7 +297,7 @@
     padding: 38px 0;
   }
 
-  .su_container.tnc,
+  /* .su_container.tnc,
   .su_container.premi-calculation,
   .su_container.faq,
   .su_container.testimonies,
@@ -302,5 +306,5 @@
   {
     content-visibility: auto;
     contain-intrinsic-size: 700px;
-  }
+  } */
 </style>
