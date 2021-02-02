@@ -53,8 +53,8 @@
         margin-bottom: 12px;
         max-width: 100%;
         & > img {
-          width: 80px;
-          height: 80px;
+          width: 80px !important;
+          height: 80px !important;
         }
       }
     }
@@ -74,7 +74,9 @@
       data-src={icon}
       width="50"
       height="50"
-      alt="Icon Manfaat dan Ketentuan Produk" />
+      alt="Icon Manfaat dan Ketentuan Produk"
+      style="height:50px;"
+      />
   </div>
   <div class="benefit_item__right">
     {#if title}

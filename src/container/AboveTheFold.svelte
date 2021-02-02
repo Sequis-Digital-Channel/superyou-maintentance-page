@@ -80,7 +80,7 @@
             text-align: left;
           }
           @media (min-width: 1024px) {
-            font-size: 20px;
+            font-size: 20px !important;
           }
         }
       }
@@ -110,11 +110,12 @@
       width="80"
       height="100"
       loading="lazy"
-      class="product_icon" />
+      class="product_icon"
+      style="height:100px;" />
 
     <div class="product_meta">
       <h1 class="product_meta_name">Super Care Protection</h1>
-      <p class="product_meta_description">
+      <p class="product_meta_description" style="font-size: 14px;font-weight:600;">
         Perlindungan biaya rawat jalan dan rawat inap untuk 30+ penyakit
         menular/infeksi dan kecelakaan. Tersedia pula pilihan sistem klaim
         cashless.
