@@ -299,6 +299,11 @@
     }
 
     .basket-container {
+      display:none;
+      @media (min-width: 640px) {
+        display: flex;
+      }
+
       width: 60px;
       right: -60px;
       top: calc(50% - 60px);
