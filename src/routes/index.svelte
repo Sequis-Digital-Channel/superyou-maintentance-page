@@ -297,7 +297,7 @@
     padding: 38px 0;
   }
 
-  /* .su_container.tnc,
+  .su_container.tnc,
   .su_container.premi-calculation,
   .su_container.faq,
   .su_container.testimonies,
@@ -306,5 +306,5 @@
   {
     content-visibility: auto;
     contain-intrinsic-size: 700px;
-  } */
+  }
 </style>
