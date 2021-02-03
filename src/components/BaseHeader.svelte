@@ -459,7 +459,9 @@
         <li><a href={`${APP_URL}/blog`}>Blog</a></li>
         <li><a href={`${APP_URL}/hubungi-kami`}>Hubungi Kami</a></li>
         <li class="auth-and-menu">
-          <button aria-label="login">
+          <button on:click={() => {
+            window.location.href = `${APP_URL}/?#modal-login`;
+          }} aria-label="login">
             <IcLock />
             <span>MASUK</span>
           </button>
