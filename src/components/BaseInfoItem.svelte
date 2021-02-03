@@ -91,6 +91,7 @@
     {/if}
     <p class="text-sm text-bluegray">
       {@html description}
+      <!--
       {#if tooltipDescription}
         <Tooltip className={key} type="body">
           <div class="tooltip-body">
@@ -98,6 +99,7 @@
           </div>
         </Tooltip>
       {/if}
+      -->
     </p>
   </div>
 </div>
