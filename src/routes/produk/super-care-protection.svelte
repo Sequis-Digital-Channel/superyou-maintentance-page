@@ -1,14 +1,7 @@
 <script context="module">
-  
-  
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL } = session;
-    // const super_care_data = await getProductBySlugName(
-    //   API_PRODUCT_CATALOGUE,
-    //   "super-care-protection",
-    //   this
-    // );
-
+   
     return {
       api_product_url: API_PRODUCT_CATALOGUE,
       app_url : APP_URL
@@ -237,6 +230,7 @@
 
 <section class="su_container faq">
   <Faq
+    appUrl={app_url}
     FAQtitle="Tanya Jawab Super Care"
     accordionData={dataFaqSuperCare["faq-care"]}
   />
