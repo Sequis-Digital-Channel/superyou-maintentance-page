@@ -3,6 +3,7 @@
   import { bodyScroll } from "../stores/bodyscroll";
   import SuperyouColorLogo from "../components/svg/SuperyouColorLogo.svelte";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
+  import IcLock from "../components/svg/IcLock.svelte";
   export let aside = false;
   export let APP_URL;
 
@@ -58,6 +59,7 @@
                 margin-top: 20px;
               }
             }
+
             h4 {
               color: var(--primary-text-color);
               font-weight: bold;
@@ -191,13 +193,23 @@
     </div>
     <div class="aside-body">
       <div class="aside-body-wrapper">
+        <div class="aside-item flex mt-1">
+          <span class="inline-block" style="margin-top:2px;">
+            <IcLock width="20px" height="20px" fill="#000" />
+          </span>
+          <h4 class="ml-4" on:click={() => {
+            window.location.href = `${APP_URL}/?#modal-login`
+          }}>MASUK</h4>
+        </div>
         <div class="aside-item">
           <h4 style="display: inline-flex;align-items:center;">
             <img
               src="/icons/sovia/sovia-circle.svg"
               alt="SOVIA ICON"
               width="40"
-              height="40" />
+              height="40"
+              style="margin-left: -6px;width: 32px;"
+            />
             <span style="display:inline-block;margin-left: 10px;">SOVIA</span>
           </h4>
           <ul>

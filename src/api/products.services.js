@@ -21,3 +21,15 @@ export async function getProductBySlugName(apiUrl, slugName, context) {
     console.log(err);
   }
 }
+
+export async function getProductBySlugNameClient(apiUrl, slugName) {
+  const url = `${apiUrl}/products/slug/${slugName}`;
+
+  try {
+    const res = await fetch(url);
+    const data = res.json();
+    return data;
+  } catch(err) {
+    console.log(err);
+  }
+}

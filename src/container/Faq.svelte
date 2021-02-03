@@ -4,6 +4,7 @@
 
   export let FAQtitle = "";
   export let accordionData = [];
+  export let appUrl = "";
 </script>
 
 <style lang="postcss">
@@ -19,6 +20,9 @@
   <BaseAccordion {accordionData} />
 
   <BaseButton
+    on:click={() => {
+      window.location.href = `${appUrl}/faq`;
+    }}
     style="max-width: 330px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 0 auto;"
     bgColor={'transparent'}>
     CEK FAQ SELENGKAPNYA

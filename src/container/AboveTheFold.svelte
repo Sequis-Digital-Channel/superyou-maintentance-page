@@ -1,5 +1,29 @@
 <script>
+  import { onMount } from "svelte";
   import BaseButton from "../components/BaseButton.svelte";
+
+  let outerWidth;
+  let offsetTop;
+  function focusView() {
+    const planContainer = document.querySelector(".premi-calculation");
+    if (process.browser) {
+      window.scrollTo({
+        top: planContainer.offsetTop + offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  onMount(() => {
+    if (process.browser) {
+      outerWidth = window.outerWidth;
+      if (outerWidth <= 640) {
+        offsetTop = +140
+      } else {
+        offsetTop = - 50
+      }
+    }
+  })
 </script>
 
 <style lang="postcss">
@@ -31,7 +55,6 @@
 
       &_icon {
         display: block;
-        margin-bottom: 10px;
         @media (min-width: 768px) {
           padding-top: 20px;
         }
@@ -80,7 +103,7 @@
             text-align: left;
           }
           @media (min-width: 1024px) {
-            font-size: 20px;
+            font-size: 20px !important;
           }
         }
       }
@@ -110,17 +133,18 @@
       width="80"
       height="100"
       loading="lazy"
-      class="product_icon" />
+      class="product_icon"
+      style="height:100px;" />
 
     <div class="product_meta">
       <h1 class="product_meta_name">Super Care Protection</h1>
-      <p class="product_meta_description">
+      <p class="product_meta_description" style="font-size: 14px;font-weight:600;">
         Perlindungan biaya rawat jalan dan rawat inap untuk 30+ penyakit
         menular/infeksi dan kecelakaan. Tersedia pula pilihan sistem klaim
         cashless.
       </p>
 
-      <BaseButton style="max-width: 314px;font-size:14px;margin-bottom:20px;">
+      <BaseButton on:click={focusView} style="max-width: 314px;font-size:14px;margin-bottom:20px;">
         YUK HITUNG BIAYA PREMI KAMU
       </BaseButton>
     </div>

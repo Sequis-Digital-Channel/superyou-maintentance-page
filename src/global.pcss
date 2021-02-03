@@ -3,15 +3,42 @@
 @import "tailwindcss/utilities";
 
 body {
+  font-size: 14px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.f-sans {
   @apply font-osans;
 }
 
-.su_container.tnc,
-.su_container.premi-calculation,
-.su_container.faq,
-.su_container.testimonies,
-.su_container.notcovered,
-.su_container otherproduct   {
-  content-visibility: auto;
-  contain-intrinsic-size: 700px;
+.benefit_item__left {
+  flex: 1 0 50px;
+  max-width: 50px;
+  margin-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .benefit_item__left {
+    align-self: center;
+    margin-right: 0;
+    margin-bottom: 12px;
+    max-width: 100%;
+  }
+}
+
+.su_container.tnc .benefit_item__right > p {
+  display: inline;
+}
+
+@media (min-width: 640px) {
+  .benefit_item__right {
+    text-align: center;
+  }
+}
+
+.t-wrapper {
+  display: inline-block;
 }

@@ -27,10 +27,10 @@
         font-weight: bold;
         margin-bottom: 8px;
       }
-      p {
+      /* p {
         font-size: 14px;
         color: #708697;
-      }
+      } */
       @media (min-width: 640px) {
         & > h4 {
           font-size: 20px;
@@ -53,8 +53,8 @@
         margin-bottom: 12px;
         max-width: 100%;
         & > img {
-          width: 80px;
-          height: 80px;
+          width: 80px !important;
+          height: 80px !important;
         }
       }
     }
@@ -74,7 +74,9 @@
       data-src={icon}
       width="50"
       height="50"
-      alt="Icon Manfaat dan Ketentuan Produk" />
+      alt="Icon Manfaat dan Ketentuan Produk"
+      style="height:50px;"
+      />
   </div>
   <div class="benefit_item__right">
     {#if title}
@@ -87,8 +89,9 @@
         {/if}
       </h4>
     {/if}
-    <p>
+    <p class="text-sm text-bluegray">
       {@html description}
+      <!--
       {#if tooltipDescription}
         <Tooltip className={key} type="body">
           <div class="tooltip-body">
@@ -96,6 +99,7 @@
           </div>
         </Tooltip>
       {/if}
+      -->
     </p>
   </div>
 </div>
