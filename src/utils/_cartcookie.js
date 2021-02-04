@@ -60,6 +60,7 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
         product_code: plan.product_code,
         product_slug: productSlug,
         product_plan_code: plan.product_plan_code,
+        rider_codes: ""
       });
       cartCookie.newProduct = {
         "productName": plan.product_name,
@@ -89,6 +90,7 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
           product_code: plan.product_code,
           product_slug: productSlug,
           product_plan_code: plan.product_plan_code,
+          rider_codes: ""
         }
       ],
       "sumAssuredTotal": plan.validation_type === "sum_assured" ? plan.sum_assured : 0,
