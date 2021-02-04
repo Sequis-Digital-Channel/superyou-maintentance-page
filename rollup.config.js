@@ -95,20 +95,22 @@ export default {
 		onwarn,
 	},
 
-	serviceworker: {
-		input: config.serviceworker.input(),
-		output: config.serviceworker.output(),
-		plugins: [
-			resolve(),
-			replace({
-				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
-			}),
-			commonjs(),
-			!dev && terser()
-		],
+	// Disabled Service Worker
 
-		preserveEntrySignatures: false,
-		onwarn,
-	}
+	// serviceworker: {
+	// 	input: config.serviceworker.input(),
+	// 	output: config.serviceworker.output(),
+	// 	plugins: [
+	// 		resolve(),
+	// 		replace({
+	// 			'process.browser': true,
+	// 			'process.env.NODE_ENV': JSON.stringify(mode)
+	// 		}),
+	// 		commonjs(),
+	// 		!dev && terser()
+	// 	],
+
+	// 	preserveEntrySignatures: false,
+	// 	onwarn,
+	// }
 };
