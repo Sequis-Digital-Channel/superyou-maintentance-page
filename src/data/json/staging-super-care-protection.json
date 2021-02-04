@@ -25,78 +25,78 @@
       "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
       "benefits":[
         {
-          "tooltip_text":"",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection8.svg",
-          "name":"Manfaat Modifikasi Tempat Tinggal",
           "benefit":"<div>Mendapat biaya modifikasi rumah hingga Rp15 Juta untuk 1x per Jiwa, jika menderita cacat permanen karena kecelakaan.</div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"0719ea63-6084-494b-b83d-6f638fe311a1",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection8.png",
           "product_benefit_group_id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Manfaat Modifikasi Tempat Tinggal",
+          "tooltip_text":"",
           "product_benefit_group":{
+            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
             "tooltip_text":"Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
-            "name":"Perlindungan untuk Kecelakaan",
-            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243"
+            "name":"Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "tooltip_text":"Bedah rekonstruktif adalah tindakan bedah yang dilakukan untuk mengembalikan penampilan atau fungsi semula dari bagian tubuh tertentu dan dilakukan untuk memperbaiki cacat pada tubuh yang disebabkan oleh penyakit atau trauma.",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection5.svg",
-          "name":"Biaya Pembedahan Gigi & Bedah Rekonstruktif",
           "benefit":"<div>Penggantian biaya pembedahan gigi dan/atau bedah rekonstruktif pada wajah, leher, kepala, atau dada hingga Rp10 Juta per Kecelakaan.</div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"20ae1b61-6851-4db4-ac32-b19e1c85ebfe",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection5.png",
           "product_benefit_group_id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Biaya Pembedahan Gigi & Bedah Rekonstruktif",
+          "tooltip_text":"Bedah rekonstruktif adalah tindakan bedah yang dilakukan untuk mengembalikan penampilan atau fungsi semula dari bagian tubuh tertentu dan dilakukan untuk memperbaiki cacat pada tubuh yang disebabkan oleh penyakit atau trauma.",
           "product_benefit_group":{
+            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
             "tooltip_text":"Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
-            "name":"Perlindungan untuk Kecelakaan",
-            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243"
+            "name":"Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "tooltip_text":"Pengobatan Tradisional Tiongkok yang mencakup akupuntur, pengobatan herbal, bekam, dan/atau pijat tuina yang dilakukan secara Rawat Jalan oleh Ahli praktisi pengobatan tradisional tiongkok di Rumah Sakit atau Klinik yang mempunyai fasilitas lengkap dan kualifikasi sah untuk pengobatan tradisional tiongkok",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection6.svg",
-          "name":"Biaya Fisioterapi/ Pengobatan Tradisional Tiongkok ",
           "benefit":"<div>Penggantian biaya Fisioterapi dan/atau Pengobatan Tradisional Tiongkok yang diperlukan secara medis hingga Rp5 Juta per Kecelakaan.</div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"297e70ad-86a0-425f-8596-5c8c38b2f669",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection6.png",
           "product_benefit_group_id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Biaya Fisioterapi/ Pengobatan Tradisional Tiongkok ",
+          "tooltip_text":"Pengobatan Tradisional Tiongkok yang mencakup akupuntur, pengobatan herbal, bekam, dan/atau pijat tuina yang dilakukan secara Rawat Jalan oleh Ahli praktisi pengobatan tradisional tiongkok di Rumah Sakit atau Klinik yang mempunyai fasilitas lengkap dan kualifikasi sah untuk pengobatan tradisional tiongkok",
           "product_benefit_group":{
+            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
             "tooltip_text":"Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
-            "name":"Perlindungan untuk Kecelakaan",
-            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243"
+            "name":"Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "tooltip_text":"",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection7.svg",
-          "name":"Biaya Alat Bantu Mobilitas/Prostesis",
           "benefit":"<div>Penggantian biaya alat bantu seperti kursi roda, lengan atau kaki palsu, dan kruk hingga Rp5 Juta per Tahun Polis bila mengalami kecelakaan.</div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"78765536-8aff-4538-a878-b90759d4dd16",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection7.png",
           "product_benefit_group_id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Biaya Alat Bantu Mobilitas/Prostesis",
+          "tooltip_text":"",
           "product_benefit_group":{
+            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
             "tooltip_text":"Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
-            "name":"Perlindungan untuk Kecelakaan",
-            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243"
+            "name":"Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "tooltip_text":"",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection4.svg",
-          "name":"Biaya Perawatan Rumah Sakit ",
           "benefit":"<div>Penggantian biaya medis rawat inap dan/atau rawat jalan hingga Rp50 Juta per Kecelakaan. Jika mengalami Kecelakaan di luar Indonesia, maka akan mendapat penggantian biaya medis 2x dari batas manfaat.</div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"af2ac8ad-9989-4408-8fe4-3dfd665307f8",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection4.png",
           "product_benefit_group_id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Biaya Perawatan Rumah Sakit ",
+          "tooltip_text":"",
           "product_benefit_group":{
+            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243",
             "tooltip_text":"Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
-            "name":"Perlindungan untuk Kecelakaan",
-            "id":"6f29de63-8915-4ca5-b66c-1d9fb6457243"
+            "name":"Perlindungan untuk Kecelakaan"
           }
         }
       ]
@@ -107,48 +107,48 @@
       "id":"7f11d6be-78d1-4284-9d03-25ec96898e5e",
       "benefits":[
         {
-          "tooltip_text":"",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection3.svg",
-          "name":"Santunan Kematian",
           "benefit":"<div>Mendapat Uang Pertanggungan hingga Rp200 Juta apabila meninggal dunia akibat kecelakaan selama Masa Pertanggungan.</div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"70ed9277-c155-418d-b732-01be751baebd",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection3.png",
           "product_benefit_group_id":"7f11d6be-78d1-4284-9d03-25ec96898e5e",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Santunan Kematian",
+          "tooltip_text":"",
           "product_benefit_group":{
+            "id":"7f11d6be-78d1-4284-9d03-25ec96898e5e",
             "tooltip_text":"Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya.",
-            "name":"Perlindungan untuk Penyakit Menular",
-            "id":"7f11d6be-78d1-4284-9d03-25ec96898e5e"
+            "name":"Perlindungan untuk Penyakit Menular"
           }
         },
         {
-          "tooltip_text":"",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection2.svg",
-          "name":"Perlindungan COVID-19 (Pilihan)",
           "benefit":"<div>Penggantian biaya medis Rawat Inap dan/atau Rawat Jalan hingga Rp50 Juta bila didiagnosis COVID-19 atau santunan tunai harian rawat inap sebesar Rp1 Juta per hari dengan maksimal perawatan 30 Hari per Tahun Polis. </div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"bad3e19c-d3c1-4297-a122-befe7b83e193",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection2.png",
           "product_benefit_group_id":"7f11d6be-78d1-4284-9d03-25ec96898e5e",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Perlindungan COVID-19 (Pilihan)",
+          "tooltip_text":"",
           "product_benefit_group":{
+            "id":"7f11d6be-78d1-4284-9d03-25ec96898e5e",
             "tooltip_text":"Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya.",
-            "name":"Perlindungan untuk Penyakit Menular",
-            "id":"7f11d6be-78d1-4284-9d03-25ec96898e5e"
+            "name":"Perlindungan untuk Penyakit Menular"
           }
         },
         {
-          "tooltip_text":"",
           "icon_svg":"https://staging.superyou.co.id/products/benefits/super-care-protection1.svg",
-          "name":"Biaya Perawatan Rumah Sakit",
           "benefit":"<div>Penggantian biaya medis rawat inap dan/atau rawat jalan hingga Rp50 Juta per Penyakit.</div>",
+          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
           "id":"ede6377a-6ed6-45f2-8e45-11f5c1cb64be",
           "icon_etc":"https://staging.superyou.co.id/products/benefits/super-care-protection1.png",
           "product_benefit_group_id":"7f11d6be-78d1-4284-9d03-25ec96898e5e",
-          "product_id":"380eeea7-9f1d-4da3-b4f0-7e915960c542",
+          "name":"Biaya Perawatan Rumah Sakit",
+          "tooltip_text":"",
           "product_benefit_group":{
+            "id":"7f11d6be-78d1-4284-9d03-25ec96898e5e",
             "tooltip_text":"Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya.",
-            "name":"Perlindungan untuk Penyakit Menular",
-            "id":"7f11d6be-78d1-4284-9d03-25ec96898e5e"
+            "name":"Perlindungan untuk Penyakit Menular"
           }
         }
       ]
@@ -175,6 +175,7 @@
       "product_plan_benefit_group_id":"33d1be9e-d54e-431b-8d73-3d2850940a9f",
       "product_plan_rate_group_id":"63bcaa5b-c78a-4269-9403-6228a3f113bb",
       "id":"09bad06b-ab6d-4f87-900b-48f55efbcaa0",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":80000,
       "yearly_premium":880000,
@@ -411,6 +412,7 @@
       "product_plan_benefit_group_id":"33d1be9e-d54e-431b-8d73-3d2850940a9f",
       "product_plan_rate_group_id":"768122f5-a1ec-415d-89d4-ef92585d9f4c",
       "id":"1e22513e-153b-4ba5-aef5-b0924ad09f32",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":90000,
       "yearly_premium":990000,
@@ -647,6 +649,7 @@
       "product_plan_benefit_group_id":"bf181876-0f15-4ba1-91f0-9f61fa183b00",
       "product_plan_rate_group_id":"b9c72b6f-1a1f-4401-b1f6-c7c0e0df17b0",
       "id":"60aba49f-d6a8-4d6a-85dc-eb556ffbe54a",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":45000,
       "yearly_premium":495000,
@@ -872,6 +875,7 @@
       "product_plan_benefit_group_id":"cb275d4d-2085-4cfa-a844-b0ebdc818593",
       "product_plan_rate_group_id":"407fb905-6512-4011-976b-12ea083171d0",
       "id":"a98cb068-2703-469c-82f0-317f64cc2208",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":70000,
       "yearly_premium":770000,
@@ -1108,6 +1112,7 @@
       "product_plan_benefit_group_id":"cb275d4d-2085-4cfa-a844-b0ebdc818593",
       "product_plan_rate_group_id":"076c8ff9-14fd-4d79-ace8-65331e505f85",
       "id":"b41ab493-666d-43d0-806b-3b0451ee05e7",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":60000,
       "yearly_premium":660000,
@@ -1344,6 +1349,7 @@
       "product_plan_benefit_group_id":"bf181876-0f15-4ba1-91f0-9f61fa183b00",
       "product_plan_rate_group_id":"00603f69-1e2e-4af5-921c-391143fcbad7",
       "id":"e28ffa99-eec0-4694-91d1-3a5e8b018ba4",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":55000,
       "yearly_premium":605000,
@@ -1569,6 +1575,7 @@
       "product_plan_benefit_group_id":"aa82ac78-e248-4330-a303-20cede55d138",
       "product_plan_rate_group_id":"e40e635c-7716-4fbb-843b-9741b86e5ac5",
       "id":"0bbe1577-c42e-4bfc-b6b1-879390469fe3",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":75000,
       "yearly_premium":825000,
@@ -1805,6 +1812,7 @@
       "product_plan_benefit_group_id":"c16fc353-0814-43bd-b7fb-a732caf719ee",
       "product_plan_rate_group_id":"0a56e00f-03d1-4f85-9c46-c0c07fe98df1",
       "id":"11950d81-fd0c-4804-9013-b4db45d54024",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":75000,
       "yearly_premium":825000,
@@ -2030,6 +2038,7 @@
       "product_plan_benefit_group_id":"c665fe38-347a-437c-9be4-d7946dc8cd54",
       "product_plan_rate_group_id":"5a75ee80-a04c-4314-a633-cfc3a1781a37",
       "id":"81549abe-6510-413a-b7a2-d593f977dde4",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":125000,
       "yearly_premium":1375000,
@@ -2266,6 +2275,7 @@
       "product_plan_benefit_group_id":"c665fe38-347a-437c-9be4-d7946dc8cd54",
       "product_plan_rate_group_id":"578002c3-d6a5-46c2-bc64-5e0cbd1a3e9f",
       "id":"912d531f-5976-4ba3-ace3-a01a6ee4cd57",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":115000,
       "yearly_premium":1265000,
@@ -2502,6 +2512,7 @@
       "product_plan_benefit_group_id":"c16fc353-0814-43bd-b7fb-a732caf719ee",
       "product_plan_rate_group_id":"6c453f98-d582-4be1-a402-f9533bbf4f1f",
       "id":"922bad54-ad67-4b19-a2a1-cd10f71378ef",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":65000,
       "yearly_premium":715000,
@@ -2727,6 +2738,7 @@
       "product_plan_benefit_group_id":"aa82ac78-e248-4330-a303-20cede55d138",
       "product_plan_rate_group_id":"4316e600-41c3-4532-a26e-794f57b206d6",
       "id":"d2056942-aa6e-488d-a4de-efd064feab99",
+      "product_slug":"super-care-protection",
       "product_name":"Super Care Protection",
       "monthly_premium":85000,
       "yearly_premium":935000,
