@@ -302,6 +302,7 @@
       display:none;
       @media (min-width: 640px) {
         display: flex;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 16%), 0 2px 4px -1px rgb(0 0 0 / 6%);
       }
 
       width: 60px;
