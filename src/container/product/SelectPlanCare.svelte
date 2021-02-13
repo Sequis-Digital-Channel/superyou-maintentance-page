@@ -439,6 +439,13 @@
       &.show-result {
         transform: translateX(-105%);
       }
+
+      :global(.tooltip-holder.tertanggung) {
+        transform: translateX(57%);
+        @media (min-width: 640px) {
+          transform: translateX(59%);
+        }
+      }
     }
   }
 </style>

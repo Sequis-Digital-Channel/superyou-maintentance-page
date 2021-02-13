@@ -1,27 +1,7 @@
 <script>
-  import { onMount } from "svelte";
-  import IcTooltip from "../components/svg/IcTooltip.svelte";
+  import IcTooltip from "./svg/IcTooltip.svelte";
   export let className = "";
   export let type = "body";
-
-  onMount(() => {
-    if (process.browser && window.outerWidth <= 639) {
-      setTimeout(() => {
-        let el = document.querySelector(`.t-wrapper.${className}`);
-        let elXposition = el.getBoundingClientRect();
-
-        let divide = window.outerWidth / elXposition.x;
-        let tooltipBody = document.querySelector(
-          `.tooltip-holder.${className}`
-        );
-        if (divide >= 1.6 && divide <= 2.4) {
-          tooltipBody.classList.add("center");
-        } else if (divide >= 3) {
-          tooltipBody.classList.add("left");
-        }
-      }, 1000);
-    }
-  });
 </script>
 
 <style lang="postcss">
