@@ -22,6 +22,12 @@
       } else {
         offsetTop = - 50
       }
+
+      window.addEventListener('load', (event) => {
+        setTimeout(() => {
+          console.log('page is fully loaded');
+        }, 30)
+      });
     }
   })
 </script>
@@ -153,13 +159,19 @@
       <picture>
         <source
           media="(min-width: 801px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png" />
-        <source
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png" />
+        <!-- <source
           media="(max-width: 800px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto/v1607341464/superyou/care/care_hero_r4qmt0.png" />
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607341464/superyou/care/care_hero_r4qmt0.png" /> -->
+          <source
+          media="(max-width: 800px)"
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,w_20,e_blur/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
+          data-srcset="hellodata"
+          />
+          
         <img
           class="product_hero"
-          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png"
+          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png"
           alt="super care hero"
           width="374"
           height="308" />
