@@ -185,7 +185,7 @@
     />
   {:else}
     <div
-      class="border border-light-gray-300 shadow rounded-md p-4 w-full mx-auto"
+      class="border border-light-gray-300 shadow rounded-md p-4 w-full mx-auto overflow-hidden"
       style="max-width:400px"
     >
       <div class="animate-pulse flex flex-col space-x-4">
@@ -270,6 +270,11 @@
     padding-left: 10px;
     padding-right: 10px;
 
+    &.premi-calculation {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
     @media (min-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;
@@ -297,4 +302,26 @@
     content-visibility: auto;
     contain-intrinsic-size: 700px;
   }
+
+  @media (max-width: 639px) {
+    :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
+      right: -140px !important;
+    }
+
+    :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      right: -85px !important;
+    }
+
+    :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      right: -150px !important;
+    }
+  }
+  @media (min-width: 640px) {
+    :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      transform: translateX(30%);
+    }
+  }
+
+  
+
 </style>
