@@ -23,6 +23,8 @@
         offsetTop = - 50
       }
 
+      console.log("HELLO")
+
       window.addEventListener('load', (event) => {
         setTimeout(() => {
           const hero = document.querySelector(".product_hero picture");
@@ -178,25 +180,25 @@
         <source
           media="(min-width: 801px)"
           srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png" />
+          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213946/superyou/care/ds-care-hero_hziukt.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x" />
         <!-- <source
           media="(max-width: 800px)"
           srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607341464/superyou/care/care_hero_r4qmt0.png" /> -->
           <source
           media="(max-width: 800px) and (min-width: 501px)"
           srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,w_auto,dpr_auto/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
+          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
           />
 
           <source
           media="(max-width: 500px)"
           srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,w_350/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
+          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_350/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
           />
           
         <img
           class="product_hero"
-          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
+          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
           alt="super care hero"
           width="374"
           height="315"
