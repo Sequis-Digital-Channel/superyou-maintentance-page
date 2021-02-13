@@ -23,9 +23,7 @@
         offsetTop = - 50
       }
 
-      console.log("HELLO")
-
-      window.addEventListener('load', (event) => {
+      // window.addEventListener('load', (event) => {
         setTimeout(() => {
           const hero = document.querySelector(".product_hero picture");
           const sources = hero.querySelectorAll('source');
@@ -36,7 +34,7 @@
           })
           console.log(sources);
         }, 30)
-      });
+      // });
     }
   })
 </script>
