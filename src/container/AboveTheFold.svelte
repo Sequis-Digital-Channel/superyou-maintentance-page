@@ -25,7 +25,14 @@
 
       window.addEventListener('load', (event) => {
         setTimeout(() => {
-          console.log('page is fully loaded');
+          const hero = document.querySelector(".product_hero picture");
+          const sources = hero.querySelectorAll('source');
+          sources.forEach(source => {
+            const realSrcSet = source.dataset.srcset;
+            source.setAttribute("srcset", realSrcSet);
+            console.log("Real Src Set , ", realSrcSet);
+          })
+          console.log(sources);
         }, 30)
       });
     }
@@ -61,8 +68,10 @@
 
       &_icon {
         display: block;
+        height: 74px;
         @media (min-width: 768px) {
           padding-top: 20px;
+          height: 100px;
         }
       }
 
@@ -126,6 +135,16 @@
             height: 322px;
           }
         }
+        @media (max-width: 376px) {
+          & img {
+            max-height: 298px;
+          }
+        }
+        @media (max-width: 500px) {
+          & img {
+            max-height: 315px;
+          }
+        }
       }
     }
   }
@@ -137,10 +156,9 @@
       src="/icons/products/care/super-care.svg"
       alt="super care icon"
       width="80"
-      height="100"
+      height="74"
       loading="lazy"
-      class="product_icon"
-      style="height:100px;" />
+      class="product_icon" />
 
     <div class="product_meta">
       <h1 class="product_meta_name">Super Care Protection</h1>
@@ -159,22 +177,30 @@
       <picture>
         <source
           media="(min-width: 801px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png" />
+          srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png" />
         <!-- <source
           media="(max-width: 800px)"
           srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607341464/superyou/care/care_hero_r4qmt0.png" /> -->
           <source
-          media="(max-width: 800px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,w_20,e_blur/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
-          data-srcset="hellodata"
+          media="(max-width: 800px) and (min-width: 501px)"
+          srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,w_auto,dpr_auto/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
+          />
+
+          <source
+          media="(max-width: 500px)"
+          srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,w_350/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
           />
           
         <img
           class="product_hero"
-          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1607340330/superyou/care/dsc-00024-5_ymr3kf.png"
+          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/sc-dsc-00024-5_3x_sugdgq.png"
           alt="super care hero"
           width="374"
-          height="308" />
+          height="315"
+        />
       </picture>
     </div>
   </div>
