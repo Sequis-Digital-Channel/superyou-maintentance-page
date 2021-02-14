@@ -22,6 +22,17 @@
   export let APP_URL;
 
   let bodyHTMLElement = false;
+  let CartContainer;
+  
+  const loadCartContainer = async () => {
+    import("../container/cart/CartContainer.svelte")
+      .then((module) => {
+        CartContainer = module.default;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   bodyScroll.subscribe((currentVal) => {
     if (currentVal && bodyHTMLElement) {
@@ -33,11 +44,19 @@
 
   onMount(() => {
     bodyHTMLElement = true;
+    window.addEventListener('load', () => {
+      loadCartContainer();
+      console.log("dom loaded");
+    });
   });
 </script>
 
 <BaseHeader {segment} {APP_URL} />
-<!-- <CartContainer /> -->
+{#if CartContainer }
+  <svelte:component
+    this={CartContainer}
+  />
+{/if}
 <main>
   <GlobalStyle />
   <slot />
