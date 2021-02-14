@@ -173,13 +173,13 @@
 
     <div class="product_meta">
       <h1 class="product_meta_name">Super Care Protection</h1>
-      <!-- <p class="product_meta_description" style="font-size: 14px;font-weight:600;">
+      <p class="product_meta_description" style="font-size: 14px;font-weight:600;">
         Perlindungan biaya rawat jalan dan rawat inap untuk 30+ penyakit
         menular/infeksi dan kecelakaan. Tersedia pula pilihan sistem klaim
         cashless.
-      </p> -->
+      </p>
 
-      <BaseButton on:click={focusView} style="max-width: 314px;font-size:14px;margin-bottom:20px;">
+      <BaseButton on:click={focusView} style="max-width:314px;font-size:14px;font-weight:600;margin-bottom:20px;">
         YUK HITUNG BIAYA PREMI KAMU
       </BaseButton>
     </div>
