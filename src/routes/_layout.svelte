@@ -46,7 +46,6 @@
     bodyHTMLElement = true;
     window.addEventListener('load', () => {
       loadCartContainer();
-      console.log("dom loaded");
     });
   });
 </script>
