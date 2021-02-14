@@ -4,6 +4,8 @@
 
   let outerWidth;
   let offsetTop;
+  let safari = false;
+
   function focusView() {
     const planContainer = document.querySelector(".premi-calculation");
     if (process.browser) {
@@ -22,16 +24,27 @@
       } else {
         offsetTop = - 50
       }
-      
-      // setTimeout(() => {
-      //   const hero = document.querySelector(".product_hero picture");
-      //   const sources = hero.querySelectorAll('source');
-      //   sources.forEach(source => {
-      //     const realSrcSet = source.dataset.srcset;
-      //     source.setAttribute("srcset", realSrcSet);
-      //     console.log(realSrcSet);
-      //   })
-      // }, 30)
+
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf('safari') != -1) { 
+        if (ua.indexOf('chrome') > -1) {
+          console.log("safari false")
+          safari = false;
+
+          setTimeout(() => {
+            const hero = document.querySelector(".product_hero picture");
+            const sources = hero.querySelectorAll('source');
+            sources.forEach(source => {
+              const realSrcSet = source.dataset.srcset;
+              source.setAttribute("srcset", realSrcSet);
+              console.log(realSrcSet);
+            })
+          }, 30)
+        } else {
+          console.log("safari true");
+          safari = true; // Safari
+        }
+      }
       
     }
   })
@@ -173,7 +186,22 @@
 
     <div class="product_hero">
       <picture>
-          <!-- <source
+          {#if safari}
+          <source
+            media="(min-width: 801px)"
+            srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213946/superyou/care/ds-care-hero_hziukt.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
+          />
+          <source
+            media="(min-width: 501px) and (max-width: 800px)"
+            srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+          />
+
+          <source
+            media="(max-width: 500px)"
+            srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
+          />
+          {:else}
+          <source
             media="(min-width: 801px)"
             srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
             data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213946/superyou/care/ds-care-hero_hziukt.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
@@ -188,21 +216,9 @@
           media="(max-width: 500px)"
           srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
           data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
-          /> -->
-        
-          <source
-            media="(min-width: 801px)"
-            srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213946/superyou/care/ds-care-hero_hziukt.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
           />
-          <source
-            media="(min-width: 501px) and (max-width: 800px)"
-            srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
-          />
-
-          <source
-            media="(max-width: 500px)"
-            srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
-          />
+          {/if}
+          
           
         <img
           class="product_hero"
