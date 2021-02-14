@@ -215,6 +215,8 @@
           <img
             src="/icons/cart/empty-cart.svg"
             alt="Keranjang Belanja Asuransi"
+            width=294
+            height=270
           />
           <p
             class="text-darkblue font-bold text-xl md:text-2xl text-center mt-2 mb-4"
