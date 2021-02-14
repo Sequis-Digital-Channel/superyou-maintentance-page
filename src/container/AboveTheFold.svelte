@@ -28,7 +28,6 @@
       const ua = navigator.userAgent.toLowerCase();
       if (ua.indexOf('safari') != -1) { 
         if (ua.indexOf('chrome') > -1) {
-          console.log("safari false")
           safari = false;
 
           setTimeout(() => {
@@ -37,11 +36,9 @@
             sources.forEach(source => {
               const realSrcSet = source.dataset.srcset;
               source.setAttribute("srcset", realSrcSet);
-              console.log(realSrcSet);
             })
-          }, 30)
+          }, 30);
         } else {
-          console.log("safari true");
           safari = true; // Safari
         }
       }
