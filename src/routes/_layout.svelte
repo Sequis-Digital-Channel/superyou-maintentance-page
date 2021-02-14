@@ -44,9 +44,7 @@
 
   onMount(() => {
     bodyHTMLElement = true;
-    window.addEventListener('load', () => {
-      loadCartContainer();
-    });
+    loadCartContainer();
   });
 </script>
 
