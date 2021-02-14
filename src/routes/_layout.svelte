@@ -13,7 +13,7 @@
   import GlobalStyle from "../components/GlobalStyle.svelte";
   import BaseHeader from "../components/BaseHeader.svelte";
   import BaseFooter from "../components/BaseFooter.svelte";
-  import CartContainer from "../container/cart/CartContainer.svelte";
+  // import CartContainer from "../container/cart/CartContainer.svelte";
   import BaseMobileBottomNav from "../components/BaseMobileBottomNav.svelte";
 
   import { bodyScroll } from "../stores/bodyscroll";
@@ -37,7 +37,7 @@
 </script>
 
 <BaseHeader {segment} {APP_URL} />
-<CartContainer />
+<!-- <CartContainer /> -->
 <main>
   <GlobalStyle />
   <slot />
