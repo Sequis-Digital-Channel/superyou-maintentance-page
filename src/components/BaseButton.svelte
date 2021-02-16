@@ -3,6 +3,7 @@
   export let style = "";
   export let bgColor = "#00aaae";
   export let ariaLabel = "";
+  export let disabled = false;
 </script>
 
 <style lang="postcss">
@@ -21,6 +22,11 @@
     border: none;
     cursor: pointer;
     letter-spacing: 0.3px;
+
+    &:disabled {
+      background-color: #d8d8d8 !important;
+      cursor: not-allowed;
+    }
 
     @media (min-width: 640px) {
       height: 50px;
@@ -41,6 +47,7 @@
   class={`base-button ${textAlign}`}
   style={`background-color:${bgColor};${style}`}
   aria-label={ariaLabel}
+  {disabled}
   on:click>
   <slot />
 

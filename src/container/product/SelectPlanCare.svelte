@@ -22,6 +22,7 @@
   let basePlanResultData;
   let basePlanResultCard;
   let selectedDob = "";
+  let isBtnDisabled = false;
 
   const setComponent = (module) => {
     basePlanResultCard = module.default;
@@ -168,6 +169,16 @@
         selectedPlanData.id,
         insuredDob
       );
+      // check insrured age criteria
+      if (basePlanResultData.validations && basePlanResultData.validations.length) {
+        let errorMessage = "";
+        basePlanResultData.validations.forEach(err => {
+          errorMessage += err.msg + " ";
+        })
+        calculationData.insured_dob.error.status = true;
+        calculationData.insured_dob.error.msg = errorMessage;
+        return false;
+      }
       loadBasePlanResultCard();
       planSelected = true;
       focusView();
@@ -253,6 +264,12 @@
     }, 600);
   }
 
+  $: if (calculationData.insured_dob.error.status) {
+    isBtnDisabled = true;
+  } else {
+    isBtnDisabled = false;
+  }
+
   onMount(() => {
     plans.forEach((plan) => {
       if (plan.is_cashless) {
@@ -292,7 +309,7 @@
       <BaseInputDate
         name="insured_dob"
         minAge={1}
-        maxAge={60}
+        maxAge={80}
         bind:value={calculationData.insured_dob.val}
         bind:error={calculationData.insured_dob.error}
       />
@@ -310,7 +327,9 @@
         bind:selectedItemValue={calculationData.claim_method.val}
       />
       <br />
-      <BaseButton style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
+      <BaseButton
+        style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
+        disabled={isBtnDisabled}
         >HITUNG BIAYA PREMI</BaseButton
       >
     </form>
@@ -415,9 +434,11 @@
 <!-- <ProductRecommendationContainer /> -->
 <style lang="postcss">
   .select-plan-care {
-    max-width: 400px;
+    max-width: 420px;
     margin: 0 auto;
     overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .wrapper {
       display: flex;
