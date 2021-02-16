@@ -141,11 +141,15 @@
 <section class="su_container benefits">
   <ProductBenefits benefitGroups={benefit_groups}/>
 
-  <BaseButton
-    style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
-    ariaLabel="Lihat manfaat & Detail Plan"
-  >CEK MANFAAT & DETAIL PLAN</BaseButton
-  >
+  <a
+    href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-care-protection.pdf`}
+    target="_blank">
+    <BaseButton
+      style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
+      ariaLabel="Lihat manfaat & Detail Plan"
+    >CEK MANFAAT & DETAIL PLAN</BaseButton
+    >
+  </a>
 </section>
 
 <section class="su_container tnc">
@@ -271,8 +275,8 @@
     padding-right: 10px;
 
     &.premi-calculation {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
 
     @media (min-width: 768px) {
