@@ -156,7 +156,7 @@
           </div>
         </div>
         <div
-          class="payment-term my-4 px-3 md:px-4 flex justify-between items-center"
+          class="payment-term pb-32 md:pb-16 my-4 px-3 md:px-4 flex justify-between items-center"
         >
           <p class="text-white text-sm">Bayar tahunan agar lebih hemat</p>
           <div>
