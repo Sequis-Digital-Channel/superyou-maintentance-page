@@ -144,7 +144,7 @@
   <div class="aside-container">
     <div class="aside-top">
       <div id="su-logo" aria-label="superyou-logo">
-        <a href="/">
+        <a href={`${APP_URL}`}>
           <SuperyouColorLogo color={'#03a3a6'} />
         </a>
       </div>
