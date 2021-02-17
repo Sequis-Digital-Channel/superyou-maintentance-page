@@ -290,12 +290,14 @@
       style="padding-bottom: 50px;"
       on:submit|preventDefault={handleSubmittedForm}
     >
-      <BaseSelectMenu
-        label="Pilih Plan"
-        items={productPlans}
-        bind:selectedItem={calculationData.plan.val}
-        bind:error={calculationData.plan.error}
-      />
+      <div class="select-plan">
+        <BaseSelectMenu
+          label="Pilih Plan"
+          items={productPlans}
+          bind:selectedItem={calculationData.plan.val}
+          bind:error={calculationData.plan.error}
+        />
+      </div>
       <br />
       <BaseSelectMenu
         label="Tertanggung"
@@ -464,6 +466,12 @@
         transform: translateX(57%);
         @media (min-width: 640px) {
           transform: translateX(59%);
+        }
+      }
+
+      :global(.select-plan .select-menu-options) {
+        @media (max-width: 640px) {
+          font-size: 13px;
         }
       }
     }
