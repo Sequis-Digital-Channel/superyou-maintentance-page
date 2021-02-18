@@ -40,7 +40,7 @@
       border-radius: 6px;
       font-size: 12px;
       position: absolute;
-      z-index: 1;
+      z-index: 4;
       top: 160%;
       right: -100%;
       margin-left: -60px;
