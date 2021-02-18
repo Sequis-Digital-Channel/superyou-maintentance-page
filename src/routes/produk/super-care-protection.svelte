@@ -1,7 +1,7 @@
 <script context="module">
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL } = session;
-   
+
     return {
       api_product_url: API_PRODUCT_CATALOGUE,
       app_url : APP_URL
@@ -49,7 +49,7 @@
   const loadSelectPlanCare = async () => {
     const product = await getProductBySlugNameClient(
       api_product_url,
-      "super-care-protection"
+      "super-care-protection/?show_partner=false"
     );
     plans = product.plans;
     import("../../container/product/SelectPlanCare.svelte")
@@ -104,12 +104,20 @@
           if (!isFlicktyLoaded) {
             loadFlickity();
             isFlicktyLoaded = true;
-            setTimeout(loadOtherProductsContainer, 500);
+            if ('Flickity' in window) {
+              loadOtherProductsContainer()
+            } else {
+              setTimeout(loadOtherProductsContainer, 3000);
+            }
           }
         } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
           loadFlickity();
-          setTimeout(loadOtherProductsContainer, 500);
           isFlicktyLoaded = true;
+          if ('Flickity' in window) {
+              loadOtherProductsContainer()
+            } else {
+              setTimeout(loadOtherProductsContainer, 3000);
+            }
         }
       });
       formObserver.observe(premiCalcContainer);
@@ -120,7 +128,6 @@
     }
 
     function initWhatsAppUi () {
-      console.log("body scrolled");
       loadWhatsAppChat()
       setTimeout(() => {
         document.removeEventListener("scroll", initWhatsAppUi)
@@ -132,6 +139,7 @@
 
 <svelte:head>
   <title>Asuransi Kesehatan | Super Care Protection</title>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
 </svelte:head>
 
 <section class="above-the-fold-wrapper">
