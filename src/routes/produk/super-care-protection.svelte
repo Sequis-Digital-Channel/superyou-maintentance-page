@@ -104,20 +104,12 @@
           if (!isFlicktyLoaded) {
             loadFlickity();
             isFlicktyLoaded = true;
-            if ('Flickity' in window) {
-              loadOtherProductsContainer()
-            } else {
-              setTimeout(loadOtherProductsContainer, 3000);
-            }
+            loadOtherProductsContainer()
           }
         } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
           loadFlickity();
           isFlicktyLoaded = true;
-          if ('Flickity' in window) {
-              loadOtherProductsContainer()
-            } else {
-              setTimeout(loadOtherProductsContainer, 3000);
-            }
+          loadOtherProductsContainer();
         }
       });
       formObserver.observe(premiCalcContainer);
@@ -256,9 +248,12 @@
   <ProductNotCovered data={notcovered.care} />
 </section>
 
-<section class="su_container otherproduct" style="background-color: #e7eaef;">
+<section class="su_container otherproduct" style="background-color:#e7eaef;">
   {#if OtherProductsContainer}
-    <svelte:component this={OtherProductsContainer} />
+    <svelte:component
+      this={OtherProductsContainer}
+      apiProductUrl={api_product_url}
+      appUrl={app_url} />
   {:else}
     <div class="otherproduct_progress" />
   {/if}
@@ -302,6 +297,7 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 38px 0;
+    overflow-y: hidden;
   }
 
   .su_container.tnc,
