@@ -336,7 +336,7 @@
 <header class:nav-scrolled={navScrolled} on:mouseenter={fetchAllProductIcon}>
   <div class="header-wrapper">
     <div id="su-logo" aria-label="superyou-logo">
-      <a href="/">
+      <a href={`${APP_URL}`}>
         <SuperyouColorLogo color={navScrolled ? '#03a3a6' : '#FFF'} />
       </a>
     </div>

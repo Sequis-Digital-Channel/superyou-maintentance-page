@@ -1,5 +1,8 @@
 <script>
   import BasePrice from "./BasePrice.svelte";
+
+  export let detail;
+  export let appUrl;
 </script>
 
 <style lang="postcss">
@@ -40,6 +43,9 @@
           font-weight: 600;
         }
         & ul {
+          height: 130px;
+          overflow: auto;
+
           li {
             display: inline-grid;
             grid-template-columns: 10px 1fr;
@@ -82,16 +88,16 @@
 
 <div class="product-card">
   <div class="product-card__top">
-    <div class="icon lazy-image">
+    <div class="icon p-2">
       <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-        data-src="/icons/products/strong/super-strong.svg"
-        alt="super strong"
-        width="70"
-        height="70" />
+        src={detail.icon_svg}
+        alt={detail.name}
+        width="55"
+        height="55"
+        style="max-height:55px;min-height:50px;height:55px;"/>
     </div>
-    <h6 class="product-card__feature">Proteksi Jiwa + 3 Penyakit Kritis</h6>
-    <span class="product-card__name">Super Strong Protection</span>
+    <h6 class="product-card__feature text-center">{detail.subheading}</h6>
+    <span class="product-card__name">{detail.name}</span>
   </div>
   <div class="product-card__bottom">
     <span class="start-from">Mulai dari</span><br />
@@ -100,38 +106,39 @@
     <div class="benefit-summary">
       <p>Memberi manfaat berupa :</p>
       <ul>
-        <li>
-          <span>✓</span>
-          <span>Santunan saat terdiagnosa kanker, stroke, atau serangan jantung</span>
-        </li>
-        <li>
-          <span>✓</span>
-          <span>Santunan kematian karena apapun yang tidak disebabkan oleh
-            kecelakaan</span>
-        </li>
+        {#each detail.benefit_groups as b_group, i (`${b_group.id}-${i}`) }
+          {#each b_group.benefits as {name, id} (id)}
+          <li>
+            <span>✓</span>
+            <span>{name}</span>
+          </li>
+          {/each}
+        {/each}
       </ul>
     </div>
 
     <div class="cta-btn-wrapper">
-      <button class="cta-btn">LIHAT DETAIL
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="12"
-          height="12"
-          viewBox="0 0 12 12">
-          <defs>
-            <path
-              id="a"
-              d="M3.69 6.997l3.563 3.296a.948.948 0 0 1 0 1.414c-.422.39-1.107.39-1.53 0l-5.406-5a.948.948 0 0 1 0-1.414l5.407-5a1.145 1.145 0 0 1 1.53 0 .948.948 0 0 1 0 1.414l-3.559 3.29h7.224c.597 0 1.081.448 1.081 1s-.484 1-1.081 1h-7.23z" />
-          </defs>
-          <use
-            fill="#fff"
-            fill-rule="nonzero"
-            transform="rotate(-180 6 6)"
-            xlink:href="#a" />
-        </svg>
-      </button>
+      <a href={`${appUrl}/produk/${detail.slug}`}>
+        <button class="cta-btn">LIHAT DETAIL
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="12"
+            height="12"
+            viewBox="0 0 12 12">
+            <defs>
+              <path
+                id="a"
+                d="M3.69 6.997l3.563 3.296a.948.948 0 0 1 0 1.414c-.422.39-1.107.39-1.53 0l-5.406-5a.948.948 0 0 1 0-1.414l5.407-5a1.145 1.145 0 0 1 1.53 0 .948.948 0 0 1 0 1.414l-3.559 3.29h7.224c.597 0 1.081.448 1.081 1s-.484 1-1.081 1h-7.23z" />
+            </defs>
+            <use
+              fill="#fff"
+              fill-rule="nonzero"
+              transform="rotate(-180 6 6)"
+              xlink:href="#a" />
+          </svg>
+        </button>
+      </a>
     </div>
   </div>
 </div>

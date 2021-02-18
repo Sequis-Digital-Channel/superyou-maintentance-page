@@ -22,6 +22,7 @@
   let basePlanResultData;
   let basePlanResultCard;
   let selectedDob = "";
+  let isBtnDisabled = false;
 
   const setComponent = (module) => {
     basePlanResultCard = module.default;
@@ -168,6 +169,16 @@
         selectedPlanData.id,
         insuredDob
       );
+      // check insrured age criteria
+      if (basePlanResultData.validations && basePlanResultData.validations.length) {
+        let errorMessage = "";
+        basePlanResultData.validations.forEach(err => {
+          errorMessage += err.msg + " ";
+        })
+        calculationData.insured_dob.error.status = true;
+        calculationData.insured_dob.error.msg = errorMessage;
+        return false;
+      }
       loadBasePlanResultCard();
       planSelected = true;
       focusView();
@@ -253,6 +264,12 @@
     }, 600);
   }
 
+  $: if (calculationData.insured_dob.error.status) {
+    isBtnDisabled = true;
+  } else {
+    isBtnDisabled = false;
+  }
+
   onMount(() => {
     plans.forEach((plan) => {
       if (plan.is_cashless) {
@@ -273,12 +290,14 @@
       style="padding-bottom: 50px;"
       on:submit|preventDefault={handleSubmittedForm}
     >
-      <BaseSelectMenu
-        label="Pilih Plan"
-        items={productPlans}
-        bind:selectedItem={calculationData.plan.val}
-        bind:error={calculationData.plan.error}
-      />
+      <div class="select-plan">
+        <BaseSelectMenu
+          label="Pilih Plan"
+          items={productPlans}
+          bind:selectedItem={calculationData.plan.val}
+          bind:error={calculationData.plan.error}
+        />
+      </div>
       <br />
       <BaseSelectMenu
         label="Tertanggung"
@@ -292,7 +311,7 @@
       <BaseInputDate
         name="insured_dob"
         minAge={1}
-        maxAge={60}
+        maxAge={80}
         bind:value={calculationData.insured_dob.val}
         bind:error={calculationData.insured_dob.error}
       />
@@ -310,7 +329,9 @@
         bind:selectedItemValue={calculationData.claim_method.val}
       />
       <br />
-      <BaseButton style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
+      <BaseButton
+        style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
+        disabled={isBtnDisabled}
         >HITUNG BIAYA PREMI</BaseButton
       >
     </form>
@@ -391,8 +412,7 @@
               <BaseCircleSocmed>
                 <img
                   slot="icon"
-                  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                  data-src="/icons/socialmedia/twitter.svg"
+                  src="/icons/socialmedia/twitter.svg"
                   width="15"
                   height="13"
                   alt="Superyou Twitter"
@@ -416,9 +436,11 @@
 <!-- <ProductRecommendationContainer /> -->
 <style lang="postcss">
   .select-plan-care {
-    max-width: 400px;
+    max-width: 420px;
     margin: 0 auto;
     overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .wrapper {
       display: flex;
@@ -438,6 +460,19 @@
 
       &.show-result {
         transform: translateX(-105%);
+      }
+
+      :global(.tooltip-holder.tertanggung) {
+        transform: translateX(57%);
+        @media (min-width: 640px) {
+          transform: translateX(59%);
+        }
+      }
+
+      :global(.select-plan .select-menu-options) {
+        @media (max-width: 640px) {
+          font-size: 13px;
+        }
       }
     }
   }

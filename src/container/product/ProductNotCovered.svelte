@@ -79,7 +79,7 @@
             height="42"
             alt="super care product not covered" />
         </div>
-        <p class="notcovered-item__desc">{description}</p>
+        <p class="notcovered-item__desc flex items-center">{description}</p>
       </div>
     {/each}
   </div>

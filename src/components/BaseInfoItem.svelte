@@ -1,5 +1,6 @@
 <script>
-  import Tooltip from "../components/Tooltip.svelte";
+  import Tooltip from "./Tooltip.svelte";
+  
   export let icon;
   export let title = "";
   export let description;
@@ -91,7 +92,7 @@
     {/if}
     <p class="text-sm text-bluegray">
       {@html description}
-      <!--
+      
       {#if tooltipDescription}
         <Tooltip className={key} type="body">
           <div class="tooltip-body">
@@ -99,7 +100,7 @@
           </div>
         </Tooltip>
       {/if}
-      -->
+     
     </p>
   </div>
 </div>

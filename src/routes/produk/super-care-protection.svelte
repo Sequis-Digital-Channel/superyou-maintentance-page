@@ -1,7 +1,7 @@
 <script context="module">
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL } = session;
-   
+
     return {
       api_product_url: API_PRODUCT_CATALOGUE,
       app_url : APP_URL
@@ -49,7 +49,7 @@
   const loadSelectPlanCare = async () => {
     const product = await getProductBySlugNameClient(
       api_product_url,
-      "super-care-protection"
+      "super-care-protection/?show_partner=false"
     );
     plans = product.plans;
     import("../../container/product/SelectPlanCare.svelte")
@@ -104,12 +104,12 @@
           if (!isFlicktyLoaded) {
             loadFlickity();
             isFlicktyLoaded = true;
-            setTimeout(loadOtherProductsContainer, 500);
+            loadOtherProductsContainer()
           }
         } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
           loadFlickity();
-          setTimeout(loadOtherProductsContainer, 500);
           isFlicktyLoaded = true;
+          loadOtherProductsContainer();
         }
       });
       formObserver.observe(premiCalcContainer);
@@ -120,7 +120,6 @@
     }
 
     function initWhatsAppUi () {
-      console.log("body scrolled");
       loadWhatsAppChat()
       setTimeout(() => {
         document.removeEventListener("scroll", initWhatsAppUi)
@@ -132,6 +131,7 @@
 
 <svelte:head>
   <title>Asuransi Kesehatan | Super Care Protection</title>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
 </svelte:head>
 
 <section class="above-the-fold-wrapper">
@@ -141,11 +141,15 @@
 <section class="su_container benefits">
   <ProductBenefits benefitGroups={benefit_groups}/>
 
-  <BaseButton
-    style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
-    ariaLabel="Lihat manfaat & Detail Plan"
-  >CEK MANFAAT & DETAIL PLAN</BaseButton
-  >
+  <a
+    href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-care-protection.pdf`}
+    target="_blank">
+    <BaseButton
+      style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
+      ariaLabel="Lihat manfaat & Detail Plan"
+    >CEK MANFAAT & DETAIL PLAN</BaseButton
+    >
+  </a>
 </section>
 
 <section class="su_container tnc">
@@ -185,7 +189,7 @@
     />
   {:else}
     <div
-      class="border border-light-gray-300 shadow rounded-md p-4 w-full mx-auto"
+      class="border border-light-gray-300 shadow rounded-md p-4 w-full mx-auto overflow-hidden"
       style="max-width:400px"
     >
       <div class="animate-pulse flex flex-col space-x-4">
@@ -244,9 +248,12 @@
   <ProductNotCovered data={notcovered.care} />
 </section>
 
-<section class="su_container otherproduct" style="background-color: #e7eaef;">
+<section class="su_container otherproduct" style="background-color:#e7eaef;">
   {#if OtherProductsContainer}
-    <svelte:component this={OtherProductsContainer} />
+    <svelte:component
+      this={OtherProductsContainer}
+      apiProductUrl={api_product_url}
+      appUrl={app_url} />
   {:else}
     <div class="otherproduct_progress" />
   {/if}
@@ -270,6 +277,11 @@
     padding-left: 10px;
     padding-right: 10px;
 
+    &.premi-calculation {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
     @media (min-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;
@@ -285,6 +297,7 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 38px 0;
+    overflow-y: hidden;
   }
 
   .su_container.tnc,
@@ -297,4 +310,26 @@
     content-visibility: auto;
     contain-intrinsic-size: 700px;
   }
+
+  @media (max-width: 639px) {
+    :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
+      right: -140px !important;
+    }
+
+    :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      right: -85px !important;
+    }
+
+    :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      right: -150px !important;
+    }
+  }
+  @media (min-width: 640px) {
+    :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      transform: translateX(30%);
+    }
+  }
+
+  
+
 </style>

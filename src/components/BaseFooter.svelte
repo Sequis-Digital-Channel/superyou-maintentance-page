@@ -139,18 +139,33 @@
             width: auto;
             grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
           }
+
+          & > div {
+            justify-self: center;
+            img {
+              max-width: 50px;
+            }
+          }
         }
         .secure-transaction-wrapper {
-          width: 88%;
-          max-width: 320px;
+          width: 95%;
+          max-width: 500px;
           display: inline-grid;
-          justify-items: center;
-          grid-template-columns: repeat(4, minmax(80px, 1fr));
+          /* justify-items: center; */
+          grid-template-columns: repeat(5, minmax(66px, 1fr));
 
+          & > div {
+            display: flex;
+            align-items: center;
+
+            img {
+              max-width: 50px;
+            }
+          }
           @media (min-width: 1024px) {
             width: 100%;
             display: grid;
-            grid-template-columns: 82px 82px;
+            grid-template-columns: 60px 60px 60px;
             grid-gap: 8px 0;
             justify-items: start;
           }
@@ -335,7 +350,7 @@
         <div class="lazy-image">
           <img
             src={lazySrc}
-            data-src="/img/footer/verified_by_visa.png"
+            data-src={`${APP_URL}/img/footer/security-payment/verified_by_visa.png`}
             alt="Keamanan Transaksi"
             width="64px"
             height="34px" />
@@ -343,7 +358,7 @@
         <div class="lazy-image">
           <img
             src={lazySrc}
-            data-src="/img/footer/mastersecurecode.png"
+            data-src={`${APP_URL}/img/footer/security-payment/mastersecurecode.png`}
             alt="Keamanan Transaksi"
             width="64px"
             height="34px" />
@@ -351,7 +366,7 @@
         <div class="lazy-image">
           <img
             src={lazySrc}
-            data-src="/img/footer/norton-secured.png"
+            data-src={`${APP_URL}/img/footer/security-payment/iso-iec.png`}
             alt="Keamanan Transaksi"
             width="64px"
             height="34px" />
@@ -359,7 +374,15 @@
         <div class="lazy-image">
           <img
             src={lazySrc}
-            data-src="/img/footer/ojk.png"
+            data-src={`${APP_URL}/img/footer/security-payment/norton-secured.png`}
+            alt="Keamanan Transaksi"
+            width="64px"
+            height="34px" />
+        </div>
+        <div class="lazy-image">
+          <img
+            src={lazySrc}
+            data-src={`${APP_URL}/img/footer/security-payment/ojk.png`}
             alt="Keamanan Transaksi"
             width="64px"
             height="34px" />
@@ -377,18 +400,34 @@
             src={lazySrc}
             width="44"
             height="22"
-            data-src="https://superyou.co.id/img/icons/payment/master-card.png"
-            alt="Pembayaran Master Card" />
+            data-src="https://superyou.co.id/img/icons/payment/visa-card.png"
+            alt="Pembayaran Visa" />
         </div>
-        <div class="lazy-image" style="justify-self: center;">
+        <div class="lazy-image">
           <img
             src={lazySrc}
             width="44"
             height="22"
-            data-src="https://superyou.co.id/img/icons/payment/visa-card.png"
-            alt="Pembayaran Visa" />
+            data-src={`${APP_URL}/img/icons/payment/master-card.png`}
+            alt="Pembayaran Master Card" />
         </div>
-        <div class="lazy-image" style="justify-self: end;">
+        <div class="lazy-image">
+          <img
+            src={lazySrc}
+            width="68"
+            height="22"
+            data-src="https://superyou.co.id/img/icons/payment/gopay.png"
+            alt="Pembayaran Gopay" />
+        </div>
+        <div class="lazy-image">
+          <img
+            src={lazySrc}
+            width="64"
+            height="22"
+            data-src="https://superyou.co.id/img/icons/payment/indomaret.png"
+            alt="Pembayaran Indomaret" />
+        </div>
+        <div class="lazy-image">
           <img
             src={lazySrc}
             width="64"
@@ -403,22 +442,6 @@
             height="22"
             data-src="https://superyou.co.id/img/icons/payment/atm-permata.png"
             alt="Pembayaran Atm-Permata" />
-        </div>
-        <div class="lazy-image" style="justify-self: center;">
-          <img
-            src={lazySrc}
-            width="68"
-            height="22"
-            data-src="https://superyou.co.id/img/icons/payment/gopay.png"
-            alt="Pembayaran Gopay" />
-        </div>
-        <div class="lazy-image" style="justify-self: end;">
-          <img
-            src={lazySrc}
-            width="64"
-            height="22"
-            data-src="https://superyou.co.id/img/icons/payment/indomaret.png"
-            alt="Pembayaran Indomaret" />
         </div>
       </div>
     </div>

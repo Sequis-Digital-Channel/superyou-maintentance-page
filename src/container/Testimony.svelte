@@ -142,7 +142,7 @@
 
 <div id="testimony">
   <h2 class="md:text-xl text-white text-center font-bold mb-6 lg:mb-6">
-    Apa Kata Mereka Tentang Super Care
+    Apa Kata Mereka Tentang Super You
   </h2>
 
   <div class="-ml-2 -mr-2">

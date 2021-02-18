@@ -1,6 +1,6 @@
 <script>
   import { clickOutside } from "../utils/_clickoutside";
-  import Tooltip from "../components/Tooltip.svelte";
+  import Tooltip from "./Tooltip.svelte";
 
   export let items = [];
   export let selectedItem = {

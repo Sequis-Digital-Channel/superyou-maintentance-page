@@ -166,7 +166,7 @@
   <div class="result-card__header">
     <div class="icon">
       <img
-        src="/icons/products/care/with-badge/super-care-silver.svg"
+        src={plan_data.icon_svg}
         alt="Super Care"
         width="50"
         height="50" />

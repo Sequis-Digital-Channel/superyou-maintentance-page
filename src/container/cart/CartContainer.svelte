@@ -156,7 +156,7 @@
           </div>
         </div>
         <div
-          class="payment-term my-4 px-3 md:px-4 flex justify-between items-center"
+          class="payment-term pb-32 md:pb-16 my-4 px-3 md:px-4 flex justify-between items-center"
         >
           <p class="text-white text-sm">Bayar tahunan agar lebih hemat</p>
           <div>
@@ -215,6 +215,8 @@
           <img
             src="/icons/cart/empty-cart.svg"
             alt="Keranjang Belanja Asuransi"
+            width=294
+            height=270
           />
           <p
             class="text-darkblue font-bold text-xl md:text-2xl text-center mt-2 mb-4"
@@ -302,6 +304,7 @@
       display:none;
       @media (min-width: 640px) {
         display: flex;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 16%), 0 2px 4px -1px rgb(0 0 0 / 6%);
       }
 
       width: 60px;
