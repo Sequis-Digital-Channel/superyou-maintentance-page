@@ -233,6 +233,7 @@
           <BaseButton
             style={"font-size: 14px;height: 44px;"}
             ariaLabel="Cari Proteksi"
+            on:click={() => window.location.href = `${appUrl}/isi-data`}
           >CARI PROTEKSI</BaseButton
           >
         </div>
