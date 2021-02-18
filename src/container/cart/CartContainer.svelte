@@ -57,7 +57,9 @@
         body: JSON.stringify({ data: parsedCart }),
       });
       const encrypted = await response.json();
-      window.location.href = `${appUrl}/form-data?q=${encrypted}`;
+      setTimeout(() => {
+        window.location.href = `${appUrl}/form-data?q=${encrypted}`;
+      }, 50)
     }
   }
 
@@ -233,6 +235,7 @@
           <BaseButton
             style={"font-size: 14px;height: 44px;"}
             ariaLabel="Cari Proteksi"
+            on:click={() => window.location.href = `${appUrl}/isi-data`}
           >CARI PROTEKSI</BaseButton
           >
         </div>

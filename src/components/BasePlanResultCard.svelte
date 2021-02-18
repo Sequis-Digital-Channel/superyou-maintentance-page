@@ -2,48 +2,6 @@
   import { moneyFormat, toBillion } from "../utils/_moneyandtobillion";
 
   export let plan_data;
-  let benefit_group = [
-    {
-      title: "Perlindungan untuk Penyakit Menular",
-      list_benefit: [
-        {
-          title: "Biaya Perawatan Rumah Sakit",
-          info: "Maks per Penyakit",
-          amount: "25 Juta",
-        },
-        {
-          title: "Santunan Tunai Harian Rawat Inap (akibat Covid-19)",
-          info: "Maks 30 hari per Tahun Polis. Per hari sebesar ",
-          amount: "1 Juta",
-        },
-        {
-          title: "Santunan Kematian",
-          info: "",
-          amount: "100 Juta",
-        },
-      ],
-    },
-    {
-      title: "Perlindungan untuk Kecelakaan",
-      list_benefit: [
-        {
-          title: "Biaya Perawatan Rumah Sakit",
-          info: "Maks per Kecelakaan",
-          amount: "25 Juta",
-        },
-        {
-          title: "Biaya Pembedahan Gigi & Bedah Rekonstruktift",
-          info: "Maks per Kecelakaan",
-          amount: "5 Juta",
-        },
-        {
-          title: "Biaya Fisioterapi/Pengobatan Tradisional Tiongkok",
-          info: "Maks per Kecelakaan",
-          amount: "2,5 Juta",
-        },
-      ],
-    },
-  ];
 </script>
 
 <style lang="postcss">
@@ -55,16 +13,23 @@
     &__header {
       background-color: #0d294a;
       color: #fff;
-      padding: 6px 10px;
+      padding: 10px;
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
-
-      @media (min-width: 640px) {
-        padding: 10px;
-      }
-
       display: flex;
       flex-wrap: nowrap;
+      @media (min-width: 640px) {
+        padding: 10px 16px;
+      }
+
+      .icon {
+        margin-right: 8px;
+        max-width: 42px;
+
+        @media (max-width: 639px) {
+          max-width: 30px;
+        }
+      }
 
       .text-sm-white {
         font-size: 10px;
@@ -167,9 +132,9 @@
     <div class="icon">
       <img
         src={plan_data.icon_svg}
-        alt="Super Care"
-        width="50"
-        height="50" />
+        alt={plan_data.product_name}
+        width="42"
+        height="42" />
     </div>
     <div class="name">
       <span class="product text-sm-white">{plan_data.product_name}</span>

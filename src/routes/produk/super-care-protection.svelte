@@ -49,7 +49,7 @@
   const loadSelectPlanCare = async () => {
     const product = await getProductBySlugNameClient(
       api_product_url,
-      "super-care-protection/?show_partner=false"
+      "super-care-protection/?show_partner=false&is_show=true"
     );
     plans = product.plans;
     import("../../container/product/SelectPlanCare.svelte")
