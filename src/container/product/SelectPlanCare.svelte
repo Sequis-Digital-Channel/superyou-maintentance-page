@@ -7,7 +7,7 @@
   import BaseInputDate from "../../components/BaseInputDate.svelte";
   import BaseInputRadio from "../../components/BaseInputRadio.svelte";
   import BaseSelectMenu from "../../components/BaseSelectMenu.svelte";
-  import ProductRecommendationContainer from "./ProductRecomendation/ProductRecommendationContainer.svelte";
+  
   import BaseButton from "../../components/BaseButton.svelte";
   import BgOverlay from "../../components/BgOverlay.svelte";
   import PopUpAddToCart from "../cart/PopUpAddToCart.svelte";
@@ -454,7 +454,7 @@
       }
 
       .plan-result {
-        margin-left: 20px;
+        margin-left: 15px;
         padding: 0 10px;
       }
 
