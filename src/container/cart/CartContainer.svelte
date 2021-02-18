@@ -57,7 +57,9 @@
         body: JSON.stringify({ data: parsedCart }),
       });
       const encrypted = await response.json();
-      window.location.href = `${appUrl}/form-data?q=${encrypted}`;
+      setTimeout(() => {
+        window.location.href = `${appUrl}/form-data?q=${encrypted}`;
+      }, 50)
     }
   }
 
