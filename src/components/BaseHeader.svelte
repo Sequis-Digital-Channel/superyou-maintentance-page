@@ -64,7 +64,7 @@
     left: 0;
     width: 100%;
     transition: background 250ms ease-in;
-    z-index: 10;
+    z-index: 8;
 
     @media (min-width: 768px) {
       padding: 0 24px;
