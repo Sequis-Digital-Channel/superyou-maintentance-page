@@ -173,11 +173,17 @@
       </p>
     </div>
     <button
-      on:click={() =>
+      on:click={() => {
+        const sumAssured = 
+          item.validation_type === "sum_assured"
+          ? item.sum_assured * $cartStore.products[item.id].quantity
+          : 0;
+
         deleteCartItem(
           item.id,
-          item.sum_assured * $cartStore.products[item.id].quantity
-        )}
+          sumAssured
+        )
+      }}
       class="bg-white w-5 h-5 rounded-full border border-teal flex items-center justify-center absolute"
       style="right:-6px; top: -6px;"
       aria-label="Hapus Keranjang Item">
