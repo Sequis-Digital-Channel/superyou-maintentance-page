@@ -205,7 +205,7 @@
     <div class="product_meta">
       <h1 class="product_meta_name">{meta.title}</h1>
       <p class="product_meta_description" style="font-weight:600;">
-        {meta.description}
+        {@html meta.description}
       </p>
 
       <BaseButton
