@@ -21,10 +21,10 @@
   import Testimony from "../../container/Testimony.svelte";
   import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
 
-  import dataFaqSuperCare from "../../data/json/faq-super-care.json";
-  import tnc from "../../data/json/tnc-super-care.json";
-  import notcovered from "../../data/json/not-covered-super-care.json";
-  import superCareProtection from "../../data/json/staging-super-care-protection.json";
+  import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
+  import tnc from "../../data/json/products/super-care/tnc.json";
+  import notcovered from "../../data/json/products/super-care/not-covered.json";
+  import superCareProtection from "../../data/json/products/super-care/api.json";
 
   import { loadFlickity } from "../../utils/_loadflickity";
   import { getProductBySlugNameClient } from "../../api/products.services";
