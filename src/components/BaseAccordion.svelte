@@ -20,7 +20,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        & > h4 {
+        & > h5 {
           font-size: 16px;
           color: #0d294a;
           font-weight: bold;
@@ -41,7 +41,10 @@
         max-height: 0;
 
         &.open {
-          max-height: 300px;
+          max-height: 820px;
+          @media (min-width: 1024px) {
+            max-height: 400px;
+          }
         }
 
         .body__wrapper {
@@ -61,7 +64,7 @@
       <div
         class="base-accordion__item__header"
         on:click={() => toggleAccordionItem(i)}>
-        <h4>{item.title}</h4>
+        <h5 class="flex nowrap">{@html item.title}</h5>
         <svg
           class:open={accordionState[i].isOpen}
           style="margin-right: 2px;"

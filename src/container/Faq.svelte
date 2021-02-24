@@ -16,7 +16,7 @@
 </style>
 
 <div class="product-faq">
-  <h2 class="text-xl text-center font-bold mb-6 lg:mb-6">{FAQtitle}</h2>
+  <h4 class="text-xl text-center font-bold mb-6 lg:mb-6">{FAQtitle}</h4>
   <BaseAccordion {accordionData} />
 
   <BaseButton

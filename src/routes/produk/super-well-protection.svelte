@@ -1,11 +1,26 @@
+<script context="module">
+  export async function preload(page, session) {
+    const { API_PRODUCT_CATALOGUE, APP_URL } = session;
+
+    return {
+      api_product_url: API_PRODUCT_CATALOGUE,
+      app_url : APP_URL
+    };
+  }
+</script>
+
 <script>
   import { onMount } from "svelte";
 
   import AboveTheFold from "../../container/AboveTheFold.svelte";
+  import Faq from "../../container/Faq.svelte";
+
   import heroMeta from "../../data/json/products/super-well/abovethefold-meta.json";
+  import faqData from "../../data/json/products/super-well/faq.json";
+
+  export let app_url;
 
   onMount(() => {
-
     if ("IntersectionObserver" in window) {
       const images = Array.from(document.querySelectorAll(".lazy-image img"));
       // lazyload image observer
@@ -54,6 +69,14 @@
   </AboveTheFold>
 </section>
 
+<section class="su_container faq">
+  <Faq
+    appUrl={app_url}
+    FAQtitle="Tanya Jawab Super Well"
+    accordionData={faqData["faq-well"]}
+  />
+</section>
+
 
 <style lang="postcss">
   .above-the-fold-wrapper {
@@ -62,6 +85,16 @@
   .product_hero .hero-well img {
     @media (min-width: 501px) {
       width: 385px;
+    }
+  }
+
+  .su_container {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @media (min-width: 768px) {
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
 </style>
