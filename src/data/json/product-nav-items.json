@@ -53,8 +53,8 @@
       "desc": "Perawatan 10 Penyakit Kritis",
       "info": "Mulai Dari Rp 50.000/Bulan",
       "product_type": "basic",
-      "url": "/",
-      "self": false
+      "url": "/produk/super-well-protection",
+      "self": true
     },
     {
       "icon": "/icons/products/care/super-care.svg",

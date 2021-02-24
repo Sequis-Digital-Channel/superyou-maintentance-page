@@ -21,10 +21,11 @@
   import Testimony from "../../container/Testimony.svelte";
   import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
 
-  import dataFaqSuperCare from "../../data/json/faq-super-care.json";
-  import tnc from "../../data/json/tnc-super-care.json";
-  import notcovered from "../../data/json/not-covered-super-care.json";
-  import superCareProtection from "../../data/json/staging-super-care-protection.json";
+  import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
+  import tnc from "../../data/json/products/super-care/tnc.json";
+  import notcovered from "../../data/json/products/super-care/not-covered.json";
+  import superCareProtection from "../../data/json/products/super-care/api.json";
+  import heroMeta from "../../data/json/products/super-care/abovethefold-meta.json";
 
   import { loadFlickity } from "../../utils/_loadflickity";
   import { getProductBySlugNameClient } from "../../api/products.services";
@@ -135,7 +136,49 @@
 </svelte:head>
 
 <section class="above-the-fold-wrapper">
-  <AboveTheFold />
+  <AboveTheFold meta={heroMeta}>
+    <picture slot="hero-img">
+      <!-- {#if safari} -->
+      <source
+        media="(min-width: 801px)"
+        srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
+      >
+      <source
+        media="(min-width: 501px) and (max-width: 800px)"
+        srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+      >
+      <source
+        media="(max-width: 500px)"
+        srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
+      >
+      <img
+        src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+        alt="Super Care Hero"
+        width="374"
+        height="315"
+      >
+
+      <!-- {:else}
+      <source
+        media="(min-width: 801px)"
+        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
+      />
+      <source
+      media="(min-width: 501px) and (max-width: 800px)"
+      srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+      />
+
+      <source
+      media="(max-width: 500px)"
+      srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
+      />
+      {/if} -->
+        
+    </picture>
+  </AboveTheFold>
 </section>
 
 <section class="su_container benefits">
