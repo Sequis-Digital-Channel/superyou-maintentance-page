@@ -54,7 +54,14 @@
 
           .aside-item {
             margin-top: 20px;
+            &.auth {
+              display: none;
+            }
+            
             @media (max-width: 1023px) {
+              &.auth {
+                display: flex;
+              }
               &:not(:first-child) {
                 margin-top: 20px;
               }
@@ -193,7 +200,7 @@
     </div>
     <div class="aside-body">
       <div class="aside-body-wrapper">
-        <div class="aside-item flex mt-1">
+        <div class="aside-item auth flex mt-1">
           <span class="inline-block" style="margin-top:2px;">
             <IcLock width="20px" height="20px" fill="#000" />
           </span>

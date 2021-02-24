@@ -429,7 +429,7 @@
                 Asuransi Kesehatan & Penyakit Kritis
               </h4>
               {#each productNavItems.health as navItem (navItem.icon)}
-                <a href={`${navItem.self ? "" : APP_URL}${navItem.url}`}>
+                <a rel=external href={`${navItem.self ? "" : APP_URL}${navItem.url}`}>
                   <div class="product-item-nav">
                     <div class="icon">
                       <img
