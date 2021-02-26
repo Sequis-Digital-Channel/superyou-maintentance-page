@@ -153,7 +153,6 @@
             text-align: left;
             font-size: 16px;
             margin-bottom: 24px;
-            /* max-width: 500px; */
           }
           @media (min-width: 1280px) {
             font-size: 20px !important;
