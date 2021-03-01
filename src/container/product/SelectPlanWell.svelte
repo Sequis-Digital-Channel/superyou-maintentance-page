@@ -315,6 +315,7 @@
       />
       <br />
       <BaseInputDate
+        label="Tanggal Lahir Tertanggung"
         name="insured_dob"
         minAge={1}
         maxAge={80}
