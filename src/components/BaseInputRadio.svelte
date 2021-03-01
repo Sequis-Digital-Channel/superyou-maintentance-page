@@ -4,6 +4,7 @@
   export let name = "base-input-radio";
   export let direction = "row";
   export let selectedItemValue = "";
+  export let label = "";
 
   onMount(() => {
     items.forEach((item) => {
@@ -99,7 +100,7 @@
 </style>
 
 <div class="radio-input-wrapper">
-  <span class="radio-input-title">Metode klaim</span>
+  <span class="radio-input-title">{label}</span>
   <div id="base-radio-input" :style={{ flexDirection: direction }}>
     {#each items as option, i (option.val)}
       <div class="radio-input-wrapper">
