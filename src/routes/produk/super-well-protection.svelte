@@ -82,24 +82,21 @@
   
 </script>
 
-
 <section class="above-the-fold-wrapper">
   <AboveTheFold meta={heroMeta}>
     <picture class="hero-well" slot="hero-img">
       <source
-      srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_770/v1614146956/superyou/well/ds_dad-and-daughter_2x.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_770/v1614146956/superyou/well/ds_dad-and-daughter_3x.png 2x"
-      media="(min-width: 801px)"
+      srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1614146955/superyou/well/ds_dad-and-daughter.png, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto/v1614146955/superyou/well/ds_dad-and-daughter.png 2x"
+      media="(max-width: 500px)"
       >
       <source
       srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1614146956/superyou/well/ds_dad-and-daughter_2x.png"
       media="(min-width: 501px) and (max-width: 800px)"
       >
       <source
-      srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1614146955/superyou/well/ds_dad-and-daughter.png, https://res.cloudinary.com/supercdnstrg/image/upload/v1614146955/superyou/well/ds_dad-and-daughter.png 2x"
-      media="(max-width: 500px)"
+      srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_770/v1614146956/superyou/well/ds_dad-and-daughter_2x.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_770/v1614146956/superyou/well/ds_dad-and-daughter_3x.png 2x"
+      media="(min-width: 801px)"
       >
-
-      <!-- https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1614146956/superyou/well/ds_dad-and-daughter_2x.png 2x" -->
       <img
         src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto/v1614146955/superyou/well/ds_dad-and-daughter.png"
         alt="Super Well Hero"
