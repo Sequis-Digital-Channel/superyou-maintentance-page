@@ -35,7 +35,6 @@
     // e.preventDefault();
     import("../../components/BasePlanResultCard.svelte")
       .then(setComponent)
-      .then((component) => console.log(component))
       .catch(logError);
   };
   // FORM FIELD SELECT OPTION ITEMS
@@ -109,7 +108,6 @@
         status: false,
         msg: "",
       },
-      label: "Plan",
     },
     insured_for: {
       val: {
@@ -120,7 +118,6 @@
         status: false,
         msg: "",
       },
-      label: "Tertanggung",
     },
     insured_gender: {
       val: {
@@ -131,7 +128,6 @@
         status: false,
         msg: "",
       },
-      label: "Jenis kelamin",
     },
     claim_method: {
       val: "",
@@ -139,7 +135,6 @@
         status: false,
         msg: "",
       },
-      label: "Metode klaim",
     },
     insured_dob: {
       val: "",
@@ -147,7 +142,6 @@
         status: false,
         msg: "",
       },
-      label: "Tanggal lahir tertanggung",
     },
   };
 
@@ -160,6 +154,7 @@
         basePlanResultData
         && basePlanResultData.id === selectedPlanData.id
         && insuredDob === selectedDob
+        && basePlanResultData.validations === null
       ) {
       planSelected = true;
       focusView();
@@ -309,6 +304,7 @@
       />
       <br />
       <BaseInputDate
+        label="Tanggal Lahir Tertanggung"
         name="insured_dob"
         minAge={1}
         maxAge={80}
@@ -324,6 +320,7 @@
       />
       <br />
       <BaseInputRadio
+        label="Metode Klaim"
         name="claim_method"
         items={claim_method}
         bind:selectedItemValue={calculationData.claim_method.val}
