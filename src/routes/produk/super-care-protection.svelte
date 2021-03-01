@@ -323,16 +323,13 @@
     &.premi-calculation {
       padding-left: 10px;
       padding-right: 10px;
+      padding-top: 36px;
     }
 
     @media (min-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;
     }
-  }
-
-  .premi-calculation {
-    padding-top: 36px;
   }
 
   .otherproduct_progress {
