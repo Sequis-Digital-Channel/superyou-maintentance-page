@@ -156,6 +156,8 @@
         alt="Super Care Hero"
         width="374"
         height="315"
+        loading="lazy"
+        decoding="async"
       >
 
       <!-- {:else}
