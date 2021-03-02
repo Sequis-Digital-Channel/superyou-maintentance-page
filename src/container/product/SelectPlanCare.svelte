@@ -1,7 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
-  import { getPlanById } from "../../api/products.services";
+  import { getPlanById } from "../../api/products.service";
+  import { getFormEncryption } from "../../api/superyou.service";
+  import { getCookie } from "../../utils/_cartcookie";
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
@@ -16,6 +18,8 @@
   export let plans;
   export let productSlug;
   export let api_product_url;
+  export let api_superyou_url;
+  export let app_url;
 
   let isAddToCartSuccess = false;
   let planSelected = false;
@@ -237,8 +241,8 @@
   }
 
   function handleClickAddToCart(e) {
-    const { id: planId, monthly_premium: price } = basePlanResultData;
     e.preventDefault();
+    const { id: planId, monthly_premium: price } = basePlanResultData;
     addToCart(
       {
         planId,
@@ -250,13 +254,37 @@
       calculationData.insured_dob.val,
       basePlanResultData,
       productSlug,
-      "SUBMIT"
+      "SAVE_TO_COOKIE"
     );
+    
+    // Trigger pop up succes add to cart
     isAddToCartSuccess = true;
-
     setTimeout(() => {
       isAddToCartSuccess = false;
     }, 600);
+  }
+
+  function payNow(e) {
+    e.preventDefault();
+    const { id: planId, monthly_premium: price } = basePlanResultData;
+    addToCart(
+      {
+        planId,
+        quantity: 1,
+        price,
+        riders: {},
+      },
+      calculationData.insured_for.val.value,
+      calculationData.insured_dob.val,
+      basePlanResultData,
+      productSlug,
+      "SAVE_TO_COOKIE"
+    );
+
+    setTimeout(async () => {
+      const encryptedKey = await getFormEncryption(api_superyou_url, getCookie("_cart"));
+      window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
+    }, 110)
   }
 
   $: if (calculationData.insured_dob.error.status) {
@@ -357,10 +385,12 @@
           </BaseButton>
 
           <BaseButton
+            on:click={(e) => payNow(e)}
             style="max-width: 330px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
-            bgColor={"transparent"}
-          >BAYAR SEKARANG</BaseButton
-          >
+            bgColor={"transparent"}>
+            BAYAR SEKARANG
+            <!-- <i slot="icon" class="loader" /> -->
+          </BaseButton>
 
           <p
             on:click={backToForm}

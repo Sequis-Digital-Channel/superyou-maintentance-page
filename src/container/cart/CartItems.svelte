@@ -7,7 +7,7 @@
   } from "../../stores/cart/store";
   import { calculateSumAssuredTotal } from "../../stores/cart/actions";
   import { onDestroy } from "svelte";
-  import { getPlanById } from "../../api/products.services";
+  import { getPlanById } from "../../api/products.service";
 
   let cartItem;
   let productApiUrl = "";
