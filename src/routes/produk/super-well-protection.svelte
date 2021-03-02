@@ -1,4 +1,9 @@
 <script context="module">
+  import superWellProtection from "../../data/json/products/super-well/api.json";
+  import heroMeta from "../../data/json/products/super-well/abovethefold-meta.json";
+  import tnc from "../../data/json/products/super-well/tnc.json";
+  import faqData from "../../data/json/products/super-well/faq.json";
+
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL } = session;
 
@@ -18,12 +23,8 @@
   import BaseButton from "../../components/BaseButton.svelte";
   import Faq from "../../container/Faq.svelte";
 
-  import superWellProtection from "../../data/json/products/super-well/api.json";
-  import heroMeta from "../../data/json/products/super-well/abovethefold-meta.json";
-  import tnc from "../../data/json/products/super-well/tnc.json";
-  import faqData from "../../data/json/products/super-well/faq.json";
-
   import { getProductBySlugNameClient } from "../../api/products.services";
+  
   export let api_product_url;
   export let app_url;
 
