@@ -1,4 +1,5 @@
 <script>
+  import { goto } from '@sapper/app';
   import { fade } from "svelte/transition";
   import { bodyScroll } from "../stores/bodyscroll";
   import SuperyouColorLogo from "../components/svg/SuperyouColorLogo.svelte";
@@ -250,10 +251,15 @@
               <a href={`${APP_URL}/produk/super-strong-protection`}>Super Strong</a>
             </li>
             <li>
-              <a href={`${APP_URL}/produk/super-care-protection`}>Super Care</a>
+              <a href={`${APP_URL}/produk/my-hospital-protection`}>My Hospital</a>
             </li>
             <li>
-              <a href={`${APP_URL}/produk/my-hospital-protection`}>My Hospital</a>
+              <a rel="prefetch" href="/produk/super-care-protection">Super Care</a>
+            </li>
+            <li>
+              <a
+                on:click={async () => await goto('/produk/super-well-protection')}
+                href="/produk/super-well-protection">Super Well</a>
             </li>
           </ul>
         </div>
