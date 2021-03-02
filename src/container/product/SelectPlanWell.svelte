@@ -7,6 +7,7 @@
   import BaseInputDate from "../../components/BaseInputDate.svelte";
   import BaseInputRadio from "../../components/BaseInputRadio.svelte";
   import BaseSelectMenu from "../../components/BaseSelectMenu.svelte";
+  import BaseInputText from "../../components/BaseInputText.svelte";
   
   import BaseButton from "../../components/BaseButton.svelte";
   import BgOverlay from "../../components/BgOverlay.svelte";
@@ -84,16 +85,11 @@
     { name: "Perempuan", value: "female" },
   ];
 
-  const claim_method = [
+  const claim_method_opt = [
     {
       val: "cashless",
       label: "Cashless",
       selected: true,
-    },
-    {
-      val: "reimbursement",
-      label: "Reimbursement",
-      selected: false,
     },
   ];
 
@@ -108,6 +104,7 @@
         status: false,
         msg: "",
       },
+      label: "Plan",
     },
     insured_for: {
       val: {
@@ -118,12 +115,21 @@
         status: false,
         msg: "",
       },
+      label: "Tertanggung",
     },
     insured_gender: {
       val: {
         name: "",
         value: "",
       },
+      error: {
+        status: false,
+        msg: "",
+      },
+      label: "Jenis kelamin",
+    },
+    area_coverage_claim: {
+      val: "Indonesia",
       error: {
         status: false,
         msg: "",
@@ -142,6 +148,7 @@
         status: false,
         msg: "",
       },
+      label: "Tanggal lahir",
     },
   };
 
@@ -265,6 +272,15 @@
     isBtnDisabled = false;
   }
 
+  $: if (calculationData.plan.val.name) {
+    if (calculationData.plan.val.name.toLowerCase().includes("gold")) {
+      console.log("Gold ni")
+      calculationData.area_coverage_claim.val = "Indonesia & Malaysia"
+    } else {
+      calculationData.area_coverage_claim.val = "Indonesia"
+    }
+  }
+
   onMount(() => {
     plans.forEach((plan) => {
       if (plan.is_cashless) {
@@ -322,8 +338,16 @@
       <BaseInputRadio
         label="Metode Klaim"
         name="claim_method"
-        items={claim_method}
+        items={claim_method_opt}
         bind:selectedItemValue={calculationData.claim_method.val}
+      />
+      <br />
+      <BaseInputText
+        label="Cakupan Wilayah Klaim"
+        name="area_coverage_claim"
+        readonly
+        bind:value={calculationData.area_coverage_claim.val}
+        bind:error={calculationData.area_coverage_claim.error}
       />
       <br />
       <BaseButton

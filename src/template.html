@@ -43,6 +43,10 @@
 		}
 	</style>
 
+	<!-- This contains the contents of the <svelte:head> component, if
+			     the current page has one -->
+	%sapper.head%
+
 	<!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
@@ -52,10 +56,6 @@
 			     for the current page. CSS for the rest of the app is
 			     lazily loaded when it precaches secondary pages -->
 	%sapper.styles%
-
-	<!-- This contains the contents of the <svelte:head> component, if
-	     the current page has one -->
-	%sapper.head%
 </head>
 
 <body class="f-sans">

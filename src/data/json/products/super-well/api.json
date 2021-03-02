@@ -1,0 +1,88 @@
+{
+  "slug": "super-well-protection",
+  "rip_link": null,
+  "benefit_groups": [
+    {
+      "name": "",
+      "tooltip_text": null,
+      "id": "_blank",
+      "benefits": [
+        {
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection3.svg",
+          "benefit": "Mencakup biaya rawat jalan sebelum dan sesudah rawat inap, biaya rawat inap, perawatan aktif dan perawatan kanker khusus tanpa batasan hari, semua sesuai tagihan.",
+          "product_id": "6c9164c4-cb2c-4ed0-8924-c7cd20a30d44",
+          "id": "05c87b8d-63a6-4c29-89fc-1f6dc983b6eb",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection3.png",
+          "product_benefit_group_id": "_blank",
+          "name": "Biaya Perawatan Rumah Sakit Menyeluruh",
+          "tooltip_text": "- Yang dimaksud biaya rawat inap pada perlindungan Super Well adalah biaya rumah sakit, dokter, obat-obatan, ICU, pembedahan, donor organ, serta biaya lain-lain<br/>- Perawatan aktif diantaranya chemotherapy, radiotherapy, kidney dialysis, dll)<br/>- Perawatan kanker khusus yaitu terapi hormon dan terapi imun. ",
+          "product_benefit_group": {
+            "id": "_blank",
+            "tooltip_text": null,
+            "name": ""
+          }
+        },
+        {
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection4.svg",
+          "benefit": "Pertanggungan biaya konsultasi dan tes diagnostik untuk memantau dan menjaga kesehatan pasien pasca-sembuh dari penyakit kritis hingga 5 tahun setelah sembuh. Tanpa batasan hari, semua sesuai tagihan.",
+          "product_id": "6c9164c4-cb2c-4ed0-8924-c7cd20a30d44",
+          "id": "20f26322-4abe-4cd4-a9bc-f47c5e90173a",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection4.png",
+          "product_benefit_group_id": "_blank",
+          "name": "Pemantauan Pasca-Sembuh",
+          "tooltip_text": "",
+          "product_benefit_group": {
+            "id": "_blank",
+            "tooltip_text": null,
+            "name": ""
+          }
+        },
+        {
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection1.svg",
+          "benefit": "Rawat inap menggunakan kamar 1 tempat tidur (one-bedded atau setara VIP) atau <strong>Rp1.5 Juta per hari</strong>, yang mana yang lebih tinggi.",
+          "product_id": "6c9164c4-cb2c-4ed0-8924-c7cd20a30d44",
+          "id": "26bfa1cb-9d37-475c-a2b5-37e2d15c2643",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection1.png",
+          "product_benefit_group_id": "_blank",
+          "name": "Kamar Rawat Inap",
+          "tooltip_text": "",
+          "product_benefit_group": {
+            "id": "_blank",
+            "tooltip_text": null,
+            "name": ""
+          }
+        },
+        {
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection2.svg",
+          "benefit": "Pertanggungan biaya untuk konsultasi dan tes diagnostik mencakup tes laboratorium, X-ray, CT-scan, MRI, PET,  dan lain-lain. Tanpa batasan hari, semua sesuai tagihan.",
+          "product_id": "6c9164c4-cb2c-4ed0-8924-c7cd20a30d44",
+          "id": "9c993edb-9bce-4855-b7ea-c4c9c941962e",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection2.png",
+          "product_benefit_group_id": "_blank",
+          "name": "Diagnosis Penyakit Kritis",
+          "tooltip_text": "",
+          "product_benefit_group": {
+            "id": "_blank",
+            "tooltip_text": null,
+            "name": ""
+          }
+        },
+        {
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection5.svg",
+          "benefit": "Pertanggungan untuk perawatan lainnya pasca penyakit kritis yaitu Fisioterapi,  Terapi Wicara, dan Terapi Okupasi (Occupational Therapy) sebesar <strong>Rp1 Juta per kunjungan</strong>.",
+          "product_id": "6c9164c4-cb2c-4ed0-8924-c7cd20a30d44",
+          "id": "f552ec71-c692-45ae-a56b-793612543abe",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection5.png",
+          "product_benefit_group_id": "_blank",
+          "name": "Terapi Lainnya",
+          "tooltip_text": "",
+          "product_benefit_group": {
+            "id": "_blank",
+            "tooltip_text": null,
+            "name": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -68,7 +68,7 @@
 
 <style lang="postcss">
   #above-the-fold {
-    padding: 68px 10px 0 10px;
+    padding: 71px 10px 0 10px;
 
     @media (min-width: 768px) {
       padding-left: 24px;
@@ -97,7 +97,7 @@
         display: block;
         height: 74px;
         @media (min-width: 768px) {
-          padding-top: 20px;
+          padding-top: 30px;
           height: 100px;
         }
       }
@@ -111,7 +111,7 @@
           align-items: flex-start;
           max-width: 360px;
           margin-left: 15px;
-          padding-top: 20px;
+          padding-top: 30px;
         }
 
         @media (min-width: 1024px) {
@@ -157,6 +157,7 @@
           @media (min-width: 1280px) {
             font-size: 20px !important;
             margin-bottom: 36px;
+            height: 90px;
           }
         }
       }

@@ -4,17 +4,22 @@
 
 <script>
   import { onMount } from "svelte";
+  import { stores } from "@sapper/app";
+
   import AsideNavigation from "../container/AsideNavigation.svelte";
   import BgOverlay from "../components/BgOverlay.svelte";
   import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
   import IcLock from "./svg/IcLock.svelte";
 
-  export let segment;
   export let APP_URL;
-  let currentSegment = segment;
+
+  const { preloading } = stores();
   let navScrolled = false;
   let productListShow = false;
   let aside = false;
+
+  let aboveTheFold = null;
+  let aboveTheFoldObserver = null;
 
   let isProductIconFetch = false;
   let initImgSrc =
@@ -23,15 +28,15 @@
     isProductIconFetch = true;
   };
 
-  $: if (segment !== currentSegment) {
-    navScrolled = false;
-  }
-
-  onMount(() => {
-    const aboveTheFold = document.getElementById("above-the-fold");
-    const aboveTheFoldObserver = new IntersectionObserver(
+  function observeAboveTheFold() {
+    aboveTheFold = document.getElementById("above-the-fold");
+    aboveTheFoldObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          if (entry.rootBounds === null) {
+            observeAboveTheFold();
+            return
+          }
           if (!entry.isIntersecting) {
             navScrolled = true;
           } else {
@@ -45,6 +50,20 @@
     );
 
     aboveTheFoldObserver.observe(aboveTheFold);
+  }
+
+  onMount(() => {
+    preloading.subscribe((onload) => {
+      if (process.browser && history.state.id === 1) {
+        observeAboveTheFold();
+        return;
+      }
+      if (onload) {
+        aboveTheFoldObserver.unobserve(aboveTheFold);
+      } else {
+        observeAboveTheFold();
+      }
+    });
   });
 </script>
 
@@ -430,7 +449,7 @@
               </h4>
               {#each productNavItems.health as navItem (navItem.icon)}
                 {#if navItem.self}
-                <a rel="prefetch" href={navItem.url}>
+                <a rel="prefetch" on:click={() => productListShow = false} href={navItem.url}>
                   <div class="product-item-nav">
                     <div class="icon">
                       <img

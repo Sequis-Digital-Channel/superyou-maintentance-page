@@ -13,6 +13,8 @@
     msg: "",
   };
 
+  export let label = "";
+
   let focused = false;
   let isDateComplete = false;
   const options = {
@@ -67,7 +69,7 @@
 </script>
 
 <div class="base-input-date" class:focused class:error={error.status}>
-  <label for={name}>Tanggal Lahir Tertanggung</label>
+  <label for={name}>{label}</label>
   <input
     class="input-date"
     id={name}

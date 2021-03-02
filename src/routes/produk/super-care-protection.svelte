@@ -1,4 +1,10 @@
 <script context="module">
+  import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
+  import tnc from "../../data/json/products/super-care/tnc.json";
+  import notcovered from "../../data/json/products/super-care/not-covered.json";
+  import superCareProtection from "../../data/json/products/super-care/api.json";
+  import heroMeta from "../../data/json/products/super-care/abovethefold-meta.json";
+  
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL } = session;
 
@@ -20,12 +26,6 @@
   import Faq from "../../container/Faq.svelte";
   import Testimony from "../../container/Testimony.svelte";
   import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
-
-  import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
-  import tnc from "../../data/json/products/super-care/tnc.json";
-  import notcovered from "../../data/json/products/super-care/not-covered.json";
-  import superCareProtection from "../../data/json/products/super-care/api.json";
-  import heroMeta from "../../data/json/products/super-care/abovethefold-meta.json";
 
   import { loadFlickity } from "../../utils/_loadflickity";
   import { getProductBySlugNameClient } from "../../api/products.services";
@@ -156,6 +156,8 @@
         alt="Super Care Hero"
         width="374"
         height="315"
+        loading="lazy"
+        decoding="async"
       >
 
       <!-- {:else}
@@ -323,16 +325,13 @@
     &.premi-calculation {
       padding-left: 10px;
       padding-right: 10px;
+      padding-top: 36px;
     }
 
     @media (min-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;
     }
-  }
-
-  .premi-calculation {
-    padding-top: 36px;
   }
 
   .otherproduct_progress {

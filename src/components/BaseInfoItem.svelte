@@ -85,7 +85,7 @@
         {title}
         {#if tooltipTitle !== ''}
           <Tooltip className={key} type="title">
-            <p class="tooltip-body">{tooltipTitle}</p>
+            <p class="tooltip-body">{@html tooltipTitle}</p>
           </Tooltip>
         {/if}
       </h4>
