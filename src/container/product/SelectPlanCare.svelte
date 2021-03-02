@@ -423,7 +423,7 @@
   </div>
 </div>
 
-<div use:portal={"#portal"}>
+<div use:portal={"#portal"} id="portal">
   {#if isAddToCartSuccess}
     <BgOverlay />
     <PopUpAddToCart />

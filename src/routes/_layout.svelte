@@ -1,7 +1,7 @@
 <script context="module">
   export async function preload(page, session) {
     const { APP_URL } = session;
-
+    
     return {
       APP_URL,
     };
@@ -10,6 +10,7 @@
 
 <script>
   import { onMount } from "svelte";
+
   import GlobalStyle from "../components/GlobalStyle.svelte";
   import BaseHeader from "../components/BaseHeader.svelte";
   import BaseFooter from "../components/BaseFooter.svelte";
@@ -18,7 +19,7 @@
 
   import { bodyScroll } from "../stores/bodyscroll";
 
-  export let segment;
+  // export let segment;
   export let APP_URL;
 
   let bodyHTMLElement = false;
@@ -36,7 +37,7 @@
   });
 </script>
 
-<BaseHeader {segment} {APP_URL} />
+<BaseHeader {APP_URL}/>
 <CartContainer />
 <main>
   <GlobalStyle />
