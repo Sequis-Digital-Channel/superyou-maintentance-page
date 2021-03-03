@@ -1,8 +1,30 @@
 <script>
+  import { beforeUpdate } from "svelte";
   import BasePrice from "./BasePrice.svelte";
 
   export let detail;
   export let appUrl;
+
+  let listBenefits = []
+
+  function normalizationBenefit() {
+    const arrBene = [];
+    if (detail && detail.benefit_groups) {
+      detail.benefit_groups.forEach(group => {
+        group.benefits.forEach(benefit => {
+          if (arrBene.length <= 2) {
+            arrBene.push(benefit)
+          }
+        })
+      })
+    }
+
+    return arrBene;
+  }
+
+  beforeUpdate(() => {
+    listBenefits = normalizationBenefit();
+  });
 </script>
 
 <style lang="postcss">
@@ -11,6 +33,7 @@
     box-shadow: 0 5px 12px 6px rgba(187, 204, 236, 0.35);
     background-color: #fff;
     position: relative;
+    max-width: 300px;
 
     &__top {
       display: flex;
@@ -21,6 +44,7 @@
       .product-card__feature {
         color: var(--primary-text-color);
         font-weight: bold;
+        max-width: 240px;
       }
 
       .product-card__name {
@@ -43,8 +67,9 @@
           font-weight: 600;
         }
         & ul {
+          /* min-height: 268px; */
           height: 130px;
-          overflow: auto;
+          /* overflow: auto; */
 
           li {
             display: inline-grid;
@@ -96,23 +121,21 @@
         height="55"
         style="max-height:55px;min-height:50px;height:55px;"/>
     </div>
-    <h6 class="product-card__feature text-center">{detail.subheading}</h6>
+    <h6 class="product-card__feature text-center whitespace-no-wrap overflow-ellipsis overflow-hidden">{detail.subheading}</h6>
     <span class="product-card__name">{detail.name}</span>
   </div>
   <div class="product-card__bottom">
     <span class="start-from">Mulai dari</span><br />
-    <BasePrice />
+    <BasePrice amount={35000} />
 
     <div class="benefit-summary">
       <p>Memberi manfaat berupa :</p>
       <ul>
-        {#each detail.benefit_groups as b_group, i (`${b_group.id}-${i}`) }
-          {#each b_group.benefits as {name, id} (id)}
+        {#each listBenefits as {name, id} (id)}
           <li>
             <span>✓</span>
             <span>{name}</span>
           </li>
-          {/each}
         {/each}
       </ul>
     </div>
