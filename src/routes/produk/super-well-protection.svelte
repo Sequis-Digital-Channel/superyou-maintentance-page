@@ -5,11 +5,12 @@
   import faqData from "../../data/json/products/super-well/faq.json";
 
   export async function preload(page, session) {
-    const { API_PRODUCT_CATALOGUE, APP_URL } = session;
+    const { API_PRODUCT_CATALOGUE, APP_URL, SUPER_API_URL } = session;
 
     return {
       api_product_url: API_PRODUCT_CATALOGUE,
-      app_url : APP_URL
+      app_url : APP_URL,
+      api_superyou_url: SUPER_API_URL
     };
   }
 </script>
@@ -23,10 +24,11 @@
   import BaseButton from "../../components/BaseButton.svelte";
   import Faq from "../../container/Faq.svelte";
 
-  import { getProductBySlugNameClient } from "../../api/products.services";
+  import { getProductBySlugNameClient } from "../../api/products.service";
   
   export let api_product_url;
   export let app_url;
+  export let api_superyou_url;
 
   let plans = [];
   let slug = superWellProtection.slug
@@ -140,6 +142,8 @@
       this={selectPlanWell}
       {plans}
       {api_product_url}
+      {api_superyou_url}
+      {app_url}
       productSlug={slug}
     />
   {:else}

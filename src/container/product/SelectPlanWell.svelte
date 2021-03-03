@@ -1,7 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
-  import { getPlanById } from "../../api/products.services";
+  import { getPlanById } from "../../api/products.service";
+  import { getFormEncryption } from "../../api/superyou.service";
+  import { getCookie } from "../../utils/_cartcookie";
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
@@ -17,6 +19,8 @@
   export let plans;
   export let productSlug;
   export let api_product_url;
+  export let api_superyou_url;
+  export let app_url;
 
   let isAddToCartSuccess = false;
   let planSelected = false;
@@ -154,7 +158,7 @@
 
   async function handleSubmittedForm() {
     if (handleValidationForm()) return;
-    const selectedPlanData = filterPlanCashlessOrNotByPlanNameSlug();
+    const selectedPlanData = filterPlanByGender();
     const insuredDob = formatDob(calculationData.insured_dob.val);
 
     if (
@@ -218,14 +222,15 @@
     return `${dob[2]}-${dob[1]}-${dob[0]}`;
   }
 
-  function filterPlanCashlessOrNotByPlanNameSlug() {
+  function filterPlanByGender() {
     const { name: planNameSlug } = calculationData.plan.val;
-    const claimMethod = calculationData.claim_method.val;
-    const isCashless = claimMethod === "cashless" ? true : false;
+    const { value: insuredGender } = calculationData.insured_gender.val;
+    
     return plans.filter(
-      ({ name_text, is_cashless }) =>
-        name_text === planNameSlug && is_cashless === isCashless
+      ({ name_text, gender }) =>
+        name_text === planNameSlug && gender === insuredGender
     )[0];
+    
   }
 
   function backToForm() {
@@ -257,13 +262,37 @@
       calculationData.insured_dob.val,
       basePlanResultData,
       productSlug,
-      "SUBMIT"
+      "SAVE_TO_COOKIE"
     );
-    isAddToCartSuccess = true;
 
+    // Trigger pop up succes add to cart
+    isAddToCartSuccess = true;
     setTimeout(() => {
       isAddToCartSuccess = false;
     }, 600);
+  }
+
+  function payNow(e) {
+    e.preventDefault();
+    const { id: planId, monthly_premium: price } = basePlanResultData;
+    addToCart(
+      {
+        planId,
+        quantity: 1,
+        price,
+        riders: {},
+      },
+      calculationData.insured_for.val.value,
+      calculationData.insured_dob.val,
+      basePlanResultData,
+      productSlug,
+      "SAVE_TO_COOKIE"
+    );
+
+    setTimeout(async () => {
+      const encryptedKey = await getFormEncryption(api_superyou_url, getCookie("_cart"));
+      window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
+    }, 110)
   }
 
   $: if (calculationData.insured_dob.error.status) {
@@ -274,7 +303,6 @@
 
   $: if (calculationData.plan.val.name) {
     if (calculationData.plan.val.name.toLowerCase().includes("gold")) {
-      console.log("Gold ni")
       calculationData.area_coverage_claim.val = "Indonesia & Malaysia"
     } else {
       calculationData.area_coverage_claim.val = "Indonesia"
@@ -283,7 +311,8 @@
 
   onMount(() => {
     plans.forEach((plan) => {
-      if (plan.is_cashless) {
+      // filter plan based on gender
+      if (plan.gender === "male") {
         let currentPlan = {
           name: plan.name_text,
           value: plan.id,
@@ -381,6 +410,7 @@
           </BaseButton>
 
           <BaseButton
+            on:click={(e) => payNow(e)}
             style="max-width: 330px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
             bgColor={"transparent"}
           >BAYAR SEKARANG</BaseButton

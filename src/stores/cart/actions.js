@@ -36,7 +36,7 @@ export function addToCart({planId, quantity, price, riders }, insuredFor, insure
     return updatedCart;
   });
 
-  if (actionType === "SUBMIT") {
+  if (actionType === "SAVE_TO_COOKIE") {
     setTimeout(() => {
       cookieAddToCart(planDetail, productSlug, insuredFor, insuredDob);
     }, 100);
