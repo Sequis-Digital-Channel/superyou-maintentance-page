@@ -1,0 +1,16 @@
+{
+  "well": [
+    {
+      "icon": "/icons/products/well/notcovered/not-covered-well-1.svg",
+      "description":"Perlindungan risiko meninggal dunia, serta cacat total & tetap"
+    },
+    {
+      "icon": "/icons/products/well/notcovered/not-covered-well-2.svg",
+      "description": "Santunan tunai harian rawat inap rumah sakit"
+    },
+    {
+      "icon": "/icons/products/well/notcovered/not-covered-well-3.svg",
+      "description": "Santunan sekaligus <i>(lump sum)</i> untuk risiko penyakit kritis"
+    }
+  ]
+}

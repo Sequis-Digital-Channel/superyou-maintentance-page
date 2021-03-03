@@ -1,5 +1,6 @@
 <script>
   export let data = [];
+  export let productTitle = "Super Care";
 </script>
 
 <style lang="postcss">
@@ -21,11 +22,11 @@
       .notcovered-item {
         display: flex;
         flex-wrap: nowrap;
+        align-items: center;
         margin: 0 auto 30px auto;
         max-width: 94%;
         @media (min-width: 768px) {
           max-width: 100%;
-          align-items: flex-start;
         }
         @media (min-width: 1024px) {
           margin-left: 0;
@@ -65,12 +66,12 @@
 
 <div class="product-notcovered">
   <h2 class="text-xl text-darkblue text-center font-bold mb-6 lg:mb-10">
-    Apa saja yang tidak di-cover oleh Super Care?
+    Apa saja yang tidak di-cover oleh {productTitle} ?
   </h2>
 
   <div class="product-notcovered__wrapper">
     {#each data as { icon, description } (icon)}
-      <div class="notcovered-item">
+      <div class="notcovered-item flex items-center">
         <div class="notcovered-item__icon lazy-image">
           <img
             src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
@@ -79,7 +80,7 @@
             height="42"
             alt="super care product not covered" />
         </div>
-        <p class="notcovered-item__desc flex items-center">{description}</p>
+        <p class="notcovered-item__desc">{@html description}</p>
       </div>
     {/each}
   </div>

@@ -2,6 +2,7 @@
   import superWellProtection from "../../data/json/products/super-well/api.json";
   import heroMeta from "../../data/json/products/super-well/abovethefold-meta.json";
   import tnc from "../../data/json/products/super-well/tnc.json";
+  import notcovered from "../../data/json/products/super-well/not-covered.json";
   import faqData from "../../data/json/products/super-well/faq.json";
 
   export async function preload(page, session) {
@@ -23,8 +24,10 @@
   import ProductTnc from "../../container/product/ProductTnc.svelte";
   import BaseButton from "../../components/BaseButton.svelte";
   import Faq from "../../container/Faq.svelte";
+  import Testimony from "../../container/Testimony.svelte";
 
   import { getProductBySlugNameClient } from "../../api/products.service";
+  import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
   
   export let api_product_url;
   export let app_url;
@@ -201,6 +204,14 @@
     FAQtitle="Tanya Jawab Super Well"
     accordionData={faqData["faq-well"]}
   />
+</section>
+
+<div class="su_container testimonies bg-darkblue relative">
+  <Testimony />
+</div>
+
+<section class="su_container notcovered">
+  <ProductNotCovered data={notcovered.well} productTitle="Super Well" />
 </section>
 
 
