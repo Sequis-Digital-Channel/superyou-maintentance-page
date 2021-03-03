@@ -1,3 +1,13 @@
+<script>
+  import { moneyFormat } from "../utils/_moneyandtobillion";
+  export let amount;
+</script>
+
+<div class="base-price">
+  <p>{moneyFormat(amount)}</p>
+  <span>/ bulan</span>
+</div>
+
 <style lang="postcss">
   .base-price {
     display: flex;
@@ -23,8 +33,3 @@
     }
   }
 </style>
-
-<div class="base-price">
-  <p>Rp 36,500</p>
-  <span>/ bulan</span>
-</div>
