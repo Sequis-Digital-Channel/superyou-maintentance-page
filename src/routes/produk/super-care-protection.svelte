@@ -200,20 +200,23 @@
 </section>
 
 <section class="su_container tnc">
-  <ProductTnc listTnc={tnc.care} />
-  <p
-    class="product_tnc__more-info"
-    style="text-align:center;color: #0d294a;font-size: 14px;"
-  >Baca dan download informasi selengkapnya mengenai produk ini di</p>
-  <div style="margin:20px auto 20px;padding: 0 10px; max-width:324px;">
+  <ProductTnc listTnc={tnc.care} productName="Super Care Protection"/>
+  <p class="product_tnc__more-info"
+    style="text-align:center;color: #0d294a;font-size: 14px;">
+    Baca dan download informasi selengkapnya mengenai produk ini di
+  </p>
+  <div style="margin:20px auto 20px;padding: 0 10px; max-width:420px;">
     <a href={`${app_url}/${rip_link}`} target="_blank">
     <BaseButton
       style="font-size:14px;
       color: #0d294a;
+      height:auto;
       border: 1px solid #0d294a;"
       bgColor={"transparent"}
     >
-      RINGKASAN INFORMASI PRODUK
+      <p class="pt-2 pb-2 sm:pt-3 sm:pb-3">
+        RINGKASAN INFORMASI PRODUK & LAYANAN
+      </p>
       <span slot="icon">
         <IcPdf />
       </span>
@@ -302,7 +305,9 @@
     <svelte:component
       this={OtherProductsContainer}
       apiProductUrl={api_product_url}
-      appUrl={app_url} />
+      appUrl={app_url}
+      productName="Super Care"
+      slugException={slug} />
   {:else}
     <div class="otherproduct_progress" />
   {/if}
