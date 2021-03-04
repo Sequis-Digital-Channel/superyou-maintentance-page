@@ -1,6 +1,7 @@
 <script>
   import InfoItem from "../../components/BaseInfoItem.svelte";
   export let listTnc = [];
+  export let productName = "Super Care Protection"
 </script>
 
 <style lang="postcss">
@@ -37,7 +38,7 @@
 </style>
 
 <div class="product_tnc">
-  <h3>Ketentuan Super Care Protection</h3>
+  <h3>Ketentuan {productName}</h3>
   <div class="product_tnc__wrapper">
     {#each listTnc as { description, icon, tooltip }, i (description)}
       <InfoItem

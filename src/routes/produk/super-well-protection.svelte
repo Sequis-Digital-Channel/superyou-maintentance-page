@@ -2,6 +2,7 @@
   import superWellProtection from "../../data/json/products/super-well/api.json";
   import heroMeta from "../../data/json/products/super-well/abovethefold-meta.json";
   import tnc from "../../data/json/products/super-well/tnc.json";
+  import notcovered from "../../data/json/products/super-well/not-covered.json";
   import faqData from "../../data/json/products/super-well/faq.json";
 
   export async function preload(page, session) {
@@ -23,8 +24,12 @@
   import ProductTnc from "../../container/product/ProductTnc.svelte";
   import BaseButton from "../../components/BaseButton.svelte";
   import Faq from "../../container/Faq.svelte";
+  import Testimony from "../../container/Testimony.svelte";
+  import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
 
   import { getProductBySlugNameClient } from "../../api/products.service";
+  import { loadFlickity } from "../../utils/_loadflickity";
+  import IcPdf from "../../components/svg/IcPdf.svelte";
   
   export let api_product_url;
   export let app_url;
@@ -36,9 +41,21 @@
   let rip_link = superWellProtection.rip_link;
 
   let selectPlanWell;
+  let OtherProductsContainer;
+  let isFlicktyLoaded = false;
 
   const logError = (err) => {
     console.error((err && err.stack) || err);
+  };
+
+  const loadOtherProductsContainer = (e) => {
+    import(
+      "../../container/product/OtherProducts/OtherProductsContainer.svelte"
+    )
+      .then((module) => {
+        OtherProductsContainer = module.default;
+      })
+      .catch(logError);
   };
 
   const loadSelectPlanWell = async () => {
@@ -80,6 +97,22 @@
         }
       });
       formObserver.observe(premiCalcContainer);
+
+      const otherProd = document.querySelector(".otherproduct");
+      const otherProdObserver = new IntersectionObserver((entries) => {
+        const el = entries[0];
+        if(el.isIntersecting) {
+          otherProdObserver.unobserve(otherProd);
+          if (!isFlicktyLoaded) {
+            loadFlickity();
+            isFlicktyLoaded = true;
+            loadOtherProductsContainer();
+          }
+        }
+      },
+      {rootMargin: "-200px 0px 0px 0px",}
+      );
+      otherProdObserver.observe(otherProd)
     }
   })
   
@@ -122,13 +155,39 @@
   
   <div style="margin:0 auto 20px;max-width: 314px;">
     <a
-      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-care-protection.pdf`}
+      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-well-protection.pdf`}
       target="_blank">
       <BaseButton
         style="font-size:14px;"
         ariaLabel="Lihat manfaat & Detail Plan"
       >CEK MANFAAT & DETAIL PLAN</BaseButton
       >
+    </a>
+  </div>
+</section>
+
+<section class="su_container tnc">
+  <ProductTnc listTnc={tnc.well} productName="Super Well Protection" />
+  <p
+    class="product_tnc__more-info"
+    style="text-align:center;color: #0d294a;font-size: 14px;"
+  >Baca dan download informasi selengkapnya mengenai produk ini di</p>
+  <div style="margin:20px auto 20px;padding: 0 10px; max-width:420px;">
+    <a href={`${app_url}/${rip_link}`} target="_blank">
+    <BaseButton
+      style="font-size:14px;
+      color: #0d294a;
+      height: auto;
+      border: 1px solid #0d294a;"
+      bgColor={"transparent"}
+    >
+      <p class="pt-2 pb-2 sm:pt-3 sm:pb-3">
+        RINGKASAN INFORMASI PRODUK & LAYANAN
+      </p>
+      <span slot="icon">
+        <IcPdf />
+      </span>
+    </BaseButton>
     </a>
   </div>
 </section>
@@ -191,16 +250,33 @@
   {/if}
 </section>
 
-<section class="su_container tnc">
-  <ProductTnc listTnc={tnc.well} />
-</section>
-
 <section class="su_container faq">
   <Faq
     appUrl={app_url}
     FAQtitle="Tanya Jawab Super Well"
     accordionData={faqData["faq-well"]}
   />
+</section>
+
+<div class="su_container testimonies bg-darkblue relative">
+  <Testimony />
+</div>
+
+<section class="su_container notcovered">
+  <ProductNotCovered data={notcovered.well} productTitle="Super Well" />
+</section>
+
+<section class="su_container otherproduct" style="background-color:#e7eaef;">
+  {#if OtherProductsContainer}
+    <svelte:component
+      this={OtherProductsContainer}
+      apiProductUrl={api_product_url}
+      appUrl={app_url}
+      productName="Super Well"
+      slugException={slug} />
+  {:else}
+    <div class="otherproduct_progress" />
+  {/if}
 </section>
 
 
@@ -227,6 +303,14 @@
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 36px;
+    }
+
+    .otherproduct_progress {
+      height: 675px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 38px 0;
+      overflow-y: hidden;
     }
   }
 </style>

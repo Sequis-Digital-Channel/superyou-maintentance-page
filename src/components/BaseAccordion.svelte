@@ -43,7 +43,7 @@
         &.open {
           max-height: 820px;
           @media (min-width: 1024px) {
-            max-height: 400px;
+            max-height: 500px;
           }
         }
 
