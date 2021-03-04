@@ -126,7 +126,7 @@
   </div>
   <div class="product-card__bottom">
     <span class="start-from">Mulai dari</span><br />
-    <BasePrice amount={35000} />
+    <BasePrice amount={detail.start_premium_from} />
 
     <div class="benefit-summary">
       <p>Memberi manfaat berupa :</p>
