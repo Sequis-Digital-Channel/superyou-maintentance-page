@@ -352,7 +352,6 @@
   }
 
   .su_container.tnc,
-  .su_container.premi-calculation,
   .su_container.faq,
   .su_container.testimonies,
   .su_container.notcovered,
