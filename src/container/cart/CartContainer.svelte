@@ -260,13 +260,13 @@
             <br />
             proteksi apapun
           </span>
-
-          <BaseButton
-            style={"font-size: 14px;height: 44px;"}
-            ariaLabel="Cari Proteksi"
-            on:click={() => window.location.href = `${appUrl}/isi-data`}
-          >CARI PROTEKSI</BaseButton
-          >
+          <div class="mx-auto max-w-3/4 w-full">
+            <BaseButton
+              style={"font-size: 14px;height: 44px;"}
+              ariaLabel="Cari Proteksi"
+              on:click={() => window.location.href = `${appUrl}/isi-data`}
+            >CARI PROTEKSI</BaseButton>
+          </div>
         </div>
       </div>
     {/if}
