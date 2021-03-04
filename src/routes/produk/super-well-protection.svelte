@@ -155,7 +155,7 @@
   
   <div style="margin:0 auto 20px;max-width: 314px;">
     <a
-      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-care-protection.pdf`}
+      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-well-protection.pdf`}
       target="_blank">
       <BaseButton
         style="font-size:14px;"
