@@ -40,7 +40,7 @@
       flex-direction: column;
       align-items: center;
       padding: 10px 0 16px;
-      border-bottom: 1px solid #979797;
+      border-bottom: 1px solid #dcdcdc;
       .product-card__feature {
         color: var(--primary-text-color);
         font-weight: bold;
