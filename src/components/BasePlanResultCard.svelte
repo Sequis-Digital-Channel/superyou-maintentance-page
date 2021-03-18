@@ -162,7 +162,7 @@
                 <div class="description">
                   <p class="color-lightgray tx-sm">{benefit}</p>
                   <span
-                    class="info color-lightgray tx-xs">{benefit_notes}</span>
+                    class="info color-lightgray tx-xs">{@html benefit_notes}</span>
                 </div>
               </div>
               <div class="right">

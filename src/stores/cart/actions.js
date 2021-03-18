@@ -108,7 +108,6 @@ export function updateProductPrice(planId, price) {
 }
 
 export function calculateSumAssuredTotal(amount) {
-  console.log(amount);
   sumAssuredTotal.update((currentAmount) => currentAmount + amount);
 }
 
