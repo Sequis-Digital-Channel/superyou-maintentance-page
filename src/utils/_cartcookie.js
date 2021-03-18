@@ -30,7 +30,6 @@ export function saveToCookies(data, h = 4) {
 }
 
 export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
-  console.log(insuredDob);
   let cartCookie = getCookie("_cart");
   if (cartCookie) {
     cartCookie = JSON.parse(cartCookie);
@@ -60,7 +59,8 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
         product_code: plan.product_code,
         product_slug: productSlug,
         product_plan_code: plan.product_plan_code,
-        rider_codes: ""
+        rider_codes: "",
+        uw_product_code: plan.product_code
       });
       cartCookie.newProduct = {
         "productName": plan.product_name,
@@ -90,7 +90,8 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
           product_code: plan.product_code,
           product_slug: productSlug,
           product_plan_code: plan.product_plan_code,
-          rider_codes: ""
+          rider_codes: "",
+          uw_product_code: plan.product_code
         }
       ],
       "sumAssuredTotal": plan.validation_type === "sum_assured" ? plan.sum_assured : 0,
