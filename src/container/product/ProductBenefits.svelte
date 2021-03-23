@@ -54,7 +54,7 @@
 </style>
 
 <div class="product_benefits">
-  <h1 class="product_benefits__title">Manfaat apa yang akan kamu dapatkan?</h1>
+  <h1 class="product_benefits__title">Manfaat Asuransi Penyakit Kritis Super Well Protection</h1>
 
   {#each benefitGroups as bene_section, i (bene_section.id)}
     {#if bene_section.name !== ''}
