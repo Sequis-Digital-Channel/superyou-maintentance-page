@@ -3,6 +3,7 @@
   import Tooltip from "../../components/Tooltip.svelte";
 
   export let benefitGroups = [];
+  export let productName;
 </script>
 
 <style lang="postcss">
@@ -54,9 +55,15 @@
 </style>
 
 <div class="product_benefits">
+  {#if productName == "Super Well"}
   <h1 class="product_benefits__title">Manfaat Asuransi Penyakit Kritis Super Well Protection</h1>
+  {/if}
 
-  {#each benefitGroups as bene_section, i (bene_section.id)}
+  {#if productName !== "Super Well"}
+  <h1 class="product_benefits__title">Manfaat apa yang kamu dapatkan?</h1>
+  {/if}
+
+  {#each benefitGroups as bene_section, i (bene_section.id)} 
     {#if bene_section.name !== ''}
       <h2 class="benefit_group__title">
         {bene_section.name}

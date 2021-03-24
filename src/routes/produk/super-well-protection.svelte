@@ -151,7 +151,7 @@
 </section>
 
 <section class="su_container benefits">
-  <ProductBenefits benefitGroups={benefit_groups}/>
+  <ProductBenefits benefitGroups={benefit_groups} productName="Super Well"/>
   
   <div style="margin:0 auto 20px;max-width: 314px;">
     <a
