@@ -1,0 +1,16 @@
+{
+  "hospital": [
+    {
+      "icon": "/icons/products/hospital/notcovered/critical-illness.svg",
+      "description":"Biaya perawatan di Rumah Sakit"
+    },
+    {
+      "icon": "/icons/products/hospital/notcovered/shape.svg",
+      "description": "Santunan Penyakit Kritis"
+    },
+    {
+      "icon": "/icons/products/hospital/notcovered/dental.svg",
+      "description": "Biaya Pembedahan Gigi & Bedah Rekonstruktif"
+    }    
+  ]
+}
