@@ -1,9 +1,19 @@
 <script>
+  import { onMount } from "svelte";
   import InfoItem from "../../components/BaseInfoItem.svelte";
   import Tooltip from "../../components/Tooltip.svelte";
 
   export let benefitGroups = [];
-  export let benefitTitle = "Manfaat apa yang kamu dapatkan?"
+  export let benefitTitle = "Manfaat apa yang kamu dapatkan?";
+
+  let belowThreeItemBenfits = [];
+
+  onMount(() => {
+    benefitGroups.forEach(bene_section => {
+      let isBelowThree = bene_section.benefits.length <= 2 ? true : false;
+      belowThreeItemBenfits = [...belowThreeItemBenfits, isBelowThree];
+    })
+  })
 </script>
 
 <style lang="postcss">
@@ -49,6 +59,12 @@
         &:last-child {
           margin-bottom: 40px;
         }
+        &.below-three {
+          max-width: 52%;
+          grid-gap: 40px;
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
   }
@@ -72,7 +88,7 @@
       </h2>
     {/if}
 
-    <div class="benefit_wrapper">
+    <div class="benefit_wrapper" class:below-three={belowThreeItemBenfits[i]}>
       {#each bene_section.benefits as { icon_svg, name, benefit, id, tooltip_text }, i (id)}
         <InfoItem icon={icon_svg} title={name} description={benefit} tooltipTitle={tooltip_text} key={`bene-tooltip-${i}`} />
       {/each}
