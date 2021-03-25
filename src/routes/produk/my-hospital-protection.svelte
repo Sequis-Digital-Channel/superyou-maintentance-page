@@ -40,7 +40,7 @@
     let benefit_groups = myHospitalProtection.benefit_groups;
     let rip_link = myHospitalProtection.rip_link;
   
-    let selectPlanCare;
+    let selectPlanGeneral;
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
@@ -49,15 +49,14 @@
       console.error((err && err.stack) || err);
     };
   
-    const loadSelectPlanCare = async () => {
+    const loadSelectPlanGeneral = async () => {
       const product = await getProductBySlugNameClient(
         api_product_url,
-        "super-care-protection/?show_partner=false&is_show=true"
-      );
+        `${slug}/?show_partner=false&is_show=true`);
       plans = product.plans;
-      import("../../container/product/SelectPlanCare.svelte")
+      import("../../container/product/SelectPlanGeneral.svelte")
         .then((module) => {
-          selectPlanCare = module.default;
+          selectPlanGeneral = module.default;
         })
         .catch(logError);
     };
@@ -102,7 +101,7 @@
         const formObserver = new IntersectionObserver((entries) => {
           const elForm = entries[0];
           if (elForm.isIntersecting) {
-            loadSelectPlanCare();
+            loadSelectPlanGeneral();
             formObserver.unobserve(premiCalcContainer);
             if (!isFlicktyLoaded) {
               loadFlickity();
@@ -231,9 +230,9 @@
     </h2>
     <p class="text-sm text-center text-bluegray mb-6 lg:mb-10">Dengan mengetahui usiamu, Super You dapat memberikan harga premi yang sesuai</p>
 
-    {#if selectPlanCare && plans.length}
+    {#if selectPlanGeneral && plans.length}
       <svelte:component
-        this={selectPlanCare}
+        this={selectPlanGeneral}
         {plans}
         {api_product_url}
         {api_superyou_url}
