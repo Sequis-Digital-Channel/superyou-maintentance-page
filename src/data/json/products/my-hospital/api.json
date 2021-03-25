@@ -1,0 +1,65 @@
+{
+  "slug": "my-hospital-protection",
+  "rip_link": "products/rip/my-hospital-protection.pdf",
+  "benefit_groups": [
+    {
+      "name": "",
+      "tooltip_text": null,
+      "order": null,
+      "id": "_blank",
+      "benefits": [
+        {
+          "id": "68be18f7-e523-4af5-84f8-0441de679bb0",
+          "name": "Santunan Tunai Harian Rawat inap",
+          "product_benefit_group_id": "_blank",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/my-hospital-protection1.png",
+          "tooltip_text": "",
+          "product_id": "5db3ec53-c5d4-4bed-b046-fb1e587801e8",
+          "benefit": "<div>Mendapat santunan harian rawat inap hingga <strong>Rp500 Ribu</strong> per hari dengan maksimal perawatan <strong>60 Hari</strong> per tahun.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/my-hospital-protection1.svg",
+          "order": null,
+          "product_benefit_group": {
+            "tooltip_text": null,
+            "order": null,
+            "id": "_blank",
+            "name": ""
+          }
+        },
+        {
+          "id": "beefcb56-bb58-4241-b877-78ee844666c0",
+          "name": "Santunan Tunai Harian Rawat ICU",
+          "product_benefit_group_id": "_blank",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/my-hospital-protection2.png",
+          "tooltip_text": "",
+          "product_id": "5db3ec53-c5d4-4bed-b046-fb1e587801e8",
+          "benefit": "<div>Mendapat santunan harian rawat ICU hingga <strong>Rp1 Juta</strong> per hari dengan maksimal perawatan <strong>45 Hari</strong> per tahun.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/my-hospital-protection2.svg",
+          "order": null,
+          "product_benefit_group": {
+            "tooltip_text": null,
+            "order": null,
+            "id": "_blank",
+            "name": ""
+          }
+        },
+        {
+          "id": "89aeadbf-6a64-4e20-9a86-0dbfce89b911",
+          "name": "Santunan Kematian oleh Sebab Apapun",
+          "product_benefit_group_id": "_blank",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/my-hospital-protection3.png",
+          "tooltip_text": "Jumlah uang yang harus dibayarkan perusahaan asuransi kalau terjadi klaim dari pemegang polis atas risiko yang dijamin dalam program asuransi.",
+          "product_id": "5db3ec53-c5d4-4bed-b046-fb1e587801e8",
+          "benefit": "<div>Mendapat Uang Pertanggungan hingga <strong>Rp50 Juta</strong> selama Masa Pertanggungan.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/my-hospital-protection3.svg",
+          "order": null,
+          "product_benefit_group": {
+            "tooltip_text": null,
+            "order": null,
+            "id": "_blank",
+            "name": ""
+          }
+        }        
+      ]
+    }
+  ]
+}

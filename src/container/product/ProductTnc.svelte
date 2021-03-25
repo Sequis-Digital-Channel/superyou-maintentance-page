@@ -2,6 +2,7 @@
   import InfoItem from "../../components/BaseInfoItem.svelte";
   export let listTnc = [];
   export let productName = "Super Care Protection"
+  export let column = 4;
 </script>
 
 <style lang="postcss">
@@ -32,6 +33,11 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         grid-gap: 3rem 6%;
+        &.col-grid-3 {
+          grid-template-columns: repeat(auto-fill, minmax(20%, 25%));
+          justify-content: center;
+          grid-gap: 2rem 60px;
+        }
       }
     }
   }
@@ -39,7 +45,7 @@
 
 <div class="product_tnc">
   <h3>Ketentuan {productName}</h3>
-  <div class="product_tnc__wrapper">
+  <div class="product_tnc__wrapper" class:col-grid-3={column === 3}>
     {#each listTnc as { description, icon, tooltip }, i (description)}
       <InfoItem
         {icon}

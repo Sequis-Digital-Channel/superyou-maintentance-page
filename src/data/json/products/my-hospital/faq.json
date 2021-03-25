@@ -1,0 +1,16 @@
+{ 
+  "faq-hospital" : [
+    {
+      "title": "1. Apa itu asuransi kesehatan?",
+      "body": "Asuransi kesehatan adalah asuransi yang memberikan manfaat jika pihak yang jiwanya diasuransikan jatuh sakit."
+    },
+    {
+      "title": "2. Perlindungan apa yang disediakan My Hospital?",
+      "body": "<p>Manfaat My Hospital termasuk santunan tunai harian untuk rawat inap dan ICU.<br/>Sebagai asuransi kesehatan online sekaligus asuransi jiwa, My Hospital juga mempunyai manfaat biaya pertanggungan atas risiko tutup usia.</p> "
+    },
+    {
+      "title" : "3. Bagaimana cara klaim My Hospital?",
+      "body": "<p>Siapkan beberapa dokumen untuk pengajuan klaim, seperti Surat Keterangan Dokter dan Fotokopi KTP Tertanggung. Dokumen pendukung lainnya juga diperlukan sesuai klaim yang diajukan:</p><span class='inline-block mb-1'><b>Klaim Meninggal Dunia:</b></span><br>Form Klaim Meninggal, Form Isian Ahli Waris. Foto KTP Ahli Waris, Akta kematian, Fotokopi Kartu Keluarga/Akte Lahir/dokumen lain yang membuktikan hubungan Tertanggung dengan Ahli Waris, Surat keterangan polisi bila meninggal akibat kecelakaan.<br/><br/><span class='inline-block mb-1'><b>Klaim Manfaat Rawat Inap:</b></span><br>Form Pengajuan Klaim, Fotokopi KTP pihak yang mengajukan klaim, Kwitansi & Rincian tagihan Rumah Sakit asli, Resume medis dan hasil pemeriksaan/tes selama dirawat, Laporan/berita Kepolisian (jika disebabkan Kecelakaan)<br/><br/>Kamu bisa mengunduh formulir yang kamu butuhkan di <a class='text-teal' href='/dashboard/klaim/download'><b>dashboard</b></a> akun kamu. Pengajuan klaim untuk pembayaran Manfaat Asuransi harus dibuat secara resmi tertulis dan dikirimkan ke Kantor Pusat PT. Asuransi Jiwa Sequis Life. Jika memerlukan informasi atau bantuan lebih lanjut, mohon hubungi Customer Service kami di <b>(021) 2994 2929.</b>"
+    }
+  ]
+}

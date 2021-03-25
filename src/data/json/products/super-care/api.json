@@ -6,57 +6,57 @@
       "name": "Perlindungan untuk Penyakit Menular",
       "tooltip_text": "Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya.",
       "order": 1,
-      "id": "08000296-1e77-46e2-aec5-322a92bbcfeb",
+      "id": "e8d893d7-23d3-44de-b412-9468bd700653",
       "benefits": [
         {
-          "id": "4ff893b9-8344-4412-8de0-3cee31b985f1",
+          "id": "b99e2529-0ae9-48d6-a7a3-2926e3458fd2",
           "name": "Biaya Perawatan Rumah Sakit",
-          "product_benefit_group_id": "08000296-1e77-46e2-aec5-322a92bbcfeb",
+          "product_benefit_group_id": "e8d893d7-23d3-44de-b412-9468bd700653",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection1.png",
-          "order": 1,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
-          "benefit": "<div>Penggantian biaya medis rawat inap dan/atau rawat jalan hingga Rp50 Juta per Penyakit.</div>",
+          "tooltip_text": "",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
+          "benefit": "<div>Penggantian biaya medis rawat inap dan/atau rawat jalan hingga <b>Rp50 Juta</b> per Penyakit.</div>",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection1.svg",
-          "tooltip_text": "",
+          "order": 1,
           "product_benefit_group": {
+            "tooltip_text": "Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya.",
             "order": 1,
-            "id": "08000296-1e77-46e2-aec5-322a92bbcfeb",
-            "name": "Perlindungan untuk Penyakit Menular",
-            "tooltip_text": "Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya."
+            "id": "e8d893d7-23d3-44de-b412-9468bd700653",
+            "name": "Perlindungan untuk Penyakit Menular"
           }
         },
         {
-          "id": "77686f99-4797-4ee4-953f-5baac075cb1a",
+          "id": "1000f209-4dd4-4cb3-b7ce-271583347f21",
           "name": "Perlindungan COVID-19 (Pilihan)",
-          "product_benefit_group_id": "08000296-1e77-46e2-aec5-322a92bbcfeb",
+          "product_benefit_group_id": "e8d893d7-23d3-44de-b412-9468bd700653",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection2.png",
-          "order": 2,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
-          "benefit": "<div>Penggantian biaya medis Rawat Inap dan/atau Rawat Jalan hingga Rp50 Juta bila didiagnosis COVID-19 atau santunan tunai harian rawat inap sebesar Rp1 Juta per hari dengan maksimal perawatan 30 Hari per Tahun Polis. </div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection2.svg",
           "tooltip_text": "",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
+          "benefit": "<div>Penggantian biaya medis Rawat Inap dan/atau Rawat Jalan hingga <b>Rp50 Juta</b> bila didiagnosis COVID-19 atau santunan tunai harian rawat inap sebesar <b>Rp1 Juta</b> per hari dengan maksimal perawatan 30 Hari per Tahun Polis. </div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection2.svg",
+          "order": 2,
           "product_benefit_group": {
+            "tooltip_text": "Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya.",
             "order": 1,
-            "id": "08000296-1e77-46e2-aec5-322a92bbcfeb",
-            "name": "Perlindungan untuk Penyakit Menular",
-            "tooltip_text": "Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya."
+            "id": "e8d893d7-23d3-44de-b412-9468bd700653",
+            "name": "Perlindungan untuk Penyakit Menular"
           }
         },
         {
-          "id": "8b90e91f-3bb0-423c-a7f6-949f73f89387",
+          "id": "e1978b15-6234-4868-a085-fd8a06cc67e8",
           "name": "Santunan Kematian",
-          "product_benefit_group_id": "08000296-1e77-46e2-aec5-322a92bbcfeb",
+          "product_benefit_group_id": "e8d893d7-23d3-44de-b412-9468bd700653",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection3.png",
-          "order": 3,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
-          "benefit": "<div>Mendapat Uang Pertanggungan hingga Rp200 Juta apabila meninggal dunia akibat kecelakaan selama Masa Pertanggungan.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection3.svg",
           "tooltip_text": "",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
+          "benefit": "<div>Mendapat Uang Pertanggungan hingga <b>Rp200 Juta</b> apabila meninggal dunia akibat kecelakaan selama Masa Pertanggungan.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection3.svg",
+          "order": 3,
           "product_benefit_group": {
+            "tooltip_text": "Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya.",
             "order": 1,
-            "id": "08000296-1e77-46e2-aec5-322a92bbcfeb",
-            "name": "Perlindungan untuk Penyakit Menular",
-            "tooltip_text": "Penyakit menular/infeksi yang dimaksud dalam Super Care antara lain Demam Berdarah, Tifus, Kolera, Difteri; Rabies, Tetanus, Cacar Air, Flu Burung yang disebabkan oleh virus influenza H5N1, H9N2, H7N7, H7N9, atau H1N1, Gondongan, Rubella, Tuberkulosis, Campak, Malaria, Infeksi Antraks, Demam Kuning, Penyakit Pes, Melioidosis, Penyakit Legionnaires, Chikungunya, Ensefalitis virus Nipah, Ensefalitis virus Jepang, Variant Creutzfeldt-Jakob disease (vCJD) atau “penyakit sapi gila”, SARS MERS-CoV, Virus Zika, Ebola, Hand Foot and Mouth Disease (HFMD), COVID-19 (Pilihan) dan infeksi lainnya."
+            "id": "e8d893d7-23d3-44de-b412-9468bd700653",
+            "name": "Perlindungan untuk Penyakit Menular"
           }
         }
       ]
@@ -65,91 +65,91 @@
       "name": "Perlindungan untuk Kecelakaan",
       "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
       "order": 2,
-      "id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
+      "id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
       "benefits": [
         {
-          "id": "9cec6ecf-6699-4983-b5f3-85e61fa35941",
+          "id": "a7bcafc6-31d8-4aeb-9d1b-4dc6a555a27d",
           "name": "Biaya Perawatan Rumah Sakit ",
-          "product_benefit_group_id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
+          "product_benefit_group_id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection4.png",
-          "order": 4,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
-          "benefit": "<div>Penggantian biaya medis rawat inap dan/atau rawat jalan hingga Rp50 Juta per Kecelakaan. Jika mengalami Kecelakaan di luar Indonesia, maka akan mendapat penggantian biaya medis 2x dari batas manfaat.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection4.svg",
           "tooltip_text": "",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
+          "benefit": "<div>Penggantian biaya medis rawat inap dan/atau rawat jalan hingga <b>Rp50 Juta</b> per Kecelakaan. Jika mengalami Kecelakaan di luar Indonesia, maka akan mendapat penggantian biaya medis <b>2x</b> dari batas manfaat.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection4.svg",
+          "order": 4,
           "product_benefit_group": {
+            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
             "order": 2,
-            "id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
-            "name": "Perlindungan untuk Kecelakaan",
-            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk."
+            "id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
+            "name": "Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "id": "3d78f135-eb0d-43ff-92e6-bcbfe447e688",
+          "id": "70bedd87-728b-448c-8205-2ddc0e1ef830",
           "name": "Biaya Pembedahan Gigi & Bedah Rekonstruktif",
-          "product_benefit_group_id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
+          "product_benefit_group_id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection5.png",
-          "order": 5,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
-          "benefit": "<div>Penggantian biaya pembedahan gigi dan/atau bedah rekonstruktif pada wajah, leher, kepala, atau dada hingga Rp10 Juta per Kecelakaan.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection5.svg",
           "tooltip_text": "Bedah rekonstruktif adalah tindakan bedah yang dilakukan untuk mengembalikan penampilan atau fungsi semula dari bagian tubuh tertentu dan dilakukan untuk memperbaiki cacat pada tubuh yang disebabkan oleh penyakit atau trauma.",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
+          "benefit": "<div>Penggantian biaya pembedahan gigi dan/atau bedah rekonstruktif pada wajah, leher, kepala, atau dada hingga <b>Rp10 Juta</b> per Kecelakaan.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection5.svg",
+          "order": 5,
           "product_benefit_group": {
+            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
             "order": 2,
-            "id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
-            "name": "Perlindungan untuk Kecelakaan",
-            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk."
+            "id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
+            "name": "Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "id": "7de4f410-dec5-4e66-b5d8-f85748af5569",
+          "id": "0ac67b25-bcc8-48d0-8883-6a21a1bbe741",
           "name": "Biaya Fisioterapi/ Pengobatan Tradisional Tiongkok ",
-          "product_benefit_group_id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
+          "product_benefit_group_id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection6.png",
-          "order": 6,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
-          "benefit": "<div>Penggantian biaya Fisioterapi dan/atau Pengobatan Tradisional Tiongkok yang diperlukan secara medis hingga Rp5 Juta per Kecelakaan.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection6.svg",
           "tooltip_text": "Pengobatan Tradisional Tiongkok yang mencakup akupuntur, pengobatan herbal, bekam, dan/atau pijat tuina yang dilakukan secara Rawat Jalan oleh Ahli praktisi pengobatan tradisional tiongkok di Rumah Sakit atau Klinik yang mempunyai fasilitas lengkap dan kualifikasi sah untuk pengobatan tradisional tiongkok",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
+          "benefit": "<div>Penggantian biaya Fisioterapi dan/atau Pengobatan Tradisional Tiongkok yang diperlukan secara medis hingga <b>Rp5 Juta</b> per Kecelakaan.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection6.svg",
+          "order": 6,
           "product_benefit_group": {
+            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
             "order": 2,
-            "id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
-            "name": "Perlindungan untuk Kecelakaan",
-            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk."
+            "id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
+            "name": "Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "id": "3a5b192b-e1cf-4072-b0bd-34684db1ad9d",
+          "id": "2a7dcdcc-4a66-41fc-af8a-1d246971f2a6",
           "name": "Biaya Alat Bantu Mobilitas/Prostesis",
-          "product_benefit_group_id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
+          "product_benefit_group_id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection7.png",
-          "order": 7,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
+          "tooltip_text": "",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
           "benefit": "<div>Penggantian biaya alat bantu seperti kursi roda, lengan atau kaki palsu, dan kruk hingga Rp5 Juta per Tahun Polis bila mengalami kecelakaan.</div>",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection7.svg",
-          "tooltip_text": "",
+          "order": 7,
           "product_benefit_group": {
+            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
             "order": 2,
-            "id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
-            "name": "Perlindungan untuk Kecelakaan",
-            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk."
+            "id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
+            "name": "Perlindungan untuk Kecelakaan"
           }
         },
         {
-          "id": "ff2b6725-0d41-4a8e-8166-765475d7548e",
+          "id": "170a1e42-e0f2-4cb5-b4f7-c44bbebffcb4",
           "name": "Manfaat Modifikasi Tempat Tinggal",
-          "product_benefit_group_id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
+          "product_benefit_group_id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-care-protection8.png",
-          "order": 8,
-          "product_id": "35bc1a8c-98ef-46f8-9f94-310dd5cfc6ee",
-          "benefit": "<div>Mendapat biaya modifikasi rumah hingga Rp15 Juta untuk 1x per Jiwa, jika menderita cacat permanen karena kecelakaan.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection8.svg",
           "tooltip_text": "",
+          "product_id": "46070dd9-da9d-4cb6-ae0e-ade97df9cb47",
+          "benefit": "<div>Mendapat biaya modifikasi rumah hingga <b>Rp15 Juta</b> untuk 1x per Jiwa, jika menderita cacat permanen karena kecelakaan.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-care-protection8.svg",
+          "order": 8,
           "product_benefit_group": {
+            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk.",
             "order": 2,
-            "id": "594b5f2a-5c61-4a9b-836e-899361b2407d",
-            "name": "Perlindungan untuk Kecelakaan",
-            "tooltip_text": "Kecelakaan adalah suatu peristiwa atau kejadian mendadak dan tak terduga yang terjadi selama masa berlakunya asuransi yang menyebabkan cedera. Kecelakaan yang dimaksud dalam Super Care yaitu akibat terorisme, pembajakan, pembunuhan, penyerangan, bencana alam, menghirup asap, asap beracun, gas, tenggelam secara tidak sengaja,keracunan makanan, partisipasi dalam kegiatan rekreasi dan/atau olahraga apapun. Baca info selengkapnya pada Ringkasan Informasi Produk."
+            "id": "7dd6df37-8aa1-4680-83a1-57a260a2f44f",
+            "name": "Perlindungan untuk Kecelakaan"
           }
         }
       ]
