@@ -16,7 +16,7 @@
 
     @media (min-width: 640px) {
       flex-direction: column;
-      align-item: center;
+      align-items: center;
       align-self: flex-start;
       margin-bottom: 0;
     }

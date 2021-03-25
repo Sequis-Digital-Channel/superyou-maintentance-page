@@ -2,7 +2,7 @@
     import dataFaqSuperStrong from "../../data/json/products/super-strong/faq.json";
     import tnc from "../../data/json/products/super-strong/tnc.json";
     import notcovered from "../../data/json/products/super-strong/not-covered.json";
-    import superCareProtection from "../../data/json/products/super-strong/api.json";
+    import superStrongProtection from "../../data/json/products/super-strong/api.json";
     import heroMeta from "../../data/json/products/super-strong/abovethefold-meta.json";
     
     export async function preload(page, session) {
@@ -36,11 +36,11 @@
     export let api_superyou_url;
   
     let plans = [];
-    let slug = superCareProtection.slug
-    let benefit_groups = superCareProtection.benefit_groups;
-    let rip_link = superCareProtection.rip_link;
+    let slug = superStrongProtection.slug
+    let benefit_groups = superStrongProtection.benefit_groups;
+    let rip_link = superStrongProtection.rip_link;
   
-    let selectPlanCare;
+    let selectPlanGeneral;
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
@@ -49,15 +49,14 @@
       console.error((err && err.stack) || err);
     };
   
-    const loadSelectPlanCare = async () => {
+    const loadSelectPlanGeneral = async () => {
       const product = await getProductBySlugNameClient(
         api_product_url,
-        "super-care-protection/?show_partner=false&is_show=true"
-      );
+        `${slug}/?show_partner=false&is_show=true`);
       plans = product.plans;
-      import("../../container/product/SelectPlanCare.svelte")
+      import("../../container/product/SelectPlanGeneral.svelte")
         .then((module) => {
-          selectPlanCare = module.default;
+          selectPlanGeneral = module.default;
         })
         .catch(logError);
     };
@@ -102,7 +101,7 @@
         const formObserver = new IntersectionObserver((entries) => {
           const elForm = entries[0];
           if (elForm.isIntersecting) {
-            loadSelectPlanCare();
+            loadSelectPlanGeneral();
             formObserver.unobserve(premiCalcContainer);
             if (!isFlicktyLoaded) {
               loadFlickity();
@@ -161,25 +160,6 @@
           loading="lazy"
           decoding="async"
         >
-  
-        <!-- {:else}
-        <source
-          media="(min-width: 801px)"
-          srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
-        />
-        <source
-        media="(min-width: 501px) and (max-width: 800px)"
-        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
-        />
-  
-        <source
-        media="(max-width: 500px)"
-        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
-        />
-        {/if} -->
           
       </picture>
     </AboveTheFold>
@@ -189,7 +169,7 @@
     <ProductBenefits benefitGroups={benefit_groups}/>
   
     <a
-      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-care-protection.pdf`}
+      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-strong-protection.pdf`}
       target="_blank">
       <BaseButton
         style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
@@ -227,12 +207,12 @@
   
   <section class="su_container premi-calculation">
     <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
-      Cari Tahu Biaya Perlindungan Super Strong Kamu
+      Cari Tahu Biaya Perlindungan Super Kamu
     </h2>
   
-    {#if selectPlanCare && plans.length}
+    {#if selectPlanGeneral && plans.length}
       <svelte:component
-        this={selectPlanCare}
+        this={selectPlanGeneral}
         {plans}
         {api_product_url}
         {api_superyou_url}
