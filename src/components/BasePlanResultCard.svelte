@@ -129,7 +129,7 @@
 
 <div class="result-card">
   <div class="result-card__header">
-    <div class="icon">
+    <div class="icon flex items-center">
       <img
         src={plan_data.icon_svg}
         alt={plan_data.product_name}
