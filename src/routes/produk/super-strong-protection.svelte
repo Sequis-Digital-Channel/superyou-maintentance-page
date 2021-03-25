@@ -331,7 +331,6 @@
       overflow-y: hidden;
     }
   
-    .su_container.tnc,
     .su_container.faq,
     .su_container.testimonies,
     .su_container.notcovered,
