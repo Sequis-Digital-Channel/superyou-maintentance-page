@@ -99,6 +99,7 @@
         status: false,
         msg: "",
       },
+      label: 'Plan',
     },
     insured_for: {
       val: {
@@ -109,6 +110,7 @@
         status: false,
         msg: "",
       },
+      label: 'Tertanggung',
     },
     insured_gender: {
       val: {
@@ -119,6 +121,7 @@
         status: false,
         msg: "",
       },
+      label: "Jenis Kelamin"
     },
     insured_dob: {
       val: "",
@@ -126,6 +129,7 @@
         status: false,
         msg: "",
       },
+      label: "Tanggal Lahir"
     },
   };
 
