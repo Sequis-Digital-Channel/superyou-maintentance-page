@@ -9,88 +9,88 @@
       "id": "_blank",
       "benefits": [
         {
-          "id": "ef2047ec-fe17-4906-a7c5-3af5c6a0811b",
+          "id": "406e81a1-a011-40fe-91a2-43b4df1738e3",
           "name": "Kamar Rawat Inap",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection1.png",
-          "order": 1,
-          "product_id": "0b4bc4ea-caa6-4e60-9db9-55be84a679d8",
+          "tooltip_text": "",
+          "product_id": "6f29dc1b-ed93-4cf9-b791-884a343d5444",
           "benefit": "Rawat inap menggunakan kamar <b>1 tempat tidur (one-bedded atau setara VIP)</b> atau <b>Rp1.5 Juta</b> per hari, yang mana yang lebih tinggi.",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection1.svg",
-          "tooltip_text": "",
+          "order": 1,
           "product_benefit_group": {
+            "tooltip_text": null,
             "order": null,
             "id": "_blank",
-            "name": "",
-            "tooltip_text": null
+            "name": ""
           }
         },
         {
-          "id": "6b4028ff-fb73-451e-b517-f4c9818b76e5",
+          "id": "7313d671-d426-46bd-990b-70b94034f15a",
           "name": "Diagnosis Penyakit Kritis",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection2.png",
-          "order": 2,
-          "product_id": "0b4bc4ea-caa6-4e60-9db9-55be84a679d8",
+          "tooltip_text": "",
+          "product_id": "6f29dc1b-ed93-4cf9-b791-884a343d5444",
           "benefit": "Pertanggungan biaya untuk konsultasi dan tes diagnostik mencakup tes laboratorium, X-ray, CT-scan, MRI, PET,  dan lain-lain. Tanpa batasan hari, semua <b>sesuai tagihan</b>.",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection2.svg",
-          "tooltip_text": "",
+          "order": 2,
           "product_benefit_group": {
+            "tooltip_text": null,
             "order": null,
             "id": "_blank",
-            "name": "",
-            "tooltip_text": null
+            "name": ""
           }
         },
         {
-          "id": "94702f68-d5b7-41e1-bbf9-2cfdf9939910",
+          "id": "7fd00e78-7cbe-4b64-b948-bc77276be8fb",
           "name": "Biaya Perawatan Rumah Sakit Menyeluruh",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection3.png",
-          "order": 3,
-          "product_id": "0b4bc4ea-caa6-4e60-9db9-55be84a679d8",
+          "tooltip_text": "- Yang dimaksud biaya rawat inap pada perlindungan Super Well adalah biaya rumah sakit, dokter, obat-obatan, ICU, pembedahan, donor organ, serta biaya lain-lain<br/>- Perawatan aktif diantaranya chemotherapy, radiotherapy, kidney dialysis, dll)<br/>- Perawatan kanker khusus yaitu terapi hormon dan terapi imun. ",
+          "product_id": "6f29dc1b-ed93-4cf9-b791-884a343d5444",
           "benefit": "Mencakup biaya rawat jalan sebelum dan sesudah rawat inap, biaya rawat inap, perawatan aktif dan perawatan kanker khusus tanpa batasan hari, semua <b>sesuai tagihan</b>.",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection3.svg",
-          "tooltip_text": "- Yang dimaksud biaya rawat inap pada perlindungan Super Well adalah biaya rumah sakit, dokter, obat-obatan, ICU, pembedahan, donor organ, serta biaya lain-lain<br/>- Perawatan aktif diantaranya chemotherapy, radiotherapy, kidney dialysis, dll)<br/>- Perawatan kanker khusus yaitu terapi hormon dan terapi imun. ",
+          "order": 3,
           "product_benefit_group": {
+            "tooltip_text": null,
             "order": null,
             "id": "_blank",
-            "name": "",
-            "tooltip_text": null
+            "name": ""
           }
         },
         {
-          "id": "dfde4d8d-a0b6-4835-b7ff-25bdd840eab4",
+          "id": "55c7c5e5-b163-458a-a37e-13703a410e04",
           "name": "Pemantauan Pasca-Sembuh",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection4.png",
-          "order": 4,
-          "product_id": "0b4bc4ea-caa6-4e60-9db9-55be84a679d8",
+          "tooltip_text": "",
+          "product_id": "6f29dc1b-ed93-4cf9-b791-884a343d5444",
           "benefit": "Pertanggungan biaya konsultasi dan tes diagnostik untuk memantau dan menjaga kesehatan pasien pasca-sembuh dari penyakit kritis hingga <b>5 tahun setelah sembuh</b>. Tanpa batasan hari, semua <b>sesuai tagihan</b>.",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection4.svg",
-          "tooltip_text": "",
+          "order": 4,
           "product_benefit_group": {
+            "tooltip_text": null,
             "order": null,
             "id": "_blank",
-            "name": "",
-            "tooltip_text": null
+            "name": ""
           }
         },
         {
-          "id": "41fa84dd-8471-48c1-892a-602f2d6b2b31",
+          "id": "f435f7fa-73b0-462f-93a0-ebde979789ff",
           "name": "Terapi Lainnya",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-well-protection5.png",
-          "order": 5,
-          "product_id": "0b4bc4ea-caa6-4e60-9db9-55be84a679d8",
+          "tooltip_text": "",
+          "product_id": "6f29dc1b-ed93-4cf9-b791-884a343d5444",
           "benefit": "Pertanggungan untuk perawatan lainnya pasca penyakit kritis yaitu Fisioterapi,  Terapi Wicara, dan Terapi Okupasi <i>(Occupational Therapy)</i> sebesar <b>Rp1 Juta</b> per kunjungan.",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-well-protection5.svg",
-          "tooltip_text": "",
+          "order": 5,
           "product_benefit_group": {
+            "tooltip_text": null,
             "order": null,
             "id": "_blank",
-            "name": "",
-            "tooltip_text": null
+            "name": ""
           }
         }
       ]
