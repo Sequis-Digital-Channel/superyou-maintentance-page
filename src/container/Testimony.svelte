@@ -4,6 +4,7 @@
 
 <script>
   import { onMount } from "svelte";
+  export let productName;
   const lazySrc =
     "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
 
@@ -142,7 +143,7 @@
 
 <div id="testimony">
   <h2 class="md:text-xl text-white text-center font-bold mb-6 lg:mb-6">
-    Apa Kata Mereka Tentang Super You
+    Apa Kata Mereka Tentang {productName}
   </h2>
 
   <div class="-ml-2 -mr-2">
