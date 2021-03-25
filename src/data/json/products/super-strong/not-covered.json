@@ -1,0 +1,16 @@
+{
+  "strong": [
+    {
+      "icon": "/icons/products/strong/notcovered/critical-illness.svg",
+      "description":"Biaya perawatan rumah sakit<br/>untuk penyakit kritis"
+    },
+    {
+      "icon": "/icons/products/strong/notcovered/diagnosis.svg",
+      "description": "Biaya diagnosis dan pemantauan pasca penyakit kritis"
+    },
+    {
+      "icon": "/icons/products/strong/notcovered/shape.svg",
+      "description": "Santunan Tunai Harian<br/>Rawat Inap dan ICU"
+    }
+  ]
+}

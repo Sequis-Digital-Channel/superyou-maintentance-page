@@ -1,0 +1,45 @@
+{
+  "strong": [
+    {
+      "icon": "/icons/products/tnc/entry-age.svg",
+      "description":
+        "Usia masuk adalah<br/><b>17 - 55 tahun.</b>",
+      "tooltip": "Usia masuk adalah usia Tertanggung ketika memulai asuransi."
+    },
+    {
+      "icon": "/icons/products/tnc/payment.svg",
+      "description":
+        "Pembayaran premi dilakukan bulanan atau tahunan, dan asuransi otomatis diperpanjang setiap tahun.",
+      "tooltip": ""
+    },
+    {
+      "icon": "/icons/products/tnc/covid-cover.svg",
+      "description": "Meng-cover risiko tutup usia oleh <b>COVID-19.</b>",
+      "tooltip": ""
+    },
+    {
+      "icon": "/icons/products/tnc/health-history.svg",
+      "description":
+        "Tanpa<br/>cek kesehatan.",
+      "tooltip": ""
+    },
+    {
+      "icon": "/icons/products/tnc/premicost.svg",
+      "description":
+        "Usia dan Uang Pertanggungan yang didapat berpengaruh terhadap besarnya biaya premi.",
+      "tooltip": "Premi adalah sejumlah uang yang harus dibayarkan setiap bulannya sebagai kewajiban dari tertanggung atas keikutsertaannya di asuransi."
+    },
+    {
+      "icon": "/icons/products/tnc/waiting-period.svg",
+      "description":
+        "Masa Tunggu untuk Manfaat<br/>Penyakit Kritis selama 1 tahun.",
+      "tooltip": "Masa Tunggu adalah jangka waktu tertentu yang harus dilalui terlebih dahulu sebelum manfaat perlindungan asuransi dapat digunakan atau pembayaran klaim dapat dilakukan."
+    },
+    {
+      "icon": "/icons/products/tnc/limit-max.svg",
+      "description":
+        "Total akumulasi Uang Pertanggungan<br/>yaitu <b>1,5 Milyar</b> per Tertanggung. ",
+      "tooltip": "Uang Pertanggungan adalah santunan atau jumlah uang yang akan diberikan kepada ahli waris dari perusahaan asuransi selaku Penanggung, apabila terjadi risiko meninggal terhadap diri Tertanggung.<br/><br/>Batas total Uang Pertanggungan yang dapat dimiliki per Tertanggung  yaitu hingga 1,5 Milyar untuk pembelian produk seperti: Super Safe , Super Motor, Super Life dan Super Strong.<br/><br/>Contoh ilustrasi:<br/>Tertanggung membeli produk Super Strong Gold Plan dengan manfaat Uang Pertanggungan sebesar 300 Juta, lalu membeli produk Super Safe Gold Plan dengan Uang Pertanggungan sebesar 1 Milyar, kemudian pada bulan berikutnya membeli lagi produk Super Life Bronze Plan dengan Uang Pertanggungan sebesar 200 Juta. Jadi, total akumulasi UP yang dimiliki Tertanggung berjumlah 1,5 Milyar.  "
+    }
+  ]
+}
