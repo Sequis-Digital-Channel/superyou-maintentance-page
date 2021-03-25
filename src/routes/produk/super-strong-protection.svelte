@@ -52,10 +52,8 @@
     const loadSelectPlanGeneral = async () => {
       const product = await getProductBySlugNameClient(
         api_product_url,
-        "super-strong-protection/?show_partner=false&is_show=true"
-      );
+        `${slug}/?show_partner=false&is_show=true`);
       plans = product.plans;
-      console.log(plans);
       import("../../container/product/SelectPlanGeneral.svelte")
         .then((module) => {
           selectPlanGeneral = module.default;
@@ -209,7 +207,7 @@
   
   <section class="su_container premi-calculation">
     <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
-      Cari Tahu Biaya Perlindungan Super Strong Kamu
+      Cari Tahu Biaya Perlindungan Super Kamu
     </h2>
   
     {#if selectPlanGeneral && plans.length}
