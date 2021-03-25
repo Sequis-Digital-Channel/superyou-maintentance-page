@@ -229,7 +229,7 @@
               <p class="text-darkblue text-sm font-bold mb-3">{name}</p>
               {#each benefits as { benefit, value, id } (id)}
                 <div class="item-up flex justify-between items-center mb-2">
-                  <p class="text-bluegray text-sm max-w-3/4">{benefit}</p>
+                  <p class="text-bluegray text-sm max-w-13/20">{benefit}</p>
                   <p class="text-darkblue text-sm font-bold">
                     {toBillion(value)}
                   </p>
