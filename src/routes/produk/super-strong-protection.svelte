@@ -141,14 +141,14 @@
       <picture class="hero-strong" slot="hero-img">
         <source
           media="(min-width: 801px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png"
         >
         <source
           media="(max-width: 500px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75 1x, https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png 2x"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75 1x, https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png 2x"
         >
         <img
-          src="https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75"
+          src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75"
           alt="Super Strong Hero"
           width="468"
           height="316"
