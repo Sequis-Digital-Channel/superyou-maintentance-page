@@ -206,10 +206,10 @@
   </section>
   
   <section class="su_container premi-calculation">
-    <h2 class="text-xl lg:text-2xl text-center font-bold mb-2 lg:mb-4" style="margin-top: 60px;">
+    <h2 class="text-xl lg:text-2xl text-center font-bold mt-10" style="margin-top: 41px;">
       Cari Tahu Biaya Perlindungan Super Kamu
     </h2>
-    <p class="text-sm text-center text-bluegray mb-6 lg:mb-10">Dengan mengetahui usiamu, Super You dapat memberikan harga premi yang sesuai</p>
+    <p class="text-sm text-center text-bluegray mb-6 lg:mb-10 mt-2">Dengan mengetahui usiamu, Super You dapat memberikan harga premi yang sesuai</p>
 
     {#if selectPlanGeneral && plans.length}
       <svelte:component
@@ -274,7 +274,7 @@
   </section>
   
   <div class="su_container testimonies bg-darkblue relative">
-    <Testimony productName="My Hospital"/>
+    <Testimony/>
   </div>
   
   <section class="su_container notcovered">

@@ -293,7 +293,7 @@
 </section>
 
 <div class="su_container testimonies bg-darkblue relative">
-  <Testimony productName="Super Care"/>
+  <Testimony/>
 </div>
 
 <section class="su_container notcovered">
