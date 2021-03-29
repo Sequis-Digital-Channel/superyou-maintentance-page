@@ -6,6 +6,7 @@
     paymentTermYearly,
   } from "../../stores/cart/store";
   import { calculateSumAssuredTotal } from "../../stores/cart/actions";
+  import { formatDobHash } from "../../utils/_date";
   import { onDestroy } from "svelte";
   import { getPlanById } from "../../api/products.service";
 
@@ -32,7 +33,6 @@
 
   async function fetchProductsCart() {
     let sumAssuredTotal = 0;
-
     const productsNotYetFetched = Object.keys($cartStore.products).filter(
       (planId) => $cartStore.products[planId].fetched === false
     );
@@ -42,7 +42,7 @@
 
     const productsDetails = await Promise.all(
       productsNotYetFetched.map((planId) =>
-        getPlanById(productApiUrl, planId, "1992-01-09")
+        getPlanById(productApiUrl, planId, `${$cartStore.insuredDob}`)
       )
     );
     productsDetails.forEach(function (response, index) {

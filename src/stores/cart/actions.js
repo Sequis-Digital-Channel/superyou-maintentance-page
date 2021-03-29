@@ -21,6 +21,7 @@ export function addToCart({planId, quantity, price, riders }, insuredFor, insure
   cartStore.update(($cartStore) => {
     updatedCart = $cartStore;
     updatedCart.insuredFor = insuredFor;
+    updatedCart.insuredDob = insuredDob;
     if (planId in updatedCart.products) {
       updatedCart.products[planId] = {
         planId: planId,

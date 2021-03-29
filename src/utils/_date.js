@@ -8,7 +8,7 @@ export function getYearsFromPast(yearsAgo) {
 
 export function dobStringToMillis(stringDob) {
   // 09/01/1992
-  const dob = stringDob.split("/").reverse().join("-");
+  const dob = stringDob.split("-").reverse().join("-");
   return new Date(dob).getTime()
 }
 
@@ -22,4 +22,10 @@ export function calculateAge(birthday, stringDateFormat) {
   var ageDifMs = Date.now() - birthday.getTime();
   var ageDate = new Date(ageDifMs); // miliseconds from epoch
   return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+export function formatDobHash(DDMMYYYY) {
+  let dob = DDMMYYYY.split("/");
+  // return YYYY-MM-DD
+  return `${dob[2]}-${dob[1]}-${dob[0]}`;
 }
