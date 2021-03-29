@@ -1,0 +1,65 @@
+{
+  "slug": "super-safe-protection",
+  "rip_link": "products/rip/super-safe-protection.pdf",
+  "benefit_groups": [
+    {
+      "name": "",
+      "tooltip_text": null,
+      "order": null,
+      "id": "_blank",
+      "benefits": [
+        {
+          "id": "1c540d6b-cb57-46a4-adef-9e29471cd0fb",
+          "name": "Biaya Medis Kecelakaan",
+          "product_benefit_group_id": "_blank",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-safe-protection1.png",
+          "tooltip_text": "",
+          "product_id": "ed084ff4-549d-4b79-899a-d115376f6542",
+          "benefit": "<div>Penggantian biaya medis untuk pengobatan , rawat inap atau pembedahan yang disebabkan kecelakaan  dengan limit hingga <strong>Rp50 Juta</strong> per tahun.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-safe-protection1.svg",
+          "order": null,
+          "product_benefit_group": {
+            "tooltip_text": null,
+            "order": null,
+            "id": "_blank",
+            "name": ""
+          }
+        },
+        {
+          "id": "70609233-5bae-4939-aed6-b09e71c2fe93",
+          "name": "Santunan Cacat Total & Tetap Akibat Kecelakaan",
+          "product_benefit_group_id": "_blank",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-safe-protection2.png",
+          "tooltip_text": "Cacat Total & Tetap berarti kehilangan fungsi anggota gerak, kedua kaki atau kedua tangan, atau satu kaki dan satu tangan, atau kehilangan fungsi kedua belah mata.",
+          "product_id": "ed084ff4-549d-4b79-899a-d115376f6542",
+          "benefit": "<div>Mendapat Uang Pertanggungan hingga <strong>Rp1 Milyar</strong> bila Tertanggung mengalami risiko Cacat Total & Tetap.</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-safe-protection2.svg",
+          "order": null,
+          "product_benefit_group": {
+            "tooltip_text": null,
+            "order": null,
+            "id": "_blank",
+            "name": ""
+          }
+        },
+        {
+          "id": "87ed24ed-e331-4eda-8761-d8ef4d947113",
+          "name": "Santunan Kematian Akibat Kecelakaan",
+          "product_benefit_group_id": "_blank",
+          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-safe-protection3.png",
+          "tooltip_text": "Tertanggung adalah orang yang jiwanya diasuransikan.<br/><br/>Masa Pertanggungan adalah Masa berlakunya perlindungan asuransi.",
+          "product_id": "ed084ff4-549d-4b79-899a-d115376f6542",
+          "benefit": "<div>Mendapat Uang Pertanggungan hingga <strong>Rp1 Milyar</strong> bila Tertanggung meninggal dunia akibat kecelakaan selama Masa Pertanggungan</div>",
+          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-safe-protection3.svg",
+          "order": null,
+          "product_benefit_group": {
+            "tooltip_text": null,
+            "order": null,
+            "id": "_blank",
+            "name": ""
+          }
+        }
+      ]
+    }
+  ]
+}

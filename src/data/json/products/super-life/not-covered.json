@@ -1,0 +1,16 @@
+{
+  "life": [
+    {
+      "icon": "/icons/products/life/notcovered/critical-illness.svg",
+      "description":"Biaya medis Rumah Sakit"
+    },
+    {
+      "icon": "/icons/products/life/notcovered/not-covered-well-3.svg",
+      "description": "Pengobatan dan perawatan untuk risiko penyakit kritis"
+    },
+    {
+      "icon": "/icons/products/life/notcovered/shape.svg",
+      "description": "Santunan Rumah Sakit"
+    }
+  ]
+}

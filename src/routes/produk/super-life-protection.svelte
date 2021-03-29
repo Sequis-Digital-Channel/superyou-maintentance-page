@@ -1,9 +1,9 @@
 <script context="module">
-    import dataFaqSuperStrong from "../../data/json/products/super-strong/faq.json";
-    import tnc from "../../data/json/products/super-strong/tnc.json";
-    import notcovered from "../../data/json/products/super-strong/not-covered.json";
-    import superStrongProtection from "../../data/json/products/super-strong/api.json";
-    import heroMeta from "../../data/json/products/super-strong/abovethefold-meta.json";
+    import dataFaqSuperLife from "../../data/json/products/super-life/faq.json";
+    import tnc from "../../data/json/products/super-life/tnc.json";
+    import notcovered from "../../data/json/products/super-life/not-covered.json";
+    import superLifeProtection from "../../data/json/products/super-life/api.json";
+    import heroMeta from "../../data/json/products/super-life/abovethefold-meta.json";
     
     export async function preload(page, session) {
       const { API_PRODUCT_CATALOGUE, APP_URL, SUPER_API_URL } = session;
@@ -36,9 +36,9 @@
     export let api_superyou_url;
   
     let plans = [];
-    let slug = superStrongProtection.slug
-    let benefit_groups = superStrongProtection.benefit_groups;
-    let rip_link = superStrongProtection.rip_link;
+    let slug = superLifeProtection.slug
+    let benefit_groups = superLifeProtection.benefit_groups;
+    let rip_link = superLifeProtection.rip_link;
   
     let selectPlanGeneral;
     let OtherProductsContainer;
@@ -132,29 +132,53 @@
   </script>
   
   <svelte:head>
-    <title>Asuransi Kesehatan | Super Strong Protection</title>
+    <title>Asuransi Kesehatan | Super Life Protection</title>
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
   </svelte:head>
   
   <section class="above-the-fold-wrapper">
     <AboveTheFold meta={heroMeta}>
-      <picture class="hero-strong" slot="hero-img">
+      <picture slot="hero-img">
+        <!-- {#if safari} -->
         <source
           media="(min-width: 801px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png"
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
+        >
+        <source
+          media="(min-width: 501px) and (max-width: 800px)"
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
         >
         <source
           media="(max-width: 500px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75 1x, https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png 2x"
+          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
         >
         <img
-          src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-strong/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75"
-          alt="Super Strong Hero"
-          width="468"
-          height="316"
+          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+          alt="Super Care Hero"
+          width="374"
+          height="315"
           loading="lazy"
           decoding="async"
         >
+  
+        <!-- {:else}
+        <source
+          media="(min-width: 801px)"
+          srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
+        />
+        <source
+        media="(min-width: 501px) and (max-width: 800px)"
+        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+        />
+  
+        <source
+        media="(max-width: 500px)"
+        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
+        />
+        {/if} -->
           
       </picture>
     </AboveTheFold>
@@ -164,7 +188,7 @@
     <ProductBenefits benefitGroups={benefit_groups}/>
   
     <a
-      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-strong-protection.pdf`}
+      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-life-protection.pdf`}
       target="_blank">
       <BaseButton
         style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
@@ -175,12 +199,12 @@
   </section>
   
   <section class="su_container tnc">
-    <ProductTnc listTnc={tnc.strong} productName="Super Strong Protection"/>
+    <ProductTnc listTnc={tnc.life} productName="Super Life Protection"/>
     <p class="product_tnc__more-info"
       style="text-align:center;color: #0d294a;font-size: 14px;">
       Baca dan download informasi selengkapnya mengenai produk ini di
     </p>
-    <div style="margin:20px auto 20px;padding: 0 10px; max-width:420px;">
+    <div style="margin:20px auto 20px;padding: 0 10px; max-width:325px;">
       <a href={`${app_url}/${rip_link}`} target="_blank">
       <BaseButton
         style="font-size:14px;
@@ -201,10 +225,11 @@
   </section>
   
   <section class="su_container premi-calculation">
-    <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
+    <h2 class="text-xl lg:text-2xl text-center font-bold mb-2 lg:mb-4" style="margin-top: 60px;">
       Cari Tahu Biaya Perlindungan Super Kamu
     </h2>
-  
+    <p class="text-sm text-center text-bluegray mb-6 lg:mb-10">Dengan mengetahui usiamu, Super You dapat memberikan harga premi yang sesuai</p>
+
     {#if selectPlanGeneral && plans.length}
       <svelte:component
         this={selectPlanGeneral}
@@ -262,17 +287,17 @@
   <section class="su_container faq">
     <Faq
       appUrl={app_url}
-      FAQtitle="Tanya Jawab Super Strong"
-      accordionData={dataFaqSuperStrong["faq-strong"]}
+      FAQtitle="Tanya Jawab Super Life"
+      accordionData={dataFaqSuperLife["faq-life"]}
     />
   </section>
   
   <div class="su_container testimonies bg-darkblue relative">
-    <Testimony productName="Super Strong"/>
+    <Testimony productName="Super Life"/>
   </div>
   
   <section class="su_container notcovered">
-    <ProductNotCovered data={notcovered.strong} productTitle="Super Strong"/>
+    <ProductNotCovered data={notcovered.life} productTitle="Super Life"/>
   </section>
   
   <section class="su_container otherproduct" style="background-color:#e7eaef;">
@@ -281,7 +306,7 @@
         this={OtherProductsContainer}
         apiProductUrl={api_product_url}
         appUrl={app_url}
-        productName="Super Strong"
+        productName="Super Life"
         slugException={slug} />
     {:else}
       <div class="otherproduct_progress" />
@@ -294,19 +319,9 @@
   
   <style lang="postcss">
     .above-the-fold-wrapper {
-      background-image: linear-gradient(
-          151deg,
-          rgba(255, 255, 255, 0),
-          rgba(255, 255, 255, 0.4) 100%
-        ),
-        
-        linear-gradient(111deg, #36a1b5, #bbe2e7 77%)
+      background:linear-gradient(104deg, #3bc2af 26%, #9ae5da 98%);
     }
-    .product_hero .hero-strong img {
-      @media (min-width: 501px) {
-        width: 415px;
-      }
-    }
+
     .su_container {
       padding-left: 10px;
       padding-right: 10px;
@@ -358,5 +373,7 @@
         transform: translateX(30%);
       }
     }
+    
+    
   </style>
   
