@@ -146,39 +146,20 @@
         >
         <source
           media="(min-width: 501px) and (max-width: 800px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png?tr=q-75"
         >
         <source
           media="(max-width: 500px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png?tr=q-65"
         >
         <img
-          src="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png"
+          src="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png?tr=q-65"
           alt="Super Care Hero"
           width="374"
           height="315"
           loading="lazy"
           decoding="async"
         >
-  
-        <!-- {:else}
-        <source
-          media="(min-width: 801px)"
-          srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-          data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
-        />
-        <source
-        media="(min-width: 501px) and (max-width: 800px)"
-        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
-        />
-  
-        <source
-        media="(max-width: 500px)"
-        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
-        />
-        {/if} -->
           
       </picture>
     </AboveTheFold>
