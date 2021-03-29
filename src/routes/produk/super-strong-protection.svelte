@@ -138,25 +138,20 @@
   
   <section class="above-the-fold-wrapper">
     <AboveTheFold meta={heroMeta}>
-      <picture slot="hero-img">
-        <!-- {#if safari} -->
+      <picture class="hero-strong" slot="hero-img">
         <source
           media="(min-width: 801px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
-        >
-        <source
-          media="(min-width: 501px) and (max-width: 800px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png"
         >
         <source
           media="(max-width: 500px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75 1x, https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png 2x"
         >
         <img
-          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
-          alt="Super Care Hero"
-          width="374"
-          height="315"
+          src="https://ik.imagekit.io/oc2o82pyjsh/hero-super-strong_Ev6yYC6m4A8.png?tr=q-75"
+          alt="Super Strong Hero"
+          width="468"
+          height="316"
           loading="lazy"
           decoding="async"
         >
@@ -307,6 +302,11 @@
         
         linear-gradient(111deg, #36a1b5, #bbe2e7 77%)
     }
+    .product_hero .hero-strong img {
+      @media (min-width: 501px) {
+        width: 415px;
+      }
+    }
     .su_container {
       padding-left: 10px;
       padding-right: 10px;
@@ -358,8 +358,5 @@
         transform: translateX(30%);
       }
     }
-  
-    
-  
   </style>
   
