@@ -138,22 +138,22 @@
   
   <section class="above-the-fold-wrapper">
     <AboveTheFold meta={heroMeta}>
-      <picture slot="hero-img">
+      <picture class="hero-hospital" slot="hero-img">
         <!-- {#if safari} -->
         <source
           media="(min-width: 801px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png"
         >
         <source
           media="(min-width: 501px) and (max-width: 800px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png"
         >
         <source
           media="(max-width: 500px)"
-          srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
+          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png"
         >
         <img
-          src="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
+          src="https://ik.imagekit.io/oc2o82pyjsh/superyou/my-hospital/mom-eat_uL7dcyZpMT2.png"
           alt="Super Care Hero"
           width="374"
           height="315"
@@ -320,6 +320,17 @@
   <style lang="postcss">
     .above-the-fold-wrapper {
       background:linear-gradient(90deg, rgba(246,161,165,1) 0%, rgba(255,201,196,1) 46%, rgba(255,209,205,1) 100%);
+    }
+    .product_hero .hero-hospital img {
+      @media (min-width: 501px) {
+        min-width: initial;
+        max-width: 468px;
+        height: auto;
+      }
+      @media (max-width: 500px) {
+        max-width: 315px;
+        max-height: initial;
+      }
     }
 
     .su_container {
