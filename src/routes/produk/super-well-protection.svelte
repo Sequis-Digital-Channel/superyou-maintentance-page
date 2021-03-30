@@ -119,10 +119,6 @@
   
 </script>
 
-<svelte:head>
-  <link rel="preload" href="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_80,dpr_auto,w_auto/v1614146956/superyou/well/ds_dad-and-daughter_2x.png" as="image" media="(max-width: 500px)">
-</svelte:head>
-
 <section class="above-the-fold-wrapper">
   <AboveTheFold meta={heroMeta}>
     <picture class="hero-well" slot="hero-img">
@@ -314,6 +310,16 @@
       margin: 0 auto;
       padding: 38px 0;
       overflow-y: hidden;
+    }
+  }
+
+  @media (max-width: 639px) {
+    :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      left: -80px;
+    }
+
+    :global(.t-wrapper.tnc-item-6 .tooltip-holder) {
+      right: -12px !important;
     }
   }
 </style>

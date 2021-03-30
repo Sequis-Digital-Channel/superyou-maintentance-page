@@ -347,6 +347,9 @@
     :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
       right: -140px !important;
     }
+    :global(.t-wrapper.benetitle-1 .tooltip-holder) {
+      right: -12px !important;
+    }
 
     :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
       right: -85px !important;
