@@ -150,7 +150,7 @@
                 border-radius: 12px;
                 top: 150%;
                 width: 690px;
-                height: 380px;
+                height: 376px;
                 box-shadow: 0 3px 20px 0 rgba(187, 204, 236, 0.45);
                 grid-template-columns: 1fr 1fr;
                 display: grid;
@@ -410,7 +410,27 @@
                 Asuransi Jiwa & Kecelakaan Diri
               </h4>
               {#each productNavItems.life as navItem, i (navItem.icon)}
-                <a href={`${APP_URL}${navItem.url}`} target="_blank">
+                <a rel="prefetch" on:click={() => productListShow = false} href={navItem.url}>
+                  <div class="product-item-nav">
+                    <div class="icon flex items-center justify-center">
+                      <img
+                        class={navItem.icon.includes('motor') ? 'max-w-3/5' :''}
+                        src={isProductIconFetch ? navItem.icon : initImgSrc}
+                        alt={navItem.name}
+                        width="50"
+                        height="50" />
+                    </div>
+                    <div class="meta">
+                      <p class="meta-name">{navItem.name}</p>
+                      <p class="meta-desc">
+                        {navItem.desc}
+                        <br />
+                        {navItem.info}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <!-- <a href={`${APP_URL}${navItem.url}`} target="_blank">
                   <div class="product-item-nav">
                     {#if i !== 2}
                       <div class="icon">
@@ -440,7 +460,7 @@
                       </p>
                     </div>
                   </div>
-                </a>
+                </a> -->
               {/each}
             </div>
             <div class="right">
@@ -448,7 +468,7 @@
                 Asuransi Kesehatan & Penyakit Kritis
               </h4>
               {#each productNavItems.health as navItem (navItem.icon)}
-                {#if navItem.self}
+                <!-- {#if navItem.self} -->
                 <a rel="prefetch" on:click={() => productListShow = false} href={navItem.url}>
                   <div class="product-item-nav">
                     <div class="icon">
@@ -468,7 +488,7 @@
                     </div>
                   </div>
                 </a>
-                {:else}
+                <!-- {:else}
                 <a rel=external href={`${navItem.self ? "" : APP_URL}${navItem.url}`}>
                   <div class="product-item-nav">
                     <div class="icon">
@@ -488,7 +508,7 @@
                     </div>
                   </div>
                 </a>
-                {/if}
+                {/if} -->
               {/each}
             </div>
           </div>

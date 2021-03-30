@@ -242,24 +242,22 @@
           <h4>Produk</h4>
           <ul>
             <li>
-              <a href={`${APP_URL}/produk/super-safe-protection`}>Super Safe</a>
+              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-safe-protection">Super Safe</a>
             </li>
             <li>
-              <a href={`${APP_URL}/produk/super-life-protection`}>Super Life</a>
+              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-life-protection">Super Life</a>
             </li>
             <li>
-              <a href={`${APP_URL}/produk/super-strong-protection`}>Super Strong</a>
+              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-strong-protection">Super Strong</a>
             </li>
             <li>
-              <a href={`${APP_URL}/produk/my-hospital-protection`}>My Hospital</a>
+              <a rel="prefetch" on:click={() => aside = false} href="/produk/my-hospital-protection">My Hospital</a>
             </li>
             <li>
-              <a rel="prefetch" href="/produk/super-care-protection">Super Care</a>
+              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-care-protection">Super Care</a>
             </li>
             <li>
-              <a
-                on:click={async () => await goto('/produk/super-well-protection')}
-                href="/produk/super-well-protection">Super Well</a>
+              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-well-protection" >Super Well</a>
             </li>
           </ul>
         </div>
