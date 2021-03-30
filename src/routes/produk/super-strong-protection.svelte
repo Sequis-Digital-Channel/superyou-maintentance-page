@@ -27,6 +27,7 @@
     import Faq from "../../container/Faq.svelte";
     import Testimony from "../../container/Testimony.svelte";
     import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
+    import Leadgen from "../../container/Leadgen.svelte";
   
     import { loadFlickity } from "../../utils/_loadflickity";
     import { getProductBySlugNameClient } from "../../api/products.service";
@@ -258,6 +259,8 @@
       </div>
     {/if}
   </section>
+
+  <Leadgen />
   
   <section class="su_container faq">
     <Faq
