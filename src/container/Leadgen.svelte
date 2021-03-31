@@ -17,7 +17,6 @@
     const leadgenObserver = new IntersectionObserver((entries) => {
       const el = entries[0];
       if (el.isIntersecting) {
-        console.log('ok ok');
         loadLeadgen(leadgen_client_key, app_env);
         leadgenObserver.unobserve(leadgenContainer);
       }

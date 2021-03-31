@@ -119,10 +119,6 @@
   
 </script>
 
-<svelte:head>
-  <link rel="preload" href="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_80,dpr_auto,w_auto/v1614146956/superyou/well/ds_dad-and-daughter_2x.png" as="image" media="(max-width: 500px)">
-</svelte:head>
-
 <section class="above-the-fold-wrapper">
   <AboveTheFold meta={heroMeta}>
     <picture class="hero-well" slot="hero-img">
@@ -151,7 +147,7 @@
   </AboveTheFold>
 </section>
 
-<section class="su_container benefits">
+<section class="su_container benefits super-well">
   <ProductBenefits benefitGroups={benefit_groups} benefitTitle="Manfaat Asuransi Penyakit Kritis Super Well Protection"/>
   
   <div style="margin:0 auto 20px;max-width: 314px;">
@@ -167,7 +163,7 @@
   </div>
 </section>
 
-<section class="su_container tnc">
+<section class="su_container tnc super-well">
   <ProductTnc listTnc={tnc.well} productName="Super Well Protection" />
   <p
     class="product_tnc__more-info"
@@ -314,6 +310,18 @@
       margin: 0 auto;
       padding: 38px 0;
       overflow-y: hidden;
+    }
+  }
+
+  @media (max-width: 639px) {
+    :global(.super-well .t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      left: -80px;
+    }
+    :global(.super-well .t-wrapper.tnc-item-0 .tooltip-holder) {
+      left: -230px;
+    }
+    :global(.super-well .t-wrapper.tnc-item-6 .tooltip-holder) {
+      right: -12px !important;
     }
   }
 </style>

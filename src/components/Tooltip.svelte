@@ -29,6 +29,10 @@
       border-bottom: 6px solid #03a3a6;
       border-top: 6px solid transparent;
       transition: opacity 0.3s ease 0s;
+
+      @media (min-width: 640px) {
+        margin-left: 2px;
+      }
     }
     .tooltip-holder {
       visibility: hidden;
@@ -41,12 +45,15 @@
       font-size: 12px;
       position: absolute;
       z-index: 4;
-      top: 160%;
-      right: -100%;
+      /* top: 160%;
+      right: -100%; */
+      top: 10px;
+      right: -72px;
       margin-left: -60px;
       transition: opacity 0.3s ease 0s;
 
       @media (max-width: 639px) {
+        top: 23px;
         margin-left: 0;
         width: 280px;
 

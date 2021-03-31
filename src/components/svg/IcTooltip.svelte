@@ -3,6 +3,9 @@
     .ic-tooltip {
       width: 16px;
       height: 16px;
+
+      position: absolute;
+      top: -16px;
     }
   }
 </style>

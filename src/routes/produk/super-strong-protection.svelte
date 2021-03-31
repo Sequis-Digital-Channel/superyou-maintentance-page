@@ -161,7 +161,7 @@
     </AboveTheFold>
   </section>
   
-  <section class="su_container benefits">
+  <section class="su_container benefits super-strong">
     <ProductBenefits benefitGroups={benefit_groups}/>
   
     <a
@@ -175,7 +175,7 @@
     </a>
   </section>
   
-  <section class="su_container tnc">
+  <section class="su_container tnc super-strong">
     <ProductTnc listTnc={tnc.strong} productName="Super Strong Protection"/>
     <p class="product_tnc__more-info"
       style="text-align:center;color: #0d294a;font-size: 14px;">
@@ -344,16 +344,19 @@
     }
   
     @media (max-width: 639px) {
-      :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
-        right: -140px !important;
+      :global(.super-strong .t-wrapper.bene-tooltip-1 .tooltip-holder) {
+        left: -52px;
       }
   
-      :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      :global(.super-strong .t-wrapper.bene-tooltip-2 .tooltip-holder) {
         right: -85px !important;
       }
   
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      :global(.super-strong .t-wrapper.tnc-item-0 .tooltip-holder) {
         right: -150px !important;
+      }
+      :global(.super-strong .t-wrapper.tnc-item-4 .tooltip-holder) {
+        left: -256px;
       }
     }
     @media (min-width: 640px) {

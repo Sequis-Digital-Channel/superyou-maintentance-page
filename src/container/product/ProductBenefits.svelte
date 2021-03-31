@@ -53,8 +53,9 @@
       }
       @media (min-width: 640px) {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 304px));
         grid-gap: 3rem 10%;
+        justify-content: center;
 
         &:last-child {
           margin-bottom: 40px;

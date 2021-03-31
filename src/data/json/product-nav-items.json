@@ -25,7 +25,7 @@
       "info": "Tambahan Mulai dari Rp 9.500/Bulan",
       "product_type": "rider",
       "url": "/produk/super-safe-protection",
-      "self": false
+      "self": true
     },
     {
       "icon": "/icons/products/holiday/super-holiday.svg",
@@ -34,7 +34,7 @@
       "info": "Tambahan Mulai dari Rp 21.000/Bulan",
       "product_type": "rider",
       "url": "/produk/super-safe-protection",
-      "self": false
+      "self": true
     }
   ],
   "health": [

@@ -166,7 +166,7 @@
     </AboveTheFold>
   </section>
   
-  <section class="su_container benefits">
+  <section class="su_container benefits my-hospital">
     <ProductBenefits benefitGroups={benefit_groups}/>
   
     <a
@@ -180,7 +180,7 @@
     </a>
   </section>
   
-  <section class="su_container tnc">
+  <section class="su_container tnc my-hospital">
     <ProductTnc listTnc={tnc.hospital} productName="My Hospital Protection" column={3}/>
     <p class="product_tnc__more-info"
       style="text-align:center;color: #0d294a;font-size: 14px;">
@@ -351,16 +351,14 @@
     }
   
     @media (max-width: 639px) {
-      :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
-        right: -140px !important;
+      :global(.my-hospital.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+        left: -30px;
       }
-  
-      :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
-        right: -85px !important;
+      :global(.my-hospital .t-wrapper.tnc-item-0 .tooltip-holder) {
+        left: -100px;
       }
-  
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
-        right: -150px !important;
+      :global(.my-hospital .t-wrapper.tnc-item-3 .tooltip-holder) {
+        left: -260px;
       }
     }
     @media (min-width: 640px) {
