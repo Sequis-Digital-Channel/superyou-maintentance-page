@@ -1,9 +1,10 @@
 <script context="module">
   export async function preload(page, session) {
-    const { APP_URL } = session;
+    const { APP_URL, APP_ENV } = session;
     
     return {
       APP_URL,
+      APP_ENV
     };
   }
 </script>
@@ -21,6 +22,7 @@
 
   // export let segment;
   export let APP_URL;
+  export let APP_ENV;
 
   let bodyHTMLElement = false;
 
@@ -34,8 +36,17 @@
 
   onMount(() => {
     bodyHTMLElement = true;
+
   });
 </script>
+
+<svelte:head>
+  {#if APP_ENV !== 'production'}
+    <meta name="robots" content="noindex, nofollow" />
+  {:else}
+    <meta name="robots" content="index, follow" />
+  {/if}
+</svelte:head>
 
 <BaseHeader {APP_URL}/>
 <CartContainer />
