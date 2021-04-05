@@ -351,7 +351,7 @@
     }
   
     @media (max-width: 639px) {
-      :global(.my-hospital.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      :global(.my-hospital .t-wrapper.bene-tooltip-2 .tooltip-holder) {
         left: -30px;
       }
       :global(.my-hospital .t-wrapper.tnc-item-0 .tooltip-holder) {
