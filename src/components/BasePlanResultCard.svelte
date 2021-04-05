@@ -97,7 +97,7 @@
             display: flex;
 
             &:not(:last-child) {
-              border-bottom: 1px solid #979797;
+              border-bottom: 1px solid #d8d6d6;
               margin-bottom: 15px;
               padding-bottom: 15px;
             }
