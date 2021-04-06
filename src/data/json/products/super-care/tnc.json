@@ -1,45 +1,67 @@
 {
   "care": [
     {
-      "icon": "/icons/products/tnc/entry-age.svg",
-      "description":
-        "Usia masuk adalah <b>30 hari - 70</b> tahun dan perlindungan dapat diperpanjang hingga usia <b>75 tahun</b>.",
-      "tooltip": "Usia masuk adalah usia Tertanggung ketika memulai asuransi."
+      "description": "Metode klaim <b><i>Cashless</b></i> maupun <b><i>Reimbursement</b></i>. Tersedia 4000+ rumah sakit rekanan seluruh indonesia.",
+      "icon_svg": "https://superyou.test/products/provisions/super-care-protection4.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-care-protection4.png",
+      "order": null,
+      "tooltip_text": "Terdapat 2 cara klaim produk Super Care, yaitu: <br/>1. <i>Cashless</i>: Proses pengajuan klaim dengan hanya menunjukkan kartu keanggotaan asuransi kesehatan saat masa perawatan atau pengobatan di rumah sakit. <br/>2. <i>Reimbursement</i>: Pemegang Polis menanggung biaya medis yang dikeluarkan dari uang pribadi terlebih dahulu selama masa perawatan lalu proses pengajuan klaim dilakukan setelah masa perawatan selesai dengan melengkapi dan menyerahkan  dokumen-dokumen yang dibutuhkan kepada pihak perusahaan asuransi.",
+      "product_id": "9238f268-bef2-4fa6-9d39-653d4408d121",
+      "id": "53370672-7684-475d-a5b8-54024434bd5e"
     },
     {
-      "icon": "/icons/products/tnc/payment.svg",
-      "description":
-        "Pembayaran premi dilakukan bulanan atau tahunan, dan asuransi otomatis diperpanjang setiap tahun.",
-      "tooltip": ""
+      "description": "Tidak ada Masa tunggu untuk Penyakit Menular. Masa Tunggu kecelakaan yaitu <b>30 hari</b> kalender sejak tanggal mulai kontrak asuransi.",
+      "icon_svg": "https://superyou.test/products/provisions/super-care-protection6.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-care-protection6.png",
+      "order": null,
+      "tooltip_text": "Masa Tunggu adalah jangka waktu tertentu yang harus dilalui terlebih dahulu sebelum manfaat perlindungan asuransi dapat digunakan atau pembayaran klaim dapat dilakukan.<br/> <br/> <br/>Masa Tunggu: <br/>- Tuberkulosis (TBC) adalah 12 bulan. <br/>- Keracunan makanan adalah 90 hari kalender sejak Tanggal Mulai Kontrak Asuransi atau tanggal Perubahan Polis atau tanggal Pemulihan Polis.",
+      "product_id": "9238f268-bef2-4fa6-9d39-653d4408d121",
+      "id": "7cefc88f-9423-4f82-b0d8-445f4ef5a531"
     },
     {
-      "icon": "/icons/products/tnc/health-history.svg",
+      "description": "Cakupan wilayah pertanggungan manfaat asuransi di seluruh dunia.",
+      "icon_svg": "https://superyou.test/products/provisions/super-care-protection7.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-care-protection7.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "9238f268-bef2-4fa6-9d39-653d4408d121",
+      "id": "81cd650e-f231-4da8-bc57-e5bfad2a68ab"
+    },
+    {
       "description": "Terdapat pertanyaan riwayat kesehatan.",
-      "tooltip": ""
+      "icon_svg": "https://superyou.test/products/provisions/super-care-protection3.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-care-protection3.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "9238f268-bef2-4fa6-9d39-653d4408d121",
+      "id": "8289ee00-0fa9-45ac-ada2-62e388db2e77"
     },
     {
-      "icon": "/icons/products/tnc/cashless.svg",
-      "description":
-        "Metode klaim <b><i>Cashless</i></b> maupun <b><i>Reimbursement</i></b>. Tersedia 4000+ rumah sakit rekanan seluruh indonesia.",
-      "tooltip": ""
+      "description": "Usia, pekerjaan, & metode klaim berpengaruh terhadap besarnya biaya premi.  ",
+      "icon_svg": "https://superyou.test/products/provisions/super-care-protection5.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-care-protection5.png",
+      "order": null,
+      "tooltip_text": "Premi adalah sejumlah uang yang harus dibayarkan setiap bulannya sebagai kewajiban dari tertanggung atas keikutsertaannya di asuransi.",
+      "product_id": "9238f268-bef2-4fa6-9d39-653d4408d121",
+      "id": "a4a6af5c-dd9e-40e0-b11e-564e0e09fd75"
     },
     {
-      "icon": "/icons/products/tnc/premicost.svg",
-      "description":
-        "Usia, pekerjaan, & metode klaim berpengaruh terhadap besarnya biaya premi.",
-      "tooltip": ""
+      "description": "Usia masuk adalah <b>30 hari - 70 tahun</b> dan perlindungan dapat diperpanjang hingga usia <b>75 tahun</b>.",
+      "icon_svg": "https://superyou.test/products/provisions/super-care-protection1.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-care-protection1.png",
+      "order": null,
+      "tooltip_text": "Usia masuk adalah usia Tertanggung ketika memulai asuransi.",
+      "product_id": "9238f268-bef2-4fa6-9d39-653d4408d121",
+      "id": "c74c9886-dc52-496d-b02d-b3b2474a528e"
     },
     {
-      "icon": "/icons/products/tnc/waiting-period.svg",
-      "description":
-        "Tidak ada Masa tunggu untuk Penyakit Menular. Masa Tunggu kecelakaan yaitu <b>30 hari</b> kalender sejak tanggal mulai kontrak asuransi.",
-      "tooltip": ""
-    },
-    {
-      "icon": "/icons/products/tnc/coverage-location.svg",
-      "description":
-        "Cakupan wilayah pertanggungan manfaat asuransi di seluruh dunia.",
-      "tooltip": ""
+      "description": "Pembayaran premi dilakukan bulanan atau tahunan, dan asuransi otomatis diperpanjang setiap tahun.",
+      "icon_svg": "https://superyou.test/products/provisions/super-care-protection2.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-care-protection2.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "9238f268-bef2-4fa6-9d39-653d4408d121",
+      "id": "dfe168e6-2e34-4291-876e-749b841d41fa"
     }
   ]
 }
