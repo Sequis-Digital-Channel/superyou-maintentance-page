@@ -79,11 +79,12 @@
       })
       .catch(logError);
     }
-    
+
     onMount(() => {
       const slides = new Flickity(".above-the-fold-wrapper", {
         contain: true,
         autoPlay: 5000,
+        wrapAround: true,
         on: {
           change: (idx) => {
             currentSlideIndex = idx;
@@ -435,22 +436,10 @@
     }
 
     @media (min-width: 1024px) {
-      :global(.above-the-fold-wrapper .product > img) {
-        margin-left: auto !important;
-        margin-top: 10px;
-      }
-      :global(.above-the-fold-wrapper .product .product_meta .product_meta_description) {
-        height: auto!important;
-      }
-      :global(.above-the-fold-wrapper .carousel-cell .product_meta) {
-        padding-top: 50px !important;
-        margin-right: auto;
-      }
       :global(.s-motor .product_icon) {
         margin-right: 16px;
       }
     }
-
 
     :global(.s-motor .product_icon) {
       width: 50px;
