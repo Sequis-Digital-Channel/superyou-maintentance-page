@@ -28,8 +28,7 @@
     import Testimony from "../../container/Testimony.svelte";
     import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
     import Leadgen from "../../container/Leadgen.svelte";
-  
-    import { loadFlickity } from "../../utils/_loadflickity";
+
     import { getProductBySlugNameClient } from "../../api/products.service";
   
     export let api_product_url;
@@ -41,6 +40,7 @@
     let benefit_groups = superSafeProtection.benefit_groups;
     let rip_link = superSafeProtection.rip_link;
   
+    let currentSlideIndex = 0;
     let selectPlanGeneral;
     let OtherProductsContainer;
     let WhatsAppChat;
@@ -79,8 +79,19 @@
       })
       .catch(logError);
     }
+
+    $: console.log(currentSlideIndex);
   
     onMount(() => {
+      const slides = new Flickity(".above-the-fold-wrapper", {
+        contain: true,
+        on: {
+          change: (idx) => {
+            currentSlideIndex = idx;
+          }
+        }
+      })
+
       const images = Array.from(document.querySelectorAll(".lazy-image img"));
       const premiCalcContainer = document.querySelector(".premi-calculation");
   
@@ -114,7 +125,7 @@
           if(el.isIntersecting) {
             otherProdObserver.unobserve(otherProd);
             if (!isFlicktyLoaded) {
-              loadFlickity();
+              // loadFlickity();
               isFlicktyLoaded = true;
               loadOtherProductsContainer();
             }
@@ -141,34 +152,93 @@
   
   <svelte:head>
     <title>Asuransi Kesehatan | Super Safe Protection</title>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://ik.imagekit.io/" crossorigin>
+    <link rel="stylesheet" href="https://ik.imagekit.io/oc2o82pyjsh/superyou/JS/flickity.min_wa7tUONQa.css">
+    <script src="https://ik.imagekit.io/oc2o82pyjsh/superyou/JS/flickity.min_xEZhoKMx4.js"></script>
   </svelte:head>
   
-  <section class="above-the-fold-wrapper">
-    <AboveTheFold meta={heroMeta}>
-      <picture class="hero-safe" slot="hero-img">
-        <source
-          media="(min-width: 801px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-super-safe_-Uh4FemoUId.png?tr=q-50"
-        >
-        <source
-          media="(min-width: 501px) and (max-width: 800px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-super-safe_-Uh4FemoUId.png?tr=q-50"
-        >
-        <source
-          media="(max-width: 500px)"
-          srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-super-safe_fzdgY9sVlP.png?tr=q-45"
-        >
-        <img
-          src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-super-safe_-Uh4FemoUId.png?tr=q-50"
-          alt="Super Safe Hero"
-          width="374"
-          height="315"
-          loading="lazy"
-          decoding="async"
-        > 
-      </picture>
-    </AboveTheFold>
+  <section
+    class="above-the-fold-wrapper whitespace-no-wrap w-full overflow-hidden"
+    style={`background: ${heroMeta.metas[currentSlideIndex].bg_color}`}
+    >
+    <div class="carousel-cell w-full inline-block whitespace-normal">
+      <AboveTheFold meta={heroMeta.metas[0]}>
+        <picture class="hero-safe" slot="hero-img">
+          <source
+            media="(min-width: 801px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-super-safe_-Uh4FemoUId.png?tr=q-50"
+          >
+          <source
+            media="(min-width: 501px) and (max-width: 800px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-super-safe_-Uh4FemoUId.png?tr=q-50"
+          >
+          <source
+            media="(max-width: 500px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-super-safe_fzdgY9sVlP.png?tr=q-45"
+          >
+          <img
+            src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-super-safe_-Uh4FemoUId.png?tr=q-50"
+            alt="Super Safe Hero"
+            width="374"
+            height="315"
+            loading="lazy"
+            decoding="async"
+          > 
+        </picture>
+      </AboveTheFold>
+    </div>
+    <div class="carousel-cell s-motor w-full inline-block whitespace-normal">
+      <AboveTheFold meta={heroMeta.metas[1]}>
+        <picture class="hero-safe" slot="hero-img">
+          <source
+            media="(min-width: 801px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png?tr=q-70"
+          >
+          <source
+            media="(min-width: 501px) and (max-width: 800px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png"
+          >
+          <source
+            media="(max-width: 500px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png?tr=q-30"
+          >
+          <img
+            src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png"
+            alt="Super Motor Hero"
+            width="374"
+            height="315"
+            loading="lazy"
+            decoding="async"
+          > 
+        </picture>
+      </AboveTheFold>
+    </div>
+    <div class="carousel-cell w-full s-holiday inline-block whitespace-normal">
+      <AboveTheFold meta={heroMeta.metas[2]}>
+        <picture class="hero-holiday" slot="hero-img">
+          <source
+            media="(min-width: 801px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-holiday_ckM29GL-M.png?tr=q-70"
+          >
+          <source
+            media="(min-width: 501px) and (max-width: 800px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-holiday_ckM29GL-M.png?tr=q-70"
+          >
+          <source
+            media="(max-width: 500px)"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-holiday_ckM29GL-M.png?tr=q-70"
+          >
+          <img
+            src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/hero-holiday_ckM29GL-M.png"
+            alt="Super Holiday Hero"
+            width="374"
+            height="315"
+            loading="lazy"
+            decoding="async"
+          > 
+        </picture>
+      </AboveTheFold>
+    </div>
   </section>
   
   <section class="su_container benefits">
@@ -307,16 +377,28 @@
   
   <style lang="postcss">
     .above-the-fold-wrapper {
-      background-image: linear-gradient(105deg, #e8a456, #ffd7a6 94%);
+      background: linear-gradient(105deg, #e8a456, #ffd7a6 94%);
+      transition: background 0.5s ease 0s;
     }
     .product_hero .hero-safe img {
       @media (min-width: 501px) {
         min-width: initial;
-        max-width: 318px;
+        max-width: 332px;
         height: auto;
       }
       @media (max-width: 500px) {
         max-width: 315px;
+        max-height: initial;
+      }
+    }
+    .product_hero .hero-holiday img {
+      @media (min-width: 501px) {
+        min-width: initial;
+        max-width: 270px;
+        height: auto;
+      }
+      @media (max-width: 500px) {
+        max-width: 273px;
         max-height: initial;
       }
     }
@@ -351,6 +433,25 @@
     {
       content-visibility: auto;
       contain-intrinsic-size: 700px;
+    }
+
+    :global(.s-motor .product_icon) {
+      width: 50px;
+    }
+
+    :global(.above-the-fold-wrapper .flickity-button) {
+      display: none;
+    }
+    :global(.above-the-fold-wrapper .flickity-page-dots) {
+      bottom: 15px !important;
+    }
+    :global(.above-the-fold-wrapper .flickity-page-dots .dot) {
+      margin: 0 3px !important;
+      background: #fff !important;
+      opacity: 1 !important;
+    }
+    :global(.above-the-fold-wrapper .flickity-page-dots .dot.is-selected) {
+      background: #00aaae !important;
     }
   
     @media (max-width: 639px) {
