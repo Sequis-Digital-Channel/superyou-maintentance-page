@@ -79,12 +79,11 @@
       })
       .catch(logError);
     }
-
-    $: console.log(currentSlideIndex);
-  
+    
     onMount(() => {
       const slides = new Flickity(".above-the-fold-wrapper", {
         contain: true,
+        autoPlay: 5000,
         on: {
           change: (idx) => {
             currentSlideIndex = idx;
@@ -161,7 +160,7 @@
     class="above-the-fold-wrapper whitespace-no-wrap w-full overflow-hidden"
     style={`background: ${heroMeta.metas[currentSlideIndex].bg_color}`}
     >
-    <div class="carousel-cell w-full inline-block whitespace-normal">
+    <div class="carousel-cell s-safe w-full inline-block whitespace-normal">
       <AboveTheFold meta={heroMeta.metas[0]}>
         <picture class="hero-safe" slot="hero-img">
           <source
@@ -434,6 +433,24 @@
       content-visibility: auto;
       contain-intrinsic-size: 700px;
     }
+
+    @media (min-width: 1024px) {
+      :global(.above-the-fold-wrapper .product > img) {
+        margin-left: auto !important;
+        margin-top: 10px;
+      }
+      :global(.above-the-fold-wrapper .product .product_meta .product_meta_description) {
+        height: auto!important;
+      }
+      :global(.above-the-fold-wrapper .carousel-cell .product_meta) {
+        padding-top: 50px !important;
+        margin-right: auto;
+      }
+      :global(.s-motor .product_icon) {
+        margin-right: 16px;
+      }
+    }
+
 
     :global(.s-motor .product_icon) {
       width: 50px;
