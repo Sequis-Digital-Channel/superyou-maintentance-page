@@ -29,7 +29,7 @@
   };
 
   function observeAboveTheFold() {
-    aboveTheFold = document.getElementById("above-the-fold");
+    aboveTheFold = document.querySelector(".above-the-fold-wrapper");
     aboveTheFoldObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
