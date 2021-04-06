@@ -70,6 +70,10 @@
   #above-the-fold {
     padding: 71px 10px 0 10px;
 
+    @media (min-width: 1024px) {
+      height: 393px;
+    }
+
     @media (min-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;
@@ -206,7 +210,7 @@
   }
 </style>
 
-<section id="above-the-fold" class="mx-auto" style="height: auto;">
+<section id="above-the-fold" class="mx-auto">
   <div class="product">
     <img
       src={meta.icon}
