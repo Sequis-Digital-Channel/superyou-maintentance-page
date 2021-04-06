@@ -97,8 +97,13 @@
         display: block;
         height: 74px;
         @media (min-width: 768px) {
-          padding-top: 30px;
+          padding-top: 18px;
           height: 100px;
+          margin-left: auto;
+        }
+        @media (min-width: 1024px) {
+          padding-top: 30px;
+          margin-top: 16px;
         }
       }
 
@@ -112,9 +117,11 @@
           max-width: 360px;
           margin-left: 15px;
           padding-top: 30px;
+          margin-right: auto;
         }
 
         @media (min-width: 1024px) {
+          padding-top: 50px;
           max-width: 540px;
         }
 
@@ -158,7 +165,7 @@
           @media (min-width: 1280px) {
             font-size: 20px !important;
             margin-bottom: 36px;
-            height: 70px;
+            /* height: 70px; */
           }
         }
       }
