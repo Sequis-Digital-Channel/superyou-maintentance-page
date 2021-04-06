@@ -105,18 +105,25 @@
         if (elForm.isIntersecting) {
           loadSelectPlanCare();
           formObserver.unobserve(premiCalcContainer);
-          if (!isFlicktyLoaded) {
-            loadFlickity();
-            isFlicktyLoaded = true;
-            loadOtherProductsContainer()
-          }
-        } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
-          loadFlickity();
-          isFlicktyLoaded = true;
-          loadOtherProductsContainer();
         }
       });
       formObserver.observe(premiCalcContainer);
+      
+      const otherProd = document.querySelector(".otherproduct");
+        const otherProdObserver = new IntersectionObserver((entries) => {
+          const el = entries[0];
+          if(el.isIntersecting) {
+            otherProdObserver.unobserve(otherProd);
+            if (!isFlicktyLoaded) {
+              loadFlickity();
+              isFlicktyLoaded = true;
+              loadOtherProductsContainer();
+            }
+          }
+        },
+        {rootMargin: "-600px 0px 0px 0px",}
+        );
+        otherProdObserver.observe(otherProd);
     } else {
       images.forEach((img) => {
         img.src = img.dataset.src;
@@ -135,7 +142,6 @@
 
 <svelte:head>
   <title>Asuransi Kesehatan | Super Care Protection</title>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
 </svelte:head>
 
 <section class="above-the-fold-wrapper">
