@@ -1,37 +1,37 @@
 {
   "hospital": [
     {
-      "icon": "/icons/products/tnc/entry-age.svg",
+      "icon_svg": "/icons/products/tnc/entry-age.svg",
       "description":
         "Usia masuk adalah<br/><b>17 - 59 tahun.</b>",
       "tooltip": "Usia masuk adalah usia Tertanggung ketika memulai asuransi."
     },
     {
-      "icon": "/icons/products/tnc/payment.svg",
+      "icon_svg": "/icons/products/tnc/payment.svg",
       "description":
         "Pembayaran premi dilakukan bulanan atau tahunan, dan asuransi otomatis diperpanjang setiap tahun.",
       "tooltip": ""
     },
     {
-      "icon": "/icons/products/tnc/health-history.svg",
+      "icon_svg": "/icons/products/tnc/health-history.svg",
       "description":
         "Tanpa<br/>cek kesehatan.",
       "tooltip": ""
     },
     {
-      "icon": "/icons/products/tnc/premicost.svg",
+      "icon_svg": "/icons/products/tnc/premicost.svg",
       "description":
         "Usia dan Uang Pertanggungan yang didapat berpengaruh terhadap besarnya biaya premi.",
       "tooltip": "Premi adalah sejumlah uang yang harus dibayarkan setiap bulannya sebagai kewajiban dari tertanggung atas keikutsertaannya di asuransi."
     },
     {
-      "icon": "/icons/products/tnc/waiting-period.svg",
+      "icon_svg": "/icons/products/tnc/waiting-period.svg",
       "description":
         "Masa tunggu <b>30 hari</b> sejak polis dimulai, atau <b>12 bulan</b> untuk penyakit tertentu.",
       "tooltip": "Masa Tunggu adalah jangka waktu tertentu yang harus dilalui terlebih dahulu sebelum manfaat perlindungan asuransi dapat digunakan atau pembayaran klaim dapat dilakukan.<br/><br/>Masa tunggu awal merupakan masa tunggu yang ditetapkan sejak polis diterbitkan sampai nasabah boleh mengajukan klaim yaitu selama 30 hari.<br/><br/>Masa tunggu untuk kondisi medis yang sudah ada atau pre-existing period untuk penyakit tertentu  yaitu 12 bulan seperti: Batu di dalam sistem saluran kemih; gagal ginjal kronis; baru atau infeksi di dalam kantung empedu (sistem bilier); Tekanan darah tinggi, penyakit jantung dan pembuluh darah, penyakit pembuluh darah otak, penyakit darah, varises vena; Katarak, pterygium; Semua jenis kanker, tumor, polip, kista, dan semua jenis benjolan termasuk benjolan pada payudara; Semua peradangan pada telinga, rongga hidung (termasuk sinus) dan tenggorokan (termasuk peradangan tonsil dan tiroid); Hernia, wasir, fistula, hydrocele, varicocele; Epilepsi; Kencing manis (Diabetes mellitus), Pembesaran kelenjar gondok (Hipertiroid), Kekurangan hormon tiroid (Hipotiroid); Hepatitis; Radang, Erosi, dan tukak pada lambung atau pada usus dua belas jari; yang disebabkan oleh apapun; Endometriosis, termasuk penyakit pada sistem reproduksi, dan Adenomiosis; Gangguan pada prostat; Radang persendian (Rematik/Gout) atau gangguan tulang persendian dan penyakit otot lainnya, yang disebabkan oleh apapun; Gangguan pada tulang belakang termasuk cakram antar ruas tulang belakang) dan lutut, yang disebabkan oleh apapun; atau Tuberkulosis, asma."
     },
     {
-      "icon": "/icons/products/tnc/cart.svg",
+      "icon_svg": "/icons/products/tnc/cart.svg",
       "description":
         "Maksimum pembelian yaitu 1 Polis untuk Tertanggung yang sama.",
       "tooltip": ""

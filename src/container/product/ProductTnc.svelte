@@ -46,9 +46,9 @@
 <div class="product_tnc">
   <h3>Ketentuan {productName}</h3>
   <div class="product_tnc__wrapper" class:col-grid-3={column === 3}>
-    {#each listTnc as { description, icon, tooltip }, i (description)}
+    {#each listTnc as { description, icon_svg, tooltip }, i (description)}
       <InfoItem
-        {icon}
+        {icon_svg}
         {description}
         tooltipDescription={tooltip}
         key={`tnc-item-${i}`} />
