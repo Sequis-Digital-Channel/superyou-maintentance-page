@@ -171,7 +171,11 @@
   </section>
   
   <section class="su_container benefits super-life">
-    <ProductBenefits benefitGroups={benefit_groups}/>
+    <ProductBenefits
+      benefitGroups={benefit_groups}
+      benefitTitle="Manfaat Asuransi Jiwa yang Kamu Dapatkan"
+      excerpt="Perlindungan atas risiko meninggal dunia sebab apa pun<br>dan risiko Cacat Total & Tetap"
+    />
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-life-protection.pdf`}
