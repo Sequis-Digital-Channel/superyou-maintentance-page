@@ -242,7 +242,11 @@
   </section>
   
   <section class="su_container benefits">
-    <ProductBenefits benefitGroups={benefit_groups}/>
+    <ProductBenefits
+      benefitGroups={benefit_groups}
+      benefitTitle="Manfaat Asuransi Kecelakaan Diri yang Kamu Dapatkan"
+      excerpt="Perlindungan atas risiko biaya medis,<br>risiko meninggal dunia, dan risiko Cacat Total & Tetap yang disebabkan kecelakaan."
+    />
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-safe-protection.pdf`}
