@@ -38,6 +38,8 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
     }
     cartCookie.totalProducts += 1;
     cartCookie.insuredFor = insuredFor;
+    cartCookie.dobTimestamp = dobStringToMillis(insuredDob);
+    cartCookie.dobString = insuredDob;
     const indexOfTargetProduct = cartCookie.products.findIndex(product => product.planId === plan.id)
 
     if (indexOfTargetProduct !== -1) {
@@ -72,6 +74,7 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob) {
     var selectedPlanData = {
       insuredFor: insuredFor,
       dobTimestamp: dobStringToMillis(insuredDob), // timestamp
+      dobString: insuredDob,
       age: calculateAge(insuredDob, "DD/MM/YYYY"), // age
       type: "form",
       path: "general",

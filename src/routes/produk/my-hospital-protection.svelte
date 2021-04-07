@@ -27,6 +27,7 @@
     import Faq from "../../container/Faq.svelte";
     import Testimony from "../../container/Testimony.svelte";
     import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
+    import Leadgen from "../../container/Leadgen.svelte";
   
     import { loadFlickity } from "../../utils/_loadflickity";
     import { getProductBySlugNameClient } from "../../api/products.service";
@@ -103,18 +104,25 @@
           if (elForm.isIntersecting) {
             loadSelectPlanGeneral();
             formObserver.unobserve(premiCalcContainer);
-            if (!isFlicktyLoaded) {
-              loadFlickity();
-              isFlicktyLoaded = true;
-              loadOtherProductsContainer()
-            }
-          } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
-            loadFlickity();
-            isFlicktyLoaded = true;
-            loadOtherProductsContainer();
           }
         });
         formObserver.observe(premiCalcContainer);
+
+        const otherProd = document.querySelector(".otherproduct");
+        const otherProdObserver = new IntersectionObserver((entries) => {
+          const el = entries[0];
+          if(el.isIntersecting) {
+            otherProdObserver.unobserve(otherProd);
+            if (!isFlicktyLoaded) {
+              loadFlickity();
+              isFlicktyLoaded = true;
+              loadOtherProductsContainer();
+            }
+          }
+        },
+        {rootMargin: "-600px 0px 0px 0px",}
+        );
+        otherProdObserver.observe(otherProd);
       } else {
         images.forEach((img) => {
           img.src = img.dataset.src;
@@ -133,7 +141,6 @@
   
   <svelte:head>
     <title>Asuransi Kesehatan | My Hospital Protection</title>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
   </svelte:head>
   
   <section class="above-the-fold-wrapper">
@@ -165,7 +172,7 @@
     </AboveTheFold>
   </section>
   
-  <section class="su_container benefits">
+  <section class="su_container benefits my-hospital">
     <ProductBenefits benefitGroups={benefit_groups}/>
   
     <a
@@ -179,7 +186,7 @@
     </a>
   </section>
   
-  <section class="su_container tnc">
+  <section class="su_container tnc my-hospital">
     <ProductTnc listTnc={tnc.hospital} productName="My Hospital Protection" column={3}/>
     <p class="product_tnc__more-info"
       style="text-align:center;color: #0d294a;font-size: 14px;">
@@ -206,10 +213,10 @@
   </section>
   
   <section class="su_container premi-calculation">
-    <h2 class="text-xl lg:text-2xl text-center font-bold mb-2 lg:mb-4" style="margin-top: 60px;">
+    <h2 class="text-xl lg:text-2xl text-center font-bold mt-10" style="margin-top: 41px;">
       Cari Tahu Biaya Perlindungan Super Kamu
     </h2>
-    <p class="text-sm text-center text-bluegray mb-6 lg:mb-10">Dengan mengetahui usiamu, Super You dapat memberikan harga premi yang sesuai</p>
+    <p class="text-sm text-center text-bluegray mb-6 lg:mb-10 mt-2">Dengan mengetahui usiamu, Super You dapat memberikan harga premi yang sesuai</p>
 
     {#if selectPlanGeneral && plans.length}
       <svelte:component
@@ -264,6 +271,8 @@
       </div>
     {/if}
   </section>
+
+  <Leadgen />
   
   <section class="su_container faq">
     <Faq
@@ -274,7 +283,7 @@
   </section>
   
   <div class="su_container testimonies bg-darkblue relative">
-    <Testimony productName="My Hospital"/>
+    <Testimony/>
   </div>
   
   <section class="su_container notcovered">
@@ -348,16 +357,14 @@
     }
   
     @media (max-width: 639px) {
-      :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
-        right: -140px !important;
+      :global(.my-hospital .t-wrapper.bene-tooltip-2 .tooltip-holder) {
+        left: -30px;
       }
-  
-      :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
-        right: -85px !important;
+      :global(.my-hospital .t-wrapper.tnc-item-0 .tooltip-holder) {
+        left: -100px;
       }
-  
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
-        right: -150px !important;
+      :global(.my-hospital .t-wrapper.tnc-item-3 .tooltip-holder) {
+        left: -260px;
       }
     }
     @media (min-width: 640px) {

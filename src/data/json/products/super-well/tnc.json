@@ -1,46 +1,76 @@
 {
   "well": [
     {
-      "icon": "/icons/products/tnc/entry-age.svg",
-      "description":
-        "Usia masuk adalah <b>17 tahun - 65 tahun</b> dan bisa diperpanjang hingga usia 85 tahun.",
-      "tooltip": "Usia masuk adalah usia Tertanggung ketika memulai asuransi."
+      "description": "Cakupan klaim untuk seluruh Indonesia dan di Malaysia. <span class='span-optional'>Pilihan</span>",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection8.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection8.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "044edd05-b80b-464a-9e0a-629978e7ebf9"
     },
     {
-      "icon": "/icons/products/tnc/limit-max.svg",
-      "description":
-        "Batas Limit Tahunan atau Biaya Pertanggungan maksimal sebesar 1 Milyar per tahun.",
-      "tooltip": ""
+      "description": "Klaim <b><i>cashless</b></i>. Pembayaran biaya perawatan secara langsung dari Sequis ke pihak rumah sakit, berlaku di 4000+ rumah sakit rekanan.",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection5.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection5.png",
+      "order": null,
+      "tooltip_text": "Cara klaim produk Super Well, yaitu:<br/>1. Cashless: Proses pengajuan klaim dengan hanya menunjukkan kartu keanggotaan asuransi kesehatan saat masa perawatan atau pengobatan di rumah sakit tanpa perlu membayar biaya apapun.",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "264a0dbe-01aa-4654-af41-ff6d049143f5"
     },
     {
-      "icon": "/icons/products/tnc/umbrella.svg",
-      "description": "Melindungi 10 penyakit kritis.<br>Kanker (termasuk karsinoma in situ), stroke (termasuk stroke ringan/TIA), serangan jantung, gagal ginjal, bedah jantung, bedah pembuluh darah jantung, gagal jantung, operasi pengangkatan organ tubuh, gagal hati, dan gagal sistem pernapasan.",
-      "tooltip": ""
+      "description": "Batas Limit Tahunan atau Biaya Pertanggungan maksimal sebesar <b>Rp1 Milyar</b> per tahun.",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection2.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection2.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "4825a062-04f6-491b-ac13-85d067cf1992"
     },
     {
-      "icon": "/icons/products/tnc/health-history.svg",
+      "description": "Usia masuk adalah <b>17 tahun - 65 tahun</b> dan bisa diperpanjang hingga usia <b>85</b> tahun.",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection1.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection1.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "84f18c28-72fd-46c0-8efd-50a461ec7eae"
+    },
+    {
       "description": "Terdapat pertanyaan riwayat kesehatan.",
-      "tooltip": ""
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection4.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection4.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "a4f32150-b803-4b1d-bfcf-6b45a741ecfc"
     },
     {
-      "icon": "/icons/products/tnc/cashless.svg",
-      "description": "Klaim <b><i>cashless</i></b>.<br> Pembayaran biaya perawatan secara langsung dari Sequis ke pihak rumah sakit, berlaku di 4000+ rumah sakit rekanan.",
-      "tooltip": "Cara klaim produk Super Well, yaitu:<br>1. Cashless: Proses pengajuan klaim dengan hanya menunjukkan kartu keanggotaan asuransi kesehatan saat masa perawatan atau pengobatan di rumah sakit tanpa perlu membayar biaya apapun."
+      "description": "Melindungi 10 penyakit kritis. Kanker (termasuk <i>karsinoma in situ</i>), stroke (termasuk stroke ringan/TIA), serangan jantung, gagal ginjal, bedah jantung, bedah pembuluh darah jantung, gagal jantung, operasi pengangkatan organ tubuh, gagal hati, dan gagal sistem pernapasan",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection3.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection3.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "a9baa85f-214a-4d2a-aa60-0e4af432d52f"
     },
     {
-      "icon": "/icons/products/tnc/premicost.svg",
       "description": "Faktor usia dan jenis kelamin berpengaruh pada besaran harga premi.",
-      "tooltip": ""
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection6.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection6.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "dd301be7-c510-41e9-b89f-3f5a1739a40c"
     },
     {
-      "icon": "/icons/products/tnc/waiting-period.svg",
       "description": "Masa tunggu berlaku selama 90 hari sejak tanggal dimulainya perlindungan asuransi.",
-      "tooltip": "Masa Tunggu adalah jangka waktu tertentu yang harus dilalui terlebih dahulu sebelum manfaat perlindungan asuransi dapat digunakan atau pembayaran klaim dapat dilakukan."
-    },
-    {
-      "icon": "/icons/products/tnc/coverage-location.svg",
-      "description": "Cakupan klaim untuk seluruh Indonesia dan di Malaysia.",
-      "tooltip": ""
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection7.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection7.png",
+      "order": null,
+      "tooltip_text": "Masa Tunggu adalah jangka waktu tertentu yang harus dilalui terlebih dahulu sebelum manfaat perlindungan asuransi dapat digunakan atau pembayaran klaim dapat dilakukan.",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "f5b3c0e2-dbe4-41af-8a81-b878189d3136"
     }
   ]
 }

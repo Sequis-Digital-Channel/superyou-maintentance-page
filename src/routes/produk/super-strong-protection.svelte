@@ -27,6 +27,7 @@
     import Faq from "../../container/Faq.svelte";
     import Testimony from "../../container/Testimony.svelte";
     import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
+    import Leadgen from "../../container/Leadgen.svelte";
   
     import { loadFlickity } from "../../utils/_loadflickity";
     import { getProductBySlugNameClient } from "../../api/products.service";
@@ -103,18 +104,25 @@
           if (elForm.isIntersecting) {
             loadSelectPlanGeneral();
             formObserver.unobserve(premiCalcContainer);
-            if (!isFlicktyLoaded) {
-              loadFlickity();
-              isFlicktyLoaded = true;
-              loadOtherProductsContainer()
-            }
-          } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
-            loadFlickity();
-            isFlicktyLoaded = true;
-            loadOtherProductsContainer();
           }
         });
         formObserver.observe(premiCalcContainer);
+
+        const otherProd = document.querySelector(".otherproduct");
+        const otherProdObserver = new IntersectionObserver((entries) => {
+          const el = entries[0];
+          if(el.isIntersecting) {
+            otherProdObserver.unobserve(otherProd);
+            if (!isFlicktyLoaded) {
+              loadFlickity();
+              isFlicktyLoaded = true;
+              loadOtherProductsContainer();
+            }
+          }
+        },
+        {rootMargin: "-600px 0px 0px 0px",}
+        );
+        otherProdObserver.observe(otherProd);
       } else {
         images.forEach((img) => {
           img.src = img.dataset.src;
@@ -133,7 +141,6 @@
   
   <svelte:head>
     <title>Asuransi Kesehatan | Super Strong Protection</title>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
   </svelte:head>
   
   <section class="above-the-fold-wrapper">
@@ -160,7 +167,7 @@
     </AboveTheFold>
   </section>
   
-  <section class="su_container benefits">
+  <section class="su_container benefits super-strong">
     <ProductBenefits benefitGroups={benefit_groups}/>
   
     <a
@@ -174,7 +181,7 @@
     </a>
   </section>
   
-  <section class="su_container tnc">
+  <section class="su_container tnc super-strong">
     <ProductTnc listTnc={tnc.strong} productName="Super Strong Protection"/>
     <p class="product_tnc__more-info"
       style="text-align:center;color: #0d294a;font-size: 14px;">
@@ -258,6 +265,8 @@
       </div>
     {/if}
   </section>
+
+  <Leadgen />
   
   <section class="su_container faq">
     <Faq
@@ -268,7 +277,7 @@
   </section>
   
   <div class="su_container testimonies bg-darkblue relative">
-    <Testimony productName="Super Strong"/>
+    <Testimony/>
   </div>
   
   <section class="su_container notcovered">
@@ -341,16 +350,19 @@
     }
   
     @media (max-width: 639px) {
-      :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
-        right: -140px !important;
+      :global(.super-strong .t-wrapper.bene-tooltip-1 .tooltip-holder) {
+        left: -52px;
       }
   
-      :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      :global(.super-strong .t-wrapper.bene-tooltip-2 .tooltip-holder) {
         right: -85px !important;
       }
   
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      :global(.super-strong .t-wrapper.tnc-item-0 .tooltip-holder) {
         right: -150px !important;
+      }
+      :global(.super-strong .t-wrapper.tnc-item-4 .tooltip-holder) {
+        left: -256px;
       }
     }
     @media (min-width: 640px) {

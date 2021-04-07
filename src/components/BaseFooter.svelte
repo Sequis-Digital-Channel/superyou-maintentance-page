@@ -309,19 +309,22 @@
 
       <ul class:show={footerNav.products}>
         <li>
-          <a href={`${APP_URL}/produk/super-safe-protection`}>Super Safe</a>
+          <a rel="prefetch" href="/produk/super-safe-protection">Super Safe</a>
         </li>
         <li>
-          <a href={`${APP_URL}/produk/super-life-protection`}>Super Life</a>
+          <a rel="prefetch" href="/produk/super-life-protection">Super Life</a>
         </li>
         <li>
-          <a href={`${APP_URL}/produk/super-strong-protection`}>Super Strong</a>
+          <a rel="prefetch" href="/produk/super-strong-protection">Super Strong</a>
         </li>
         <li>
-          <a href={`${APP_URL}/produk/super-care-protection`}>Super Care</a>
+          <a rel="prefetch" href="/produk/super-care-protection">Super Care</a>
         </li>
         <li>
-          <a href={`${APP_URL}/produk/my-hospital-protection`}>My Hospital</a>
+          <a rel="prefetch" href="/produk/super-well-protection">Super Well</a>
+        </li>
+        <li>
+          <a rel="prefetch" href="/produk/my-hospital-protection">My Hospital</a>
         </li>
       </ul>
     </div>

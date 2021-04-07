@@ -9,7 +9,6 @@ const requestHeader = {
 }
 
 export async function getFormEncryption(url, data) {
-  console.log(data, 'cookie');
   let parsedData = JSON.parse(data);
   const res = await fetch(`${url}/api/v1/crypting`, {
     method: "POST",

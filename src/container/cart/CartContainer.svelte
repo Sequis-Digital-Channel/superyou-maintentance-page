@@ -106,7 +106,8 @@
               price,
               riders,
             },
-            product.insuredFor
+            product.insuredFor,
+            cartCookie.dobString
           );
         });
       }

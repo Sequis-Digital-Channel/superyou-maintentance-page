@@ -3,6 +3,7 @@
   import { fly, fade } from "svelte/transition";
   import { getPlanById } from "../../api/products.service";
   import { getFormEncryption } from "../../api/superyou.service";
+  import { formatDobHash } from "../../utils/_date";
   import { getCookie } from "../../utils/_cartcookie";
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
@@ -251,7 +252,7 @@
         riders: {},
       },
       calculationData.insured_for.val.value,
-      calculationData.insured_dob.val,
+      formatDobHash(calculationData.insured_dob.val),
       basePlanResultData,
       productSlug,
       "SAVE_TO_COOKIE"
@@ -275,7 +276,7 @@
         riders: {},
       },
       calculationData.insured_for.val.value,
-      calculationData.insured_dob.val,
+      formatDobHash(calculationData.insured_dob.val),
       basePlanResultData,
       productSlug,
       "SAVE_TO_COOKIE"

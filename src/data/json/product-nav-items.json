@@ -7,7 +7,7 @@
       "info": "Mulai dari Rp 33.000/Bulan",
       "product_type": "basic",
       "url": "/produk/super-life-protection",
-      "self": false
+      "self": true
     },
     {
       "icon": "/icons/products/safe/super-safe.svg",
@@ -45,7 +45,7 @@
       "info": "Mulai Dari Rp 39.500/Bulan",
       "product_type": "basic",
       "url": "/produk/my-hospital-protection",
-      "self": false
+      "self": true
     },
     {
       "icon": "/icons/products/well/super-well.svg",

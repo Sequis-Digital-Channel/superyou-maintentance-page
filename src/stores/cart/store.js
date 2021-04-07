@@ -3,6 +3,7 @@ import {derived, writable} from "svelte/store";
 // what fields neet to be update when product or quantity changes
 export const cartStore = writable({
     insuredFor: "",
+    insuredDob: "",
     products: {}
 });
 

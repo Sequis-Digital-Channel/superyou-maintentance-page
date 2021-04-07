@@ -5,7 +5,7 @@ import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 
-const { PORT, NODE_ENV, API_PRODUCT_CATALOGUE, APP_URL, SUPER_API_URL } = process.env;
+const { PORT, NODE_ENV, API_PRODUCT_CATALOGUE, APP_URL, SUPER_API_URL, LEADGEN_CLIENT_KEY, APP_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 polka() // You can also use Express
@@ -17,7 +17,9 @@ polka() // You can also use Express
 				API_PRODUCT_CATALOGUE,
 				APP_URL,
 				SUPER_API_URL,
-				NODE_ENV
+				LEADGEN_CLIENT_KEY,
+				NODE_ENV,
+				APP_ENV
 			})
 		})
 	)

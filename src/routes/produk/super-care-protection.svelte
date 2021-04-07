@@ -27,6 +27,7 @@
   import Faq from "../../container/Faq.svelte";
   import Testimony from "../../container/Testimony.svelte";
   import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
+  import Leadgen from "../../container/Leadgen.svelte";
 
   import { loadFlickity } from "../../utils/_loadflickity";
   import { getProductBySlugNameClient } from "../../api/products.service";
@@ -104,18 +105,25 @@
         if (elForm.isIntersecting) {
           loadSelectPlanCare();
           formObserver.unobserve(premiCalcContainer);
-          if (!isFlicktyLoaded) {
-            loadFlickity();
-            isFlicktyLoaded = true;
-            loadOtherProductsContainer()
-          }
-        } else if (elForm.boundingClientRect.top < 0 && !isFlicktyLoaded) {
-          loadFlickity();
-          isFlicktyLoaded = true;
-          loadOtherProductsContainer();
         }
       });
       formObserver.observe(premiCalcContainer);
+      
+      const otherProd = document.querySelector(".otherproduct");
+        const otherProdObserver = new IntersectionObserver((entries) => {
+          const el = entries[0];
+          if(el.isIntersecting) {
+            otherProdObserver.unobserve(otherProd);
+            if (!isFlicktyLoaded) {
+              loadFlickity();
+              isFlicktyLoaded = true;
+              loadOtherProductsContainer();
+            }
+          }
+        },
+        {rootMargin: "-600px 0px 0px 0px",}
+        );
+        otherProdObserver.observe(otherProd);
     } else {
       images.forEach((img) => {
         img.src = img.dataset.src;
@@ -134,13 +142,11 @@
 
 <svelte:head>
   <title>Asuransi Kesehatan | Super Care Protection</title>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
 </svelte:head>
 
 <section class="above-the-fold-wrapper">
   <AboveTheFold meta={heroMeta}>
     <picture slot="hero-img">
-      <!-- {#if safari} -->
       <source
         media="(min-width: 801px)"
         srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
@@ -160,32 +166,12 @@
         height="315"
         loading="lazy"
         decoding="async"
-      >
-
-      <!-- {:else}
-      <source
-        media="(min-width: 801px)"
-        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-        data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613213947/superyou/care/ds-care-hero_3x_zr3vj6.png 2x"
-      />
-      <source
-      media="(min-width: 501px) and (max-width: 800px)"
-      srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-      data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205629/superyou/care/mb-dsc-00024-5_3x_sugdgq.png"
-      />
-
-      <source
-      media="(max-width: 500px)"
-      srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-      data-srcset="https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1613205628/superyou/care/mb-dsc-00024-5_crnlqd.png 1x, https://res.cloudinary.com/supercdnstrg/image/upload/f_auto,q_auto/v1613205629/superyou/care/mb-dsc-00024-5_2x_oa7ezs.png 2x"
-      />
-      {/if} -->
-        
+      > 
     </picture>
   </AboveTheFold>
 </section>
 
-<section class="su_container benefits">
+<section class="su_container benefits super-care">
   <ProductBenefits benefitGroups={benefit_groups}/>
 
   <a
@@ -199,7 +185,7 @@
   </a>
 </section>
 
-<section class="su_container tnc">
+<section class="su_container tnc super-care">
   <ProductTnc listTnc={tnc.care} productName="Super Care Protection"/>
   <p class="product_tnc__more-info"
     style="text-align:center;color: #0d294a;font-size: 14px;">
@@ -284,6 +270,8 @@
   {/if}
 </section>
 
+<Leadgen />
+
 <section class="su_container faq">
   <Faq
     appUrl={app_url}
@@ -293,7 +281,7 @@
 </section>
 
 <div class="su_container testimonies bg-darkblue relative">
-  <Testimony productName="Super Care"/>
+  <Testimony/>
 </div>
 
 <section class="su_container notcovered">
@@ -362,15 +350,18 @@
   }
 
   @media (max-width: 639px) {
-    :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
+    :global(.super-care .t-wrapper.bene-tooltip-1 .tooltip-holder) {
       right: -140px !important;
     }
-
-    :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
-      right: -85px !important;
+    :global(.super-care .t-wrapper.benetitle-1 .tooltip-holder) {
+      right: -12px !important;
     }
 
-    :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+    :global(.super-care .t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      left: -150px;
+    }
+
+    :global(.super-care .t-wrapper.tnc-item-0 .tooltip-holder) {
       right: -150px !important;
     }
   }
