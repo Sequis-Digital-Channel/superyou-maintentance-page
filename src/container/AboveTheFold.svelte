@@ -70,6 +70,10 @@
   #above-the-fold {
     padding: 71px 10px 0 10px;
 
+    @media (min-width: 1024px) {
+      height: 393px;
+    }
+
     @media (min-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;
@@ -97,8 +101,13 @@
         display: block;
         height: 74px;
         @media (min-width: 768px) {
-          padding-top: 30px;
+          padding-top: 18px;
           height: 100px;
+          margin-left: auto;
+        }
+        @media (min-width: 1024px) {
+          padding-top: 30px;
+          margin-top: 16px;
         }
       }
 
@@ -112,9 +121,11 @@
           max-width: 360px;
           margin-left: 15px;
           padding-top: 30px;
+          margin-right: auto;
         }
 
         @media (min-width: 1024px) {
+          padding-top: 50px;
           max-width: 540px;
         }
 
@@ -135,15 +146,16 @@
 
           @media (min-width: 1280px) {
             font-size: 36px;
+            margin-bottom: 14px;
           }
         }
 
         &_description {
-          font-size: 14px;
+          font-size: 16px;
           font-weight: 600;
           color: #fff;
           text-align: center;
-          margin-bottom: 36px;
+          margin-bottom: 30px;
 
           @media (min-width: 768px) {
             text-align: left;
@@ -157,7 +169,7 @@
           @media (min-width: 1280px) {
             font-size: 20px !important;
             margin-bottom: 36px;
-            height: 90px;
+            /* height: 70px; */
           }
         }
       }
@@ -167,6 +179,11 @@
   .product_hero {
     max-height: 322px;
     overflow: hidden;
+
+    @media (max-width: 600px) {
+      max-height: 360px;
+      overflow: hidden;
+    }
 
     @media (min-width: 1024px) {
       width: 468px;
@@ -193,7 +210,7 @@
   }
 </style>
 
-<section id="above-the-fold" style="height: auto;">
+<section id="above-the-fold" class="mx-auto">
   <div class="product">
     <img
       src={meta.icon}
@@ -205,9 +222,9 @@
 
     <div class="product_meta">
       <h1 class="product_meta_name">{meta.title}</h1>
-      <p class="product_meta_description" style="font-weight:600;">
+      <h1 class="product_meta_description" style="font-weight:600;">
         {@html meta.description}
-      </p>
+      </h1>
 
       <BaseButton
         on:click={focusView}

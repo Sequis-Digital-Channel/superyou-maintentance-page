@@ -16,7 +16,7 @@
     // https://staging-product.superyou.co.id/api/v1/products/?product_type=basic&is_show=true&show_partner=false&skip=0&product_exceptions=super-strong-protection
 
     setTimeout(() => {
-      const cells = document.querySelectorAll(".carousel-cell");
+      const cells = document.querySelectorAll(".other-products__wrapper .carousel-cell");
       const otherProducts = new Flickity(".other-products__wrapper", {
         cellAlign: "center",
         contain: true,

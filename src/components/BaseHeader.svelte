@@ -29,7 +29,7 @@
   };
 
   function observeAboveTheFold() {
-    aboveTheFold = document.getElementById("above-the-fold");
+    aboveTheFold = document.querySelector(".above-the-fold-wrapper");
     aboveTheFoldObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -410,7 +410,7 @@
                 Asuransi Jiwa & Kecelakaan Diri
               </h4>
               {#each productNavItems.life as navItem, i (navItem.icon)}
-                <a rel="prefetch" on:click={() => productListShow = false} href={navItem.url}>
+                <a rel={`${navItem.self ? 'prefetch' : 'external'}`} on:click={() => productListShow = false} href={navItem.url}>
                   <div class="product-item-nav">
                     <div class="icon flex items-center justify-center">
                       <img

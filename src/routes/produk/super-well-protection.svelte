@@ -111,9 +111,9 @@
           }
         }
       },
-      {rootMargin: "-200px 0px 0px 0px",}
+      {rootMargin: "-600px 0px 0px 0px",}
       );
-      otherProdObserver.observe(otherProd)
+      otherProdObserver.observe(otherProd);
     }
   })
   
