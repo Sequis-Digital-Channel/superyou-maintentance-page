@@ -48,7 +48,7 @@
   <div class="product_tnc__wrapper" class:col-grid-3={column === 3}>
     {#each listTnc as { description, icon_svg, tooltip }, i (description)}
       <InfoItem
-        {icon_svg}
+        icon={icon_svg}
         {description}
         tooltipDescription={tooltip}
         key={`tnc-item-${i}`} />
