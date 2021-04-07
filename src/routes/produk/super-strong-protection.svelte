@@ -168,7 +168,9 @@
   </section>
   
   <section class="su_container benefits super-strong">
-    <ProductBenefits benefitGroups={benefit_groups}/>
+    <ProductBenefits benefitGroups={benefit_groups} 
+      benefitTitle="Manfaat Asuransi Penyakit Kritis Yang Kamu Dapatkan"
+      excerpt="Perlindungan atas risiko terdiagnosa kanker, stroke, atau serangan jantung dan risiko tutup usia."/>
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-strong-protection.pdf`}
