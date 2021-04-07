@@ -5,6 +5,7 @@
 
   export let benefitGroups = [];
   export let benefitTitle = "Manfaat apa yang kamu dapatkan?";
+  export let excerpt = "";
 
   let belowThreeItemBenfits = [];
 
@@ -26,7 +27,6 @@
       text-align: center;
       font-weight: bold;
       font-size: 22px;
-      margin-bottom: 40px;
       color: #0d294a;
 
       @media (min-width: 768px) {
@@ -72,8 +72,10 @@
 </style>
 
 <div class="product_benefits">
-  <h1 class="product_benefits__title">{benefitTitle}</h1>
-  
+  <h1 class="product_benefits__title mb-5 lg:mb-6">{benefitTitle}</h1>
+  {#if excerpt}
+  <p class="text-base text-bluegray text-center lg:text-lg mb-8 lg:mb-16">{@html excerpt}</p>
+  {/if}
 
   {#each benefitGroups as bene_section, i (bene_section.id)} 
     {#if bene_section.name !== ''}
