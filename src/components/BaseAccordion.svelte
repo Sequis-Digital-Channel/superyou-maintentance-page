@@ -20,7 +20,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        & > h5 {
+        & > h2 {
           font-size: 16px;
           color: #0d294a;
           font-weight: bold;
@@ -64,7 +64,7 @@
       <div
         class="base-accordion__item__header"
         on:click={() => toggleAccordionItem(i)}>
-        <h5 class="flex nowrap">{@html item.title}</h5>
+        <h2 class="flex nowrap">{@html item.title}</h2>
         <svg
           class:open={accordionState[i].isOpen}
           style="margin-right: 2px;"
