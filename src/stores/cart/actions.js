@@ -39,7 +39,7 @@ export function addToCart({planId, quantity, price, riders }, insuredFor, insure
 
   if (actionType === "SAVE_TO_COOKIE") {
     setTimeout(() => {
-      cookieAddToCart(planDetail, productSlug, insuredFor, insuredDob);
+      cookieAddToCart(planDetail, productSlug, insuredFor, insuredDob, riders);
     }, 100);
   }
 
@@ -112,7 +112,7 @@ export function calculateSumAssuredTotal(amount) {
   sumAssuredTotal.update((currentAmount) => currentAmount + amount);
 }
 
-export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice) {
+export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice, riderCode) {
   let updatedCart
   cartStore.update(($cartStore) => {
     updatedCart = $cartStore;
@@ -120,7 +120,8 @@ export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice) {
       case "ADD_RIDER":
         updatedCart.products[planId].riders[riderId] = {
           id: riderId,
-          price: riderPrice
+          price: riderPrice,
+          product_code: riderCode
         }
         return updatedCart;
       case "REMOVE_RIDER":
@@ -135,7 +136,17 @@ export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice) {
   })
   // save to localStorage
   setTimeout(() => {
-    cookieAddAndRemoveChoosenRider(planId, Object.keys(updatedCart.products[planId].riders));
+    const riderCodesArr = [];
+    if (Object.keys(updatedCart.products[planId].riders).length) {
+      Object.keys(updatedCart.products[planId].riders).forEach(id => {
+        riderCodesArr.push(updatedCart.products[planId].riders[id].product_code);
+      })
+    }
+
+    cookieAddAndRemoveChoosenRider(
+      planId,
+      Object.keys(updatedCart.products[planId].riders),
+      riderCodesArr.join("+"));
   }, 100)
 }
 
