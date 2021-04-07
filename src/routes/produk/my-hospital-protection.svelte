@@ -173,7 +173,9 @@
   </section>
   
   <section class="su_container benefits my-hospital">
-    <ProductBenefits benefitGroups={benefit_groups}/>
+    <ProductBenefits benefitGroups={benefit_groups}
+      benefitTitle="Manfaat Asuransi Kesehatan Yang Kamu Dapatkan"
+      excerpt="Santunan tunai harian untuk biaya rawat inap, ICU, dan uang pertanggungan atas risiko kematian."/>
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-my-hospital-protection.pdf`}
