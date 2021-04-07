@@ -74,7 +74,7 @@
 <div class="product_benefits">
   <h1 class="product_benefits__title mb-5 lg:mb-6">{benefitTitle}</h1>
   {#if excerpt}
-  <p class="text-base text-bluegray text-center lg:text-lg mb-8 lg:mb-10">{@html excerpt}</p>
+  <p class="text-base text-bluegray text-center lg:text-lg mb-8 lg:mb-16">{@html excerpt}</p>
   {/if}
 
   {#each benefitGroups as bene_section, i (bene_section.id)} 
