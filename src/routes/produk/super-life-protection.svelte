@@ -82,7 +82,7 @@
   
     onMount(() => {
       const images = Array.from(document.querySelectorAll(".lazy-image img"));
-      const premiCalcContainer = document.querySelector(".premi-calculation");
+      const premiCalcContainer = document.querySelector(".premi-calculation.s-life");
   
       if ("IntersectionObserver" in window) {
         // lazyload image observer
@@ -214,7 +214,7 @@
     </div>
   </section>
   
-  <section class="su_container premi-calculation">
+  <section class="su_container premi-calculation s-life">
     <h2 class="text-xl lg:text-2xl text-center font-bold mt-10" style="margin-top: 41px;">
       Cari Tahu Biaya Perlindungan Super Kamu
     </h2>

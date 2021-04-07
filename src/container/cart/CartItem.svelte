@@ -69,13 +69,13 @@
     }
   });
 
-  function handleClickRider({ target }, planId, riderId, riderPrice) {
+  function handleClickRider({ target }, planId, riderId, riderPrice, riderCode) {
     if (target.checked) {
       selectedRiders = [...selectedRiders, target.value];
-      addRemoveUpdateRider("ADD_RIDER", planId, riderId, riderPrice);
+      addRemoveUpdateRider("ADD_RIDER", planId, riderId, riderPrice, riderCode);
     } else {
       selectedRiders = selectedRiders.filter((id) => target.value !== id);
-      addRemoveUpdateRider("REMOVE_RIDER", planId, riderId, riderPrice);
+      addRemoveUpdateRider("REMOVE_RIDER", planId, riderId, riderPrice, riderCode);
     }
   }
 
@@ -272,7 +272,8 @@
                       rider.id,
                       $paymentTermYearly
                         ? rider.yearly_premium
-                        : rider.monthly_premium
+                        : rider.monthly_premium,
+                      rider.product_code
                     )}
                 >
                   <div
