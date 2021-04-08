@@ -249,9 +249,8 @@
     }
   }
 
-  function handleClickAddToCart(e) {
+  function submitPlanToStore() {
     const { id: planId, monthly_premium: price } = basePlanResultData;
-    e.preventDefault();
     addToCart(
       {
         planId,
@@ -265,7 +264,12 @@
       productSlug,
       "SAVE_TO_COOKIE"
     );
+  }
 
+  function handleClickAddToCart(e) {
+    e.preventDefault();
+    submitPlanToStore();
+    
     // Trigger pop up succes add to cart
     isAddToCartSuccess = true;
     setTimeout(() => {
@@ -275,21 +279,9 @@
 
   function payNow(e) {
     e.preventDefault();
-    const { id: planId, monthly_premium: price } = basePlanResultData;
-    addToCart(
-      {
-        planId,
-        quantity: 1,
-        price,
-        riders: {},
-      },
-      calculationData.insured_for.val.value,
-      formatDobHash(calculationData.insured_dob.val),
-      basePlanResultData,
-      productSlug,
-      "SAVE_TO_COOKIE"
-    );
+    submitPlanToStore();
 
+    // get encrypted cart and redirect to form
     setTimeout(async () => {
       const encryptedKey = await getFormEncryption(api_superyou_url, getCookie("_cart"));
       window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
