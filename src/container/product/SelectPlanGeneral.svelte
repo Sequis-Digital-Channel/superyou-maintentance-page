@@ -134,17 +134,6 @@
     },
   };
   let selectedRiders = [];
-  let computedRidersData = [];
-  $: if (calculationData.plan.val.value !== "" && plans[0].riders.length) {
-    computedRidersData = plans.find((plan) => plan.id === calculationData.plan.val.value)
-      .riders.map(({ id, icon_svg, product_name, product_code, product_slug }) => ({
-        id,
-        icon_svg,
-        product_name,
-        product_code,
-        product_slug
-      }));
-  }
 
   function handleClickRider({ target }, riderSlug) {
     if (target.checked) {
@@ -307,16 +296,6 @@
       };
       productPlans = [...productPlans, currentPlan];
     });
-
-    if ("riders" in plans[0] && plans[0].riders.length) {
-      computedRidersData = plans[0].riders.map(({ id, icon_svg, product_name, product_code, product_slug }) => ({
-        id,
-        icon_svg,
-        product_name,
-        product_code,
-        product_slug
-      }))
-    }
   });
 </script>
 
@@ -361,10 +340,10 @@
         bind:error={calculationData.insured_gender.error}
       />
       <br />
-      {#if computedRidersData.length}
+      {#if plans[0].riders.length}
         <div>
           <p class="text-sm text-bluegray mb-3">Perlindungan Tambahan</p>
-          {#each computedRidersData as rider, i (rider.id) }
+          {#each plans[0].riders as rider, i (rider.id) }
             <BaseInputCheck
               id={`rider${i}`}
               value={rider.product_slug}
