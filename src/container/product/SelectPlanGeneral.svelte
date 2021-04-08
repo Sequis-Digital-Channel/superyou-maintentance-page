@@ -345,7 +345,7 @@
           <p class="text-sm text-bluegray mb-3">Perlindungan Tambahan</p>
           {#each plans[0].riders as rider, i (rider.id) }
             <BaseInputCheck
-              id={`rider${i}`}
+              id={`select-rider${i}`}
               value={rider.product_slug}
               on:input={(e) => handleClickRider(e, rider.product_slug)}
             >
