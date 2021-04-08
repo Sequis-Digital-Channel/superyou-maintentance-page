@@ -134,17 +134,6 @@
     },
   };
   let selectedRiders = [];
-  let computedRidersData = [];
-  $: if (calculationData.plan.val.value !== "" && plans[0].riders.length) {
-    computedRidersData = plans.find((plan) => plan.id === calculationData.plan.val.value)
-      .riders.map(({ id, icon_svg, product_name, product_code, product_slug }) => ({
-        id,
-        icon_svg,
-        product_name,
-        product_code,
-        product_slug
-      }));
-  }
 
   function handleClickRider({ target }, riderSlug) {
     if (target.checked) {
@@ -234,8 +223,7 @@
     }
   }
 
-  function handleClickAddToCart(e) {
-    e.preventDefault();
+  function submitPlanToStore() {
     const { id: planId, monthly_premium: price, riders: plan_riders } = basePlanResultData;
     let riders = {}
     if (plan_riders.length && selectedRiders.length) {
@@ -249,6 +237,7 @@
         }
       })
     }
+    // store action AddToCart
     addToCart(
       {
         planId,
@@ -262,6 +251,11 @@
       productSlug,
       "SAVE_TO_COOKIE"
     );
+  }
+
+  function handleClickAddToCart(e) {
+    e.preventDefault();
+    submitPlanToStore();
     
     // Trigger pop up succes add to cart
     isAddToCartSuccess = true;
@@ -272,21 +266,7 @@
 
   function payNow(e) {
     e.preventDefault();
-    const { id: planId, monthly_premium: price } = basePlanResultData;
-    addToCart(
-      {
-        planId,
-        quantity: 1,
-        price,
-        riders: {},
-      },
-      calculationData.insured_for.val.value,
-      formatDobHash(calculationData.insured_dob.val),
-      basePlanResultData,
-      productSlug,
-      "SAVE_TO_COOKIE"
-    );
-
+    submitPlanToStore();
     setTimeout(async () => {
       const encryptedKey = await getFormEncryption(api_superyou_url, getCookie("_cart"));
       window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
@@ -307,16 +287,6 @@
       };
       productPlans = [...productPlans, currentPlan];
     });
-
-    if ("riders" in plans[0] && plans[0].riders.length) {
-      computedRidersData = plans[0].riders.map(({ id, icon_svg, product_name, product_code, product_slug }) => ({
-        id,
-        icon_svg,
-        product_name,
-        product_code,
-        product_slug
-      }))
-    }
   });
 </script>
 
@@ -361,17 +331,16 @@
         bind:error={calculationData.insured_gender.error}
       />
       <br />
-      {#if computedRidersData.length}
+      {#if plans[0].riders.length}
         <div>
           <p class="text-sm text-bluegray mb-3">Perlindungan Tambahan</p>
-          {#each computedRidersData as rider, i (rider.id) }
+          {#each plans[0].riders as rider, i (rider.id) }
             <BaseInputCheck
-              id={`rider${i}`}
+              id={`select-rider${i}`}
               value={rider.product_slug}
               on:input={(e) => handleClickRider(e, rider.product_slug)}
             >
               <div
-                slot="label"
                 class="rider-label flex items-center pt-1 cursor-pointer">
                 <img
                   class="select-none"
