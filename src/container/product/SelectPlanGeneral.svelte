@@ -223,7 +223,7 @@
     }
   }
 
-  function submitProductToStore() {
+  function submitPlanToStore() {
     const { id: planId, monthly_premium: price, riders: plan_riders } = basePlanResultData;
     let riders = {}
     if (plan_riders.length && selectedRiders.length) {
@@ -255,7 +255,7 @@
 
   function handleClickAddToCart(e) {
     e.preventDefault();
-    submitProductToStore();
+    submitPlanToStore();
     
     // Trigger pop up succes add to cart
     isAddToCartSuccess = true;
@@ -266,7 +266,7 @@
 
   function payNow(e) {
     e.preventDefault();
-    submitProductToStore();
+    submitPlanToStore();
     setTimeout(async () => {
       const encryptedKey = await getFormEncryption(api_superyou_url, getCookie("_cart"));
       window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
