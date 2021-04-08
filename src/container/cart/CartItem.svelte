@@ -277,7 +277,6 @@
                     )}
                 >
                   <div
-                    slot="label"
                     class="rider-label flex items-center pl-2 py-1 cursor-pointer"
                   >
                     <img

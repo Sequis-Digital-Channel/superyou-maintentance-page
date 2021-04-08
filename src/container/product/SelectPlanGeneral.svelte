@@ -350,7 +350,6 @@
               on:input={(e) => handleClickRider(e, rider.product_slug)}
             >
               <div
-                slot="label"
                 class="rider-label flex items-center pt-1 cursor-pointer">
                 <img
                   class="select-none"
