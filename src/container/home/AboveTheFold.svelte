@@ -31,8 +31,89 @@
           > 
         </picture>
       </div>
-      <div class="atf_products flex items-center justify-end">
-        <div class="w-20 h-12 bg-white rounded-xl shadow-xl"></div>
+      <div class="atf_products flex items-end justify-end">
+        <div class="p-boxes rounded-xl p-4 lg:p-6 grid grid-cols-4 gap-4">
+          <a rel="prefetch" href="/produk/super-care-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-care-protection_45SOWUY6X.svg"
+                width="42px"
+                height="42px"
+                alt="Super Care">
+              <span class="text-darkblue font-bold text-center text-tiny">Proteksi Menular & Kecelakaan</span>
+            </div>
+          </a>
+          <a rel="prefetch" href="/produk/my-hospital-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/my-hospital-protection_IL89WHs9l.svg"
+                width="42px"
+                height="42px"
+                alt="My Hospital">
+              <span class="text-darkblue font-bold text-center text-tiny">Santunan<br>Rawat Inap</span>
+            </div>
+          </a>
+          <a rel="prefetch" href="/produk/super-strong-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-strong-protection_JIJupTKZSZ.svg"
+                width="42px"
+                height="42px"
+                alt="Super Strong">
+              <span class="text-darkblue font-bold text-center text-tiny">Proteksi Jiwa + 3 Penyakit Kritis</span>
+            </div>
+          </a>
+          <a rel="prefetch" href="/produk/super-life-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-life-protection_jWgDexeIBJ.svg"
+                width="42px"
+                height="42px"
+                alt="Super Life">
+              <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Jiwa</span>
+            </div>
+          </a>
+          <a rel="prefetch" href="/produk/super-well-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-well-protection_nICWi8R4nF.svg"
+                width="42px"
+                height="42px"
+                alt="Super Well">
+              <span class="text-darkblue font-bold text-center text-tiny">Perawatan 10 Penyakit Kritis</span>
+            </div>
+          </a>
+          <a rel="external" href="/produk/super-safe-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-holiday-protection_OkWDc8G_he8.svg"
+                width="42px"
+                height="42px"
+                alt="Super Holiday">
+              <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br> SaatLiburan</span>
+            </div>
+          </a>
+          <a rel="external" href="/produk/super-safe-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-safe-protection_Gnfr4rz7aX5p.svg"
+                width="42px"
+                height="42px"
+                alt="Super Safe">
+              <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Kecelakaan</span>
+            </div>
+          </a>
+          <a rel="external" href="/produk/super-safe-protection">
+            <div class="p-box">
+              <img
+                src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-motor-protection_e-b5QAcBRx.svg"
+                width="42px"
+                height="42px"
+                alt="Super Motor">
+              <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Berkendara</span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -43,13 +124,19 @@
     /* min-height: 658px; */
     padding: 74px 20px 0 20px;
     @media (min-width: 1024px) {
+      padding: 90px 20px 0 20px;
+    }
+    @media (min-width: 1280px) {
       padding: 108px 20px 0 20px;
     }
     background: linear-gradient(116deg, #009496 -33%, rgba(0, 220, 223, 0.5) 64%), linear-gradient(114deg, rgba(255, 255, 255, 0) 37%, rgba(255, 255, 255, 0.69)), linear-gradient(to bottom, #00b7ba, #00b7ba);
 
     .atf-meta {
       @media (min-width: 1024px) {
-        margin-bottom: -104px;
+        margin-bottom: -130px;
+      }
+      @media (min-width: 1280px) {
+        margin-bottom: -138px;
       }
       h1 {
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -73,6 +160,49 @@
       .atf_products {
         @media (min-width: 1024px) {
           padding-right: 26px;
+        }
+        .p-boxes {
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 2px 20px 0 rgba(170, 170, 170, 0.5);
+          background-color: rgba(255, 255, 255, 0.15);
+
+          @media (min-width: 1024px) {
+            margin-bottom: 20px;
+          }
+          @media (min-width: 1100px) {
+            margin-bottom: 40px;
+          }
+          @media (min-width: 1280px) {
+            margin-bottom: 52px;
+          }
+          
+        }
+        .p-box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 74px;
+          height: 74px;
+          cursor: pointer;
+          @media (min-width: 1280px) {
+            width: 94px;
+            height: 94px;
+            padding-left: 4px;
+            padding-right: 4px;
+
+            & > img {
+              width: 50px;
+              height: 50px;
+            }
+
+            & > span {
+              font-size: 9px;
+            }
+          }
+          border-radius: 12px;
+          padding: 3px 0 6px;
+          background: radial-gradient(circle at 50% 1%,#fff,#c1f4f7 139%)
         }
       }
     }
