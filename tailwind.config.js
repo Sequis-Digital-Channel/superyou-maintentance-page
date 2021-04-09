@@ -1,8 +1,8 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: {
-    enabled: true,
-    content: ['./src/**/*.svelte'],
+    // enabled: true,
+    content: ['./src/**/*.svelte', './src/data/**/*.json'],
   },
   variants: {},
   theme: {
@@ -13,7 +13,6 @@ module.exports = {
     fontSize: {
       ...defaultTheme.fontSize,
       'xxs': '10px',
-      'sm2': '14px'
     },   
     colors: {
       ...defaultTheme.colors,
@@ -26,18 +25,14 @@ module.exports = {
       '2px': '2px',
       '4px': '4px'
     },
-    screens: {
-      ...defaultTheme.screens,
-      '374': {'max': '374px'}
-    },
-    maxWidth: {
-      ...defaultTheme.maxWidth,
+    maxWidth: (theme, { breakpoints }) => ({
+      ...breakpoints(theme("screens")),
       '1/4': '25%',
       '1/2': '50%',
       '3/5': '60%',
       '3/4': '75%',
       '13/20': '65%'
-    }
+    }),
   },
   plugins: [],
   future: {
