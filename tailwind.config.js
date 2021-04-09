@@ -13,6 +13,7 @@ module.exports = {
     fontSize: {
       ...defaultTheme.fontSize,
       'xxs': '10px',
+      'tiny': '8px'
     },   
     colors: {
       ...defaultTheme.colors,
