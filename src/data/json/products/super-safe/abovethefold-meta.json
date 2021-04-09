@@ -2,21 +2,21 @@
   "metas": [
     {
       "title": "Super Safe Protection",
-      "description": "Asuransi Kecelakaan Diri untuk hidup terlindungi",
+      "description": "Asuransi Kecelakaan Diri untuk hidup terlindungi.",
       "icon": "/icons/products/safe/super-safe.svg",
       "btn_color": "#00aaae",
       "bg_color": "linear-gradient(105deg, #e8a456, #ffd7a6 94%)"
     },
     {
       "title": "Super Motor Protection",
-      "description": "Asuransi kecelakaan buat mereka yang di jalan",
+      "description": "Asuransi kecelakaan buat mereka yang di jalan.",
       "icon": "/icons/products/motor/super-motor.svg",
       "btn_color": "#00aaae",
       "bg_color": "linear-gradient(112deg, #ec8b4f 22%, #efb895)"
     },
     {
       "title": "Super Holiday Protection",
-      "description": "Tanggal merah tanpa masalah",
+      "description": "Tanggal merah tanpa masalah.",
       "icon": "/icons/products/holiday/super-holiday.svg",
       "btn_color": "#00aaae",
       "bg_color": "linear-gradient(120deg, #e86f55 9%, #eb9784 71%);"
