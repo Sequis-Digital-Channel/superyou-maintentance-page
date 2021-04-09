@@ -51,6 +51,6 @@
       bind:checked />
   </div>
   <label class="flex items-center ml-2" for={id}>
-    <slot name="label"><span>Input Check</span></slot>
+    <slot><span>Input Check</span></slot>
   </label>
 </div>

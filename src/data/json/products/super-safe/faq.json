@@ -1,32 +1,44 @@
 { 
   "faq-safe" : [
     {
-      "title": "1. Apa itu asuransi kecelakaan diri?",
-      "body": "Asuransi kecelakaan diri adalah asuransi yang menanggung risiko finansial bila seseorang mengalami kecelakaan."
+      "title": "1. Apa itu Asuransi Kecelakaan Diri?",
+      "body": "Asuransi kecelakaan diri adalah asuransi yang menanggung resiko finansial bila seseorang mengalami kecelakaan. Asuransi ini merupakan bentuk antisipasi dini terhadap peristiwa yang terjadi di masa mendatang."
     },
     {
-      "title": "2. Perlindungan apa yang diberikan oleh Super Safe?",
+      "title": "2. Mengapa Perlu Asuransi Kecelakaan?",
+      "body": "<p>Pada umumnya asuransi untuk kecelakaan diri adalah suatu jaminan finansial yang bertujuan meringankan biaya pengobatan jika pemegang asuransi mengalami kecelakaan hingga cacat, meninggal, atau kondisi lain yang memang disebabkan oleh kejadian tidak terduga.</p>"
+    },
+    {
+      "title": "3. Bagaimana Memilih Asuransi Kecelakaan yang Tepat?",
+      "body": "<p>Pertama adalah pilih jenis asuransi sesuai kebutuhan. Kedua, memilih asuransi yang nominalnya tidak memberatkan. Anda bisa memilih jenis asuransi dengan premi terjangkau. Ketiga adalah memperhatikan polis Anda, apa saja yang didapatkan dengan Anda membeli suatu asuransi kecelakaan diri.</p>"
+    },
+    {
+      "title": "4. Perlindungan apa yang disediakan oleh Super Safe?",
       "body": "<p>Manfaatnya berupa biaya medis yang disebabkan kecelakaan, juga biaya pertanggungan atas risiko tutup usia dan Cacat, Total, dan Tetap.</p>"
     },
     {
-      "title": "3. Apa itu Super Motor?",
+      "title": "5. Apa itu Super Motor?",
       "body": "<p>Super Motor merupakan asuransi tambahan dari Super Safe, yang melindungi risiko kecelakaan bermotor. Super Motor tidak bisa dibeli secara terpisah dari Super Safe.</p>"
     },
     {
-      "title": "4. Perlindungan apa yang kamu bisa dapatkan dari Super Motor?",
+      "title": "6. Perlindungan apa yang kamu bisa dapatkan dari Super Motor?",
       "body": "<p>Selain perlindungan Super Safe, Super Motor juga memberi manfaat tambahan, yaitu biaya medis tambahan untuk kecelakaan sepeda motor.</p>"
     },
     {
-      "title": "5. Apa itu Super Holiday?",
-      "body": "<p>Super Holiday adalah asuransi rider dari Super Safe, yang menutupi risiko kecelakaan pada masa liburan.  Super Holiday harus dibeli bersama dengan produk Super Safe.</p>"
+      "title": "7.. Apa itu Super Holiday?",
+      "body": "Super Holiday adalah asuransi rider dari Super Safe, yang menutupi risiko kecelakaan pada masa liburan.  Super Holiday harus dibeli bersama dengan produk Super Safe."
     },
     {
-      "title": "6. Manfaat apa yang kamu dapat dari Super Holiday?",
-      "body": "<p>Selain manfaat Super Safe, Super Holiday memberikan perlindungan tambahan biaya medis dan pertanggungan risiko kematian/cacat total dan tetap selama masa liburan.<br/>Masa liburan didefinisikan sebagai 5 hari sebelum sampai sesudah hari libur nasional. Sabtu dan Minggu biasa tidak termasuk hari libur nasional.</p>"
+      "title": "8. Manfaat apa yang kamu dapat dari Super Holiday?",
+      "body": "Selain manfaat Super Safe, Super Holiday memberikan perlindungan tambahan biaya medis dan pertanggungan risiko kematian/cacat total dan tetap selama masa liburan.</br>Masa liburan didefinisikan sebagai 5 hari sebelum sampai sesudah hari libur nasional. Sabtu dan Minggu biasa tidak termasuk hari libur nasional."
     },
     {
-      "title": "7. Bagaimana cara klaim Super Safe?",
-      "body": "<p>Siapkan beberapa dokumen untuk pengajuan klaim, seperti Form Pengajuan Klaim, Surat Keterangan Dokter, serta Fotokopi KTP Tertanggung. Dokumen pendukung lainnya juga diperlukan sesuai klaim yang diajukan:</p><span class='inline-block mb-1'><b>Klaim Meninggal Dunia:</b></span><br>Form Isian Penerima Manfaat, Fotokopi KTP Pemegang Polis, Surat Keterangan/Akta Kematian, Surat keterangan dari kepolisian jika disebabkan oleh Kecelakaan.<br/><br/><span class='inline-block mb-1'><b>Klaim Cacat Total & Tetap:</b></span><br>Fotokopi KTP Pemegang Polis.<br/><br/><span class='inline-block mb-1'><b>Klaim Penggantian Biaya Medis:</b></span><br>Fotokopi KTP Pihak yang mengajukan klaim, Surat keterangan dari kepolisian jika disebabkan kecelakaan, Kuitansi dan rincian tagihan rumah sakit, dan Hasil pemeriksaan/tes..<br/><br/>Kamu bisa mengunduh formulir yang kamu butuhkan di <a class='text-teal' href='/dashboard/klaim/download'><b>dashboard</b></a> akun kamu. Pengajuan klaim untuk pembayaran Manfaat Asuransi harus dibuat secara resmi tertulis dan dikirimkan ke Kantor Pusat PT. Asuransi Jiwa Sequis Life. Jika memerlukan informasi atau bantuan lebih lanjut, mohon hubungi Customer Service kami di <b>(021) 2994 2929.</b>"
+      "title": "9. Bagaimana cara klaim Super Safe?",
+      "body": "<p>Siapkan beberapa dokumen untuk pengajuan klaim, seperti Form Pengajuan Klaim, Surat Keterangan Dokter, serta Fotokopi KTP Tertanggung. Dokumen pendukung lainnya juga diperlukan sesuai klaim yang diajukan:</p><span class='inline-block mb-1'><b>Klaim Meninggal Dunia:</b></span><br>Form Isian Penerima Manfaat, Fotokopi KTP Pemegang Polis, Surat Keterangan/Akta Kematian, Surat keterangan dari kepolisian jika disebabkan oleh Kecelakaan.<br/><br/><span class='inline-block mb-1'><b>Klaim Cacat Total & Tetap:</b></span><br>Fotokopi KTP Pemegang Polis.<br/><br/><span class='inline-block mb-1'><b>Klaim Penggantian Biaya Medis:</b></span><br>Fotokopi KTP Pihak yang mengajukan klaim, Surat keterangan dari kepolisian jika disebabkan kecelakaan, Kuitansi dan rincian tagihan rumah sakit, dan Hasil pemeriksaan/tes..<br/><br/>Kamu bisa mengunduh formulir yang kamu butuhkan di <a class='text-teal' href='/dashboard/klaim/download'><b>dashboard</b></a> akun kamu.</br></br>Pengajuan klaim untuk pembayaran Manfaat Asuransi harus dibuat secara resmi tertulis dan dikirimkan ke Kantor Pusat PT. Asuransi Jiwa Sequis Life. Jika memerlukan informasi atau bantuan lebih lanjut, mohon hubungi Customer Service kami di <b>(021) 2994 2929.</b>"
+    },
+    {
+      "title": "10. Apa saja pengecualian Super Safe?",
+      "body": "Super Safe tidak dapat menanggung beberapa risiko kecelekaan, termasuk: <ul style='list-style: disc; padding-left: 20px; padding-top: 15px;'><li>Usaha mencederai diri.</li><li>Berhubungan dengan perang.</li><li>Risiko perjalanan kecuali saat menaiki pesawat komersial / carter yang sudah diberi ijin penerbangan.</li><li>Disebabkan oleh tindakan kriminal.</li><li>Berada di bawah pengaruh obat-obatan atau minuman keras.</li><li>Olahraga berbahaya, seperti terjun payung, layang gantung, scuba diving.</li><li>Keracunan.</li><li>Radiasi nuklir / limbah nuklir.</li><li>Mengemudi tanpa SIM.</li><li>Kecelakaan kerja untuk pekerjaan tertentu, seperti Kurir, Penyelam, Pembalap, Wartawan Perang, Pilot.</li><li>Kecelakaan yang terjadi sebelum berlakunya polis.</li></ul>"
     }
   ]
 }

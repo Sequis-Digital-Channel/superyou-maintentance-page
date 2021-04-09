@@ -93,7 +93,7 @@
       })
 
       const images = Array.from(document.querySelectorAll(".lazy-image img"));
-      const premiCalcContainer = document.querySelector(".premi-calculation");
+      const premiCalcContainer = document.querySelector(".premi-calculation.s-safe");
   
       if ("IntersectionObserver" in window) {
         // lazyload image observer
@@ -242,7 +242,11 @@
   </section>
   
   <section class="su_container benefits">
-    <ProductBenefits benefitGroups={benefit_groups}/>
+    <ProductBenefits
+      benefitGroups={benefit_groups}
+      benefitTitle="Manfaat Asuransi Kecelakaan Diri yang Kamu Dapatkan"
+      excerpt="Perlindungan atas risiko biaya medis,<br>risiko meninggal dunia, dan risiko Cacat Total & Tetap yang disebabkan kecelakaan."
+    />
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-safe-protection.pdf`}
@@ -281,7 +285,7 @@
     </div>
   </section>
   
-  <section class="su_container premi-calculation">
+  <section class="su_container premi-calculation s-safe">
     <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
       Cari Tahu Biaya Perlindungan Super Kamu
     </h2>

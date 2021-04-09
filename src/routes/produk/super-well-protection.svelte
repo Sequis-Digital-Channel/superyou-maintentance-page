@@ -88,7 +88,7 @@
       });
       images.forEach((img) => imageObserver.observe(img));
 
-      const premiCalcContainer = document.querySelector(".premi-calculation");
+      const premiCalcContainer = document.querySelector(".premi-calculation.s-well");
       // Form observer
       const formObserver = new IntersectionObserver((entries) => {
         const elForm = entries[0];
@@ -189,7 +189,7 @@
   </div>
 </section>
 
-<section class="su_container premi-calculation">
+<section class="su_container premi-calculation s-well">
   <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
     Cari Tahu Biaya Perlindungan Super Well Protection
   </h2>

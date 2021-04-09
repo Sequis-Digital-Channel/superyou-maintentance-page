@@ -64,6 +64,7 @@
           cart.products[response.id].riders[rider.id] = {
             id: rider.id,
             price: rider.monthly_premium,
+            product_code: rider.product_code
           };
         });
         return cart;

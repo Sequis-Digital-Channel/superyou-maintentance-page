@@ -82,7 +82,7 @@
   
     onMount(() => {
       const images = Array.from(document.querySelectorAll(".lazy-image img"));
-      const premiCalcContainer = document.querySelector(".premi-calculation");
+      const premiCalcContainer = document.querySelector(".premi-calculation.s-strong");
   
       if ("IntersectionObserver" in window) {
         // lazyload image observer
@@ -168,7 +168,9 @@
   </section>
   
   <section class="su_container benefits super-strong">
-    <ProductBenefits benefitGroups={benefit_groups}/>
+    <ProductBenefits benefitGroups={benefit_groups} 
+      benefitTitle="Manfaat Asuransi Penyakit Kritis Yang Kamu Dapatkan"
+      excerpt="Perlindungan atas risiko terdiagnosa kanker, stroke, atau serangan jantung dan risiko tutup usia."/>
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-strong-protection.pdf`}
@@ -207,7 +209,7 @@
     </div>
   </section>
   
-  <section class="su_container premi-calculation">
+  <section class="su_container premi-calculation s-strong">
     <h2 class="text-xl lg:text-2xl text-center font-bold mb-6 lg:mb-10">
       Cari Tahu Biaya Perlindungan Super Kamu
     </h2>

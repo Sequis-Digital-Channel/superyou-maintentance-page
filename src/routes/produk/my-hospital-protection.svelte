@@ -82,7 +82,7 @@
   
     onMount(() => {
       const images = Array.from(document.querySelectorAll(".lazy-image img"));
-      const premiCalcContainer = document.querySelector(".premi-calculation");
+      const premiCalcContainer = document.querySelector(".premi-calculation.my-hospital");
   
       if ("IntersectionObserver" in window) {
         // lazyload image observer
@@ -173,7 +173,9 @@
   </section>
   
   <section class="su_container benefits my-hospital">
-    <ProductBenefits benefitGroups={benefit_groups}/>
+    <ProductBenefits benefitGroups={benefit_groups}
+      benefitTitle="Manfaat Asuransi Kesehatan Yang Kamu Dapatkan"
+      excerpt="Santunan tunai harian untuk biaya rawat inap, ICU, dan uang pertanggungan atas risiko kematian."/>
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-my-hospital-protection.pdf`}
@@ -212,7 +214,7 @@
     </div>
   </section>
   
-  <section class="su_container premi-calculation">
+  <section class="su_container premi-calculation my-hospital">
     <h2 class="text-xl lg:text-2xl text-center font-bold mt-10" style="margin-top: 41px;">
       Cari Tahu Biaya Perlindungan Super Kamu
     </h2>

@@ -8,8 +8,8 @@
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
-  
   import BaseSelectMenu from "../../components/BaseSelectMenu.svelte";
+  import BaseInputCheck from "../../components/BaseInputCheck.svelte";
   
   import BaseButton from "../../components/BaseButton.svelte";
   import BgOverlay from "../../components/BgOverlay.svelte";
@@ -133,6 +133,15 @@
       label: "Tanggal Lahir"
     },
   };
+  let selectedRiders = [];
+
+  function handleClickRider({ target }, riderSlug) {
+    if (target.checked) {
+      selectedRiders = [...selectedRiders, riderSlug]
+    } else {
+      selectedRiders = selectedRiders.filter((rider_slug) => target.value !== rider_slug);
+    }
+  }
 
   async function handleSubmittedForm() {
     if (handleValidationForm()) return;
@@ -214,15 +223,27 @@
     }
   }
 
-  function handleClickAddToCart(e) {
-    e.preventDefault();
-    const { id: planId, monthly_premium: price } = basePlanResultData;
+  function submitPlanToStore() {
+    const { id: planId, monthly_premium: price, riders: plan_riders } = basePlanResultData;
+    let riders = {}
+    if (plan_riders.length && selectedRiders.length) {
+      plan_riders.forEach(rider => {
+        if(selectedRiders.includes(rider.product_slug)) {
+          riders[rider.id] = {
+            id: rider.id,
+            price: rider.monthly_premium,
+            product_code: rider.product_code
+          }
+        }
+      })
+    }
+    // store action AddToCart
     addToCart(
       {
         planId,
         quantity: 1,
         price,
-        riders: {},
+        riders
       },
       calculationData.insured_for.val.value,
       formatDobHash(calculationData.insured_dob.val),
@@ -230,6 +251,11 @@
       productSlug,
       "SAVE_TO_COOKIE"
     );
+  }
+
+  function handleClickAddToCart(e) {
+    e.preventDefault();
+    submitPlanToStore();
     
     // Trigger pop up succes add to cart
     isAddToCartSuccess = true;
@@ -240,21 +266,7 @@
 
   function payNow(e) {
     e.preventDefault();
-    const { id: planId, monthly_premium: price } = basePlanResultData;
-    addToCart(
-      {
-        planId,
-        quantity: 1,
-        price,
-        riders: {},
-      },
-      calculationData.insured_for.val.value,
-      formatDobHash(calculationData.insured_dob.val),
-      basePlanResultData,
-      productSlug,
-      "SAVE_TO_COOKIE"
-    );
-
+    submitPlanToStore();
     setTimeout(async () => {
       const encryptedKey = await getFormEncryption(api_superyou_url, getCookie("_cart"));
       window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
@@ -318,6 +330,34 @@
         bind:selectedItem={calculationData.insured_gender.val}
         bind:error={calculationData.insured_gender.error}
       />
+      <br />
+      {#if plans[0].riders.length}
+        <div>
+          <p class="text-sm text-bluegray mb-3">Perlindungan Tambahan</p>
+          {#each plans[0].riders as rider, i (rider.id) }
+            <BaseInputCheck
+              id={`select-rider${i}`}
+              value={rider.product_slug}
+              on:input={(e) => handleClickRider(e, rider.product_slug)}
+            >
+              <div
+                class="rider-label flex items-center pt-1 cursor-pointer">
+                <img
+                  class="select-none"
+                  src={rider.icon_svg}
+                  width="50px"
+                  height="50px"
+                  alt="Pilih Rider"
+                />
+                <span
+                  class="text-darkblue text-sm inline-block ml-2"
+                  >{rider.product_name}</span>
+              </div>
+            </BaseInputCheck>
+            
+          {/each}
+        </div>
+      {/if}
       <br />
       <BaseButton
         style="max-width: 330px;font-size:14px;margin:30px auto 20px;"

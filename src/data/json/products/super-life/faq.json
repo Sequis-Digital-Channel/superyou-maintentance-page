@@ -1,16 +1,28 @@
 { 
   "faq-life" : [
     {
-      "title": "1. Apa itu asuransi jiwa berjangka?",
-      "body": "Asuransi jiwa berjangka, disebut juga term life, adalah perlindungan atas jiwa seseorang yang berlaku dalam jangka waktu tertentu. Jika orang yang jiwanya diasuransikan meninggal dalam jangka waktu tersebut, maka Ahli Waris akan mendapatkan biaya pertanggungan."
+      "title": "1. Apa itu Asuransi Jiwa?",
+      "body": "Asuransi jiwa adalah asuransi yang bertujuan sebagai perlindungan atas jiwa seseorang yang berlaku dalam jangka waktu tertentu. Asuransi jiwa biasanya akan ditanggung oleh perusahaan asuransi sebagai penanggung terhadap pihak pemegang polis asuransi."
     },
     {
-      "title": "2. Apa manfaat Super Life?",
+      "title": "2. Mengapa perlu Asuransi Jiwa?",
+      "body": "<p>Pertama, asuransi jiwa menanggung orang terhadap kerugian tidak terduga seperti risiko kematian. Kedua, asuransi jiwa dapat dijadikan alternatif lain untuk memenuhi kebutuhan jangka panjang. Ketiga, perlindungan atas risiko meninggal dunia akibat penyakit-penyakit penyebab utama meninggal dunia. Oleh karena itu penting bagi Anda memiliki asuransi jiwa sebagai investasi perlindungan masa depan.</p>"
+    },
+    {
+      "title": "3. Apa saja jenis Asuransi Jiwa?",
+      "body": "<p>Asuransi jiwa terbagi atas asuransi jiwa berjangka yaitu perlindungan jangka waktu tertentu, asuransi jiwa seumur hidup yaitu perlindungan seumur hidup dengan kata lain dapat dijadikan ide tabungan jangka panjang, asuransi jiwa unit link yaitu pilihan gabungan asuransi dan investasi, dan asuransi jiwa dwiguna yaitu paket asuransi dan tabungan dalam jangka waktu tertentu.</p>"
+    },
+    {
+      "title": "4. Apa manfaat Super Life?",
       "body": "<p>Sebagai asuransi jiwa, Super Life memberikan biaya pertanggungan untuk risiko kematian oleh sebab apa pun. Hal ini termasuk risiko tutup usia akibat COVID-19.</p> "
     },
     {
-      "title" : "3. Bagaimana cara klaim Super Life?",
+      "title" : "5. Bagaimana cara klaim Super Life?",
       "body": "<p>Siapkan beberapa dokumen untuk pengajuan klaim, seperti Form Pengajuan Klaim, Surat Keterangan Dokter, serta Fotokopi KTP Tertanggung. Dokumen pendukung lainnya juga diperlukan sesuai klaim yang diajukan:</p><span class='inline-block mb-1'><b>Klaim Meninggal Dunia:</b></span> Form Isian Penerima Manfaat, Fotokopi KTP Pemegang Polis, Surat Keterangan/Akta Kematian.<br/><span class='inline-block mb-1'><b>Klaim Cacat Total & Tetap:</b></span> Fotokopi KTP Pemegang Polis.<br/><br/>Kamu bisa mengunduh formulir yang kamu butuhkan di <a class='text-teal' href='/dashboard/klaim/download'><b>dashboard</b></a> akun kamu.<br/><br/>Pengajuan klaim untuk pembayaran Manfaat Asuransi harus dibuat secara resmi tertulis dan dikirimkan ke Kantor Pusat PT. Asuransi Jiwa Sequis Life dalam waktu 3 (tiga) bulan setelah tanggal kematian atau tanggal diagnosa Cacat Total dan Tetap. Jika memerlukan informasi atau bantuan lebih lanjut, mohon hubungi Customer Service kami di <b>(021) 2994 2929.</b>"
+    },
+    {
+      "title": "6. Risiko apa saja yang tidak di cover oleh Super Life?",
+      "body": "Super Life tidak dapat menanggung beberapa risiko meninggal dunia, seperti:<ul style='list-style: disc; padding-left: 20px; padding-top: 15px;'><li>Bunuh diri.</li><li>Hukuman mati.</li><li>Risiko pekerjaan sebagai militer.</li><li>Tidak dicantumkan dalam SPA.</li><li>Olahraga / hobi berbahaya, seperti balapan, berlayar, mendaki gunung.</li><li>Perbuatan kejahatan yang disengaja.</li><li>Perbuatan / percobaan melanggar hukum.</li></ul>"
     }
   ]
 }
