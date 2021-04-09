@@ -174,7 +174,7 @@
     <ProductBenefits
       benefitGroups={benefit_groups}
       benefitTitle="Manfaat Asuransi Jiwa yang Kamu Dapatkan"
-      excerpt="Perlindungan atas risiko meninggal dunia sebab apa pun<br>dan risiko Cacat Total & Tetap"
+      excerpt="Perlindungan atas risiko meninggal dunia sebab apa pun<br>dan risiko Cacat Total & Tetap."
     />
   
     <a
