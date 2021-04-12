@@ -49,7 +49,7 @@
         <div class="atf_products-wrapper overflow-hidden mx-auto lg:mx-0 rounded-xl pb-5 px-3 lg:px-0">
           <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3">
             <a class="p-box-link" rel="prefetch" href="/produk/super-care-protection">
-              <div class="p-box">
+              <div class="p-box covid-scope">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-care-protection_45SOWUY6X.svg"
                   width="42px"
@@ -69,7 +69,7 @@
               </div>
             </a>
             <a class="p-box-link" rel="prefetch" href="/produk/super-strong-protection">
-              <div class="p-box">
+              <div class="p-box covid-scope">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-strong-protection_JIJupTKZSZ.svg"
                   width="42px"
@@ -79,7 +79,7 @@
               </div>
             </a>
             <a class="p-box-link" rel="prefetch" href="/produk/super-life-protection">
-              <div class="p-box">
+              <div class="p-box covid-scope">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-life-protection_jWgDexeIBJ.svg"
                   width="42px"
@@ -256,8 +256,21 @@
                   height: 100%;
                   width: 100%;
                   border-radius: 12px;
-                  /* box-shadow: 2px 2px 3px 0.8px rgb(0 0 0 / 14%); */
                   box-shadow: 0 5px 20px 3px rgb(0 0 0 / 14%);
+                }
+
+                &.covid-scope::before {
+                  content: "";
+                  position: absolute;
+                  z-index: 1;
+                  top: 0;
+                  background-image: url('https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/covid-badge_LlomYRoW8avR.png?tr=q-70');
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  top: -6px;
+                  right: -6px;
+                  width: 22px;
+                  height: 22px;
                 }
                 @media (min-width: 1280px) {
                   width: 94px;
