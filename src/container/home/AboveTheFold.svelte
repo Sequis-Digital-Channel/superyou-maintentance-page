@@ -161,6 +161,9 @@
       }
       h1 {
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        @media (max-width: 375px) {
+          font-size: 20px;
+        }
       }
     }
 
