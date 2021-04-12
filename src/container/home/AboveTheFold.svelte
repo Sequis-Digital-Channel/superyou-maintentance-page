@@ -46,7 +46,7 @@
         </picture>
       </div>
       <div class="atf_products flex items-end justify-end">
-        <div class="atf_products-wrapper overflow-hidden mx-auto lg:mx-0 rounded-xl pb-5 px-6 lg:px-0">
+        <div class="atf_products-wrapper overflow-hidden mx-auto lg:mx-0 rounded-xl pb-5 px-3 lg:px-0">
           <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3">
             <a class="p-box-link" rel="prefetch" href="/produk/super-care-protection">
               <div class="p-box">
@@ -197,6 +197,10 @@
 
           @media (max-width: 600px) {
             max-width: 350px;
+          }
+
+          @media (max-width: 375px) {
+            max-width: 320px;
           }
 
           @media (min-width: 1024px) {
