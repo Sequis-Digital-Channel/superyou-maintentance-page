@@ -55,7 +55,7 @@
                   width="42px"
                   height="42px"
                   alt="Super Care">
-                <span class="text-darkblue font-bold text-center text-tiny">Perawatan Infeksi & Kecelakaan</span>
+                <span class="text-darkblue font-bold text-center text-tiny care-name">Perawatan Infeksi & Kecelakaan</span>
               </div>
             </a>
             <a class="p-box-link" rel="prefetch" href="/produk/my-hospital-protection">
@@ -105,7 +105,7 @@
                   width="42px"
                   height="42px"
                   alt="Super Holiday">
-                <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br> SaatLiburan</span>
+                <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br> Saat Liburan</span>
               </div>
             </a>
             <a class="p-box-link" rel="external" href="/produk/super-safe-protection">
@@ -247,6 +247,9 @@
                 width: 74px;
                 height: 74px;
                 cursor: pointer;
+                border-radius: 12px;
+                padding: 4px;
+                background: radial-gradient(circle at 50% 1%,#fff,#c1f4f7 139%);
 
                 &::after {
                   content: "";
@@ -282,14 +285,15 @@
                     width: 50px;
                     height: 50px;
                   }
-
                   & > span {
                     font-size: 9px;
                   }
                 }
-                border-radius: 12px;
-                padding: 3px 0 6px;
-                background: radial-gradient(circle at 50% 1%,#fff,#c1f4f7 139%)
+                .care-name {
+                  @media (max-width: 1024px) {
+                    font-size: 7.2px;
+                  }
+                }
               }
             }
           }
