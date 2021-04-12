@@ -33,7 +33,7 @@
           >
           <source
             media="(max-width: 500px)"
-            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-75"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-75,w-280"
           >
           <img
             src="https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-70"
