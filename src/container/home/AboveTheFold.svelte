@@ -46,9 +46,8 @@
         </picture>
       </div>
       <div class="atf_products flex items-end justify-end">
-        <div class="atf_products-wrapper py-4 px-3 lg:p-5 overflow-hidden mx-auto lg:mx-0 rounded-xl">
-
-          <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex p-1 lg:grid lg:grid-cols-4 lg:gap-3">
+        <div class="atf_products-wrapper overflow-hidden mx-auto lg:mx-0 rounded-xl pb-5 px-6 lg:px-0">
+          <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3">
             <a class="p-box-link" rel="prefetch" href="/produk/super-care-protection">
               <div class="p-box">
                 <img
@@ -56,7 +55,7 @@
                   width="42px"
                   height="42px"
                   alt="Super Care">
-                <span class="text-darkblue font-bold text-center text-tiny">Proteksi Menular & Kecelakaan</span>
+                <span class="text-darkblue font-bold text-center text-tiny">Perawatan Infeksi & Kecelakaan</span>
               </div>
             </a>
             <a class="p-box-link" rel="prefetch" href="/produk/my-hospital-protection">
@@ -131,7 +130,7 @@
             </a>
           </div>
 
-          <a class="start-now relative w-56 block mx-auto bg-darkblue px-5 py-2 mt-6 rounded-xl text-sm lg:text-base text-white font-bold text-sm" href="/">MULAI SEKARANG <span class="arr">&rarr;</span></a>
+          <a class="start-now relative w-56 block mx-auto bg-darkblue px-5 py-2 mt-4 rounded-xl text-sm xl:text-base text-white font-bold" href="/">MULAI SEKARANG <span class="arr">&rarr;</span></a>
         </div>
       </div>
     </div>
@@ -197,17 +196,17 @@
           }
 
           @media (max-width: 600px) {
-            max-width: 335px;
+            max-width: 350px;
           }
 
           @media (min-width: 1024px) {
             margin-bottom: 20px;
           }
           @media (min-width: 1100px) {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
           }
           @media (min-width: 1280px) {
-            margin-bottom: 52px;
+            margin-bottom: 40px;
           }
           .p-boxes {
             
@@ -250,7 +249,8 @@
                   height: 100%;
                   width: 100%;
                   border-radius: 12px;
-                  box-shadow: 2px 2px 3px 0.8px rgb(0 0 0 / 14%);
+                  /* box-shadow: 2px 2px 3px 0.8px rgb(0 0 0 / 14%); */
+                  box-shadow: 0 5px 20px 3px rgb(0 0 0 / 14%);
                 }
                 @media (min-width: 1280px) {
                   width: 94px;
