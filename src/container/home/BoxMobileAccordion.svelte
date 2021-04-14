@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-
   export let icon;
   export let title;
   export let content;
@@ -13,10 +11,6 @@
     }
     isContentOpen = !isContentOpen;
   }
-  
-  onMount(() => {
-
-  })
 </script>
 
 
@@ -24,7 +18,6 @@
   <div class="int-top px-4 py-3 flex items-center md:flex-col" on:click={toggleAccordion}>
     <img src={icon} alt="Superyou" width="32px" height="32px">
     <h3 class="text-darkblue font-bold ml-2 text-base xl:text-lg md:mt-4">{title}</h3>
-    <!-- class:open={accordionState[i].isOpen} -->
     <svg
       class="ml-auto md:hidden transform-gpu"
       class:open={isContentOpen}
