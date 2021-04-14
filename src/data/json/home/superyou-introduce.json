@@ -1,0 +1,24 @@
+{
+  "boxes": [
+    {
+      "icon": "/icons/home/experienced.svg",
+      "title": "Berpengalaman",
+      "content": "Merupakan bagian dari Sequis; berpengalaman 35+ tahun, memiliki 355 ribu polis aktif, serta penghargaan Best Insurance Awards 2020"
+    },
+    {
+      "icon": "/icons/home/fast-and-easy.svg",
+      "title": "Proses Mudah & Cepat",
+      "content": "Proses sepenuhnya online! Kamu hanya perlu beberapa klik untuk mendapatkan e-polis yang kamu dambakan"
+    },
+    {
+      "icon": "/icons/home/trusted.svg",
+      "title": "Terpercaya",
+      "content": "Terdaftar dan diawasi oleh Otoritas Jasa Keuangan (OJK) serta memenuhi standar keamanan transaksi produk asuransi digital yang tersertifikasi<br class='hidden md:visible'> <b>ISO/IEC 27001:2013</b>"
+    },
+    {
+      "icon": "/icons/home/cheap-ic.svg",
+      "title": "Mulai Dari Rp20rb-an",
+      "content": "Perlindungan optimal dengan harga premi terjangkau yang bisa disesuaikan kebutuhan kamu"
+    }
+  ]
+}
