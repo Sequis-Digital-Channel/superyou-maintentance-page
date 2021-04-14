@@ -68,7 +68,7 @@
       {#each stepsToBuy.data as { icon, title, content }, i (icon)}
         <div class="each-step flex flex-no-wrap md:flex-col mb-2">
           <div class="flex flex-no-wrap flex-none">
-            <div class="w-5 h-5 md:w-8 md:h-8 bg-darkblue rounded-full flex justify-center items-center">
+            <div class="w-5 h-5 md:w-8 md:h-8 bg-darkblue rounded-full flex justify-center items-center flex-none">
               <span class="text-xxs text-white md:text-base md:font-bold">{i + 1}</span>
             </div>
 
@@ -88,9 +88,9 @@
             </div>
           </div>
 
-          <div class="stb-content pl-4 md:pl-0">
+          <div class="stb-content pl-4 md:pl-0" class:content-last={(i + 1) === stepsToBuy.data.length}>
             <h4 class="text-darkblue font-bold text-base md:text-center md:mt-6">{title}</h4>
-            <p class="text-bluegray font-bold text-sm md:mt-3 md:text-center">{content}</p>
+            <p class="text-bluegray text-sm md:mt-3 md:text-center">{content}</p>
           </div>
         </div>
       {/each}
@@ -113,7 +113,7 @@
     .img-wrapper {
       width: 75px;
       @media (min-width: 768px) {
-        width: 84%;
+        width: 100%;
         img {
           width: 80px;
           height: 80px;
@@ -122,6 +122,11 @@
             margin-right: auto;
           }
         }
+      }
+    }
+    .content-last {
+      @media (min-width: 768px) {
+        padding-left: 30px;
       }
     }
     .get-now {
