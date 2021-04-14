@@ -3,8 +3,32 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
   import AboveTheFold from "../container/home/AboveTheFold.svelte";
   import BoxMobileAccordion from "../container/home/BoxMobileAccordion.svelte";
+
+  onMount(() => {
+    const images = Array.from(document.querySelectorAll(".lazy-image img"));
+    if ("IntersectionObserver" in window) {
+      // lazyload image observer
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log("asda")
+            const image = entry.target;
+            image.src = image.dataset.src;
+            image.classList.add("lazyloaded");
+            imageObserver.unobserve(image);
+          }
+        });
+      });
+      images.forEach((img) => imageObserver.observe(img));
+    } else {
+      images.forEach((img) => {
+        img.src = img.dataset.src;
+      });
+    }
+  })
 </script>
 
 <section id="superyou-home" class="above-the-fold-wrapper">
