@@ -6,7 +6,7 @@
 
 <style lang="postcss">
   .result-card {
-    max-width: 400px;
+    max-width: 423px;
     margin: 0 auto;
     box-shadow: 0px 0px 12px 0px rgb(109 131 172 / 26%);
     border-radius: 12px;
@@ -20,6 +20,7 @@
       flex-wrap: nowrap;
       @media (min-width: 640px) {
         padding: 10px 16px;
+        width: 423px;
       }
 
       .icon {
@@ -116,7 +117,6 @@
 
             .right {
               margin-left: auto;
-              align-self: center;
               flex: 1 0 27%;
               text-align: right;
             }
@@ -152,7 +152,7 @@
 
     {#each plan_data.benefit_group_categories as { benefits, name, id } (id)}
       <div class="benefit-group">
-        <h4 class="benefit-title color-darkblue semi-bold tx-sm">{name}</h4>
+        <h4 class="benefit-title color-darkblue semi-bold text-sm">{name}</h4>
         <!-- benefit item -->
         <div class="benefit-items">
           <!-- LOOP HERE -->

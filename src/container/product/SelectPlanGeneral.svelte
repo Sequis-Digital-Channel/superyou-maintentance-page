@@ -377,7 +377,7 @@
           {/if}
           <BaseButton
             on:click={(e) => handleClickAddToCart(e)}
-            style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
+            style="max-width: 383px;font-size:14px;margin:30px auto 20px;"
           >
             TAMBAH KE KERANJANG
             <img
@@ -391,7 +391,7 @@
 
           <BaseButton
             on:click={(e) => payNow(e)}
-            style="max-width: 330px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
+            style="max-width: 383px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
             bgColor={"transparent"}>
             BAYAR SEKARANG
             <!-- <i slot="icon" class="loader" /> -->
@@ -431,7 +431,7 @@
             >
           </p>
 
-          <div style="max-width: 400px;margin: 50px auto 20px;">
+          <div style="max-width: 423px;margin: 50px auto 20px;">
             <p style="text-align:center;color:#0d294a;font-weight:bold;">
               SHARE
             </p>
@@ -468,11 +468,20 @@
 <!-- <ProductRecommendationContainer /> -->
 <style lang="postcss">
   .select-plan-care {
-    max-width: 420px;
+    max-width: 445px;
     margin: 0 auto;
     overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
+    
+    @media (min-width: 640px) {
+      padding-left: 21px;
+      padding-right: 21px;
+    }
+
+    @media (max-width: 639px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
 
     .wrapper {
       display: flex;
@@ -482,7 +491,13 @@
       & > form,
       & > .plan-result {
         white-space: normal;
-        flex: 1 0 100%;
+        @media (min-width: 640px) {
+          flex: 1 0 97%;
+        }
+    
+        @media (max-width: 639px) {
+          flex: 1 0 100%;
+        }
       }
 
       .plan-result {

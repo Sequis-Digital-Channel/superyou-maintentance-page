@@ -480,11 +480,18 @@
 <!-- <ProductRecommendationContainer /> -->
 <style lang="postcss">
   .select-plan-care {
-    max-width: 420px;
+    max-width: 445px;
     margin: 0 auto;
     overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
+    @media (min-width: 640px) {
+      padding-left: 21px;
+      padding-right: 21px;
+    }
+
+    @media (max-width: 639px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
 
     .wrapper {
       display: flex;
@@ -494,7 +501,13 @@
       & > form,
       & > .plan-result {
         white-space: normal;
-        flex: 1 0 100%;
+        @media (min-width: 640px) {
+          flex: 1 0 97%;
+        }
+    
+        @media (max-width: 639px) {
+          flex: 1 0 100%;
+        }
       }
 
       .plan-result {
