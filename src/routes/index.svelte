@@ -90,7 +90,7 @@
 
           <div class="stb-content pl-4 md:pl-0">
             <h4 class="text-darkblue font-bold text-base md:text-center md:mt-6">{title}</h4>
-            <p class="text-bluegray text-sm md:mt-3 md:text-center">{content}</p>
+            <p class="text-bluegray font-bold text-sm md:mt-3 md:text-center">{content}</p>
           </div>
         </div>
       {/each}
