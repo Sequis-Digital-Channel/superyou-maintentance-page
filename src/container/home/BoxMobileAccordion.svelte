@@ -15,8 +15,12 @@
 
 
 <div class="int-box bg-white rounded-2xl mb-5">
-  <div class="int-top px-4 py-3 flex items-center md:flex-col" on:click={toggleAccordion}>
-    <img src={icon} alt="Superyou" width="32px" height="32px">
+  <div class="int-top px-4 py-3 flex items-center md:flex-col lazy-image" on:click={toggleAccordion}>
+    <img
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src={icon}
+      alt="Superyou"
+      width="32px"
+      height="32px">
     <h3 class="text-darkblue font-bold ml-2 text-base xl:text-lg md:mt-4">{title}</h3>
     <svg
       class="ml-auto md:hidden transform-gpu"
