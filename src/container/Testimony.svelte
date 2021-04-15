@@ -54,7 +54,7 @@
   #testimony {
     margin: 0 auto;
     max-width: 1280px;
-    padding: 30px 0 50px;
+    padding: 40px 0 50px;
     position: relative;
 
     .testimony_wrapper {
@@ -141,7 +141,7 @@
 </style>
 
 <div id="testimony">
-  <h2 class="md:text-xl text-white text-center font-bold mb-6 lg:mb-6">
+  <h2 class="md:text-xl text-white text-center font-bold mb-6 lg:mb-10">
     Apa Kata Mereka Tentang Super You
   </h2>
 
