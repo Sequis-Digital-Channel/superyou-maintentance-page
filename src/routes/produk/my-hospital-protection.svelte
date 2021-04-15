@@ -108,7 +108,7 @@
         });
         formObserver.observe(premiCalcContainer);
 
-        const otherProd = document.querySelector(".otherproduct");
+        const otherProd = document.querySelector(".otherproduct-hospital");
         const otherProdObserver = new IntersectionObserver((entries) => {
           const el = entries[0];
           if(el.isIntersecting) {
@@ -292,7 +292,7 @@
     <ProductNotCovered data={notcovered.hospital} productTitle="My Hospital"/>
   </section>
   
-  <section class="su_container otherproduct" style="background-color:#e7eaef;">
+  <section class="su_container otherproduct-hospital" style="background-color:#e7eaef;">
     {#if OtherProductsContainer}
       <svelte:component
         this={OtherProductsContainer}
@@ -352,7 +352,7 @@
     .su_container.faq,
     .su_container.testimonies,
     .su_container.notcovered,
-    .su_container.otherproduct 
+    .su_container.otherproduct-hospital 
     {
       content-visibility: auto;
       contain-intrinsic-size: 700px;

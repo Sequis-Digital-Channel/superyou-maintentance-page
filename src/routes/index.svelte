@@ -1,6 +1,16 @@
 <script context="module">
   import introduceData from "../data/json/home/superyou-introduce.json";
   import stepsToBuy from "../data/json/home/steps-to-buy.json";
+  import dataFaqHomePage from "../data/json/home/home-page/faq.json";
+
+  export async function preload(page, session) {
+    const { API_PRODUCT_CATALOGUE, APP_URL } = session;
+
+    return {
+      api_product_url: API_PRODUCT_CATALOGUE,
+      app_url : APP_URL,
+    };
+  }
 </script>
 
 <script>
@@ -8,6 +18,31 @@
 
   import AboveTheFold from "../container/home/AboveTheFold.svelte";
   import BoxMobileAccordion from "../container/home/BoxMobileAccordion.svelte";
+  import Testimony from "../container/Testimony.svelte";
+  import Faq from "../container/Faq.svelte";
+  import Leadgen from "../container/Leadgen.svelte";
+  import { loadFlickity } from "../utils/_loadflickity";
+
+  export let app_url;
+  export let api_product_url;
+  // export let api_superyou_url;
+
+  let OtherProductsContainer;
+  let isFlicktyLoaded = false;
+
+  const logError = (err) => {
+    console.error((err && err.stack) || err);
+  };
+
+  const loadOtherProductsContainer = (e) => {
+    import(
+      "../container/product/OtherProducts/OtherProductsContainer.svelte"
+    )
+    .then((module) => {
+      OtherProductsContainer = module.default;
+    })
+    .catch(logError);
+  };
 
   onMount(() => {
     const images = Array.from(document.querySelectorAll(".lazy-image img"));
@@ -24,6 +59,23 @@
         });
       });
       images.forEach((img) => imageObserver.observe(img));
+
+      const otherProd = document.querySelector(".otherproduct-index");
+      const otherProdObserver = new IntersectionObserver((entries) => {
+        const el = entries[0];
+        if(el.isIntersecting) {
+          otherProdObserver.unobserve(otherProd);
+          if (!isFlicktyLoaded) {
+            loadFlickity();
+            isFlicktyLoaded = true;
+            loadOtherProductsContainer();
+          }
+        }
+      },
+      {rootMargin: "-400px 0px 0px 0px",}
+      );
+      otherProdObserver.observe(otherProd);
+
     } else {
       images.forEach((img) => {
         img.src = img.dataset.src;
@@ -54,7 +106,17 @@
   </div>
 </section>
 
-<!-- FAQ -->
+<section class="su_container otherproduct-index" style="background-color:#e7eaef;">
+  {#if OtherProductsContainer}
+    <svelte:component
+      this={OtherProductsContainer}
+      apiProductUrl={api_product_url}
+      appUrl={app_url}
+      slugException="" />
+  {:else}
+    <div class="otherproduct_progress" />
+  {/if}
+</section>
 
 <section class="steps-to-buy py-8 px-3 xl:px-12">
   <div class="mx-auto max-w-screen-xl">
@@ -82,7 +144,7 @@
                 height="75px"
               >
               {#if (i + 1) < stepsToBuy.data.length}
-              <span class="text-black mt-2 text-xl md:hidden">&darr;</span>
+              <span class="text-black mt-2 text-xl font-bold md:hidden">&darr;</span>
               <span class="text-black mt-2 text-3xl hidden md:inline-block font-bold ml-auto">&rarr;</span>
               {/if}
             </div>
@@ -100,6 +162,20 @@
   </div>
 </section>
 
+<Leadgen />
+  
+<section class="su_container faq">
+  <Faq
+    appUrl={app_url}
+    FAQtitle="Tanya Jawab tentang Super You"
+    accordionData={dataFaqHomePage["faq-home"]}
+  />
+</section>
+
+<div class="su_container testimonies bg-darkblue relative">
+  <Testimony/>
+</div>
+
 <style lang="postcss">
   .superyou-introduce {
     .excerpt {
@@ -107,6 +183,30 @@
         max-width: 320px;
       }
     }
+  }
+
+  .su_container {
+    padding-left: 10px;
+    padding-right: 10px;
+    @media (min-width: 768px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .otherproduct_progress {
+      height: 675px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 38px 0;
+      overflow-y: hidden;
+    }
+  }
+
+  .su_container.faq,
+  .su_container.testimonies
+  {
+    content-visibility: auto;
+    contain-intrinsic-size: 700px;
   }
 
   .steps-to-buy{

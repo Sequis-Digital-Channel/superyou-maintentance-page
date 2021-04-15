@@ -5,12 +5,17 @@
   export let apiProductUrl;
   export let appUrl;
   export let productName;
-  export let slugException = "super-care-protection";
+  export let slugException = "";
 
   let isFetched = false;
   let products = [];
   onMount(async () => {
-    const res = await fetch(`${apiProductUrl}/products/?product_type=basic&is_show=true&show_partner=false&skip=0&product_exceptions=${slugException}`);
+    let stringUrl = slugException ? 
+      `${apiProductUrl}/products/?product_type=basic&is_show=true&show_partner=false&skip=0&product_exceptions=${slugException}`
+      : `${apiProductUrl}/products/?product_type=basic&is_show=true&show_partner=false&skip=0`;
+    
+    console.log(stringUrl);
+    const res = await fetch(stringUrl);
     products = await res.json();
     isFetched = true;
     // https://staging-product.superyou.co.id/api/v1/products/?product_type=basic&is_show=true&show_partner=false&skip=0&product_exceptions=super-strong-protection
@@ -136,8 +141,12 @@
 <div class="other-products">
   <h2
     class="md:text-xl text-darkblue text-center mx-auto font-bold mb-4 lg:mb-0 lg:max-w-screen-md">
+    {#if productName}
     Tambahkan Manfaat Perlindungan Untukmu dan Keluarga.<br class="hidden md:block"/>Mereka yang membeli
     {productName} juga membeli
+    {:else}
+    Produk Perlindungan Kami
+    {/if}
   </h2>
 
   <div>
