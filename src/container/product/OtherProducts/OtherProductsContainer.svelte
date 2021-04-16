@@ -139,15 +139,16 @@
 </style>
 
 <div class="other-products">
-  <h2
-    class="md:text-xl text-darkblue text-center mx-auto font-bold mb-4 lg:mb-0 lg:max-w-screen-md">
-    {#if productName}
-    Tambahkan Manfaat Perlindungan Untukmu dan Keluarga.<br class="hidden md:block"/>Mereka yang membeli
+  
+  {#if productName}
+  <h2 class="text-base md:text-xl text-darkblue text-center mx-auto font-bold mb-4 lg:mb-0 lg:max-w-screen-md">
+    Tambahkan Manfaat Perlindungan Untukmu dan Keluarga.<br class="hidden md:block"/> Mereka yang membeli
     {productName} juga membeli
-    {:else}
-    Produk Perlindungan Kami
-    {/if}
   </h2>
+  {:else}
+    <h2 class="text-lg md:text-2xl text-darkblue text-center mx-auto font-bold mb-4 lg:mb-0 lg:max-w-screen-md">Produk Perlindungan Kami</h2>
+  {/if}
+  
 
   <div>
     {#if isFetched}
