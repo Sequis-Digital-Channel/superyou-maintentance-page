@@ -1,12 +1,16 @@
 <script>
-  import { goto } from '@sapper/app';
+  import { createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
   import { bodyScroll } from "../stores/bodyscroll";
-  import SuperyouColorLogo from "../components/svg/SuperyouColorLogo.svelte";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
   import IcLock from "../components/svg/IcLock.svelte";
   export let aside = false;
   export let APP_URL;
+
+  const dispatch = createEventDispatcher();
+  const closeSideNav = () => {
+    dispatch('closeasidenav');
+  };
 
   $: if (aside) {
     bodyScroll.update(() => false);
@@ -153,12 +157,16 @@
     <div class="aside-top">
       <div id="su-logo" aria-label="superyou-logo">
         <a href={`${APP_URL}`}>
-          <SuperyouColorLogo color={'#03a3a6'} />
+          <img
+            src="/icons/superyou-logo-color.svg"
+            alt="Super You Logo"
+            width="170px"
+            height="45px">
         </a>
       </div>
 
       <svg
-        on:click={() => (aside = false)}
+        on:click={closeSideNav}
         width="24px"
         height="24px"
         viewBox="0 0 16 16"

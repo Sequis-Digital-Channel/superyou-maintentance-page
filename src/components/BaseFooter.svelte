@@ -1,6 +1,5 @@
 <script>
   import BaseCircleSocmed from "./BaseCircleSocmed.svelte";
-  import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
   export let APP_URL;
   let outerWidth;
   let footerNav = {
@@ -210,8 +209,13 @@
 
 <footer>
   <div class="footer-wrapper">
-    <div class="logo">
-      <SuperyouColorLogo color="#03a3a6" />
+    <div class="logo lazy-image">
+      <img
+        src={lazySrc}
+        data-src="/icons/superyou-logo-color.svg"
+        alt="Super You Logo"
+        width="170px"
+        height="45px">
     </div>
 
     <div class="f-item">

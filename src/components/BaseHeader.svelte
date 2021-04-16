@@ -2,9 +2,8 @@
   import { onMount } from "svelte";
   import { stores } from "@sapper/app";
 
-  import AsideNavigation from "../container/AsideNavigation.svelte";
+  // import AsideNavigation from "../container/AsideNavigation.svelte";
   import BgOverlay from "../components/BgOverlay.svelte";
-  import SuperyouColorLogo from "./svg/SuperyouColorLogo.svelte";
   import IcLock from "./svg/IcLock.svelte";
 
   export let APP_URL;
@@ -18,6 +17,7 @@
   let aboveTheFoldObserver = null;
 
   let headerProductsNav;
+  let asideNav;
 
   function observeAboveTheFold() {
     aboveTheFold = document.querySelector(".above-the-fold-wrapper");
@@ -43,7 +43,7 @@
     aboveTheFoldObserver.observe(aboveTheFold);
   }
 
-  const loadHeaderProductsNav = (e) => {
+  const loadHeaderProductsNav = () => {
     import("./HeaderProductsNav.svelte")
     .then((module) => {
       headerProductsNav = module.default;
@@ -59,6 +59,24 @@
       loadHeaderProductsNav();
     }
     productListShow = !productListShow;
+  }
+
+  const loadAsideNav = () => {
+    import("../container/AsideNavigation.svelte")
+    .then((module) => {
+      asideNav = module.default;
+    })
+    .catch((err) => {
+      console.error((err && err.stack) || err);
+    })
+  }
+
+  function handleClickMenu(e) {
+    e.preventDefault();
+    if (!asideNav) {
+      loadAsideNav();
+    }
+    aside = !aside;
   }
 
   onMount(() => {
@@ -284,7 +302,13 @@
   <div class="header-wrapper">
     <div id="su-logo" aria-label="superyou-logo">
       <a href="/">
-        <SuperyouColorLogo color={navScrolled ? '#03a3a6' : '#FFF'} />
+        <img
+          src={navScrolled ? `/icons/superyou-logo-color.svg` : `/icons/superyou-logo.svg`}
+          alt="Super You Logo"
+          width="170px"
+          height="45px"
+          loading="lazy"
+          decoding="async">
       </a>
     </div>
     <nav id="su-nav">
@@ -350,7 +374,7 @@
             <span>MASUK</span>
           </button>
           <div
-            on:click={() => (aside = !aside)}
+            on:click={handleClickMenu}
             class="menu-wrapper"
             tabindex="0"
             role="button"
@@ -361,7 +385,16 @@
       </ul>
     </nav>
   </div>
-  {#if aside}
-    <AsideNavigation bind:aside {APP_URL} />
+  {#if asideNav && aside}
+    <svelte:component
+      this={asideNav}
+      {aside}
+      on:closeasidenav={() => {
+        console.log('closed');
+        aside = false;
+      }}
+      {APP_URL}
+    />
+    <!-- <AsideNavigation bind:aside {APP_URL} /> -->
   {/if}
 </header>
