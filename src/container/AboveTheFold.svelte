@@ -116,6 +116,10 @@
         flex-direction: column;
         align-items: center;
 
+        @media (max-width: 600px) {
+          min-width: 300px;
+        }
+
         @media (min-width: 768px) {
           align-items: flex-start;
           max-width: 360px;
