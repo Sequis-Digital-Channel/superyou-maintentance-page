@@ -213,15 +213,7 @@
   {#if isDetailExpanded}
     <div class="pb-2" transition:slide|local>
       <div class="cart-item-spec bg-white">
-        <div
-          class="item-up px-3 py-2 flex justify-between items-center border-b border-t border-gray-400"
-        >
-          <p class="text-bluegray text-sm">Uang Pertanggungan per Polis</p>
-          <p class="text-darkblue text-sm font-bold">
-            {toBillion(item.sum_assured)}
-          </p>
-        </div>
-        <div class="item-benefits px-3 py-2">
+        <div class="item-benefits p-3 border-t border-gray-400">
           <p class="text-darkblue text-sm2 font-bold mb-3">Manfaat per Polis</p>
 
           {#each item.benefit_group_categories as { benefits, name, id } (id)}
