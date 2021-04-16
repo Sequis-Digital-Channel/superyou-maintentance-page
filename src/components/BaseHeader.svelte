@@ -334,6 +334,7 @@
             <svelte:component
               this={headerProductsNav}
               productListShow={productListShow}
+              on:closeproductnav={() => (productListShow = false)}
             />
             <BgOverlay on:click={() => (productListShow = false)} />
           {/if}

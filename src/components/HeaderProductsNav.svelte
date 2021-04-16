@@ -5,7 +5,9 @@
   export let productListShow = false;
 
   const dispatch = createEventDispatcher();
-  const closeProductList = dispatch('close');
+  const closeProductList = () => {
+    dispatch('closeproductnav');
+  };
 </script>
 
 <div class="products__ddown bg-white" class:show={productListShow}>
@@ -41,7 +43,7 @@
       Asuransi Kesehatan & Penyakit Kritis
     </h4>
     {#each productNavItems.health as navItem (navItem.icon)}
-      <a rel="prefetch" on:click={() => productListShow = false} href={navItem.url}>
+      <a rel="prefetch" on:click={() => productListShow = false} on:click={closeProductList} href={navItem.url}>
         <div class="product-item-nav">
           <div class="icon">
             <img
