@@ -1,8 +1,8 @@
 <script>
   import { onMount } from "svelte";
   import { stores } from "@sapper/app";
-
-  // import AsideNavigation from "../container/AsideNavigation.svelte";
+  import { bodyScroll } from "../stores/bodyscroll";
+  
   import BgOverlay from "../components/BgOverlay.svelte";
   import IcLock from "./svg/IcLock.svelte";
 
@@ -43,7 +43,7 @@
     aboveTheFoldObserver.observe(aboveTheFold);
   }
 
-  const loadHeaderProductsNav = () => {
+  function loadHeaderProductsNav() {
     import("./HeaderProductsNav.svelte")
     .then((module) => {
       headerProductsNav = module.default;
@@ -61,7 +61,7 @@
     productListShow = !productListShow;
   }
 
-  const loadAsideNav = () => {
+  function loadAsideNav() {
     import("../container/AsideNavigation.svelte")
     .then((module) => {
       asideNav = module.default;
@@ -77,6 +77,12 @@
       loadAsideNav();
     }
     aside = !aside;
+  }
+
+  $: if (aside) {
+    bodyScroll.update(() => false);
+  } else {
+    bodyScroll.update(() => true);
   }
 
   onMount(() => {

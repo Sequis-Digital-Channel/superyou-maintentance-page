@@ -1,7 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
-  import { bodyScroll } from "../stores/bodyscroll";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
   import IcLock from "../components/svg/IcLock.svelte";
   export let aside = false;
@@ -11,12 +10,6 @@
   const closeSideNav = () => {
     dispatch('closeasidenav');
   };
-
-  $: if (aside) {
-    bodyScroll.update(() => false);
-  } else {
-    bodyScroll.update(() => true);
-  }
 </script>
 
 <style lang="postcss">
