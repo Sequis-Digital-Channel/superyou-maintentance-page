@@ -1,18 +1,15 @@
 <script>
-  import { goto } from '@sapper/app';
+  import { createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
-  import { bodyScroll } from "../stores/bodyscroll";
-  import SuperyouColorLogo from "../components/svg/SuperyouColorLogo.svelte";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
   import IcLock from "../components/svg/IcLock.svelte";
-  export let aside = false;
+  export const aside = false;
   export let APP_URL;
 
-  $: if (aside) {
-    bodyScroll.update(() => false);
-  } else {
-    bodyScroll.update(() => true);
-  }
+  const dispatch = createEventDispatcher();
+  const closeSideNav = () => {
+    dispatch('closeasidenav');
+  };
 </script>
 
 <style lang="postcss">
@@ -153,12 +150,16 @@
     <div class="aside-top">
       <div id="su-logo" aria-label="superyou-logo">
         <a href={`${APP_URL}`}>
-          <SuperyouColorLogo color={'#03a3a6'} />
+          <img
+            src="/icons/superyou-logo-color.svg"
+            alt="Super You Logo"
+            width="170px"
+            height="45px">
         </a>
       </div>
 
       <svg
-        on:click={() => (aside = false)}
+        on:click={closeSideNav}
         width="24px"
         height="24px"
         viewBox="0 0 16 16"
@@ -242,22 +243,22 @@
           <h4>Produk</h4>
           <ul>
             <li>
-              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-safe-protection">Super Safe</a>
+              <a rel="external" on:click={closeSideNav} href="/produk/super-safe-protection">Super Safe</a>
             </li>
             <li>
-              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-life-protection">Super Life</a>
+              <a rel="external" on:click={closeSideNav} href="/produk/super-life-protection">Super Life</a>
             </li>
             <li>
-              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-strong-protection">Super Strong</a>
+              <a rel="external" on:click={closeSideNav} href="/produk/super-strong-protection">Super Strong</a>
             </li>
             <li>
-              <a rel="prefetch" on:click={() => aside = false} href="/produk/my-hospital-protection">My Hospital</a>
+              <a rel="external" on:click={closeSideNav} href="/produk/my-hospital-protection">My Hospital</a>
             </li>
             <li>
-              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-care-protection">Super Care</a>
+              <a rel="external" on:click={closeSideNav} href="/produk/super-care-protection">Super Care</a>
             </li>
             <li>
-              <a rel="prefetch" on:click={() => aside = false} href="/produk/super-well-protection" >Super Well</a>
+              <a rel="external" on:click={closeSideNav} href="/produk/super-well-protection" >Super Well</a>
             </li>
           </ul>
         </div>
