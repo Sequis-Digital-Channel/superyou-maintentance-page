@@ -444,12 +444,12 @@
   </div>
 </div>
 
+{#if isAddToCartSuccess}
 <div use:portal={"#portal"} id="portal">
-  {#if isAddToCartSuccess}
-    <BgOverlay />
-    <PopUpAddToCart />
-  {/if}
+  <BgOverlay />
+  <PopUpAddToCart />
 </div>
+{/if}
 
 <!-- <ProductRecommendationContainer /> -->
 <style lang="postcss">
