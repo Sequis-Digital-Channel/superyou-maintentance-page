@@ -1,14 +1,33 @@
 <script>
-  export let name = "inputtext";
-  export let label = "";
-  export let readonly = false;
-  export let error = {
+  import { createEventDispatcher } from "svelte";
+
+  export let name = "inputtext",
+  icon = null,
+  label = "",
+  readonly = false,
+  type = "text",
+  value = "",
+  error = {
     status: false,
     msg: "",
   };
 
-  export let value = "";
+  let prevType = type;
   let focused = false;
+  let ref = null;
+
+  const dispatch = createEventDispatcher();
+  
+  function dispatchIconOnClick() {
+    dispatch("iconclick", {
+      inputType: type,
+      icon
+    });
+  }
+
+  function typeAction(node) {
+    node.type = type;
+  }
 
   function onBlured() {
     focused = false;
@@ -19,23 +38,38 @@
       focused = true;
     }
   }
+
+  $: if(type !== prevType) {
+    console.log(type, 'input txt');
+    ref.type = type;
+    prevType = type;
+  }
 </script>
 
-<div class="base-input-text" class:focused class:error={error.status}>
+<div class="base-input-text relative" class:focused class:error={error.status}>
   <label for={name}>{label}</label>
   <input
-    type="text"
+    bind:this={ref}
+    use:typeAction
     class="input-text"
     id={name}
     {name}
     bind:value
     on:focus={onFocus}
     on:blur={onBlured}
-    readonly
+    {readonly}
   >
   <div class="msg" class:error={error.status}>
     {#if error.status}<span>{error.msg}</span>{/if}
   </div>
+
+  {#if icon}
+    <div class="absolute right-0 top-0 pt-8 pr-3">
+      <div on:click={dispatchIconOnClick} class="flex items-center">
+        <img src={icon} alt="Input Icon">
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style lang="postcss">
