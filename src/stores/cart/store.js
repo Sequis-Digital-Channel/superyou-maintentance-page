@@ -41,13 +41,3 @@ export const derivedTotalQuantity = derived(cartStore, $cartStore => {
     return 0;
   }
 });
-
-export const derivedLocalStorageData = derived([cartStore, paymentTermYearly, sumAssuredTotal], ([$cartStore, $paymentTermYearly, $sumAssuredTotal]) => {
-  let expiry = new Date();
-  return ({
-    ...$cartStore,
-    sum_assured: $sumAssuredTotal,
-    payment_term_yearly: $paymentTermYearly,
-    expiry: expiry.setDate(expiry.getDate() + 14)
-  })
-});
