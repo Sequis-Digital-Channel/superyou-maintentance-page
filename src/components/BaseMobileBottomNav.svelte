@@ -98,7 +98,7 @@
     </div>
 
     <div class="nav-item flex-grow p-2">
-      {#if authStore}
+      {#if $authStore}
       <a href="/dashboard/profil" class="flex flex-col items-center justify-center">
         <img src="https://superyou.co.id/img/icons/navigation/account-off.svg" alt="user login" width="22px" height="22px">
         <span class="text-xs text-bluegray">Profil</span>
