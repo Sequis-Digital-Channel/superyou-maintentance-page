@@ -25,7 +25,6 @@
 
   export let app_url;
   export let api_product_url;
-  // export let api_superyou_url;
 
   let OtherProductsContainer;
   let isFlicktyLoaded = false;
