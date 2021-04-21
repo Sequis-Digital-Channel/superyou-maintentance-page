@@ -1,25 +1,16 @@
 {
   "well": [
     {
-      "description": "Cakupan klaim untuk seluruh Indonesia dan di Malaysia. <span class='span-optional'>Pilihan</span>",
-      "icon_svg": "https://superyou.test/products/provisions/super-well-protection8.svg",
-      "icon_etc": "https://superyou.test/products/provisions/super-well-protection8.png",
+      "description": "Usia masuk adalah <b>17 tahun - 65 tahun</b> dan bisa diperpanjang hingga usia <b>85</b> tahun.",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection1.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection1.png",
       "order": null,
       "tooltip_text": "",
       "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
-      "id": "044edd05-b80b-464a-9e0a-629978e7ebf9"
+      "id": "84f18c28-72fd-46c0-8efd-50a461ec7eae"
     },
     {
-      "description": "Klaim <b><i>cashless</b></i>. Pembayaran biaya perawatan secara langsung dari Sequis ke pihak rumah sakit, berlaku di 4000+ rumah sakit rekanan.",
-      "icon_svg": "https://superyou.test/products/provisions/super-well-protection5.svg",
-      "icon_etc": "https://superyou.test/products/provisions/super-well-protection5.png",
-      "order": null,
-      "tooltip_text": "Cara klaim produk Super Well, yaitu:<br/>1. Cashless: Proses pengajuan klaim dengan hanya menunjukkan kartu keanggotaan asuransi kesehatan saat masa perawatan atau pengobatan di rumah sakit tanpa perlu membayar biaya apapun.",
-      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
-      "id": "264a0dbe-01aa-4654-af41-ff6d049143f5"
-    },
-    {
-      "description": "Batas Limit Tahunan atau Biaya Pertanggungan maksimal sebesar <b>Rp1 Milyar</b> per tahun.",
+      "description": "Maksimum pembelian yaitu 1 Polis untuk Tertanggung yang sama.<br/>Batas Limit Tahunan atau Biaya Pertanggungan maksimal sebesar <b>Rp1 Milyar</b> per tahun.",
       "icon_svg": "https://superyou.test/products/provisions/super-well-protection2.svg",
       "icon_etc": "https://superyou.test/products/provisions/super-well-protection2.png",
       "order": null,
@@ -28,13 +19,13 @@
       "id": "4825a062-04f6-491b-ac13-85d067cf1992"
     },
     {
-      "description": "Usia masuk adalah <b>17 tahun - 65 tahun</b> dan bisa diperpanjang hingga usia <b>85</b> tahun.",
-      "icon_svg": "https://superyou.test/products/provisions/super-well-protection1.svg",
-      "icon_etc": "https://superyou.test/products/provisions/super-well-protection1.png",
+      "description": "Melindungi 10 penyakit kritis. Kanker (termasuk <i>karsinoma in situ</i>), stroke (termasuk stroke ringan/TIA), serangan jantung, gagal ginjal, bedah jantung, bedah pembuluh darah jantung, gagal jantung, operasi pengangkatan organ tubuh, gagal hati, dan gagal sistem pernapasan",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection3.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection3.png",
       "order": null,
       "tooltip_text": "",
       "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
-      "id": "84f18c28-72fd-46c0-8efd-50a461ec7eae"
+      "id": "a9baa85f-214a-4d2a-aa60-0e4af432d52f"
     },
     {
       "description": "Terdapat pertanyaan riwayat kesehatan.",
@@ -46,13 +37,13 @@
       "id": "a4f32150-b803-4b1d-bfcf-6b45a741ecfc"
     },
     {
-      "description": "Melindungi 10 penyakit kritis. Kanker (termasuk <i>karsinoma in situ</i>), stroke (termasuk stroke ringan/TIA), serangan jantung, gagal ginjal, bedah jantung, bedah pembuluh darah jantung, gagal jantung, operasi pengangkatan organ tubuh, gagal hati, dan gagal sistem pernapasan",
-      "icon_svg": "https://superyou.test/products/provisions/super-well-protection3.svg",
-      "icon_etc": "https://superyou.test/products/provisions/super-well-protection3.png",
+      "description": "Klaim <b><i>cashless</b></i>. Pembayaran biaya perawatan secara langsung dari Sequis ke pihak rumah sakit, berlaku di 4000+ rumah sakit rekanan.",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection5.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection5.png",
       "order": null,
-      "tooltip_text": "",
+      "tooltip_text": "Cara klaim produk Super Well, yaitu:<br/>1. Cashless: Proses pengajuan klaim dengan hanya menunjukkan kartu keanggotaan asuransi kesehatan saat masa perawatan atau pengobatan di rumah sakit tanpa perlu membayar biaya apapun.",
       "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
-      "id": "a9baa85f-214a-4d2a-aa60-0e4af432d52f"
+      "id": "264a0dbe-01aa-4654-af41-ff6d049143f5"
     },
     {
       "description": "Faktor usia dan jenis kelamin berpengaruh pada besaran harga premi.",
@@ -71,6 +62,15 @@
       "tooltip_text": "Masa Tunggu adalah jangka waktu tertentu yang harus dilalui terlebih dahulu sebelum manfaat perlindungan asuransi dapat digunakan atau pembayaran klaim dapat dilakukan.",
       "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
       "id": "f5b3c0e2-dbe4-41af-8a81-b878189d3136"
+    },
+    {
+      "description": "Cakupan klaim untuk seluruh Indonesia dan di Malaysia.<span class='span-optional'>Pilihan</span>",
+      "icon_svg": "https://superyou.test/products/provisions/super-well-protection8.svg",
+      "icon_etc": "https://superyou.test/products/provisions/super-well-protection8.png",
+      "order": null,
+      "tooltip_text": "",
+      "product_id": "e2d7a9a1-bc2f-4c2a-99f0-23ff58414a14",
+      "id": "044edd05-b80b-464a-9e0a-629978e7ebf9"
     }
   ]
 }
