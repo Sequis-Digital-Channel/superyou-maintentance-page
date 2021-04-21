@@ -143,7 +143,6 @@
     
     @media (min-width: 768px) {
       transform: translate(-50%, -50%);
-      min-width: 45%;
       left: 50%;
       top: 50%;
       max-height: 564px;
