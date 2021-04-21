@@ -1,10 +1,17 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { fade } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
+  import { authStore } from "../stores/auth/store";
+  import { actionShowAndCloseModalLogin, actionLogout } from "../stores/auth/actions";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
   import IcLock from "../components/svg/IcLock.svelte";
-  export const aside = false;
+  
   export let APP_URL;
+
+  let isProfileDdownShowing = false;
+  function toggleIsProfileDdownShowing() {
+    isProfileDdownShowing = !isProfileDdownShowing;
+  }
 
   const dispatch = createEventDispatcher();
   const closeSideNav = () => {
@@ -202,14 +209,59 @@
     </div>
     <div class="aside-body">
       <div class="aside-body-wrapper">
+        {#if $authStore}
+        <div
+          class="flex items-center mb-2 md:hidden"
+          on:click={toggleIsProfileDdownShowing}>
+          <div class="pic flex-none rounded-full overflow-hidden">
+            <img
+              src="https://secure.gravatar.com/avatar/5e540715c5edf010a5d1c64bef76fb35?s=80&r=g&d=identicon"
+              alt="userpicture"
+              width="50px"
+              height="50px">
+          </div>
+          <p class="text-xl text-darkblue font-bold ml-4">Hi, { $authStore.user_profile.full_name }!</p>
+          <div class="ml-auto pr-1">
+            <img
+              class={`transition-transform duration-200 ${isProfileDdownShowing ? 'transform rotate-180' : ''}`}
+              src="https://superyou.co.id/img/icons/caret-down-darkblue.svg"
+              alt="profile menu"
+              width="18px"
+              height="18px"
+              >
+          </div>
+        </div>
+        {#if isProfileDdownShowing}
+        <div
+          transition:slide={{ duration: 100 }}
+          class="md:hidden bg-gray-100" style="margin-right: -10px; margin-left: -10px;">
+          <div class="flex flex-col py-2 px-3">
+            <a href="https://superyou.co.id/id/dashboard/profil" class="py-3 pr-3 flex items-center">
+              <div class="mr-3">
+                <img src="https://superyou.co.id/img/icons/user-active.svg" alt="goto profile" width="22px" height="22px">
+              </div>
+              <span class="text-darkblue text-base">Profil</span>
+            </a>
+            <div on:click={actionLogout} class="py-3 pr-3 flex items-center">
+              <div class="mr-3">
+                <img src="https://superyou.co.id/img/icons/logout-active.svg" alt="logout profile" width="22px" height="22px">
+              </div>
+              <span class="text-darkblue text-base">Logout</span>
+            </div>
+          </div>
+        </div>
+        {/if}
+        {:else}
         <div class="aside-item auth flex mt-1">
           <span class="inline-block" style="margin-top:2px;">
             <IcLock width="20px" height="20px" fill="#000" />
           </span>
           <h4 class="ml-4" on:click={() => {
-            window.location.href = `${APP_URL}/?#modal-login`
+            actionShowAndCloseModalLogin(true);
+            closeSideNav()
           }}>MASUK</h4>
         </div>
+        {/if}
         <div class="aside-item">
           <h4 style="display: inline-flex;align-items:center;">
             <img
