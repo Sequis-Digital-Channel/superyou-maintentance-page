@@ -36,7 +36,6 @@
 
   onMount(() => {
     bodyHTMLElement = true;
-
   });
 </script>
 
@@ -48,7 +47,7 @@
   {/if}
 </svelte:head>
 
-<BaseHeader {APP_URL}/>
+<BaseHeader />
 <CartContainer />
 <main>
   <GlobalStyle />

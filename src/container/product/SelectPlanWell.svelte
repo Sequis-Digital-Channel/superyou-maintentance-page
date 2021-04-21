@@ -470,12 +470,12 @@
   </div>
 </div>
 
-<div use:portal={"#portal"} id="portal">
-  {#if isAddToCartSuccess}
+{#if isAddToCartSuccess}
+  <div use:portal={"#portal"} id="portal">
     <BgOverlay />
     <PopUpAddToCart />
-  {/if}
-</div>
+  </div>
+{/if}
 
 <!-- <ProductRecommendationContainer /> -->
 <style lang="postcss">
