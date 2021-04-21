@@ -188,7 +188,7 @@
       </AboveTheFold>
     </div>
     <div class="carousel-cell s-motor w-full inline-block whitespace-normal">
-      <AboveTheFold meta={heroMeta.metas[1]}>
+      <AboveTheFold meta={heroMeta.metas[1]} withNote={true}>
         <picture class="hero-safe" slot="hero-img">
           <source
             media="(min-width: 801px)"

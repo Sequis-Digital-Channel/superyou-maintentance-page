@@ -6,12 +6,14 @@
     title: "Super Well Protection",
     description: "Asuransi kesehatan untuk 10 penyakit kritis dengan klaim cashless.",
     icon: "/icons/products/well/super-well.svg",
-    "btn_color": "#0d294a"
+    "btn_color": "#0d294a",
+    note: "Super Motor merupakan <b>produk tambahan</b> dari Super Safe dan tidak bisa dijual secara terpisah."
   }
+
+  export let withNote = false;
 
   let outerWidth;
   let offsetTop;
-  // let safari = false;
   let loaded = false;
 
   function focusView() {
@@ -35,33 +37,6 @@
       }
 
       loaded = true;
-
-      // const ua = navigator.userAgent.toLowerCase();
-      // if (ua.indexOf('safari') != -1) { 
-      //   if (ua.indexOf('chrome') > -1) {
-      //     safari = false;
-
-      //     setTimeout(() => {
-      //       const hero = document.querySelector(".product_hero picture");
-      //       const sources = hero.querySelectorAll('source');
-      //       sources.forEach(source => {
-      //         const realSrcSet = source.dataset.srcset;
-      //         source.setAttribute("srcset", realSrcSet);
-      //       })
-      //     }, 30);
-      //   } else {
-      //     safari = true; // Safari
-      //     setTimeout(() => {
-      //       const hero = document.querySelector(".product_hero picture");
-      //       const sources = hero.querySelectorAll('source');
-      //       sources.forEach(source => {
-      //         const realSrcSet = source.dataset.srcset;
-      //         source.setAttribute("srcset", realSrcSet);
-      //       })
-      //     }, 30);
-      //   }
-      // }
-      
     }
   })
 </script>
@@ -176,6 +151,12 @@
             /* height: 70px; */
           }
         }
+        &_note {
+          max-width: 314px;
+          @media (min-width: 768px) {
+            max-width: 80%;
+          }
+        }
       }
     }
   }
@@ -236,7 +217,13 @@
         style="max-width:314px;font-size:14px;font-weight:600;margin-bottom:20px;">
         YUK HITUNG BIAYA PREMI KAMU
       </BaseButton>
+      {#if withNote}
+      <p class="product_meta_note text-white text-xxs md:text-xs text-center md:text-left -mt-2 md:-mt-1 mb-3">
+        {@html meta.note}
+      </p>
+      {/if}
     </div>
+
 
     <div class="product_hero">
       {#if loaded}
