@@ -89,7 +89,7 @@
     on:click={() => actionShowAndCloseModalLogin(false)}>&#10005;</div>
   <div class="auth-wrapp py-16 px-6 md:px-12">
     <h2 class="text-darkblue font-bold text-2xl">Login</h2>
-    <p class="text-bluegray text-sm md:text-base mt-2 mb-6">Selamat datang kembali di Super You !</p>
+    <p class="text-bluegray text-sm md:text-base mt-2 mb-6">Selamat datang kembali di Super You! Silakan masukkan e-mail dan password kamu untuk login.</p>
     <form on:submit|preventDefault={handleLogin}>
       <BaseInputText
         label="Email"
@@ -146,7 +146,7 @@
       min-width: 45%;
       left: 50%;
       top: 50%;
-      max-height: 540px;
+      max-height: 564px;
     }
 
     .btn-login {
