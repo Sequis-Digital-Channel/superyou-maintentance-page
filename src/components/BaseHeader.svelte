@@ -1,23 +1,42 @@
 <script>
   import { onMount } from "svelte";
   import { stores } from "@sapper/app";
+  import { authStore, showModalLogin } from "../stores/auth/store";
+  import { actionShowAndCloseModalLogin, actionLogout } from "../stores/auth/actions";
   import { bodyScroll } from "../stores/bodyscroll";
-  
+  import { portal } from "../utils/_portal";
+
   import BgOverlay from "../components/BgOverlay.svelte";
   import IcLock from "./svg/IcLock.svelte";
 
-  export let APP_URL;
+  const { preloading, session } = stores();
 
-  const { preloading } = stores();
+  // get env url
+  let APP_URL, SUPER_API_URL;
+
   let navScrolled = false;
   let productListShow = false;
   let aside = false;
+  let isShowingAuth = false;
 
   let aboveTheFold = null;
   let aboveTheFoldObserver = null;
 
   let headerProductsNav;
   let asideNav;
+  let authModal;
+
+  session.subscribe((value) => {
+    APP_URL = value.APP_URL;
+    SUPER_API_URL = value.SUPER_API_URL;
+  })
+
+  showModalLogin.subscribe(value => {
+    isShowingAuth = value;
+    if(value && !authModal) {
+      loadAuthModal();
+    }
+  })
 
   function observeAboveTheFold() {
     aboveTheFold = document.querySelector(".above-the-fold-wrapper");
@@ -79,7 +98,17 @@
     aside = !aside;
   }
 
-  $: if (aside) {
+  function loadAuthModal() {
+    import("../container/common/AuthModal.svelte")
+    .then((module) => {
+      authModal = module.default;
+    })
+    .catch((err) => {
+      console.error((err && err.stack) || err);
+    })
+  }
+
+  $: if (aside || isShowingAuth) {
     bodyScroll.update(() => false);
   } else {
     bodyScroll.update(() => true);
@@ -136,7 +165,7 @@
       align-items: center;
 
       #su-nav {
-        width: 60%;
+        width: 65%;
         max-width: 900px;
         margin-left: auto;
         ul {
@@ -182,6 +211,30 @@
             &.auth-and-menu {
               display: flex;
               align-items: center;
+              
+              .profile {
+                .p_ddown-wrapper {
+                  opacity: 0;
+                  visibility: hidden;
+                  transition: all 0.3s ease;
+                  min-width: 130px;
+                  top: 19px;
+                  right: 30px;
+
+                  &:hover {
+                    opacity: 1;
+                    visibility: visible;
+                    top: 22px;
+                  }
+                }
+
+                .pic:hover ~ .p_ddown-wrapper, .p-name:hover + .p_ddown-wrapper {
+                  opacity: 1;
+                  visibility: visible;
+                  top: 22px;
+                }
+              }
+              
             }
 
             & > a,
@@ -217,7 +270,6 @@
               cursor: pointer;
               width: 26px;
               height: 26px;
-              margin-left: 20px;
 
               &:hover {
                 .menu {
@@ -372,29 +424,64 @@
         <li><a href={`${APP_URL}/faq`}>FAQ</a></li>
         <li><a href={`${APP_URL}/blog`}>Blog</a></li>
         <li><a href={`${APP_URL}/hubungi-kami`}>Hubungi Kami</a></li>
+        
         <li class="auth-and-menu">
-          <button on:click={() => {
-            window.location.href = `${APP_URL}/?#modal-login`;
-          }} aria-label="login">
+          {#if $authStore}
+          <div class="header-auth flex">
+            <div class="profile flex items-center relative">
+              <div class="pic flex-none rounded-full overflow-hidden hidden md:block">
+                <img
+                  src="https://secure.gravatar.com/avatar/5e540715c5edf010a5d1c64bef76fb35?s=80&r=g&d=identicon"
+                  alt="userpicture"
+                  width="25px"
+                  height="25px">
+              </div>
+              <span class="p-name flex-auto whitespace-no-wrap font-bold text-darkblue text-sm pl-3 hidden md:inline-block">
+                Hi, { $authStore.user_profile.first_name }!
+              </span>
+              <div class="p_ddown-wrapper absolute pt-3 hidden md:block">
+                <div class="p_ddown rounded-xl bg-white shadow-md">
+                  <a href="/dashboard/profil" class="p-3 pb-2 flex items-center">
+                    <div class="mr-3">
+                      <img src="https://superyou.co.id/img/icons/user-inactive.svg" alt="goto profile" width="20px" height="20px">
+                    </div>
+                    <span class="text-bluegray text-base">Cek Akun</span>
+                  </a>
+                  <div on:click={actionLogout} class="p-3 pt-2 flex items-center">
+                    <div class="mr-3">
+                      <img src="https://superyou.co.id/img/icons/logout-inactive.svg" alt="Logout" width="20px" height="20px">
+                    </div>
+                    <span class="text-bluegray text-base">Logout</span>
+                  </div>
+                </div>
+              </div>
+              <span class="flex-none ml-5" style="margin-top: -2px;">
+                <img src="https://superyou.co.id/img/icons/ico-no-message.svg" alt="user notification" width="30px" height="30px;">
+              </span>
+            </div>
+          </div>
+          {:else}
+          <button on:click={() => actionShowAndCloseModalLogin(true)} aria-label="login">
             <IcLock />
             <span>MASUK</span>
           </button>
+          {/if}
           <div
             on:click={handleClickMenu}
-            class="menu-wrapper"
+            class="menu-wrapper ml-4 md:ml-6"
             tabindex="0"
             role="button"
             aria-label="aside">
             <div class="menu" />
           </div>
         </li>
+        
       </ul>
     </nav>
   </div>
   {#if asideNav && aside}
     <svelte:component
       this={asideNav}
-      {aside}
       on:closeasidenav={() => {
         console.log('closed');
         aside = false;
@@ -404,3 +491,13 @@
     <!-- <AsideNavigation bind:aside {APP_URL} /> -->
   {/if}
 </header>
+
+{#if authModal && isShowingAuth}
+  <div use:portal={"#portal"} id="portal">
+    <BgOverlay on:click={() => actionShowAndCloseModalLogin(false)} />
+    <svelte:component
+      this={authModal}
+      {SUPER_API_URL}
+    />
+  </div>
+{/if}
