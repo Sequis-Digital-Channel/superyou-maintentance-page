@@ -1,4 +1,4 @@
-import {cartStore, sumAssuredTotal, paymentTermYearly, derivedLocalStorageData, derivedTotalQuantity} from "./store";
+import {cartStore, sumAssuredTotal, paymentTermYearly, derivedTotalQuantity} from "./store";
 import { cookieAddAndSubstractQuantity, cookieDeleteCartPlan, cookieAddToCart, cookieAddAndRemoveChoosenRider } from "../../utils/_cartcookie";
 
 let totalSumAssured;
@@ -12,13 +12,18 @@ derivedTotalQuantity.subscribe(count => {
 })
 
 let cartData;
-derivedLocalStorageData.subscribe(data => cartData = data);
 
 export function addToCart({planId, quantity, price, riders }, insuredFor, insuredDob, planDetail, productSlug, actionType = "READ") {
   // argument planDetail is object
   // { planId: string, fetched: boolean, quantity: number, price: number, riders: object}
   let updatedCart;
   cartStore.update(($cartStore) => {
+    const p_ids = Object.keys($cartStore.products);
+    if($cartStore.insuredDob !== insuredDob && p_ids.length) {
+      p_ids.forEach(id => {
+        $cartStore.products[id].fetched = false;
+      })
+    }
     updatedCart = $cartStore;
     updatedCart.insuredFor = insuredFor;
     updatedCart.insuredDob = insuredDob;
