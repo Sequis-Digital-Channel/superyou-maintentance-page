@@ -214,7 +214,7 @@
       </AboveTheFold>
     </div>
     <div class="carousel-cell w-full s-holiday inline-block whitespace-normal">
-      <AboveTheFold meta={heroMeta.metas[2]}>
+      <AboveTheFold meta={heroMeta.metas[2]} withNote={true}>
         <picture class="hero-holiday" slot="hero-img">
           <source
             media="(min-width: 801px)"

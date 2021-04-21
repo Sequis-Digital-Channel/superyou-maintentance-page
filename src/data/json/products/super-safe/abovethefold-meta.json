@@ -20,7 +20,8 @@
       "description": "Tanggal merah tanpa masalah.",
       "icon": "/icons/products/holiday/super-holiday.svg",
       "btn_color": "#00aaae",
-      "bg_color": "linear-gradient(120deg, #e86f55 9%, #eb9784 71%);"
+      "bg_color": "linear-gradient(120deg, #e86f55 9%, #eb9784 71%);",
+      "note": "Super Holiday merupakan <b>produk tambahan</b> dari Super Safe dan tidak bisa dijual secara terpisah."
     }
   ]
 }
