@@ -10,6 +10,7 @@ export const cartStore = writable({
 export const sumAssuredTotal = writable(0);
 export const paymentTermYearly = writable(false);
 export const cartShow = writable(false);
+export const cartErrorMessages = writable([]);
 
 export const derivedTotalPricePerPlan = derived(cartStore, $cartStore => {
   
@@ -47,7 +48,7 @@ export const onlyOneValidationProductList = derived(cartStore, $cartStore => {
   const {products} = $cartStore;
   if($cartStore.products) {
     Object.keys(products).forEach(planId => {
-      if (products[planId].validation_type === "only_one") {
+      if (products[planId].validation_type === "only_once") {
         listOnlyOnePlan.push(products[planId].product_slug)
       }
     })
