@@ -27,6 +27,7 @@
   import Testimony from "../../container/Testimony.svelte";
   import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
   import Leadgen from "../../container/Leadgen.svelte";
+  import HospitalLocator from "../../container/product/HospitalLocator.svelte";
 
   import { getProductBySlugNameClient } from "../../api/products.service";
   import { loadFlickity } from "../../utils/_loadflickity";
@@ -43,6 +44,7 @@
 
   let selectPlanWell;
   let OtherProductsContainer;
+  let WhatsAppChat;
   let isFlicktyLoaded = false;
 
   const logError = (err) => {
@@ -58,6 +60,14 @@
       })
       .catch(logError);
   };
+
+  const loadWhatsAppChat = (e) => {
+    import ("../../components/WhatsAppChat.svelte")
+    .then((module) => {
+      WhatsAppChat = module.default
+    })
+    .catch(logError);
+  }
 
   const loadSelectPlanWell = async () => {
     const product = await getProductBySlugNameClient(
@@ -115,6 +125,14 @@
       );
       otherProdObserver.observe(otherProd);
     }
+
+    function initWhatsAppUi () {
+      loadWhatsAppChat()
+      setTimeout(() => {
+        document.removeEventListener("scroll", initWhatsAppUi)
+      }, 0)
+    }
+    document.addEventListener("scroll", initWhatsAppUi)
   })
   
 </script>
@@ -278,6 +296,11 @@
   {/if}
 </section>
 
+<HospitalLocator />
+
+{#if WhatsAppChat}
+  <svelte:component this={WhatsAppChat} />
+{/if}
 
 <style lang="postcss">
   .above-the-fold-wrapper {
