@@ -297,7 +297,6 @@
         {api_product_url}
         {api_superyou_url}
         {app_url}
-        productSlug={slug}
       />
     {:else}
       <div
