@@ -13,7 +13,7 @@ derivedTotalQuantity.subscribe(count => {
 
 let cartData;
 
-export function addToCart({planId, quantity, price, riders }, insuredFor, insuredDob, planDetail, productSlug, actionType = "READ") {
+export function addToCart({planId, quantity, price, riders, validation_type }, insuredFor, insuredDob, planDetail, productSlug, actionType = "READ") {
   // argument planDetail is object
   // { planId: string, fetched: boolean, quantity: number, price: number, riders: object}
   let updatedCart;
@@ -34,9 +34,19 @@ export function addToCart({planId, quantity, price, riders }, insuredFor, insure
         price: updatedCart.products[planId].price + price,
         riders,
         fetched: false,
+        validation_type,
+        product_slug: productSlug
       }
     } else {
-      updatedCart.products[planId] = { planId, quantity, price, riders, fetched: false }
+      updatedCart.products[planId] = {
+        planId,
+        quantity,
+        price,
+        riders,
+        fetched: false,
+        validation_type,
+        product_slug: productSlug
+      }
     }
 
     return updatedCart;
@@ -56,7 +66,7 @@ export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
     cartStore.update(($cartStore) => {
       updatedCart = $cartStore;
       switch (validationType) {
-        case "only_one":
+        case "only_once":
           return updatedCart;
         case "sum_assured":
           if((totalSumAssured + sumAssuredPlan) <= 1500000000 ) {

@@ -60,7 +60,6 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob, selec
       saveToCookies(cartCookie);
     } else {
       cartCookie.products.push({
-        productSlug: productSlug,
         planId: plan.id,
         riders: [],
         monthlyPremi: plan.monthly_premium,

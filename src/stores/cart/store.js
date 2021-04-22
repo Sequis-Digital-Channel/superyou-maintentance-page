@@ -10,6 +10,7 @@ export const cartStore = writable({
 export const sumAssuredTotal = writable(0);
 export const paymentTermYearly = writable(false);
 export const cartShow = writable(false);
+export const cartErrorMessages = writable([]);
 
 export const derivedTotalPricePerPlan = derived(cartStore, $cartStore => {
   
@@ -40,4 +41,17 @@ export const derivedTotalQuantity = derived(cartStore, $cartStore => {
   } else {
     return 0;
   }
+});
+
+export const onlyOneValidationProductList = derived(cartStore, $cartStore => {
+  let listOnlyOnePlan = [];
+  const {products} = $cartStore;
+  if($cartStore.products) {
+    Object.keys(products).forEach(planId => {
+      if (products[planId].validation_type === "only_once") {
+        listOnlyOnePlan.push(products[planId].product_slug)
+      }
+    })
+  }
+  return listOnlyOnePlan;
 });
