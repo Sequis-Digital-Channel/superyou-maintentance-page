@@ -160,7 +160,7 @@
             <div class="benefit">
               <div class="left">
                 <div class="description">
-                  <p class="color-lightgray tx-sm">{benefit}</p>
+                  <p class="color-lightgray tx-sm">{@html benefit}</p>
                   <span
                     class="info color-lightgray tx-xs">{@html benefit_notes}</span>
                 </div>
