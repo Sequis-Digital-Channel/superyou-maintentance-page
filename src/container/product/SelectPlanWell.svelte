@@ -5,6 +5,7 @@
   import { getFormEncryption } from "../../api/superyou.service";
   import { formatDobHash } from "../../utils/_date";
   import { getCookie } from "../../utils/_cartcookie";
+  import { onlyOneValidationProductList } from "../../stores/cart/store";
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
@@ -18,7 +19,6 @@
   import { portal } from "../../utils/_portal";
 
   export let plans;
-  export let productSlug;
   export let api_product_url;
   export let api_superyou_url;
   export let app_url;
@@ -29,6 +29,12 @@
   let basePlanResultCard;
   let selectedDob = "";
   let isBtnDisabled = false;
+
+  let addToCartBtn = {
+    disabled: false,
+    msg: "",
+    showing: false,
+  }
 
   const setComponent = (module) => {
     basePlanResultCard = module.default;
@@ -250,24 +256,33 @@
   }
 
   function submitPlanToStore() {
-    const { id: planId, monthly_premium: price } = basePlanResultData;
+    const { 
+      id: planId,
+      monthly_premium: price,
+      validation_type,
+      product_slug
+    } = basePlanResultData;
     addToCart(
       {
         planId,
         quantity: 1,
         price,
         riders: {},
+        validation_type
       },
       calculationData.insured_for.val.value,
       formatDobHash(calculationData.insured_dob.val),
       basePlanResultData,
-      productSlug,
+      product_slug,
       "SAVE_TO_COOKIE"
     );
   }
 
   function handleClickAddToCart(e) {
     e.preventDefault();
+    if (validationPlanNotPassed()) {
+      return;
+    }
     submitPlanToStore();
     
     // Trigger pop up succes add to cart
@@ -279,6 +294,9 @@
 
   function payNow(e) {
     e.preventDefault();
+    if (validationPlanNotPassed()) {
+      return;
+    }
     submitPlanToStore();
 
     // get encrypted cart and redirect to form
@@ -287,6 +305,44 @@
       window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
     }, 110)
   }
+
+  function validationPlanNotPassed() {
+    const {
+      validation_type,
+      product_slug
+    } = basePlanResultData;
+
+    switch(validation_type) {
+      case "only_one":
+        if($onlyOneValidationProductList.includes(product_slug)) {
+          addToCartBtn.disabled = true;
+          addToCartBtn.msg = `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`
+        }
+        return $onlyOneValidationProductList.includes(product_slug);
+      default:
+        addToCartBtn.disabled = false;
+        addToCartBtn.msg = ``;
+        return false;
+    }
+  }
+
+  onlyOneValidationProductList.subscribe(list => {
+    // update the state of addToCartBtn
+    // when product has been deleted from cart error will be disappear
+    if(
+        basePlanResultData
+        &&
+        basePlanResultData.product_slug
+        && basePlanResultData.validation_type === "only_one"
+      ) {
+      if (!list.includes(basePlanResultData.product_slug)) {
+        addToCartBtn = {
+          disabled: false,
+          msg: ""
+        }
+      } 
+    }
+  });
 
   $: if (calculationData.insured_dob.error.status) {
     isBtnDisabled = true;
