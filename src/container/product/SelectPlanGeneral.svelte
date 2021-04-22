@@ -5,7 +5,8 @@
   import { getFormEncryption } from "../../api/superyou.service";
   import { formatDobHash } from "../../utils/_date";
   import { getCookie } from "../../utils/_cartcookie";
-  import { onlyOneValidationProductList, cartErrorMessages } from "../../stores/cart/store";
+  import { onlyOneValidationProductList, cartErrorMessages, derivedTotalSumAssured } from "../../stores/cart/store";
+  import { fetchProductsCart } from "../../stores/cart/actions";
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
@@ -167,7 +168,7 @@
         calculationData.plan.val.value,
         insuredDob
       );
-      console.log(basePlanResultData);
+
       // check insrured age criteria
       if (basePlanResultData.validations && basePlanResultData.validations.length) {
         let errorMessage = "";
@@ -182,6 +183,18 @@
       planSelected = true;
       focusView();
       selectedDob = insuredDob;
+      if (
+          basePlanResultData.validation_type === "sum_assured"
+          && basePlanResultData.sum_assured + $derivedTotalSumAssured <= 1500000000
+        ) {
+        addToCartBtn = {
+          disabled: false,
+          msg: ""
+        }
+        cartErrorMessages.update(errors => {
+          return errors.filter(error => error.type !== "sum_assured");
+        });
+      }
     }
   }
 
@@ -236,8 +249,11 @@
       monthly_premium: price,
       riders: plan_riders,
       validation_type,
-      product_slug
+      product_slug,
+      sum_assured
     } = basePlanResultData;
+
+    const sumAssuredAmount = validation_type === "sum_assured" ? sum_assured : 0;
 
     let riders = {}
     if (plan_riders.length && selectedRiders.length) {
@@ -258,7 +274,8 @@
         quantity: 1,
         price,
         riders,
-        validation_type
+        validation_type,
+        sum_assured: sumAssuredAmount
       },
       calculationData.insured_for.val.value,
       formatDobHash(calculationData.insured_dob.val),
@@ -297,7 +314,8 @@
   function validationPlanNotPassed() {
     const {
       validation_type,
-      product_slug
+      product_slug,
+      sum_assured
     } = basePlanResultData;
 
     switch(validation_type) {
@@ -316,6 +334,23 @@
           });
         }
         return $onlyOneValidationProductList.includes(product_slug);
+      case "sum_assured":
+        let assuredTotal = $derivedTotalSumAssured + sum_assured;
+        if (assuredTotal > 1500000000) {
+          addToCartBtn.disabled = true;
+          addToCartBtn.msg = `Kamu tidak dapat menambah produk lagi, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar`;
+          cartErrorMessages.update(errors => {
+            if(errors.findIndex(err => err.type === product_slug) === -1) {
+              return [...errors, {
+                "type": 'sum_assured',
+                "msg": `Kamu tidak dapat menambah produk lagi, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar`
+              }]
+            }
+            return errors;
+          });
+          return true;
+        }
+        return false;
       default:
         addToCartBtn.disabled = false;
         addToCartBtn.msg = ``;
@@ -345,6 +380,25 @@
     }
   });
 
+  derivedTotalSumAssured.subscribe(amount => {
+    const isErrorSumAssured =  $cartErrorMessages.findIndex(err => err.type === "sum_assured");
+    if (
+        isErrorSumAssured !== -1
+        && basePlanResultData
+        && basePlanResultData.validation_type === "sum_assured"
+      ) {
+      if (basePlanResultData.sum_assured + amount <= 1500000000) {
+        addToCartBtn = {
+          disabled: false,
+          msg: ""
+        }
+        cartErrorMessages.update(errors => {
+          return errors.filter(error => error.type !== "sum_assured");
+        });
+      }
+    }
+  })
+
   $: if (calculationData.insured_dob.error.status) {
     isBtnDisabled = true;
   } else {
@@ -359,6 +413,7 @@
       };
       productPlans = [...productPlans, currentPlan];
     });
+    fetchProductsCart(api_product_url, true);
   });
 </script>
 

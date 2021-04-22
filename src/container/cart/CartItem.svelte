@@ -6,7 +6,7 @@
   import { slide } from "svelte/transition";
   import {
     cartStore,
-    sumAssuredTotal,
+    derivedTotalSumAssured,
     paymentTermYearly,
     derivedTotalPricePerPlan,
     derivedTotalQuantity,
@@ -87,7 +87,7 @@
 
   $: btnSubstractQty = $cartStore.products[item.id].quantity <= 1;
   $: if (
-    $sumAssuredTotal + item.sum_assured > 1500000000 ||
+    $derivedTotalSumAssured + item.sum_assured > 1500000000 ||
     $derivedTotalQuantity >= 5 ||
     item.validation_type === "only_once"
   ) {
