@@ -5,6 +5,7 @@
   import { getFormEncryption } from "../../api/superyou.service";
   import { formatDobHash } from "../../utils/_date";
   import { getCookie } from "../../utils/_cartcookie";
+  import { onlyOneValidationProductList } from "../../stores/cart/store";
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
@@ -17,7 +18,6 @@
   import { portal } from "../../utils/_portal";
 
   export let plans;
-  export let productSlug;
   export let api_product_url;
   export let api_superyou_url;
   export let app_url;
@@ -28,6 +28,12 @@
   let basePlanResultCard;
   let selectedDob = "";
   let isBtnDisabled = false;
+
+  let addToCartBtn = {
+    disabled: false,
+    msg: "",
+    showing: false,
+  }
 
   const setComponent = (module) => {
     basePlanResultCard = module.default;
@@ -161,6 +167,7 @@
         calculationData.plan.val.value,
         insuredDob
       );
+      console.log(basePlanResultData);
       // check insrured age criteria
       if (basePlanResultData.validations && basePlanResultData.validations.length) {
         let errorMessage = "";
@@ -224,7 +231,14 @@
   }
 
   function submitPlanToStore() {
-    const { id: planId, monthly_premium: price, riders: plan_riders } = basePlanResultData;
+    const { 
+      id: planId,
+      monthly_premium: price,
+      riders: plan_riders,
+      validation_type,
+      product_slug
+    } = basePlanResultData;
+
     let riders = {}
     if (plan_riders.length && selectedRiders.length) {
       plan_riders.forEach(rider => {
@@ -243,18 +257,22 @@
         planId,
         quantity: 1,
         price,
-        riders
+        riders,
+        validation_type
       },
       calculationData.insured_for.val.value,
       formatDobHash(calculationData.insured_dob.val),
       basePlanResultData,
-      productSlug,
+      product_slug,
       "SAVE_TO_COOKIE"
     );
   }
 
   function handleClickAddToCart(e) {
     e.preventDefault();
+    if (validationPlanNotPassed()) {
+      return;
+    }
     submitPlanToStore();
     
     // Trigger pop up succes add to cart
@@ -266,12 +284,53 @@
 
   function payNow(e) {
     e.preventDefault();
+    if (validationPlanNotPassed()) {
+      return;
+    }
     submitPlanToStore();
     setTimeout(async () => {
       const encryptedKey = await getFormEncryption(api_superyou_url, getCookie("_cart"));
       window.location.href = `${app_url}/form-data?q=${encryptedKey}`;
     }, 110)
   }
+
+  function validationPlanNotPassed() {
+    const {
+      validation_type,
+      product_slug
+    } = basePlanResultData;
+
+    switch(validation_type) {
+      case "only_one":
+        if($onlyOneValidationProductList.includes(product_slug)) {
+          addToCartBtn.disabled = true;
+          addToCartBtn.msg = `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`
+        }
+        return $onlyOneValidationProductList.includes(product_slug);
+      default:
+        addToCartBtn.disabled = false;
+        addToCartBtn.msg = ``;
+        return false;
+    }
+  }
+
+  onlyOneValidationProductList.subscribe(list => {
+    // update the state of addToCartBtn
+    // when product has been deleted from cart error will be disappear
+    if(
+        basePlanResultData
+        &&
+        basePlanResultData.product_slug
+        && basePlanResultData.validation_type === "only_one"
+      ) {
+      if (!list.includes(basePlanResultData.product_slug)) {
+        addToCartBtn = {
+          disabled: false,
+          msg: ""
+        }
+      } 
+    }
+  });
 
   $: if (calculationData.insured_dob.error.status) {
     isBtnDisabled = true;
@@ -375,9 +434,18 @@
               plan_data={basePlanResultData}
             />
           {/if}
+
+          {#if addToCartBtn.disabled}
+            <p class="text-red-600 px-1 my-3 text-sm">
+            {addToCartBtn.msg}
+            </p>
+          {/if}
+
           <BaseButton
             on:click={(e) => handleClickAddToCart(e)}
             style="max-width: 383px;font-size:14px;margin:30px auto 20px;"
+            bgColor={addToCartBtn.disabled ? '#708697' : '#00aaae'}
+            disabled={addToCartBtn.disabled}
           >
             TAMBAH KE KERANJANG
             <img
@@ -392,9 +460,10 @@
           <BaseButton
             on:click={(e) => payNow(e)}
             style="max-width: 383px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
-            bgColor={"transparent"}>
+            bgColor='transparent'
+            disabled={addToCartBtn.disabled}
+          >
             BAYAR SEKARANG
-            <!-- <i slot="icon" class="loader" /> -->
           </BaseButton>
 
           <p

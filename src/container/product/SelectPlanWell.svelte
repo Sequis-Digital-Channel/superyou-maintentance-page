@@ -311,7 +311,7 @@
       validation_type,
       product_slug
     } = basePlanResultData;
-
+    console.log(validation_type);
     switch(validation_type) {
       case "only_one":
         if($onlyOneValidationProductList.includes(product_slug)) {
@@ -444,9 +444,18 @@
               plan_data={basePlanResultData}
             />
           {/if}
+
+          {#if addToCartBtn.disabled}
+            <p class="text-red-600 px-1 my-3 text-sm">
+            {addToCartBtn.msg}
+            </p>
+          {/if}
+
           <BaseButton
             on:click={(e) => handleClickAddToCart(e)}
             style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
+            bgColor={addToCartBtn.disabled ? '#708697' : '#00aaae'}
+            disabled={addToCartBtn.disabled}
           >
             TAMBAH KE KERANJANG
             <img
@@ -462,8 +471,9 @@
             on:click={(e) => payNow(e)}
             style="max-width: 330px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
             bgColor={"transparent"}
-          >BAYAR SEKARANG</BaseButton
-          >
+            disabled={addToCartBtn.disabled}>
+            BAYAR SEKARANG
+          </BaseButton>
 
           <p
             on:click={backToForm}
