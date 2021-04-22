@@ -149,7 +149,7 @@
         ],
         "qty":1,
         "pdfUrl":"/my-hospital-protection.pdf",
-        "validationType":"only_one"
+        "validationType":"only_once"
      }
   ],
   "newProduct":{
