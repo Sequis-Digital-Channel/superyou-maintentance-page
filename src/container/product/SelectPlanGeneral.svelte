@@ -5,7 +5,7 @@
   import { getFormEncryption } from "../../api/superyou.service";
   import { formatDobHash } from "../../utils/_date";
   import { getCookie } from "../../utils/_cartcookie";
-  import { onlyOneValidationProductList } from "../../stores/cart/store";
+  import { onlyOneValidationProductList, cartErrorMessages } from "../../stores/cart/store";
   import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
@@ -301,10 +301,19 @@
     } = basePlanResultData;
 
     switch(validation_type) {
-      case "only_one":
+      case "only_once":
         if($onlyOneValidationProductList.includes(product_slug)) {
           addToCartBtn.disabled = true;
           addToCartBtn.msg = `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`
+          cartErrorMessages.update(errors => {
+            if(errors.findIndex(err => err.type === product_slug) === -1) {
+              return [...errors, {
+                "type": product_slug,
+                "msg": `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`
+              }]
+            }
+            return errors;
+          });
         }
         return $onlyOneValidationProductList.includes(product_slug);
       default:
@@ -321,13 +330,17 @@
         basePlanResultData
         &&
         basePlanResultData.product_slug
-        && basePlanResultData.validation_type === "only_one"
+        && basePlanResultData.validation_type === "only_once"
       ) {
       if (!list.includes(basePlanResultData.product_slug)) {
         addToCartBtn = {
           disabled: false,
           msg: ""
         }
+
+        cartErrorMessages.update(errors => {
+          return errors.filter(error => error.type !== basePlanResultData.product_slug);
+        });
       } 
     }
   });
