@@ -88,8 +88,7 @@
       if (cartCookie) {
         cartCookie = JSON.parse(cartCookie);
         cartCookie.products.forEach((product) => {
-          const { planId, qty, price, chosenRider, sumAssured } = product;
-
+          const { planId, qty, price, chosenRider, sumAssured, product_slug, validationType: validation_type } = product;
           let selectedRiders = {};
           let riders = {};
           chosenRider.forEach((riderId) => {
@@ -105,9 +104,12 @@
               quantity: qty,
               price,
               riders,
+              validation_type
             },
             product.insuredFor,
-            cartCookie.dobString
+            cartCookie.dobString,
+            null,
+            product_slug
           );
         });
       }

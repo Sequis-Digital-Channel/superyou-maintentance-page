@@ -50,6 +50,8 @@
       itemsDetail[response.id] = response;
       cartStore.update((cart) => {
         cart.products[response.id].fetched = true;
+        cart.products[response.id].validation_type = response.validation_type;
+        cart.products[response.id].product_slug = response.product_slug;
         cart.products[response.id].price =
           cart.products[response.id].quantity * response.monthly_premium;
 
