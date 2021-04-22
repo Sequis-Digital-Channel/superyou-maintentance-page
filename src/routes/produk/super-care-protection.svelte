@@ -28,6 +28,7 @@
   import Testimony from "../../container/Testimony.svelte";
   import ProductNotCovered from "../../container/product/ProductNotCovered.svelte";
   import Leadgen from "../../container/Leadgen.svelte";
+  import HospitalLocator from "../../container/product/HospitalLocator.svelte";
 
   import { loadFlickity } from "../../utils/_loadflickity";
   import { getProductBySlugNameClient } from "../../api/products.service";
@@ -299,6 +300,9 @@
     <div class="otherproduct_progress" />
   {/if}
 </section>
+
+<HospitalLocator
+  info="Untuk kamu nasabah asuransi Super You yang membutuhkan perawatan rumah sakit rekanan. Berikut daftar rumah sakit terdekat yang dapat kamu kunjungi." />
 
 {#if WhatsAppChat}
   <svelte:component this={WhatsAppChat} />
