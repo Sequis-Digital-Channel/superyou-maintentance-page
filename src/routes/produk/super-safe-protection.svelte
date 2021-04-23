@@ -468,16 +468,16 @@
     }
   
     @media (max-width: 639px) {
-      :global(.t-wrapper.bene-tooltip-1 .tooltip-holder) {
-        right: -140px !important;
-      }
+      :global(.benefit_wrapper .benefit_item__right > h4) {
+        max-width: 85%;
+      } 
   
       :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
-        right: -85px !important;
+        right: -110px !important;
       }
   
       :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
-        right: -150px !important;
+        right: -106px !important;
       }
     }
     @media (min-width: 640px) {
