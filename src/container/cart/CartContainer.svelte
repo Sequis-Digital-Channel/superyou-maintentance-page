@@ -8,7 +8,7 @@
     cartShow,
     paymentTermYearly,
     derivedTotalQuantity,
-    sumAssuredTotal,
+    derivedTotalSumAssured,
     derivedTotalPricePerPlan,
     cartErrorMessages
   } from "../../stores/cart/store";
@@ -67,7 +67,7 @@
     bodyScroll.update(() => true);
   }
 
-  $: if ($sumAssuredTotal > 1500000000) {
+  $: if ($derivedTotalSumAssured > 1500000000) {
     isNextStepToBuyValid = true;
   }
 
@@ -102,7 +102,8 @@
               quantity: qty,
               price,
               riders,
-              validation_type
+              validation_type,
+              sum_assured: 0 // initial load
             },
             product.insuredFor,
             cartCookie.dobString,
@@ -169,7 +170,7 @@
         {#if $cartErrorMessages && $cartErrorMessages.length}
           <ul class="px-3 md:px-4 text-xs -mt-32 md:-mt-16 pb-12">
             {#each $cartErrorMessages as cartError, i (`err-msg-${i}`) }
-              <li class="text-red-600">{ cartError.msg }</li>
+              <li class="text-red-600 mb-2">{ cartError.msg }</li>
             {/each}
           </ul>
         {/if}

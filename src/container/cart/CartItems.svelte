@@ -3,12 +3,10 @@
   import {
     cartStore,
     cartShow,
-    paymentTermYearly,
   } from "../../stores/cart/store";
-  import { calculateSumAssuredTotal } from "../../stores/cart/actions";
+  import { fetchProductsCart } from "../../stores/cart/actions";
   import { formatDobHash } from "../../utils/_date";
   import { onDestroy } from "svelte";
-  import { getPlanById } from "../../api/products.service";
 
   let cartItem;
   let productApiUrl = "";
@@ -31,60 +29,37 @@
 
   let itemsDetail = {};
 
-  async function fetchProductsCart() {
-    let sumAssuredTotal = 0;
-    const productsNotYetFetched = Object.keys($cartStore.products).filter(
-      (planId) => $cartStore.products[planId].fetched === false
-    );
-
-    // stop if all products already fetech
-    if (!productsNotYetFetched) return;
-
-    const productsDetails = await Promise.all(
-      productsNotYetFetched.map((planId) =>
-        getPlanById(productApiUrl, planId, `${$cartStore.insuredDob}`)
-      )
-    );
-    productsDetails.forEach(function (response, index) {
-      // itemsDetail = [...itemsDetail, { ...response }];
-      itemsDetail[response.id] = response;
-      cartStore.update((cart) => {
-        cart.products[response.id].fetched = true;
-        cart.products[response.id].validation_type = response.validation_type;
-        cart.products[response.id].product_slug = response.product_slug;
-        cart.products[response.id].price =
-          cart.products[response.id].quantity * response.monthly_premium;
-
-        if (response.validation_type === "sum_assured") {
-          sumAssuredTotal +=
-            response.sum_assured * cart.products[response.id].quantity;
-        }
-
-        // Update riders price if any plan with choosen riders
-        Object.keys(cart.products[response.id].riders).forEach((riderId) => {
-          const rider = response.riders.find((rider) => rider.id === riderId);
-          cart.products[response.id].riders[rider.id] = {
-            id: rider.id,
-            price: rider.monthly_premium,
-            product_code: rider.product_code
-          };
-        });
-        return cart;
-      });
-    });
-
-    calculateSumAssuredTotal(sumAssuredTotal);
-    loadCartItem();
-  }
   $: if ($cartShow) {
-    fetchProductsCart();
+     fetchProductsCart(productApiUrl)
+     .then(plans => {
+       if(Object.keys(plans).length) {
+         Object.keys(plans).forEach(planId => {
+           itemsDetail[planId] = plans[planId];
+         });
+       }
+     })
+
+    if(!cartItem) {
+      loadCartItem();
+    }
   }
+
+  cartStore.subscribe(cart => {
+    let listId = Object.keys(itemsDetail);
+    listId.forEach(id => {
+      if(!cart.products[id]) {
+        let updateItemsDetail = itemsDetail;
+        delete updateItemsDetail[id];
+        itemsDetail = updateItemsDetail;
+      }
+    })
+  })
 
   onDestroy(unsubscribe);
 </script>
 
 {#each Object.keys($cartStore.products) as planid (planid)}
-  {#if $cartStore.products[planid].fetched && cartItem}
+  {#if $cartStore.products[planid].fetched && cartItem && itemsDetail[planid]}
     <svelte:component this={cartItem} item={itemsDetail[planid]} />
   {:else}
     <div class="cart-item-load bg-white mt-4 p-3" style="height: 85px;">

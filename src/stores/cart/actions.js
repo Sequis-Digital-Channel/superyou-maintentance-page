@@ -1,8 +1,9 @@
-import {cartStore, sumAssuredTotal, paymentTermYearly, derivedTotalQuantity} from "./store";
+import {cartStore, derivedTotalSumAssured, paymentTermYearly, derivedTotalQuantity} from "./store";
 import { cookieAddAndSubstractQuantity, cookieDeleteCartPlan, cookieAddToCart, cookieAddAndRemoveChoosenRider } from "../../utils/_cartcookie";
+import { getPlanById } from "../../api/products.service";
 
 let totalSumAssured;
-sumAssuredTotal.subscribe(amount => {
+derivedTotalSumAssured.subscribe(amount => {
   totalSumAssured = amount;
 })
 
@@ -13,7 +14,7 @@ derivedTotalQuantity.subscribe(count => {
 
 let cartData;
 
-export function addToCart({planId, quantity, price, riders, validation_type }, insuredFor, insuredDob, planDetail, productSlug, actionType = "READ") {
+export function addToCart({planId, quantity, price, riders, validation_type, sum_assured}, insuredFor, insuredDob, planDetail, productSlug, actionType = "READ") {
   // argument planDetail is object
   // { planId: string, fetched: boolean, quantity: number, price: number, riders: object}
   let updatedCart;
@@ -27,6 +28,7 @@ export function addToCart({planId, quantity, price, riders, validation_type }, i
     updatedCart = $cartStore;
     updatedCart.insuredFor = insuredFor;
     updatedCart.insuredDob = insuredDob;
+
     if (planId in updatedCart.products) {
       updatedCart.products[planId] = {
         planId: planId,
@@ -35,7 +37,8 @@ export function addToCart({planId, quantity, price, riders, validation_type }, i
         riders,
         fetched: false,
         validation_type,
-        product_slug: productSlug
+        product_slug: productSlug,
+        sum_assured
       }
     } else {
       updatedCart.products[planId] = {
@@ -45,7 +48,8 @@ export function addToCart({planId, quantity, price, riders, validation_type }, i
         riders,
         fetched: false,
         validation_type,
-        product_slug: productSlug
+        product_slug: productSlug,
+        sum_assured
       }
     }
 
@@ -69,9 +73,6 @@ export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
         case "only_once":
           return updatedCart;
         case "sum_assured":
-          if((totalSumAssured + sumAssuredPlan) <= 1500000000 ) {
-            calculateSumAssuredTotal(sumAssuredPlan);
-          }
           updatedCart.products[planId].quantity += 1;
           updatedCart.products[planId].price = updatedCart.products[planId].quantity * price;
           return updatedCart;
@@ -95,9 +96,6 @@ export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
 
 export function substractQuantityPlan(planId, sumAssuredPlan, price, validationType) {
   // substract -1
-  if (validationType === "sum_assured") {
-    calculateSumAssuredTotal(-sumAssuredPlan);
-  }
   let updatedCart
   cartStore.update(($cartStore) => {
     updatedCart = $cartStore;
@@ -121,10 +119,6 @@ export function updateProductPrice(planId, price) {
 
     return updatedCart;
   })
-}
-
-export function calculateSumAssuredTotal(amount) {
-  sumAssuredTotal.update((currentAmount) => currentAmount + amount);
 }
 
 export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice, riderCode) {
@@ -166,15 +160,13 @@ export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice, ri
 }
 
 export function deleteCartItem(planId, sumAssuredPlan) {
+  console.log(planId, sumAssuredPlan);
   cartStore.update($cartStore => {
     let updatedCart = $cartStore;
+    // const planQuantity = updatedCart.products[planId].quantity;
     delete updatedCart.products[planId];
     return updatedCart;
   })
-
-  setTimeout(() => {
-    calculateSumAssuredTotal(-sumAssuredPlan);
-  }, 100);
 
   // save to cookie
   setTimeout(() => {
@@ -207,3 +199,64 @@ export function setToLocalStorage() {
     );
   }
 }
+
+export async function fetchProductsCart(productApiUrl, refetch = false) {
+    // let totalSumAssured = 0;
+    let cartData;
+    let itemsDetail = {};
+
+    cartStore.subscribe(cart => {
+      cartData = cart;
+    })
+    const productsNotYetFetched = Object.keys(cartData.products).filter(
+      (planId) => cartData.products[planId].fetched === false
+    );
+
+    // stop if all products already fetech
+    if (!productsNotYetFetched.length) return {};
+
+    const productsDetails = await Promise.all(
+      productsNotYetFetched.map((planId) =>
+        getPlanById(productApiUrl, planId, `${cartData.insuredDob}`)
+      )
+    );
+    productsDetails.forEach(function (response, index) {
+      itemsDetail[response.id] = response;
+
+      cartStore.update((cart) => {
+        if (refetch) {
+          cart.products[response.id].fetched = false;  
+        } else {
+          cart.products[response.id].fetched = true;
+        }
+        cart.products[response.id].validation_type = response.validation_type;
+        cart.products[response.id].product_slug = response.product_slug;
+        cart.products[response.id].price =
+          cart.products[response.id].quantity * response.monthly_premium;
+
+        if (response.validation_type === "sum_assured") {
+          totalSumAssured +=
+            response.sum_assured * cart.products[response.id].quantity;
+            cart.products[response.id].sum_assured = response.sum_assured;
+        } else {
+          cart.products[response.id].sum_assured = 0;
+        }
+
+        // Update riders price if any plan with choosen riders
+        Object.keys(cart.products[response.id].riders).forEach((riderId) => {
+          const rider = response.riders.find((rider) => rider.id === riderId);
+          cart.products[response.id].riders[rider.id] = {
+            id: rider.id,
+            price: rider.monthly_premium,
+            product_code: rider.product_code
+          };
+        });
+        return cart;
+      });
+    });
+
+    // sumAssuredTotal.update(() => {
+      
+    // });
+    return itemsDetail
+  }

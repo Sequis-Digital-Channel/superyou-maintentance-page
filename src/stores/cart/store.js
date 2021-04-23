@@ -7,7 +7,6 @@ export const cartStore = writable({
     products: {}
 });
 
-export const sumAssuredTotal = writable(0);
 export const paymentTermYearly = writable(false);
 export const cartShow = writable(false);
 export const cartErrorMessages = writable([]);
@@ -34,9 +33,23 @@ export const derivedTotalPricePerPlan = derived(cartStore, $cartStore => {
 
 export const derivedTotalQuantity = derived(cartStore, $cartStore => {
   const {products} = $cartStore;
-  if($cartStore.products) {
+  if($cartStore.products && Object.keys($cartStore.products)) {
     return Object.keys(products).reduce((accumulator, planId) => {
       return accumulator + products[planId].quantity;
+    }, 0)
+  } else {
+    return 0;
+  }
+});
+
+export const derivedTotalSumAssured = derived(cartStore, $cartStore => {
+  const {products} = $cartStore;
+  if($cartStore.products && Object.keys($cartStore.products).length) {
+    const sumAssuredTimesQtyPerPlan = Object.keys(products).map(planId => {
+      return products[planId].sum_assured * products[planId].quantity;
+    })
+    return sumAssuredTimesQtyPerPlan.reduce((accumulator, amount) => {
+      return accumulator + amount;
     }, 0)
   } else {
     return 0;
@@ -46,7 +59,7 @@ export const derivedTotalQuantity = derived(cartStore, $cartStore => {
 export const onlyOneValidationProductList = derived(cartStore, $cartStore => {
   let listOnlyOnePlan = [];
   const {products} = $cartStore;
-  if($cartStore.products) {
+  if($cartStore.products && Object.keys($cartStore.products)) {
     Object.keys(products).forEach(planId => {
       if (products[planId].validation_type === "only_once") {
         listOnlyOnePlan.push(products[planId].product_slug)
