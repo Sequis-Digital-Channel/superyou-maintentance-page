@@ -382,6 +382,10 @@
       :global(.super-life .t-wrapper.tnc-item-4 .tooltip-holder) {
         left: -83px;
       }
+
+      :global(.super-life .t-wrapper.tnc-item-6 .tooltip-holder) {
+        left: -220px;
+      }
     }
     @media (min-width: 640px) {
       :global(.super-life .t-wrapper.tnc-item-0 .tooltip-holder) {
