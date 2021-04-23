@@ -45,8 +45,6 @@
       font-size: 12px;
       position: absolute;
       z-index: 4;
-      /* top: 160%;
-      right: -100%; */
       top: 10px;
       right: -72px;
       margin-left: -60px;

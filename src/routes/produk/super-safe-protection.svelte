@@ -242,7 +242,7 @@
     </div>
   </section>
   
-  <section class="su_container benefits">
+  <section class="su_container benefits super-safe">
     <ProductBenefits
       benefitGroups={benefit_groups}
       benefitTitle="Manfaat Asuransi Kecelakaan Diri yang Kamu Dapatkan"
@@ -260,7 +260,7 @@
     </a>
   </section>
   
-  <section class="su_container tnc">
+  <section class="su_container tnc super-safe">
     <ProductTnc listTnc={tnc.safe} productName="Super Safe Protection"/>
     <p class="product_tnc__more-info"
       style="text-align:center;color: #0d294a;font-size: 14px;">
@@ -468,20 +468,20 @@
     }
   
     @media (max-width: 639px) {
-      :global(.benefit_wrapper .benefit_item__right > h4) {
+      :global(.super-safe .benefit_wrapper .benefit_item__right > h4) {
         max-width: 85%;
       } 
   
-      :global(.t-wrapper.bene-tooltip-2 .tooltip-holder) {
+      :global(.super-safe .t-wrapper.bene-tooltip-2 .tooltip-holder) {
         right: -110px !important;
       }
   
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      :global(.super-safe .t-wrapper.tnc-item-0 .tooltip-holder) {
         right: -106px !important;
       }
     }
     @media (min-width: 640px) {
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      :global(.super-safe .t-wrapper.tnc-item-0 .tooltip-holder) {
         transform: translateX(30%);
       }
     }

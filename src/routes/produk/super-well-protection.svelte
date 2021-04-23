@@ -337,7 +337,7 @@
 
   @media (max-width: 639px) {
     :global(.super-well .t-wrapper.bene-tooltip-2 .tooltip-holder) {
-      left: -80px;
+      left: -106px;
     }
     :global(.super-well .t-wrapper.tnc-item-0 .tooltip-holder) {
       left: -230px;

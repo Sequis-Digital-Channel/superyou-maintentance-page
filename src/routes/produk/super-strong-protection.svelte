@@ -355,11 +355,11 @@
     }
   
     @media (max-width: 639px) {
-      :global(.benefit_wrapper .benefit_item__right > h4) {
+      :global(.super-strong .benefit_wrapper .benefit_item__right > h4) {
         max-width: 80%;
       }
 
-      :global(.product_tnc__wrapper .benefit_item__right) {
+      :global(.super-strong .product_tnc__wrapper .benefit_item__right) {
         max-width: 75%;
       }
   
@@ -374,13 +374,13 @@
       }
     }
     @media (min-width: 640px) {
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      :global(.super-strong .t-wrapper.tnc-item-0 .tooltip-holder) {
         transform: translateX(30%);
       }
     }
 
     @media (max-width: 380px) {
-      :global(.benefit_item__right > h4) {
+      :global(.super-strong .benefit_item__right > h4) {
         max-width: 83%;
       }
     }
