@@ -362,14 +362,24 @@
     }
   
     @media (max-width: 639px) {
+      :global(.benefit_wrapper .benefit_item__right > h4) {
+        max-width: 85%;
+      } 
+
+      :global(.product_tnc__wrapper .benefit_item__right) {
+        max-width: 67%;
+      }
       :global(.my-hospital .t-wrapper.bene-tooltip-2 .tooltip-holder) {
-        left: -30px;
+        left: -120px;
       }
       :global(.my-hospital .t-wrapper.tnc-item-0 .tooltip-holder) {
         left: -100px;
       }
       :global(.my-hospital .t-wrapper.tnc-item-3 .tooltip-holder) {
-        left: -260px;
+        left: -212px;
+      }
+      :global(.my-hospital .t-wrapper.tnc-item-4 .tooltip-holder) {
+        left: -117px;
       }
     }
     @media (min-width: 640px) {
