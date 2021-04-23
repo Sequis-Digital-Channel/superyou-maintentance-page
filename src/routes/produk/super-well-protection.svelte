@@ -336,8 +336,12 @@
   }
 
   @media (max-width: 639px) {
+
+    :global(.super-well .benefit_wrapper .benefit_item__right > h4) {
+        max-width: 80%;
+      }
     :global(.super-well .t-wrapper.bene-tooltip-2 .tooltip-holder) {
-      left: -106px;
+      left: -148px;
     }
     :global(.super-well .t-wrapper.tnc-item-0 .tooltip-holder) {
       left: -230px;
