@@ -394,6 +394,14 @@
             width="64px"
             height="34px" />
         </div>
+        <div class="lazy-image">
+          <img
+            src={lazySrc}
+            data-src={`${APP_URL}/img/footer/security-payment/admedika.png`}
+            alt="Keamanan Transaksi"
+            width="64px"
+            height="34px" />
+        </div>
       </div>
     </div>
 
