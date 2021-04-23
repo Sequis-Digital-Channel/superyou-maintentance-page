@@ -364,11 +364,15 @@
   
     @media (max-width: 639px) {
       :global(.super-life .t-wrapper.bene-tooltip-0 .tooltip-holder) {
-        left: -216px;
+        left: -250px;
       }
 
       :global(.super-life .t-wrapper.bene-tooltip-1 .tooltip-holder) {
         left: -102px;
+      }
+
+      :global(.super-life .product_tnc__wrapper .benefit_item__right) {
+        max-width: 75%;
       }
   
       :global(.super-life .t-wrapper.tnc-item-0 .tooltip-holder) {
@@ -376,11 +380,11 @@
       }
 
       :global(.super-life .t-wrapper.tnc-item-4 .tooltip-holder) {
-        left: -260px;
+        left: -83px;
       }
     }
     @media (min-width: 640px) {
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      :global(.super-life .t-wrapper.tnc-item-0 .tooltip-holder) {
         transform: translateX(30%);
       }
     }

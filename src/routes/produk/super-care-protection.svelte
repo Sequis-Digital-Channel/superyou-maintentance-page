@@ -361,19 +361,7 @@
     }
 
     :global(.super-care .t-wrapper.bene-tooltip-2 .tooltip-holder) {
-      left: -150px;
-    }
-
-    :global(.super-care .t-wrapper.tnc-item-0 .tooltip-holder) {
-      right: -150px !important;
+      left: -170px;
     }
   }
-  @media (min-width: 640px) {
-    :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
-      transform: translateX(30%);
-    }
-  }
-
-  
-
 </style>

@@ -355,24 +355,33 @@
     }
   
     @media (max-width: 639px) {
-      :global(.super-strong .t-wrapper.bene-tooltip-1 .tooltip-holder) {
-        left: -52px;
+      :global(.super-strong .benefit_wrapper .benefit_item__right > h4) {
+        max-width: 80%;
       }
-  
-      :global(.super-strong .t-wrapper.bene-tooltip-2 .tooltip-holder) {
-        right: -85px !important;
+
+      :global(.super-strong .product_tnc__wrapper .benefit_item__right) {
+        max-width: 75%;
       }
   
       :global(.super-strong .t-wrapper.tnc-item-0 .tooltip-holder) {
         right: -150px !important;
       }
       :global(.super-strong .t-wrapper.tnc-item-4 .tooltip-holder) {
-        left: -256px;
+        left: -91px;
+      }
+      :global(.super-strong .t-wrapper.tnc-item-6 .tooltip-holder) {
+        left: -240px;
       }
     }
     @media (min-width: 640px) {
-      :global(.t-wrapper.tnc-item-0 .tooltip-holder) {
+      :global(.super-strong .t-wrapper.tnc-item-0 .tooltip-holder) {
         transform: translateX(30%);
+      }
+    }
+
+    @media (max-width: 380px) {
+      :global(.super-strong .benefit_item__right > h4) {
+        max-width: 83%;
       }
     }
   </style>
