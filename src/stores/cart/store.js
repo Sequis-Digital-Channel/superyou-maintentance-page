@@ -7,7 +7,6 @@ export const cartStore = writable({
     products: {}
 });
 
-export const sumAssuredTotal = writable(0);
 export const paymentTermYearly = writable(false);
 export const cartShow = writable(false);
 export const cartErrorMessages = writable([]);
