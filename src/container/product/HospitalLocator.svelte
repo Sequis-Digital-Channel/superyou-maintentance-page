@@ -1,7 +1,10 @@
 <script>
     import BaseButton from "../../components/BaseButton.svelte"
+    export let APP_URL;
 
     export let info = "Kunjungi rumah sakit rekanan Super You dari lokasi kamu. Daftar rumah sakit kami memberikan perawatan kesehatan sesuai kebutuhan kamu.";
+    let lazySrc =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
 </script>
 
 <style lang="postcss">
@@ -84,7 +87,8 @@
     <div class="locator-item">
         <div class="locator-item__icon lazy-image">
             <img
-              src="../../../../icons/hospital-location.svg"
+              src={lazySrc}
+              data-src="../../../icons/hospital-locator/hospital-location.svg"
               width="42"
               height="42"
               alt="hospital-location" />
