@@ -46,6 +46,13 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
+    let otherproductsOrder = [
+      'super-strong-protection',
+      'super-care-protection',
+      'my-hospital-protection',
+      'super-well-protection',
+      'super-safe-protection',
+    ]
   
     const logError = (err) => {
       console.error((err && err.stack) || err);
@@ -109,7 +116,7 @@
         });
         formObserver.observe(premiCalcContainer);
 
-        const otherProd = document.querySelector(".otherproduct");
+        const otherProd = document.querySelector(".otherproduct-life");
         const otherProdObserver = new IntersectionObserver((entries) => {
           const el = entries[0];
           if(el.isIntersecting) {
@@ -121,7 +128,7 @@
             }
           }
         },
-        {rootMargin: "-600px 0px 0px 0px",}
+        {rootMargin: "-300px 0px 0px 0px",}
         );
         otherProdObserver.observe(otherProd);
       } else {
@@ -292,13 +299,14 @@
     <ProductNotCovered data={notcovered.life} productTitle="Super Life"/>
   </section>
   
-  <section class="su_container otherproduct" style="background-color:#e7eaef;">
+  <section class="su_container otherproduct-life" style="background-color:#e7eaef;">
     {#if OtherProductsContainer}
       <svelte:component
         this={OtherProductsContainer}
         apiProductUrl={api_product_url}
         appUrl={app_url}
         productName="Super Life"
+        productsOrder={otherproductsOrder}
         slugException={slug} />
     {:else}
       <div class="otherproduct_progress" />
@@ -356,7 +364,7 @@
     .su_container.faq,
     .su_container.testimonies,
     .su_container.notcovered,
-    .su_container.otherproduct 
+    .su_container.otherproduct-life
     {
       content-visibility: auto;
       contain-intrinsic-size: 700px;

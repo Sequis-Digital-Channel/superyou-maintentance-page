@@ -46,6 +46,13 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
+    let otherproductsOrder = [
+      'super-care-protection',
+      'my-hospital-protection',
+      'super-safe-protection',
+      'super-life-protection',
+      'super-well-protection',
+    ]
   
     const logError = (err) => {
       console.error((err && err.stack) || err);
@@ -109,19 +116,18 @@
         });
         formObserver.observe(premiCalcContainer);
 
-        const otherProd = document.querySelector(".otherproduct");
+        const otherProd = document.querySelector(".otherproduct-strong");
         const otherProdObserver = new IntersectionObserver((entries) => {
           const el = entries[0];
           if(el.isIntersecting) {
-            otherProdObserver.unobserve(otherProd);
             if (!isFlicktyLoaded) {
               loadFlickity();
               isFlicktyLoaded = true;
               loadOtherProductsContainer();
             }
+            otherProdObserver.unobserve(otherProd);
           }
-        },
-        {rootMargin: "-600px 0px 0px 0px",}
+        }, {rootMargin: "-300px 0px 0px 0px"}
         );
         otherProdObserver.observe(otherProd);
       } else {
@@ -286,13 +292,14 @@
     <ProductNotCovered data={notcovered.strong} productTitle="Super Strong"/>
   </section>
   
-  <section class="su_container otherproduct" style="background-color:#e7eaef;">
+  <section class="su_container otherproduct-strong" style="background-color:#e7eaef;">
     {#if OtherProductsContainer}
       <svelte:component
         this={OtherProductsContainer}
         apiProductUrl={api_product_url}
         appUrl={app_url}
         productName="Super Strong"
+        productsOrder={otherproductsOrder}
         slugException={slug} />
     {:else}
       <div class="otherproduct_progress" />
@@ -348,7 +355,7 @@
     .su_container.faq,
     .su_container.testimonies,
     .su_container.notcovered,
-    .su_container.otherproduct 
+    .su_container.otherproduct-strong 
     {
       content-visibility: auto;
       contain-intrinsic-size: 700px;

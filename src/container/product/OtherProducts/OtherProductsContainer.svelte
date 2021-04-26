@@ -6,19 +6,29 @@
   export let appUrl;
   export let productName;
   export let slugException = "";
+  export let productsOrder = [];
 
   let isFetched = false;
-  let products = [];
+  let sortedProducts = []
   onMount(async () => {
     let stringUrl = slugException ? 
       `${apiProductUrl}/products/?product_type=basic&is_show=true&show_partner=false&skip=0&product_exceptions=${slugException}`
       : `${apiProductUrl}/products/?product_type=basic&is_show=true&show_partner=false&skip=0`;
     
-    console.log(stringUrl);
     const res = await fetch(stringUrl);
-    products = await res.json();
+    let products = await res.json();
+
+    if(productsOrder.length) {
+      let psrt = [];
+      productsOrder.forEach(slug => {
+        const idx = products.findIndex(p => p.slug === slug);
+        psrt.push(products[idx]);
+      });
+      sortedProducts = psrt;
+    } else {
+      sortedProducts = products;
+    }
     isFetched = true;
-    // https://staging-product.superyou.co.id/api/v1/products/?product_type=basic&is_show=true&show_partner=false&skip=0&product_exceptions=super-strong-protection
 
     setTimeout(() => {
       const cells = document.querySelectorAll(".other-products__wrapper .carousel-cell");
@@ -153,7 +163,7 @@
   <div>
     {#if isFetched}
     <div class="other-products__wrapper">
-      {#each products as product, i (product)}
+      {#each sortedProducts as product, i (product)}
         <div class="carousel-cell">
           <div class={`card-cell card-cell${i}`} data-key={i}>
             <BaseProductCard detail={product} {appUrl} />

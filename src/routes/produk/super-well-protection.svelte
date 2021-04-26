@@ -46,6 +46,13 @@
   let OtherProductsContainer;
   let WhatsAppChat;
   let isFlicktyLoaded = false;
+  let otherproductsOrder = [
+    'my-hospital-protection',
+    'super-strong-protection',
+    'super-care-protection',
+    'super-life-protection',
+    'super-safe-protection',
+  ]
 
   const logError = (err) => {
     console.error((err && err.stack) || err);
@@ -109,19 +116,19 @@
       });
       formObserver.observe(premiCalcContainer);
 
-      const otherProd = document.querySelector(".otherproduct");
+      const otherProd = document.querySelector(".otherproduct-well");
       const otherProdObserver = new IntersectionObserver((entries) => {
         const el = entries[0];
         if(el.isIntersecting) {
-          otherProdObserver.unobserve(otherProd);
           if (!isFlicktyLoaded) {
             loadFlickity();
             isFlicktyLoaded = true;
             loadOtherProductsContainer();
           }
+          otherProdObserver.unobserve(otherProd);
         }
       },
-      {rootMargin: "-600px 0px 0px 0px",}
+      {rootMargin: "-300px 0px 0px 0px"}
       );
       otherProdObserver.observe(otherProd);
     }
@@ -282,13 +289,14 @@
   <ProductNotCovered data={notcovered.well} productTitle="Super Well" />
 </section>
 
-<section class="su_container otherproduct" style="background-color:#e7eaef;">
+<section class="su_container otherproduct-well" style="background-color:#e7eaef;">
   {#if OtherProductsContainer}
     <svelte:component
       this={OtherProductsContainer}
       apiProductUrl={api_product_url}
       appUrl={app_url}
       productName="Super Well"
+      productsOrder={otherproductsOrder}
       slugException={slug} />
   {:else}
     <div class="otherproduct_progress" />
