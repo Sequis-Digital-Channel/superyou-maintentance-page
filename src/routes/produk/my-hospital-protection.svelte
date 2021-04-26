@@ -46,6 +46,13 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
+    let otherproductsOrder = [
+      'super-care-protection',
+      'super-strong-protection',
+      'super-safe-protection',
+      'super-life-protection',
+      'super-well-protection',
+    ]
   
     const logError = (err) => {
       console.error((err && err.stack) || err);
@@ -120,8 +127,7 @@
               loadOtherProductsContainer();
             }
           }
-        },
-        {rootMargin: "-600px 0px 0px 0px",}
+        }, {rootMargin: "-300px 0px 0px 0px"}
         );
         otherProdObserver.observe(otherProd);
       } else {
@@ -299,6 +305,7 @@
         apiProductUrl={api_product_url}
         appUrl={app_url}
         productName="My Hospital"
+        productsOrder={otherproductsOrder}
         slugException={slug} />
     {:else}
       <div class="otherproduct_progress" />
