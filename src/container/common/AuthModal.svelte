@@ -4,12 +4,13 @@
   import { authStore } from "../../stores/auth/store";
   import { actionShowAndCloseModalLogin } from "../../stores/auth/actions"
 
-  export let SUPER_API_URL
+  export let APP_URL
 
   let passwordInputType = "password";
   let passwordInputIcon = 'https://superyou.co.id/img/icons/eye.svg';
 
   let isLoading = false;
+  let modalErrorMessage = "";
 
   let userLoginData = {
     email: {
@@ -19,6 +20,11 @@
     },
     password: {
       value: "",
+      error: false,
+      error_msg: ""
+    },
+    rememberme: {
+      value: false,
       error: false,
       error_msg: ""
     }
@@ -36,47 +42,63 @@
 
   async function handleLogin(e) {
     if(isLoading) return;
+
+    userLoginData.email.error = false;
+    userLoginData.email.error_msg = false;
+    userLoginData.password.error = false;
+    userLoginData.password.error_msg = false;
+    modalErrorMessage = '';
     isLoading = true;
+
     const payload = {
       username: userLoginData.email.value,
-      password: userLoginData.password.value
+      password: userLoginData.password.value,
+      rememberme: userLoginData.rememberme ? 1 : 0,
+      locale: 'id'
     }
 
     try {
-      // get bearer token
-      const login_attemp = await fetch(`${SUPER_API_URL}/api/v1/login`, {
+      const login_attemp = await fetch('/api/auth.json', {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
-      })
-      const auth_res = await login_attemp.json();
-      const get_user_profile = await fetch(`${SUPER_API_URL}/api/v1/profile`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${auth_res.data.access_token}`
-        }
       });
 
-      const profile = await get_user_profile.json();
-      authStore.update(() => {
-        const { access_token, refresh_token, expires_in } = auth_res.data
-        const { dob, first_name, gender, mobile_number, identity_number, full_name } = profile.data;
-        const updatedAuth = {
-          authorization: {
-            access_token, refresh_token, expires_in
-          },
-          user_profile: {
-            dob, first_name, gender, mobile_number, identity_number, full_name
+      const auth_res = await login_attemp.json();
+      if (auth_res.status === '401') {
+        modalErrorMessage = auth_res.msg;
+      }
+      if (auth_res.status !== '200' && auth_res.hasOwnProperty('msg')){
+        auth_res.msg.forEach(eMsg => {
+          if (eMsg[0].includes('username') || eMsg[0].includes('email')) {
+            userLoginData.email.error = true;
+            userLoginData.email.error_msg = eMsg[0];
+          } else if (eMsg[0].includes('password')) {
+            userLoginData.password.error = true;
+            userLoginData.password.error_msg = eMsg[0];
           }
-        }
-        return updatedAuth;
-      });
-      window.location.reload();
-    } catch (error) {
-      console.log(console.error())
+        })
+      }
+      if (auth_res.status === '200') {
+        authStore.update(() => {
+          const { access_token } = auth_res.user;
+          const { dob, first_name, gender, mobile_number, identity_number, full_name } = auth_res.user.profile;
+          const updatedAuth = {
+            authorization: {
+              access_token
+            },
+            user_profile: {
+              dob, first_name, gender, mobile_number, identity_number, full_name
+            }
+          }
+          return updatedAuth;
+        });
+        window.location.href = `${APP_URL}/dashboard/profil`;
+      }
+    } catch (err) {
+      console.log(err)
     }
     isLoading = false;
   }
@@ -87,7 +109,7 @@
     class="absolute right-0 text-darkblue pt-2 pr-3 md:hidden"
     style="font-size: 28px;"
     on:click={() => actionShowAndCloseModalLogin(false)}>&#10005;</div>
-  <div class="auth-wrapp py-16 px-6 md:px-12">
+  <div class="auth-wrapp py-16 px-6 md:px-12 relative">
     <h2 class="text-darkblue font-bold text-2xl">Login</h2>
     <p class="text-bluegray text-sm md:text-base mt-2 mb-6">Selamat datang kembali di Super You! Silakan masukkan e-mail dan password kamu untuk login.</p>
     <form on:submit|preventDefault={handleLogin}>
@@ -96,21 +118,31 @@
         name="user_email"
         bind:value={userLoginData.email.value}
       />
+      {#if userLoginData.email.error}
+      <span class="text-xs text-red-500 inline-block">{userLoginData.email.error_msg}</span>
+      {/if}
       <br>
-      <BaseInputText
-        label="Password"
-        name="user_password"
-        type={passwordInputType}
-        icon={passwordInputIcon}
-        on:iconclick={handleToggleInput}
-        bind:value={userLoginData.password.value}
-      />
+      <div class="mt-2">
+        <BaseInputText
+          label="Password"
+          name="user_password"
+          type={passwordInputType}
+          icon={passwordInputIcon}
+          on:iconclick={handleToggleInput}
+          bind:value={userLoginData.password.value}
+        />
+      </div>
+      {#if userLoginData.password.error}
+      <span class="text-xs text-red-500 inline-block">{userLoginData.password.error_msg}</span>
+      {/if}
       <br>
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center mt-2">
         <BaseInputCheck
           id="remember-me"
-          value={null}
-          on:input={(e) => {console.log("remember me")}}
+          value={userLoginData.rememberme.value}
+          on:input={(e) => {
+            userLoginData.rememberme.value = e.target.checked
+          }}
         >
           <span class="text-bluegray text-sm">Ingat Saya</span>
         </BaseInputCheck>
@@ -130,8 +162,11 @@
           <span class="arr font-bold text-base">&rarr;</span>
         {/if}
       </button>
+      {#if modalErrorMessage}
+      <span class="text-red-500 text-xs font-bold inline-block mt-4 md:mt-1">{modalErrorMessage}</span>
+      {/if}
     </form>
-    <div class="sign-up mt-5">
+    <div class="sign-up" class:warning={modalErrorMessage !== ''}>
       <p class="text-base text-bluegray">Belum punya akun ? <a href="/isi-data" class="font-bold text-teal hover:underline">Daftar Sekarang</a></p>
     </div>
   </div>
@@ -168,6 +203,13 @@
             right: 16px;
           }
         }
+      }
+    }
+
+    .sign-up {
+      margin-top: 20px;
+      &.warning {
+        margin-top: 16px;
       }
     }
   }
