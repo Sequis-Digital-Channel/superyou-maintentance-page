@@ -11,7 +11,6 @@
 
 <script>
   import { onMount } from "svelte";
-  import { getCookie } from "../utils/_cartcookie"
 
   import GlobalStyle from "../components/GlobalStyle.svelte";
   import BaseHeader from "../components/BaseHeader.svelte";
@@ -37,7 +36,7 @@
 
   onMount(() => {
     bodyHTMLElement = true;
-    let superyou_session = getCookie('superyou_session');
+    const superyou_session = localStorage.getItem("su_s_id");
     if(!superyou_session) {
     fetch("/api/session.json", {
       credential: 'true'
@@ -46,7 +45,7 @@
       return res.json()
     })
     .then(data => {
-      console.log(data);
+      localStorage.setItem('su_s_id', data.session_id);
     })
     .catch(err => {
       console.log(err, 'error');
