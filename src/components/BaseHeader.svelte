@@ -441,7 +441,7 @@
               </span>
               <div class="p_ddown-wrapper absolute pt-3 hidden md:block">
                 <div class="p_ddown rounded-xl bg-white shadow-md">
-                  <a href="/dashboard/profil" class="p-3 pb-2 flex items-center">
+                  <a href={`${APP_URL}/dashboard/profil`} class="p-3 pb-2 flex items-center">
                     <div class="mr-3">
                       <img src="https://superyou.co.id/img/icons/user-inactive.svg" alt="goto profile" width="20px" height="20px">
                     </div>
@@ -497,7 +497,7 @@
     <BgOverlay on:click={() => actionShowAndCloseModalLogin(false)} />
     <svelte:component
       this={authModal}
-      {SUPER_API_URL}
+      {APP_URL}
     />
   </div>
 {/if}
