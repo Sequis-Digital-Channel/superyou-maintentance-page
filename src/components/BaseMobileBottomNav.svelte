@@ -3,8 +3,6 @@
   import { authStore } from "../stores/auth/store";
   import { actionShowAndCloseModalLogin } from "../stores/auth/actions";
 
-  const initImgSrc =
-    "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
   const handleCartToggleShow = () => {
     cartShow.update((cartShow) => !cartShow);
   };
