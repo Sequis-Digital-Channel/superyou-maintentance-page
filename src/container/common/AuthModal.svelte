@@ -72,7 +72,7 @@
       }
       if (auth_res.status !== '200' && auth_res.hasOwnProperty('msg')){
         auth_res.msg.forEach(eMsg => {
-          if (eMsg[0].includes('username') || eMsg[0].includes('email')) {
+          if (eMsg[0].includes('username') || eMsg[0].toLowerCase().includes('email')) {
             userLoginData.email.error = true;
             userLoginData.email.error_msg = eMsg[0];
           } else if (eMsg[0].includes('password')) {
