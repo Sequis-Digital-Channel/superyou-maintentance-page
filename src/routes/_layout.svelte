@@ -38,7 +38,7 @@
     bodyHTMLElement = true;
     const superyou_session = localStorage.getItem("su_s_id");
     if(!superyou_session) {
-    fetch("/api/session.json", {
+    fetch("/functions/session.json", {
       credential: 'true'
     })
     .then(res => {

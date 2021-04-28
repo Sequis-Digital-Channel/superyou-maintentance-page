@@ -58,7 +58,7 @@
     }
 
     try {
-      const login_attemp = await fetch('/api/auth.json', {
+      const login_attemp = await fetch('/functions/auth.json', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
