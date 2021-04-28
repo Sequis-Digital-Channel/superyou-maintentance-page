@@ -2,6 +2,7 @@
   import { moneyFormat, toBillion } from "../utils/_moneyandtobillion";
 
   export let plan_data;
+  export let selected_riders_slug = [];
 </script>
 
 <style lang="postcss">
@@ -69,21 +70,6 @@
       .semi-bold {
         font-weight: 600;
       }
-      .tx-sm {
-        font-size: 14px;
-      }
-      .tx-xs {
-        font-size: 12px;
-      }
-      .tx-lg {
-        font-size: 18px;
-      }
-      .color-darkblue {
-        color: #0d294a;
-      }
-      .color-lightgray {
-        color: #708697;
-      }
       .benefit-title {
         margin: 10px 0 12px 0;
       }
@@ -124,6 +110,9 @@
         }
       }
     }
+    .bene-rider:last-child {
+      border-bottom: none;
+    }
   }
 </style>
 
@@ -148,11 +137,11 @@
     </div>
   </div>
   <div class="result-card__body">
-    <p class="color-darkblue bold tx-sm">Manfaat</p>
+    <p class="text-darkblue bold text-sm">Manfaat</p>
 
     {#each plan_data.benefit_group_categories as { benefits, name, id } (id)}
       <div class="benefit-group">
-        <h4 class="benefit-title color-darkblue semi-bold text-sm">{name}</h4>
+        <h4 class="benefit-title text-darkblue semi-bold text-sm">{name}</h4>
         <!-- benefit item -->
         <div class="benefit-items">
           <!-- LOOP HERE -->
@@ -160,13 +149,13 @@
             <div class="benefit">
               <div class="left">
                 <div class="description">
-                  <p class="color-lightgray tx-sm">{@html benefit}</p>
+                  <p class="text-bluegray text-sm">{@html benefit}</p>
                   <span
-                    class="info color-lightgray tx-xs">{@html benefit_notes}</span>
+                    class="info text-bluegray text-xs">{@html benefit_notes}</span>
                 </div>
               </div>
               <div class="right">
-                <p class="tx-lg bold color-darkblue">{toBillion(value)}</p>
+                <p class="text-lg bold text-darkblue">{toBillion(value)}</p>
               </div>
             </div>
           {/each}
@@ -174,6 +163,32 @@
       </div>
     {/each}
   </div>
+  {#if selected_riders_slug.length}
+    <div class="result-card__riders">
+    {#each plan_data.riders as rider (rider.id) }
+      {#if selected_riders_slug.includes(rider.product_slug)}
+      <div class="bg-darkblue text-white py-2 px-4 flex justify-between">
+        <div class="flex items-center">
+          <img src={`https://superyou.co.id/${rider.icon_svg}`} alt="Rider Icon" width="30x" height=30px; class="transform scale-125">
+          <span class="inline-block ml-2 sm:ml-3">{rider.product_name}</span>
+        </div>
+        <p class="text-right font-bold text-lg self-center">{moneyFormat(rider.monthly_premium)}</p>
+      </div>
+      <div class="benefits-rider px-4 pt-1">
+        {#each rider.benefits as benefit (benefit.id)}
+        <div class="bene-rider flex justify-between py-3 border-b border-gray-400">
+          <div class="max-w-3/4">
+            <p class="text-bluegray text-sm mb-2">{@html benefit.benefit}</p>
+            <p class="text-bluegray text-xs">{@html benefit.benefit_notes}</p>
+          </div>
+          <div class="benefit-value text-darkblue text-lg font-bold">{toBillion(benefit.value)}</div>
+        </div>
+        {/each}
+      </div>
+      {/if}
+    {/each}
+    </div>
+  {/if}
 </div>
 
 {#if plan_data.is_cashless}
