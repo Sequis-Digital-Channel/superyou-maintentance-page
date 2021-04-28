@@ -500,6 +500,7 @@
             <svelte:component
               this={basePlanResultCard}
               plan_data={basePlanResultData}
+              selected_riders_slug={selectedRiders}
             />
           {/if}
 
@@ -640,6 +641,12 @@
       .plan-result {
         margin-left: 15px;
         padding: 0 10px;
+        @media (max-width: 600px) {
+          padding: 0 2px;
+        }
+        @media (max-width: 600px) {
+          padding: 0 0;
+        }
       }
 
       &.show-result {
