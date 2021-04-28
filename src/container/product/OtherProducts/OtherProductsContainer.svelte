@@ -4,7 +4,7 @@
 
   export let apiProductUrl;
   export let appUrl;
-  export let productName;
+  export let productName = "";
   export let slugException = "";
   export let productsOrder = [];
 
