@@ -1,6 +1,5 @@
 <script>
     import BaseButton from "../../components/BaseButton.svelte"
-    export let APP_URL;
 
     export let info = "Kunjungi rumah sakit rekanan Super You dari lokasi kamu. Daftar rumah sakit kami memberikan perawatan kesehatan sesuai kebutuhan kamu.";
     let lazySrc =
