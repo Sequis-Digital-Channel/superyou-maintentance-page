@@ -131,12 +131,15 @@
           grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
           max-width: 240px;
           width: 88%;
-          grid-gap: 12px 0;
+          grid-gap: 18px 0;
           align-items: center;
 
           @media (min-width: 1024px) {
             width: auto;
             grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+            display: grid;
+            justify-items: start;
+            height: 74%;
           }
 
           & > div {
@@ -147,11 +150,16 @@
           }
         }
         .secure-transaction-wrapper {
-          width: 95%;
-          max-width: 500px;
+          width: 88%;
+          max-width: 240px;
           display: inline-grid;
-          /* justify-items: center; */
-          grid-template-columns: repeat(5, minmax(66px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+          grid-gap: 4px 0;
+          align-items: center;
+
+          @media (max-width: 600px) {
+            margin-left: 30px;
+          }
 
           & > div {
             display: flex;
@@ -165,7 +173,7 @@
             width: 100%;
             display: grid;
             grid-template-columns: 60px 60px 60px;
-            grid-gap: 8px 0;
+            grid-gap: 8px 8px;
             justify-items: start;
           }
         }
