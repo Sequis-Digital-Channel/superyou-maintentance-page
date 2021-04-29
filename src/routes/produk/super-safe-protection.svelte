@@ -254,6 +254,50 @@
       benefitTitle="Manfaat Asuransi Kecelakaan Diri yang Kamu Dapatkan"
       excerpt="Perlindungan atas risiko biaya medis,<br>risiko meninggal dunia, dan risiko Cacat Total & Tetap yang disebabkan kecelakaan."
     />
+
+    <!-- SUPER SAFE RIDERS -->
+    {#if 'riders' in superSafeProtection && superSafeProtection.riders.length }
+      <h2 class="text-darkblue font-bold text-center text-22px md:text-28px mt-4 mb-8 lg:mb-12">Manfaat Perlindungan Tambahan</h2>
+      <div class="benefits-rider md:grid md:gap-x-8 mb-8 lg:mb-12 max-w-screen-xl mx-auto">
+        <div class="flex flex-col border border-teal rounded-xl mb-8">
+          <div class="flex flex-col items-center py-3">
+            <img src="/icons/products/motor/super-motor.svg" alt="Super Motor Icon" width="40px" height="40px">
+            <h3 class="text-lg font-bold text-darkblue text-center mt-3">Super Motor Protection</h3>
+            <p class="text-darkblue text-sm text-center">Asuransi Kecelakaan Bermotor</p>
+          </div>
+          <div class="border-t border-teal flex flex-col md:flex-row px-4 pt-4 pb-0 md:pb-4">
+            <div class="flex bene-item-rider mb-4 md:mb-0">
+              <img class="self-start" src="/icons/bag-rupiah.svg" alt="Rider benefit description" width="48px" height="48px">
+              <p class="text-sm text-bluegray flex-1 ml-2">
+                Tambahan biaya medis hingga <b>Rp50 Juta</b> untuk operasi gigi, patah tulang, dan koma akibat kecelakaan sepeda motor
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col border border-teal rounded-xl mb-8">
+          <div class="flex flex-col items-center py-3">
+            <img src="/icons/products/holiday/super-holiday.svg" alt="Super Holiday Icon" width="40px" height="40px" class="transform scale-150">
+            <h3 class="text-lg font-bold text-darkblue text-center mt-3">Super Holiday Protection</h3>
+            <p class="text-darkblue text-sm text-center">Asuransi Kecelakaan Saat Liburan</p>
+          </div>
+          <div class="border-t border-teal flex flex-col md:flex-row px-4 pt-4 pb-0 md:pb-4">
+            <div class="flex bene-item-rider mb-4 md:mb-0 flex-1">
+              <img class="self-start" src="/icons/bag-rupiah.svg" alt="Rider benefit description" width="48px" height="48px">
+              <p class="text-sm text-bluegray flex-1 ml-2">
+                Tambahan biaya medis akibat<br> kecelakaan pada masa liburan<br> hingga <b>Rp50 Juta</b>.
+              </p>
+            </div>
+            <div class="flex bene-item-rider mb-4 md:mb-0 flex-1 md:pr-3">
+              <img class="self-start" src="/icons/cash.svg" alt="Rider benefit description" width="48px" height="48px">
+              <p class="text-sm text-bluegray flex-1 ml-2">
+                Tambahan Uang Pertanggungan hingga <b>Rp1 Milyar</b> bila Tertanggung meninggal dunia/ Cacat Total & Tetap akibat kecelakaan pada masa liburan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {/if}
+    <!-- END SUPER SAFE RIDERS -->
   
     <a
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-safe-protection.pdf`}
@@ -512,5 +556,18 @@
         transform: translateX(30%);
       }
     }
+
+    @media (min-width: 768px) {
+      .benefits-rider {
+        grid-template-columns: minmax(300px, 460px) 1fr;
+        .bene-item-rider {
+          & > img {
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
+    }
+
   </style>
   

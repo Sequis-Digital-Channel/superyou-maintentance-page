@@ -1,6 +1,48 @@
 {
   "slug": "super-safe-protection",
   "rip_link": "products/rip/super-safe-protection.pdf",
+  "riders": [
+    {
+      "slug": "super-holiday-protection",
+      "name": "Super Holiday Protection",
+      "is_active": true,
+      "parent_id": "0eb0928b-eea8-4782-9291-62e383809173",
+      "summary": "Perlindungan tambahan atas risiko biaya medis, risiko meninggal dunia, dan risiko Cacat Total & Tetap akibat kecelakaan saat liburan.",
+      "description": "<div>Perlindungan tambahan atas risiko biaya medis, risiko meninggal dunia, dan risiko Cacat Total & Tetap akibat kecelakaan saat liburan.</div>",
+      "icon_svg": "products/super-holiday-protection.svg",
+      "coverage_period": "1",
+      "id": "9176ccf9-21f1-42c0-a887-423f101361cb",
+      "category": {
+        "name": "Original Product",
+        "id": "bb6fac93-c304-46e6-b9cd-d7954f86c1d2"
+      },
+      "insurance_type": {
+        "name": "Asuransi Kecelakaan saat Liburan",
+        "id": "13afb8c3-df30-4457-b767-9a72b8c5bd83"
+      },
+      "benefit_groups": null
+    },
+    {
+      "slug": "super-motor-protection",
+      "name": "Super Motor Protection",
+      "is_active": true,
+      "parent_id": "0eb0928b-eea8-4782-9291-62e383809173",
+      "summary": "Perlindungan tambahan atas risiko biaya medis akibat kecelakaan sepeda motor.",
+      "description": "<div>Perlindungan tambahan atas risiko biaya medis akibat kecelakaan sepeda motor.</div>",
+      "icon_svg": "products/super-motor-protection.svg",
+      "coverage_period": "1",
+      "id": "f2e7632c-114c-45bf-bda3-1409ed87d3ea",
+      "category": {
+        "name": "Original Product",
+        "id": "bb6fac93-c304-46e6-b9cd-d7954f86c1d2"
+      },
+      "insurance_type": {
+        "name": "Asuransi Kecelakaan Kendaraan Bermotor",
+        "id": "048e9814-26e2-459b-97b1-3330281d1bb0"
+      },
+      "benefit_groups": null
+    }
+  ],
   "benefit_groups": [
     {
       "name": "",
@@ -9,54 +51,57 @@
       "id": "_blank",
       "benefits": [
         {
-          "id": "1c540d6b-cb57-46a4-adef-9e29471cd0fb",
+          "product_id": "0eb0928b-eea8-4782-9291-62e383809173",
           "name": "Biaya Medis Kecelakaan",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-safe-protection1.png",
-          "tooltip_text": "",
-          "product_id": "ed084ff4-549d-4b79-899a-d115376f6542",
-          "benefit": "<div>Penggantian biaya medis untuk pengobatan , rawat inap atau pembedahan yang disebabkan kecelakaan  dengan limit hingga <strong>Rp50 Juta</strong> per tahun.</div>",
+          "tooltip_text_description": null,
+          "id": "73f5ebc6-6a39-49ab-826c-1ec2a90de270",
+          "benefit": "Penggantian biaya medis untuk pengobatan , rawat inap atau pembedahan yang disebabkan kecelakaan dengan limit hingga <strong>Rp50 Juta</strong> per tahun.",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-safe-protection1.svg",
-          "order": null,
+          "tooltip_text": "",
+          "order": 1,
           "product_benefit_group": {
             "tooltip_text": null,
+            "name": "",
             "order": null,
-            "id": "_blank",
-            "name": ""
+            "id": "_blank"
           }
         },
         {
-          "id": "70609233-5bae-4939-aed6-b09e71c2fe93",
+          "product_id": "0eb0928b-eea8-4782-9291-62e383809173",
           "name": "Santunan Cacat Total & Tetap Akibat Kecelakaan",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-safe-protection2.png",
-          "tooltip_text": "Cacat Total & Tetap berarti kehilangan fungsi anggota gerak, kedua kaki atau kedua tangan, atau satu kaki dan satu tangan, atau kehilangan fungsi kedua belah mata.",
-          "product_id": "ed084ff4-549d-4b79-899a-d115376f6542",
-          "benefit": "<div>Mendapat Uang Pertanggungan hingga <strong>Rp1 Milyar</strong> bila Tertanggung mengalami risiko Cacat Total & Tetap.</div>",
+          "tooltip_text_description": null,
+          "id": "09b74abf-8aec-47f0-9211-ea426f588f98",
+          "benefit": "Mendapat Uang Pertanggungan hingga <strong>Rp1 Milyar</strong> bila Tertanggung mengalami risiko Cacat Total & Tetap.",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-safe-protection2.svg",
-          "order": null,
+          "tooltip_text": "Cacat Total & Tetap berarti kehilangan fungsi anggota gerak, kedua kaki atau kedua tangan, atau satu kaki dan satu tangan, atau kehilangan fungsi kedua belah mata.",
+          "order": 2,
           "product_benefit_group": {
             "tooltip_text": null,
+            "name": "",
             "order": null,
-            "id": "_blank",
-            "name": ""
+            "id": "_blank"
           }
         },
         {
-          "id": "87ed24ed-e331-4eda-8761-d8ef4d947113",
+          "product_id": "0eb0928b-eea8-4782-9291-62e383809173",
           "name": "Santunan Kematian Akibat Kecelakaan",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/super-safe-protection3.png",
-          "tooltip_text": "Tertanggung adalah orang yang jiwanya diasuransikan.<br/><br/>Masa Pertanggungan adalah Masa berlakunya perlindungan asuransi.",
-          "product_id": "ed084ff4-549d-4b79-899a-d115376f6542",
-          "benefit": "<div>Mendapat Uang Pertanggungan hingga <strong>Rp1 Milyar</strong> bila Tertanggung meninggal dunia akibat kecelakaan selama Masa Pertanggungan</div>",
+          "tooltip_text_description": null,
+          "id": "d0b145af-dfef-417d-b232-ecd3f988e7a3",
+          "benefit": "Mendapat Uang Pertanggungan hingga <strong>Rp1 Milyar</strong> bila Tertanggung meninggal dunia akibat kecelakaan selama Masa Pertanggungan",
           "icon_svg": "https://staging.superyou.co.id/products/benefits/super-safe-protection3.svg",
-          "order": null,
+          "tooltip_text": "Tertanggung adalah orang yang jiwanya diasuransikan. <br/><br/>Masa Pertanggungan adalah Masa berlakunya perlindungan asuransi.",
+          "order": 3,
           "product_benefit_group": {
             "tooltip_text": null,
+            "name": "",
             "order": null,
-            "id": "_blank",
-            "name": ""
+            "id": "_blank"
           }
         }
       ]
