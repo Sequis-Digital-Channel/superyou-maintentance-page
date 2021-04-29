@@ -21,7 +21,7 @@
     {
       "icon_svg": "/icons/products/tnc/premicost.svg",
       "description":
-        "Usia dan Uang Pertanggungan yang didapat berpengaruh terhadap besarnya biaya premi.",
+        "Usia dan Uang Pertanggungan<br class='hidden md:block'> yang didapat berpengaruh terhadap <br class='hidden md:block'>besarnya biaya premi.",
       "tooltip": "Premi adalah sejumlah uang yang harus dibayarkan setiap bulannya sebagai kewajiban dari tertanggung atas keikutsertaannya di asuransi."
     },
     {

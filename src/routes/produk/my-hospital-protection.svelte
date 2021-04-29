@@ -377,10 +377,10 @@
         max-width: 67%;
       }
       :global(.my-hospital .t-wrapper.bene-tooltip-2 .tooltip-holder) {
-        left: -120px;
+        left: -165px;
       }
       :global(.my-hospital .t-wrapper.tnc-item-0 .tooltip-holder) {
-        left: -100px;
+        left: -145px;
       }
       :global(.my-hospital .t-wrapper.tnc-item-3 .tooltip-holder) {
         left: -212px;
