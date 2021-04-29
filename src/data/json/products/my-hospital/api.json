@@ -10,7 +10,7 @@
       "benefits": [
         {
           "id": "68be18f7-e523-4af5-84f8-0441de679bb0",
-          "name": "Santunan Tunai Harian</br class='hidden md:block'>Rawat inap",
+          "name": "Santunan Tunai Harian <br class='hidden md:block'>Rawat Inap",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/my-hospital-protection1.png",
           "tooltip_text": "",
@@ -27,7 +27,7 @@
         },
         {
           "id": "beefcb56-bb58-4241-b877-78ee844666c0",
-          "name": "Santunan Tunai Harian</br class='hidden md:block'>Rawat ICU",
+          "name": "Santunan Tunai Harian <br class='hidden md:block'>Rawat ICU",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/my-hospital-protection2.png",
           "tooltip_text": "",
@@ -44,7 +44,7 @@
         },
         {
           "id": "89aeadbf-6a64-4e20-9a86-0dbfce89b911",
-          "name": "Santunan Kematian</br>oleh Sebab Apapun",
+          "name": "Santunan Kematian<br>oleh Sebab Apapun",
           "product_benefit_group_id": "_blank",
           "icon_etc": "https://staging.superyou.co.id/products/benefits/my-hospital-protection3.png",
           "tooltip_text": "<strong>Uang Pertanggungan:</strong> Jumlah uang yang harus dibayarkan perusahaan asuransi kalau terjadi klaim dari pemegang polis atas risiko yang dijamin dalam program asuransi.</br></br><strong>Masa Pertanggungan:</strong> Masa berlakunya perlindungan asuransi",
