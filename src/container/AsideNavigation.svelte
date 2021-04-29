@@ -236,7 +236,7 @@
           transition:slide={{ duration: 100 }}
           class="md:hidden bg-gray-100" style="margin-right: -10px; margin-left: -10px;">
           <div class="flex flex-col py-2 px-3">
-            <a href="https://superyou.co.id/id/dashboard/profil" class="py-3 pr-3 flex items-center">
+            <a href="/dashboard/profil" class="py-3 pr-3 flex items-center">
               <div class="mr-3">
                 <img src="https://superyou.co.id/img/icons/user-active.svg" alt="goto profile" width="22px" height="22px">
               </div>

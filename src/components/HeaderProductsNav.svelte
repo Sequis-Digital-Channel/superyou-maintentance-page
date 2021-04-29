@@ -16,7 +16,7 @@
       Asuransi Jiwa & Kecelakaan Diri
     </h4>
     {#each productNavItems.life as navItem, i (navItem.icon)}
-      <a rel={`${navItem.self ? 'prefetch' : 'external'}`} on:click={closeProductList} href={navItem.url}>
+      <a rel="external" on:click={closeProductList} href={navItem.url}>
         <div class="product-item-nav">
           <div class="icon flex items-center justify-center">
             <img
@@ -43,7 +43,7 @@
       Asuransi Kesehatan & Penyakit Kritis
     </h4>
     {#each productNavItems.health as navItem (navItem.icon)}
-      <a rel="prefetch" on:click={() => productListShow = false} on:click={closeProductList} href={navItem.url}>
+      <a rel="external" on:click={() => productListShow = false} on:click={closeProductList} href={navItem.url}>
         <div class="product-item-nav">
           <div class="icon">
             <img
