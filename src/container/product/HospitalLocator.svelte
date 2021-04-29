@@ -15,7 +15,6 @@
         .Footer-Line {
           @media (min-width: 768px) {
             width: 100%;
-            height: 2px;
             margin: 39px 0 2px;
             border: solid 0.3px #979797;
           }

@@ -370,7 +370,7 @@
   
     @media (max-width: 639px) {
       :global(.my-hospital .benefit_wrapper .benefit_item__right > h4) {
-        max-width: 85%;
+        max-width: 94%;
       } 
 
       :global(.my-hospital .product_tnc__wrapper .benefit_item__right) {

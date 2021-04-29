@@ -82,7 +82,7 @@
   <div class="benefit_item__right">
     {#if title}
       <h4>
-        {title}
+        {@html title}
         {#if tooltipTitle !== ''}
           <Tooltip className={key} type="title">
             <p class="tooltip-body">{@html tooltipTitle}</p>
