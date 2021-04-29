@@ -9,6 +9,11 @@ export async function post(req, res) {
       locale,
       rememberme
     });
+    if (user_login.data === "") {
+      user_login.data = {};
+      user_login.data.msg = "Terjadi kesalahan pada penulisan email atau password kamu, harap periksa kembali";
+      user_login.data.status = '401';
+    }
     res.writeHead(200, {
       'Content-Type': 'application/json',
       'Set-Cookie': user_login.headers['set-cookie'],

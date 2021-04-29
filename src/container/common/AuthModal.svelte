@@ -75,10 +75,10 @@
       });
 
       const auth_res = await login_attemp.json();
+      console.log(auth_res);
       if (auth_res.status === '401') {
         modalErrorMessage = auth_res.msg;
-      }
-      if (auth_res.status !== '200' && auth_res.hasOwnProperty('msg')){
+      } else if (auth_res.status !== '200' && auth_res.hasOwnProperty('msg')){
         auth_res.msg.forEach(eMsg => {
           if (eMsg[0].includes('username') || eMsg[0].toLowerCase().includes('email')) {
             userLoginData.email.error = true;
