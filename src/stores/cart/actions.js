@@ -70,7 +70,7 @@ export function addQuantityPlan(planId, sumAssuredPlan, price, validationType) {
     cartStore.update(($cartStore) => {
       updatedCart = $cartStore;
       switch (validationType) {
-        case "only_once":
+        case "only_one":
           return updatedCart;
         case "sum_assured":
           updatedCart.products[planId].quantity += 1;
