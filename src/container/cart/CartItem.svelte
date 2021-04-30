@@ -322,7 +322,7 @@
                         class="item-up flex justify-between items-center pt-2"
                       >
                         <p class="text-bluegray text-sm max-w-3/4">
-                          {benefit.benefit}
+                          {@html benefit.benefit}
                         </p>
                         <p class="text-darkblue text-sm font-bold self-start">
                           {toBillion(benefit.value)}
