@@ -89,7 +89,7 @@
   $: if (
     $derivedTotalSumAssured + item.sum_assured > 1500000000 ||
     $derivedTotalQuantity >= 5 ||
-    item.validation_type === "only_once"
+    item.validation_type === "only_one"
   ) {
     btnAddQty = true;
   } else {
@@ -322,7 +322,7 @@
                         class="item-up flex justify-between items-center pt-2"
                       >
                         <p class="text-bluegray text-sm max-w-3/4">
-                          {benefit.benefit}
+                          {@html benefit.benefit}
                         </p>
                         <p class="text-darkblue text-sm font-bold self-start">
                           {toBillion(benefit.value)}

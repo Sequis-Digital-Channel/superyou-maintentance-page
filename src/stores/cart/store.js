@@ -61,7 +61,7 @@ export const onlyOneValidationProductList = derived(cartStore, $cartStore => {
   const {products} = $cartStore;
   if($cartStore.products && Object.keys($cartStore.products)) {
     Object.keys(products).forEach(planId => {
-      if (products[planId].validation_type === "only_once") {
+      if (products[planId].validation_type === "only_one") {
         listOnlyOnePlan.push(products[planId].product_slug)
       }
     })

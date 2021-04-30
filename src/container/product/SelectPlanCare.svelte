@@ -304,7 +304,7 @@
     } = basePlanResultData;
     console.log(validation_type);
     switch(validation_type) {
-      case "only_once":
+      case "only_one":
         if($onlyOneValidationProductList.includes(product_slug)) {
           addToCartBtn.disabled = true;
           addToCartBtn.msg = `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`;
@@ -334,7 +334,7 @@
         basePlanResultData
         &&
         basePlanResultData.product_slug
-        && basePlanResultData.validation_type === "only_once"
+        && basePlanResultData.validation_type === "only_one"
       ) {
       if (!list.includes(basePlanResultData.product_slug)) {
         addToCartBtn = {
