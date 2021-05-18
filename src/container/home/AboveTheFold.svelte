@@ -6,7 +6,8 @@
   onMount(() => {
     pSlideCenter.scrollBy({
       top: 0,
-      left: 160,
+      // left: 160,
+      left: 120, // Temporary code for disabled product super care and well
       behavior: 'smooth'
     })
   })
@@ -47,8 +48,13 @@
       </div>
       <div class="atf_products flex items-end justify-end">
         <div class="atf_products-wrapper overflow-hidden mx-auto lg:mx-0 rounded-xl pb-5 px-3 lg:px-0">
-          <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3">
-            <a class="p-box-link" rel="prefetch" href="/produk/super-care-protection">
+          <!-- <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3"> -->
+
+          <!-- Temporary code for disabled product super care and well -->
+          <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4">
+          <!-- Temporary code for disabled product super care and well -->
+
+            <!-- <a class="p-box-link" rel="external" href="/produk/super-care-protection">
               <div class="p-box covid-scope">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-care-protection_45SOWUY6X.svg"
@@ -57,8 +63,8 @@
                   alt="Super Care">
                 <span class="text-darkblue font-bold text-center text-tiny care-name">Perawatan Infeksi & Kecelakaan</span>
               </div>
-            </a>
-            <a class="p-box-link" rel="prefetch" href="/produk/my-hospital-protection">
+            </a> -->
+            <a class="p-box-link" rel="external" href="/produk/my-hospital-protection">
               <div class="p-box">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/my-hospital-protection_IL89WHs9l.svg"
@@ -68,7 +74,7 @@
                 <span class="text-darkblue font-bold text-center text-tiny">Santunan<br>Rawat Inap</span>
               </div>
             </a>
-            <a class="p-box-link" rel="prefetch" href="/produk/super-strong-protection">
+            <a class="p-box-link" rel="external" href="/produk/super-strong-protection">
               <div class="p-box covid-scope">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-strong-protection_JIJupTKZSZ.svg"
@@ -78,7 +84,7 @@
                 <span class="text-darkblue font-bold text-center text-tiny">Proteksi Jiwa + 3 Penyakit Kritis</span>
               </div>
             </a>
-            <a class="p-box-link" rel="prefetch" href="/produk/super-life-protection">
+            <a class="p-box-link" rel="external" href="/produk/super-life-protection">
               <div class="p-box covid-scope">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-life-protection_jWgDexeIBJ.svg"
@@ -88,7 +94,7 @@
                 <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Jiwa</span>
               </div>
             </a>
-            <a class="p-box-link" rel="prefetch" href="/produk/super-well-protection">
+            <!-- <a class="p-box-link" rel="external" href="/produk/super-well-protection">
               <div class="p-box">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-well-protection_nICWi8R4nF.svg"
@@ -97,7 +103,7 @@
                   alt="Super Well">
                 <span class="text-darkblue font-bold text-center text-tiny">Perawatan 10 Penyakit Kritis</span>
               </div>
-            </a>
+            </a> -->
             <a class="p-box-link" rel="external" href="/produk/super-safe-protection">
               <div class="p-box">
                 <img
@@ -130,7 +136,7 @@
             </a>
           </div>
 
-          <a class="start-now relative w-56 block mx-auto bg-darkblue px-5 py-2 mt-4 rounded-xl text-sm xl:text-base text-white font-bold" href="/">MULAI SEKARANG <span class="arr">&rarr;</span></a>
+          <a class="start-now relative w-56 block mx-auto bg-darkblue px-5 py-2 mt-4 rounded-xl text-sm xl:text-base text-white font-bold" href="/isi-data">MULAI SEKARANG <span class="arr">&rarr;</span></a>
         </div>
       </div>
     </div>
@@ -289,11 +295,13 @@
                     font-size: 9px;
                   }
                 }
+                /*
+                Temporary code for disabled product super care and well
                 .care-name {
                   @media (max-width: 1024px) {
                     font-size: 7.2px;
                   }
-                }
+                } */
               }
             }
           }

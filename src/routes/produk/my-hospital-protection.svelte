@@ -32,6 +32,7 @@
   
     import { loadFlickity } from "../../utils/_loadflickity";
     import { getProductBySlugNameClient } from "../../api/products.service";
+    import Analytics from "../../components/Analytics.svelte";
   
     export let api_product_url;
     export let app_url;
@@ -46,12 +47,19 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
+    // let otherproductsOrder = [
+    //   'super-care-protection',
+    //   'super-strong-protection',
+    //   'super-safe-protection',
+    //   'super-life-protection',
+    //   'super-well-protection',
+    // ]
+
+    // Temporary list of product
     let otherproductsOrder = [
-      'super-care-protection',
       'super-strong-protection',
-      'super-safe-protection',
       'super-life-protection',
-      'super-well-protection',
+      'super-safe-protection',
     ]
   
     const logError = (err) => {
@@ -147,7 +155,16 @@
   </script>
   
   <svelte:head>
-    <title>Asuransi Kesehatan | My Hospital Protection</title>
+    <title>Asuransi Kesehatan Online, Mudah, dan Cepat | Super You</title>
+    <meta name="description" content="Asuransi kesehatan dengan biaya rawat harian rumah sakit dan ICU. Dapatkan juga manfaat pertanggungan tutup usia. Beli produknya disini." />
+    
+    <meta property="og:title" content="Asuransi Kesehatan Online, Mudah, dan Cepat | Super You" />
+    <meta property="og:description" content="Asuransi kesehatan dengan biaya rawat harian rumah sakit dan ICU. Dapatkan juga manfaat pertanggungan tutup usia. Beli produknya disini." />
+    <meta property="og:image" content="https://superyou.co.id/img/superyou-banner.jpg">
+    <meta property="og:url" content="{app_url}/produk/my-hospital-protection">
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="{app_url}/produk/my-hospital-protection" />
   </svelte:head>
   
   <section class="above-the-fold-wrapper">
@@ -185,6 +202,8 @@
       excerpt="Santunan tunai harian untuk biaya rawat inap, ICU, dan uang pertanggungan atas risiko kematian."/>
   
     <a
+      class="block w-full mx-auto"
+      style="max-width: 314px;"
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-my-hospital-protection.pdf`}
       target="_blank">
       <BaseButton
@@ -318,6 +337,13 @@
   {#if WhatsAppChat}
     <svelte:component this={WhatsAppChat} />
   {/if}
+
+  <Analytics
+    eventValue="asuransi-kesehatan-my-hospital-protection"
+    eventGoal="chosing-product"
+    pageType="produk-page"
+    pageTitle="Asuransi Kesehatan | My Hospital Protection"
+  />
   
   <style lang="postcss">
     .above-the-fold-wrapper {

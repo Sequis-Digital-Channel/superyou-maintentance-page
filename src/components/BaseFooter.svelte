@@ -1,4 +1,5 @@
 <script>
+  import productNavItems from "../data/json/product-nav-items-exclude-care-well.json";
   import BaseCircleSocmed from "./BaseCircleSocmed.svelte";
   export let APP_URL;
   let outerWidth;
@@ -320,7 +321,17 @@
       </div>
 
       <ul class:show={footerNav.products}>
-        <li>
+        {#each productNavItems.health as navItem, i (navItem.icon)}
+          <li>
+            <a rel="external" href={navItem.url}>{navItem.name.replace('Protection', '')}</a>
+          </li>
+        {/each}
+        {#each productNavItems.life as navItem, i (navItem.icon)}
+          <li>
+            <a rel="external" href={navItem.url}>{navItem.name.replace('Protection', '')}</a>
+          </li>
+        {/each}
+        <!-- <li>
           <a rel="prefetch" href="/produk/super-safe-protection">Super Safe</a>
         </li>
         <li>
@@ -337,7 +348,7 @@
         </li>
         <li>
           <a rel="prefetch" href="/produk/my-hospital-protection">My Hospital</a>
-        </li>
+        </li> -->
       </ul>
     </div>
 

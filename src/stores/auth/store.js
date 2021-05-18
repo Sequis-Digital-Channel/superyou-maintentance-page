@@ -7,6 +7,8 @@ import { writable, derived } from "svelte/store";
 
 export const authStore = writable(null);
 export const showModalLogin = writable(false);
+export const session_id = writable(null);
+export const is_gtm_ready = writable(false);
 
 if(typeof window !== 'undefined') {
   const authdataFromLocalStorage = localStorage.getItem('auth');

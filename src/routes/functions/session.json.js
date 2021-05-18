@@ -1,7 +1,7 @@
 import axios from 'axios';
 export async function get(req, res) {
   let superyou_session="";
-  const response = await axios.get("https://staging.superyou.co.id/generate-session", {
+  const response = await axios.get(`${process.env.APP_URL}/generate-session`, {
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',

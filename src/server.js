@@ -6,7 +6,16 @@ import compression from 'compression';
 import * as sapper from '@sapper/server';
 import { json } from "body-parser";
 
-const { PORT, NODE_ENV, API_PRODUCT_CATALOGUE, APP_URL, SUPER_API_URL, LEADGEN_CLIENT_KEY, APP_ENV } = process.env;
+const {
+	PORT,
+	NODE_ENV,
+	API_PRODUCT_CATALOGUE,
+	APP_URL,
+	SUPER_API_URL,
+	LEADGEN_CLIENT_KEY,
+	APP_ENV,
+	GTM_ID
+} = process.env;
 const dev = NODE_ENV === 'development';
 
 polka() // You can also use Express
@@ -21,7 +30,8 @@ polka() // You can also use Express
 				SUPER_API_URL,
 				LEADGEN_CLIENT_KEY,
 				NODE_ENV,
-				APP_ENV
+				APP_ENV,
+				GTM_ID
 			})
 		})
 	)

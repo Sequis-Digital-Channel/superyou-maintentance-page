@@ -90,6 +90,7 @@
         })
       }
       if (auth_res.status === '200') {
+        localStorage.setItem('e_u_id', auth_res.encrypted_u_id);
         authStore.update(() => {
           const { access_token } = auth_res.user;
           const { dob, first_name, gender, mobile_number, identity_number, full_name } = auth_res.user.profile;

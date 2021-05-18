@@ -1,10 +1,9 @@
 <script context="module">
   export async function preload(page, session) {
     const { APP_URL, APP_ENV } = session;
-    
     return {
       APP_URL,
-      APP_ENV
+      APP_ENV,
     };
   }
 </script>
@@ -17,12 +16,12 @@
   import BaseFooter from "../components/BaseFooter.svelte";
   import CartContainer from "../container/cart/CartContainer.svelte";
   import BaseMobileBottomNav from "../components/BaseMobileBottomNav.svelte";
-
+  import { session_id } from "../stores/auth/store";
   import { bodyScroll } from "../stores/bodyscroll";
+  import { manageSessionTracker } from "../utils/_su_laravel_session";
 
   // export let segment;
-  export let APP_URL;
-  export let APP_ENV;
+  export let APP_URL, APP_ENV;
 
   let bodyHTMLElement = false;
 
@@ -36,21 +35,7 @@
 
   onMount(() => {
     bodyHTMLElement = true;
-    const superyou_session = localStorage.getItem("su_s_id");
-    if(!superyou_session) {
-    fetch("/functions/session.json", {
-      credential: 'true'
-    })
-    .then(res => {
-      return res.json()
-    })
-    .then(data => {
-      localStorage.setItem('su_s_id', data.session_id);
-    })
-    .catch(err => {
-      console.log(err, 'error');
-    })
-    }
+    manageSessionTracker();
   });
 </script>
 
@@ -59,6 +44,7 @@
     <meta name="robots" content="noindex, nofollow" />
   {:else}
     <meta name="robots" content="index, follow" />
+    <meta name="facebook-domain-verification" content="0hscct489d2x698fs8fn62nbs2br5i" />
   {/if}
 </svelte:head>
 

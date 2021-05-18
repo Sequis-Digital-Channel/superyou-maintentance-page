@@ -9,7 +9,16 @@
   export let productsOrder = [];
 
   let isFetched = false;
-  let sortedProducts = []
+  let sortedProducts = [];
+
+  function getDeviceType() {
+    let deviceType = "desktop";
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        deviceType = "mobile";
+    }
+    return deviceType;
+  }
+
   onMount(async () => {
     let stringUrl = slugException ? 
       `${apiProductUrl}/products/?product_type=basic&is_show=true&show_partner=false&skip=0&product_exceptions=${slugException}`
@@ -22,7 +31,9 @@
       let psrt = [];
       productsOrder.forEach(slug => {
         const idx = products.findIndex(p => p.slug === slug);
-        psrt.push(products[idx]);
+        if (slug !== 'super-care-protection' || slug !== 'super-well-protection') {
+          psrt.push(products[idx]);
+        }
       });
       sortedProducts = psrt;
     } else {
@@ -31,36 +42,38 @@
     isFetched = true;
 
     setTimeout(() => {
+      const device = getDeviceType();
       const cells = document.querySelectorAll(".other-products__wrapper .carousel-cell");
       const otherProducts = new Flickity(".other-products__wrapper", {
-        cellAlign: "center",
+        cellAlign: device === 'mobile' ? 'center' : 'left',
         contain: true,
-        wrapAround: true,
-        on: {
-          ready: function () {
-            cells[0].classList.add("item-active");
-            cells[1].classList.add("item-active");
-            cells[products.length - 1].classList.add("item-active");
-          },
-          change: function (index) {
-            cells.forEach((cell) => {
-              cell.classList.remove("item-active");
-            });
-            if (index === products.length - 1) {
-              cells[index].classList.add("item-active");
-              cells[index].previousElementSibling.classList.add("item-active");
-              cells[0].classList.add("item-active");
-            } else if (index === 0) {
-              cells[0].classList.add("item-active");
-              cells[1].classList.add("item-active");
-              cells[products.length - 1].classList.add("item-active");
-            } else {
-              cells[index].classList.add("item-active");
-              cells[index].nextElementSibling.classList.add("item-active");
-              cells[index].previousElementSibling.classList.add("item-active");
-            }
-          },
-        },
+        wrapAround: device === 'mobile' ? true : false,
+        initialIndex: productsOrder.length > 3 ? 0 : 1, /* Temporary for disable care & well */
+        // on: {
+        //   ready: function () {
+        //     cells[0].classList.add("item-active");
+        //     cells[1].classList.add("item-active");
+        //     cells[products.length - 1].classList.add("item-active");
+        //   },
+        //   change: function (index) {
+        //     cells.forEach((cell) => {
+        //       cell.classList.remove("item-active");
+        //     });
+        //     if (index === products.length - 1) {
+        //       cells[index].classList.add("item-active");
+        //       cells[index].previousElementSibling.classList.add("item-active");
+        //       cells[0].classList.add("item-active");
+        //     } else if (index === 0) {
+        //       cells[0].classList.add("item-active");
+        //       cells[1].classList.add("item-active");
+        //       cells[products.length - 1].classList.add("item-active");
+        //     } else {
+        //       cells[index].classList.add("item-active");
+        //       cells[index].nextElementSibling.classList.add("item-active");
+        //       cells[index].previousElementSibling.classList.add("item-active");
+        //     }
+        //   },
+        // },
       });
     }, 500);
   });
@@ -75,12 +88,15 @@
     min-height:639px;max-height:655px; overflow-y:hidden;
 
     &__wrapper {
+      max-width: 958px; /* Temporary for disable care & well */
+      margin: 0 auto;
       padding-top: 20px;
-      white-space: no-wrap;
+      white-space: nowrap;
     }
 
     .carousel-cell {
-      display: inline-flex;
+      /* display: inline-flex; */
+      display: inline-block;
       white-space: nowrap;
       width: 286px;
       min-height: 480px;
@@ -125,6 +141,7 @@
         outline: none;
         box-shadow: none;
       }
+      /* Temporary for disable care & well */
       @media (min-width: 640px) {
         display: block;
       }
@@ -141,6 +158,13 @@
       @media (min-width: 640px) {
         display: none;
       }
+    }
+
+    :global(.flickity-prev-next-button.next) {
+      right: -55px;
+    }
+    :global(.flickity-prev-next-button.previous) {
+      left: -55px;
     }
     :global(.flickity-page-dots .dot.is-selected) {
       background-color: #00aaae;
@@ -162,9 +186,9 @@
 
   <div>
     {#if isFetched}
-    <div class="other-products__wrapper">
+    <div class="other-products__wrapper" class:overflow-hidden={productsOrder.length <= 3}>
       {#each sortedProducts as product, i (product)}
-        <div class="carousel-cell">
+        <div class="carousel-cell item-active">
           <div class={`card-cell card-cell${i}`} data-key={i}>
             <BaseProductCard detail={product} {appUrl} />
           </div>

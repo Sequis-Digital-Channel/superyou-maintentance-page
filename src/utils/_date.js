@@ -7,9 +7,8 @@ export function getYearsFromPast(yearsAgo) {
 }
 
 export function dobStringToMillis(stringDob) {
-  // 09/01/1992
-  const dob = stringDob.split("-").reverse().join("-");
-  return new Date(dob).getTime()
+  // stringDob ex: 1998-06-19
+  return new Date(stringDob).getTime();
 }
 
 export function calculateAge(birthday, stringDateFormat) { 

@@ -31,6 +31,7 @@
     import HospitalLocator from "../../container/product/HospitalLocator.svelte";
 
     import { getProductBySlugNameClient } from "../../api/products.service";
+    import Analytics from "../../components/Analytics.svelte";
   
     export let api_product_url;
     export let app_url;
@@ -46,12 +47,19 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
+    // let otherproductsOrder = [
+    //   'super-strong-protection',
+    //   'super-care-protection',
+    //   'super-well-protection',
+    //   'super-life-protection',
+    //   'my-hospital-protection',
+    // ]
+
+    // Temporary list of product
     let otherproductsOrder = [
       'super-strong-protection',
-      'super-care-protection',
-      'super-well-protection',
-      'super-life-protection',
       'my-hospital-protection',
+      'super-life-protection',
     ]
   
     const logError = (err) => {
@@ -158,7 +166,18 @@
   </script>
   
   <svelte:head>
-    <title>Asuransi Kesehatan | Super Safe Protection</title>
+    <title>Asuransi Kecelakaan Diri Super Safe Protection dari Super You</title>
+    <meta name="description" content="Berbagai pilihan asuransi perlindungan kecelakaan diri dari Super You dengan premi terjangkau. Cari tahu disini." />
+    <meta name="keywords" content="asuransi, asuransi digital, asuransi online, super you, super safe, kecelakaan, kecelakaan pribadi, asuransi kecelakaan diri" />
+    
+    <meta property="og:title" content="Asuransi Kecelakaan Diri Super Safe Protection dari Super You" />
+    <meta property="og:description" content="Berbagai pilihan asuransi perlindungan kecelakaan diri dari Super You dengan premi terjangkau. Cari tahu disini." />
+    <meta property="og:image" content="https://superyou.co.id/img/superyou-banner.jpg">
+    <meta property="og:url" content="{app_url}/produk/super-safe-protection">
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="{app_url}/produk/super-safe-protection" />
+
     <link rel="preconnect" href="https://ik.imagekit.io/" crossorigin>
     <link rel="stylesheet" href="https://ik.imagekit.io/oc2o82pyjsh/superyou/JS/flickity.min_wa7tUONQa.css">
     <script src="https://ik.imagekit.io/oc2o82pyjsh/superyou/JS/flickity.min_xEZhoKMx4.js"></script>
@@ -300,7 +319,9 @@
     <!-- END SUPER SAFE RIDERS -->
   
     <a
-      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-safe-protection.pdf`}
+      class="block w-full mx-auto"
+      style="max-width: 314px;"
+      href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-safe-super-motor-super-holiday-protection.pdf`}
       target="_blank">
       <BaseButton
         style="max-width: 314px;font-size:14px;margin:0 auto 20px;"
@@ -308,6 +329,7 @@
       >CEK MANFAAT & DETAIL PLAN</BaseButton
       >
     </a>
+  
   </section>
   
   <section class="su_container tnc super-safe">
@@ -432,6 +454,13 @@
   {#if WhatsAppChat}
     <svelte:component this={WhatsAppChat} />
   {/if}
+
+  <Analytics
+    eventValue="asuransi-perlindungan-kecelakaan-pribadi-super-safe-protection"
+    eventGoal="chosing-product"
+    pageType="produk-page"
+    pageTitle="Asuransi Perlindungan Kecelakaan Pribadi | Super Safe Protection"
+  />
   
   <style lang="postcss">
     .above-the-fold-wrapper {

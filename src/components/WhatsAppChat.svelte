@@ -5,7 +5,17 @@ import { fade, scale } from "svelte/transition"
 let whatsAppShowing = false;
 let windowNotifShowing = false;
 let userClosedWindowNotif = false;
+
+function getDeviceType() {
+  let deviceType = "desktop";
+  if (/Mobi|Android/i.test(navigator.userAgent)) {
+      deviceType = "mobile";
+  }
+  return deviceType;
+}
+
 onMount(() => {
+  const deviceType = getDeviceType();
   const aboveTheFoldWrapper = document.querySelector(".above-the-fold-wrapper");
   const whatsAppChatObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -23,7 +33,7 @@ onMount(() => {
   const premiCalcSection = document.querySelector(".premi-calculation");
   const windowNotifObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting && !userClosedWindowNotif) {
+      if (!entry.isIntersecting && !userClosedWindowNotif && deviceType === 'desktop') {
         windowNotifShowing = true;
       } else if (windowNotifShowing) {
         windowNotifShowing = false;

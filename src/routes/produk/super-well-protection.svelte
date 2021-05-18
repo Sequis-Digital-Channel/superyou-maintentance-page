@@ -32,6 +32,7 @@
   import { getProductBySlugNameClient } from "../../api/products.service";
   import { loadFlickity } from "../../utils/_loadflickity";
   import IcPdf from "../../components/svg/IcPdf.svelte";
+  import Analytics from "../../components/Analytics.svelte";
   
   export let api_product_url;
   export let app_url;
@@ -144,6 +145,19 @@
   
 </script>
 
+<svelte:head>
+  <title>Asuransi Penyakit Kritis Super Well Protection | Super You</title>
+  <meta name="description" content="Asuransi kesehatan online untuk 10 penyakit kritis. Premi terjangkau, klaim cashless, perlindungan optimal. Dapatkan sekarang!" />
+  
+  <meta property="og:title" content="Asuransi Penyakit Kritis Super Well Protection | Super You" />
+  <meta property="og:description" content="Asuransi kesehatan online untuk 10 penyakit kritis. Premi terjangkau, klaim cashless, perlindungan optimal. Dapatkan sekarang!" />
+  <meta property="og:image" content="https://superyou.co.id/img/superyou-banner.jpg">
+  <meta property="og:url" content="{app_url}/produk/super-well-protection">
+  <meta property="og:type" content="website" />
+
+  <link rel="canonical" href="{app_url}/produk/super-well-protection" />
+</svelte:head>
+
 <section class="above-the-fold-wrapper">
   <AboveTheFold meta={heroMeta}>
     <picture class="hero-well" slot="hero-img">
@@ -177,6 +191,8 @@
   
   <div style="margin:0 auto 20px;max-width: 314px;">
     <a
+      class="block w-full mx-auto"
+      style="max-width: 314px;"
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-well-protection.pdf`}
       target="_blank">
       <BaseButton
@@ -308,6 +324,13 @@
 {#if WhatsAppChat}
   <svelte:component this={WhatsAppChat} />
 {/if}
+
+<Analytics
+  eventValue="asuransi-kesehatan-super-well-protection"
+  eventGoal="chosing-product"
+  pageType="produk-page"
+  pageTitle="Asuransi Kesehatan | Super well Protection"
+/>
 
 <style lang="postcss">
   .above-the-fold-wrapper {

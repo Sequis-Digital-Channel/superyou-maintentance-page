@@ -22,26 +22,45 @@
   import Faq from "../container/Faq.svelte";
   import Leadgen from "../container/Leadgen.svelte";
   import { loadFlickity } from "../utils/_loadflickity";
+  import Analytics from "../components/Analytics.svelte";
 
   export let app_url;
   export let api_product_url;
 
   let OtherProductsContainer;
   let isFlicktyLoaded = false;
+  // let otherproductsOrder = [
+  //   'super-life-protection',
+  //   'super-strong-protection',
+  //   'super-care-protection',
+  //   'super-safe-protection',
+  //   'super-well-protection',
+  //   'my-hospital-protection',
+  // ];
+
+  // Temporary list of product
+  let otherproductsOrder = [
+    'super-life-protection',
+    'my-hospital-protection',
+    'super-strong-protection',
+    'super-safe-protection',
+  ]
+
+
 
   const logError = (err) => {
     console.error((err && err.stack) || err);
   };
 
   const loadOtherProductsContainer = (e) => {
-    import(
-      "../container/product/OtherProducts/OtherProductsContainer.svelte"
-    )
-    .then((module) => {
-      OtherProductsContainer = module.default;
-    })
-    .catch(logError);
-  };
+      import(
+        "../container/product/OtherProducts/OtherProductsContainer.svelte"
+      )
+        .then((module) => {
+          OtherProductsContainer = module.default;
+        })
+        .catch(logError);
+    };
 
   onMount(() => {
     const images = Array.from(document.querySelectorAll(".lazy-image img"));
@@ -83,6 +102,20 @@
   })
 </script>
 
+  <svelte:head> 
+    <title>Super You: Asuransi Online, Terjangkau, Mudah, Cepat, Serba Digital</title>
+    <meta name="description" content="Pilih Asuransi Online yang sesuai kebutuhan kamu. Super You by Sequis Online memberikan perlindungan optimal. Klaim mudah. Cek disini!" />
+    <meta name="keywords" content="asuransi online, beli asuransi online, daftar asuransi online" />
+    
+    <meta property="og:title" content="Super You: Asuransi Online, Terjangkau, Mudah, Cepat, Serba Digital" />
+    <meta property="og:description" content="Pilih Asuransi Online yang sesuai kebutuhan kamu. Super You by Sequis Online memberikan perlindungan optimal. Klaim mudah. Cek disini!" />
+    <meta property="og:image" content="https://superyou.co.id/img/superyou-banner.jpg">
+    <meta property="og:url" content={app_url}>
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="{app_url}" />
+  </svelte:head>
+
 <section id="superyou-home" class="above-the-fold-wrapper">
   <AboveTheFold />
 </section>
@@ -111,7 +144,8 @@
       this={OtherProductsContainer}
       apiProductUrl={api_product_url}
       appUrl={app_url}
-      slugException="" />
+      productsOrder={otherproductsOrder}
+      slugException="sequis-genius-life-care-insurance" />
   {:else}
     <div class="otherproduct_progress" />
   {/if}
@@ -175,6 +209,13 @@
   <Testimony/>
 </div>
 
+<Analytics
+  eventValue="asuransi-online-super-you-murah-mudah-cepat"
+  eventGoal="chosing-product"
+  pageType="home-page"
+  pageTitle="Asuransi Online Super You - Murah, Mudah, Cepat"
+/>
+
 <style lang="postcss">
   .superyou-introduce {
     .excerpt {
@@ -202,7 +243,8 @@
   }
 
   .su_container.faq,
-  .su_container.testimonies
+  .su_container.testimonies,
+  .su_container.otherproduct-index
   {
     content-visibility: auto;
     contain-intrinsic-size: 700px;

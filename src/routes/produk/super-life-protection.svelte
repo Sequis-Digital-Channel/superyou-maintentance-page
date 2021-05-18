@@ -32,6 +32,7 @@
   
     import { loadFlickity } from "../../utils/_loadflickity";
     import { getProductBySlugNameClient } from "../../api/products.service";
+    import Analytics from "../../components/Analytics.svelte";
   
     export let api_product_url;
     export let app_url;
@@ -46,11 +47,18 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
+    // let otherproductsOrder = [
+    //   'super-strong-protection',
+    //   'super-care-protection',
+    //   'my-hospital-protection',
+    //   'super-well-protection',
+    //   'super-safe-protection',
+    // ]
+    
+    // Temporary list of product
     let otherproductsOrder = [
       'super-strong-protection',
-      'super-care-protection',
       'my-hospital-protection',
-      'super-well-protection',
       'super-safe-protection',
     ]
   
@@ -148,7 +156,17 @@
   </script>
   
   <svelte:head>
-    <title>Asuransi Kesehatan | Super Life Protection</title>
+    <title>Asuransi Jiwa Online Super Life Protection | Super You</title>
+    <meta name="description" content="Dapatkan berbagai pilihan manfaat perlindungan Asuransi Jiwa sesuai kebutuhan kamu disini. Premi terjangkau. Cari tahu disini." />
+    <meta name="keywords" content="asuransi jiwa, asuransi, asuransi digital, asuransi online, perlindungan, premi, super you, super life" />
+    
+    <meta property="og:title" content="Asuransi Jiwa Online Super Life Protection | Super You" />
+    <meta property="og:description" content="Dapatkan berbagai pilihan manfaat perlindungan Asuransi Jiwa sesuai kebutuhan kamu disini. Premi terjangkau. Cari tahu disini." />
+    <meta property="og:image" content="https://superyou.co.id/img/superyou-banner.jpg">
+    <meta property="og:url" content="{app_url}/produk/super-life-protection">
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="{app_url}/produk/super-life-protection" />
   </svelte:head>
   
   <section class="above-the-fold-wrapper">
@@ -186,6 +204,8 @@
     />
   
     <a
+      class="block w-full mx-auto"
+      style="max-width: 314px;"
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-life-protection.pdf`}
       target="_blank">
       <BaseButton
@@ -319,6 +339,13 @@
   {#if WhatsAppChat}
     <svelte:component this={WhatsAppChat} />
   {/if}
+
+  <Analytics
+    eventValue="asuransi-jiwa-super-life-protection"
+    eventGoal="chosing-product"
+    pageType="produk-page"
+    pageTitle="Asuransi Jiwa | Super Life Protection"
+  />
   
   <style lang="postcss">
     .above-the-fold-wrapper {

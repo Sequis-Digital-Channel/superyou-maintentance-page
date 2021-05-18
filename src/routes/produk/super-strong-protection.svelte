@@ -32,6 +32,7 @@
   
     import { loadFlickity } from "../../utils/_loadflickity";
     import { getProductBySlugNameClient } from "../../api/products.service";
+    import Analytics from "../../components/Analytics.svelte";
   
     export let api_product_url;
     export let app_url;
@@ -46,12 +47,19 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
+    // let otherproductsOrder = [
+    //   'super-care-protection',
+    //   'my-hospital-protection',
+    //   'super-safe-protection',
+    //   'super-life-protection',
+    //   'super-well-protection',
+    // ]
+
+    // Temporary list of product
     let otherproductsOrder = [
-      'super-care-protection',
-      'my-hospital-protection',
       'super-safe-protection',
+      'my-hospital-protection',
       'super-life-protection',
-      'super-well-protection',
     ]
   
     const logError = (err) => {
@@ -147,7 +155,17 @@
   </script>
   
   <svelte:head>
-    <title>Asuransi Kesehatan | Super Strong Protection</title>
+    <title>Asuransi Penyakit Kritis Super Strong Protection | Super You</title>
+    <meta name="description" content="Bebas memilih jenis asuransi penyakit kritis dari Super You. Dapatkan manfaat pertanggungan meninggal dunia. Daftar mudah dan cepat disini." />
+    <meta name="keywords" content="asuransi, asuransi online, asuransi digital, super you, super strong, penyakit kritis, kanker, serangan jantung, perlindungan, stroke" />
+    
+    <meta property="og:title" content="Asuransi Penyakit Kritis Super Strong Protection | Super You" />
+    <meta property="og:description" content="Bebas memilih jenis asuransi penyakit kritis dari Super You. Dapatkan manfaat pertanggungan meninggal dunia. Daftar mudah dan cepat disini." />
+    <meta property="og:image" content="https://superyou.co.id/img/superyou-banner.jpg">
+    <meta property="og:url" content="{app_url}/produk/super-strong-protection">
+    <meta property="og:type" content="website" />
+
+    <link rel="canonical" href="{app_url}/produk/super-strong-protection" />
   </svelte:head>
   
   <section class="above-the-fold-wrapper">
@@ -180,6 +198,8 @@
       excerpt="Perlindungan atas risiko terdiagnosa kanker, stroke, atau serangan jantung dan risiko tutup usia."/>
   
     <a
+      class="block w-full mx-auto"
+      style="max-width: 314px;"
       href={`${app_url}/pdf/benefits-table/tabel-manfaat-super-strong-protection.pdf`}
       target="_blank">
       <BaseButton
@@ -312,6 +332,13 @@
   {#if WhatsAppChat}
     <svelte:component this={WhatsAppChat} />
   {/if}
+
+  <Analytics
+    eventValue="asuransi-penyakit-kritis-super-strong-protection"
+    eventGoal="chosing-product"
+    pageType="produk-page"
+    pageTitle="Asuransi Penyakit Kritis | Super Strong Protection"
+  />
   
   <style lang="postcss">
     .above-the-fold-wrapper {

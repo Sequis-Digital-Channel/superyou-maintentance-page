@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import productNavItems from "../data/json/product-nav-items.json";
+  import productNavItems from "../data/json/product-nav-items-exclude-care-well.json";
 
   export let productListShow = false;
 

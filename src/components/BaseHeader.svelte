@@ -165,7 +165,7 @@
       align-items: center;
 
       #su-nav {
-        width: 65%;
+        /* width: 70%; */
         max-width: 900px;
         margin-left: auto;
         ul {
@@ -177,7 +177,19 @@
             display: none;
 
             &:not(:first-child) {
-              margin-left: 36px;
+              @media (min-width: 768px) {
+                margin-left: 20px;
+              }
+              @media (min-width: 1280px) {
+                margin-left: 36px;
+              }
+            }
+
+            &:last-child {
+              margin-left: 12px;
+              @media (min-width: 768px) {
+                margin-left: 6px;
+              }
             }
             &.products {
               @media (min-width: 1024px) {
@@ -235,6 +247,10 @@
                 }
               }
               
+            }
+
+            &.su-menu {
+              display: flex;
             }
 
             & > a,
@@ -359,7 +375,7 @@
 <header class:nav-scrolled={navScrolled}>
   <div class="header-wrapper">
     <div id="su-logo" aria-label="superyou-logo">
-      <a href="/">
+      <a rel="external" href="/">
         <img
           src={navScrolled ? `/icons/superyou-logo-color.svg` : `/icons/superyou-logo.svg`}
           alt="Super You Logo"
@@ -447,7 +463,7 @@
                     </div>
                     <span class="text-bluegray text-base">Cek Akun</span>
                   </a>
-                  <div on:click={actionLogout} class="p-3 pt-2 flex items-center">
+                  <div on:click={actionLogout} class="p-3 pt-2 flex items-center cursor-pointer">
                     <div class="mr-3">
                       <img src="https://superyou.co.id/img/icons/logout-inactive.svg" alt="Logout" width="20px" height="20px">
                     </div>
@@ -455,8 +471,12 @@
                   </div>
                 </div>
               </div>
-              <span class="flex-none ml-5" style="margin-top: -2px;">
-                <img src="https://superyou.co.id/img/icons/ico-no-message.svg" alt="user notification" width="30px" height="30px;">
+              <span
+                class="flex-none ml-3"
+                style="margin-top: -2px;">
+                <a rel="external" href={`${APP_URL}/dashboard/profil`}>
+                  <img src="https://superyou.co.id/img/icons/ico-no-message.svg" alt="user notification" width="30px" height="30px;">
+                </a>
               </span>
             </div>
           </div>
@@ -466,9 +486,11 @@
             <span>MASUK</span>
           </button>
           {/if}
+        </li>
+        <li class="su-menu">
           <div
             on:click={handleClickMenu}
-            class="menu-wrapper ml-4 md:ml-6"
+            class="menu-wrapper md:ml-6"
             tabindex="0"
             role="button"
             aria-label="aside">

@@ -5,6 +5,7 @@
   import { actionShowAndCloseModalLogin, actionLogout } from "../stores/auth/actions";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
   import IcLock from "../components/svg/IcLock.svelte";
+  import productNavItems from "../data/json/product-nav-items-exclude-care-well.json";
   
   export let APP_URL;
 
@@ -294,24 +295,16 @@
         <div class="aside-item">
           <h4>Produk</h4>
           <ul>
-            <li>
-              <a rel="external" on:click={closeSideNav} href="/produk/super-safe-protection">Super Safe</a>
-            </li>
-            <li>
-              <a rel="external" on:click={closeSideNav} href="/produk/super-life-protection">Super Life</a>
-            </li>
-            <li>
-              <a rel="external" on:click={closeSideNav} href="/produk/super-strong-protection">Super Strong</a>
-            </li>
-            <li>
-              <a rel="external" on:click={closeSideNav} href="/produk/my-hospital-protection">My Hospital</a>
-            </li>
-            <li>
-              <a rel="external" on:click={closeSideNav} href="/produk/super-care-protection">Super Care</a>
-            </li>
-            <li>
-              <a rel="external" on:click={closeSideNav} href="/produk/super-well-protection" >Super Well</a>
-            </li>
+            {#each productNavItems.health as navItem, i (navItem.icon)}
+              <li>
+                <a rel="external" on:click={closeSideNav} href={navItem.url}>{navItem.name.replace('Protection', '')}</a>
+              </li>
+            {/each}
+            {#each productNavItems.life as navItem, i (navItem.icon)}
+              <li>
+                <a rel="external" on:click={closeSideNav} href={navItem.url}>{navItem.name.replace('Protection', '')}</a>
+              </li>
+            {/each}
           </ul>
         </div>
 

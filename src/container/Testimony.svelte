@@ -180,8 +180,8 @@
                       style="height:48px" />
                   </div>
                   <div class="flex flex-col">
-                    <p class="text-darkblue font-bold text-lg">Stephanie</p>
-                    <p class="text-bluegray text-xs">Karyawan Swasta</p>
+                    <p class="text-darkblue font-bold text-lg">{testimony.person.name}</p>
+                    <p class="text-bluegray text-xs">{testimony.person.profession}</p>
                   </div>
                 </div>
               </div>
