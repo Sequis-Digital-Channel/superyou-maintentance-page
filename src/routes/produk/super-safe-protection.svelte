@@ -449,6 +449,7 @@
   </section>
 
   <HospitalLocator
+    appUrl={app_url}
     info="Kunjungi rumah sakit rekanan Super You terdekat untuk mendapatkan manfaat asuransi sesuai yang kamu pilih." />
   
   {#if WhatsAppChat}

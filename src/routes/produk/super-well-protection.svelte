@@ -319,7 +319,8 @@
   {/if}
 </section>
 
-<HospitalLocator />
+<HospitalLocator
+  appUrl={app_url} />
 
 {#if WhatsAppChat}
   <svelte:component this={WhatsAppChat} />

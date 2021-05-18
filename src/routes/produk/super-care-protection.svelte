@@ -322,6 +322,7 @@
 </section>
 
 <HospitalLocator
+  appUrl={app_url}
   info="Untuk kamu nasabah asuransi Super You yang membutuhkan perawatan rumah sakit rekanan. Berikut daftar rumah sakit terdekat yang dapat kamu kunjungi." />
 
 {#if WhatsAppChat}

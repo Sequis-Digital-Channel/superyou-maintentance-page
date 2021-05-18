@@ -46,8 +46,6 @@
     'super-safe-protection',
   ]
 
-
-
   const logError = (err) => {
     console.error((err && err.stack) || err);
   };

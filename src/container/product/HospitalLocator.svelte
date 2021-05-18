@@ -4,6 +4,7 @@
     export let info = "Kunjungi rumah sakit rekanan Super You dari lokasi kamu. Daftar rumah sakit kami memberikan perawatan kesehatan sesuai kebutuhan kamu.";
     let lazySrc =
     "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
+    export let appUrl = "";
 </script>
 
 <style lang="postcss">
@@ -95,7 +96,10 @@
     </div>
     <BaseButton 
       bgColor=#00aaae
-      style="max-width:314px;font-size:14px;font-weight:bold;margin-bottom:15px;margin:0 auto;">
+      style="max-width:314px;font-size:14px;font-weight:bold;margin-bottom:15px;margin:0 auto;"
+      on:click={() => {
+        window.location.href = `${appUrl}/rumah-sakit-terdekat`;
+      }}>
         CEK RUMAH SAKIT TERDEKAT DISINI
     </BaseButton>
   </div>

@@ -487,26 +487,31 @@
 
       <div class="socmed-wrapper">
         <div class="lazy-image">
-          <BaseCircleSocmed>
-            <img
-              slot="icon"
-              src={lazySrc}
-              data-src="/icons/socialmedia/facebook.svg"
-              width="8"
-              height="17"
-              alt="Superyou Facebook" />
-          </BaseCircleSocmed>
+          <a href="https://www.facebook.com/OfficialSuperYouID/">
+            <BaseCircleSocmed>
+              <img
+                slot="icon"
+                src={lazySrc}
+                data-src="/icons/socialmedia/facebook.svg"
+                width="8"
+                height="17"
+                alt="Superyou Facebook" />
+            </BaseCircleSocmed>
+          </a>
         </div>
         <div class="lazy-image" style="margin-left:10px;">
-          <BaseCircleSocmed>
-            <img
-              slot="icon"
-              src={lazySrc}
-              data-src="/icons/socialmedia/instagram.svg"
-              width="15"
-              height="13"
-              alt="Superyou Twitter" />
-          </BaseCircleSocmed>
+          <a href="https://www.instagram.com/superyouid">
+            <BaseCircleSocmed>
+              <img
+                slot="icon"
+                src={lazySrc}
+                data-src="/icons/socialmedia/instagram.svg"
+                href="https://www.instagram.com/superyouid"
+                width="15"
+                height="13"
+                alt="Superyou Instagram" />
+            </BaseCircleSocmed>
+          </a>
         </div>
       </div>
     </div>

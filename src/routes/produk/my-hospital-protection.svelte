@@ -331,7 +331,8 @@
     {/if}
   </section>
 
-  <HospitalLocator 
+  <HospitalLocator  
+    appUrl={app_url}
     info="Temukan jaringan rumah sakit rekanan Super You terdekat untuk pemeriksaan medis, pelayanan rawat jalan, dan rawat inap sesuai manfaat asuransi kamu." />
   
   {#if WhatsAppChat}

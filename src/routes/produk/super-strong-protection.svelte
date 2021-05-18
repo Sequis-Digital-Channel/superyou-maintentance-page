@@ -326,7 +326,8 @@
     {/if}
   </section>
 
-  <HospitalLocator 
+  <HospitalLocator
+    appUrl={app_url}
     info="Butuh rumah sakit rekanan terdekat Super You? Berikut daftar rumah sakit yang dekat dari lokasi kamu." />
   
   {#if WhatsAppChat}
