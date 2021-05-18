@@ -4,6 +4,7 @@
     return {
       APP_URL,
       APP_ENV,
+      page
     };
   }
 </script>
@@ -16,12 +17,11 @@
   import BaseFooter from "../components/BaseFooter.svelte";
   import CartContainer from "../container/cart/CartContainer.svelte";
   import BaseMobileBottomNav from "../components/BaseMobileBottomNav.svelte";
-  import { session_id } from "../stores/auth/store";
   import { bodyScroll } from "../stores/bodyscroll";
   import { manageSessionTracker } from "../utils/_su_laravel_session";
 
   // export let segment;
-  export let APP_URL, APP_ENV;
+  export let APP_URL, APP_ENV, page;
 
   let bodyHTMLElement = false;
 
@@ -55,5 +55,5 @@
   <slot />
 </main>
 <BaseFooter {APP_URL} />
-<BaseMobileBottomNav />
+<BaseMobileBottomNav path={page.path} />
 <div id="portal" />

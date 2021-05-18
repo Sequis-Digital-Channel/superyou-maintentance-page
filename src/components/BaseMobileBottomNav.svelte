@@ -3,9 +3,18 @@
   import { authStore } from "../stores/auth/store";
   import { actionShowAndCloseModalLogin } from "../stores/auth/actions";
 
+  export let path = '/'
+  let isCartShowing = false;
+  cartShow.subscribe(val => {
+    isCartShowing = val;
+  });
+  
+  
   const handleCartToggleShow = () => {
     cartShow.update((cartShow) => !cartShow);
   };
+  
+  $: isHomeIconActive = path === '/' && !isCartShowing;
 </script>
 
 <style lang="postcss">
@@ -32,6 +41,10 @@
         flex-direction: column;
         line-height: 0;
       }
+      g.active{
+        stroke: none;
+        fill: #00aaae;
+      }
     }
   }
 </style>
@@ -52,7 +65,7 @@
                   </feMerge>
               </filter>
           </defs>
-          <g fill="none" stroke="#708697" stroke-width=".8" filter="url(#u4d4sfg8ra)" transform="translate(-29 -12)">
+          <g class:active={isHomeIconActive} fill="none" stroke="#708697" stroke-width=".8" filter="url(#u4d4sfg8ra)" transform="translate(-29 -12)">
               <g>
                   <path d="M15.731 6.664L8.553.212c-.315-.283-.79-.283-1.106 0L.27 6.664c-.253.227-.336.577-.213.89.124.315.424.518.765.518h1.147v6.464c0 .256.21.464.47.464h3.935c.26 0 .47-.208.47-.464V10.61h2.313v3.925c0 .256.211.464.47.464h3.935c.26 0 .471-.208.471-.464V8.072h1.147c.341 0 .642-.203.765-.517s.04-.664-.213-.89zM14.482 1H11l4 3V1.428C15 1.19 14.768 1 14.482 1z" transform="translate(29.5 12)"/>
               </g>
@@ -89,7 +102,7 @@
     </div>
 
     <div class="nav-item flex-grow p-2">
-      <a href="/" class="flex flex-col items-center justify-center">
+      <a href="/blog/" class="flex flex-col items-center justify-center">
         <img src="https://superyou.co.id/img/icons/navigation/blog-off.svg" class="ml-1" width="24px" height="24px" alt="go to Super You Blog">
         <span class="text-xs text-bluegray">Blog</span>
       </a>
