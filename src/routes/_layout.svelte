@@ -20,7 +20,7 @@
   import { bodyScroll } from "../stores/bodyscroll";
   import { manageSessionTracker } from "../utils/_su_laravel_session";
 
-  // export let segment;
+  // export let segment
   export let APP_URL, APP_ENV, page;
 
   let bodyHTMLElement = false;
