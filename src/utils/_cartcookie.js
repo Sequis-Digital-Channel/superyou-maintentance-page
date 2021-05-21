@@ -73,7 +73,8 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob, selec
         product_slug: productSlug,
         product_plan_code: plan.product_plan_code,
         rider_codes: ridersData.rider_codes.join("+"),
-        uw_product_code: plan.product_code
+        uw_product_code: plan.product_code,
+        is_underwriting: plan.is_underwriting
       });
       cartCookie.newProduct = {
         "productName": plan.product_name,
@@ -105,7 +106,8 @@ export function cookieAddToCart(plan, productSlug, insuredFor, insuredDob, selec
           product_slug: productSlug,
           product_plan_code: plan.product_plan_code,
           rider_codes: ridersData.rider_codes.join("+"),
-          uw_product_code: plan.product_code
+          uw_product_code: plan.product_code,
+          is_underwriting: plan.is_underwriting
         }
       ],
       "sumAssuredTotal": plan.validation_type === "sum_assured" ? plan.sum_assured : 0,
