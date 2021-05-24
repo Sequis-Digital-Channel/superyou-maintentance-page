@@ -39,8 +39,8 @@
         display: grid;
         /* grid-template-columns: repeat(6, minmax(140px, 1fr)); */
         grid-template-columns:
-          minmax(140px, 1fr) minmax(80px, 1fr) minmax(152px, 1fr)
-          minmax(240px, 1fr) minmax(80px, 1fr) minmax(80px, 1fr);
+          minmax(80px, 1fr) minmax(152px, 1fr) minmax(240px, 1fr) 
+          minmax(80px, 1fr) minmax(80px, 1fr);
         grid-template-rows: auto auto;
         grid-gap: 1.5%;
       }
@@ -227,11 +227,11 @@
         height="45px">
     </div>
 
-    <div class="f-item">
+    <!-- <div class="f-item">
       <div class="f-title">
         <p>Sovia</p>
       </div>
-    </div>
+    </div> -->
 
     <div class="f-item">
       <div class="f-title" on:click={() => handleToggleFooterNav('about')}>
@@ -506,7 +506,6 @@
                 slot="icon"
                 src={lazySrc}
                 data-src="/icons/socialmedia/instagram.svg"
-                href="https://www.instagram.com/superyouid"
                 width="15"
                 height="13"
                 alt="Superyou Instagram" />
