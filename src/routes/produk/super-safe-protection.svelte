@@ -226,10 +226,10 @@
           >
           <source
             media="(max-width: 500px)"
-            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png?tr=q-30"
+            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png?tr=q-50,h-379,w-315,fo-top"
           >
           <img
-            src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png"
+            src="https://ik.imagekit.io/oc2o82pyjsh/superyou/super-safe/mb-hero-motor_2x__xdoayo75.png?tr=h-379,w-315,fo-top"
             alt="Super Motor Hero"
             width="374"
             height="315"
@@ -239,7 +239,7 @@
         </picture>
       </AboveTheFold>
     </div>
-    <div class="carousel-cell w-full s-holiday inline-block whitespace-normal">
+    <div class="carousel-cell s-holiday w-full inline-block whitespace-normal">
       <AboveTheFold meta={heroMeta.metas[2]} withNote={true}>
         <picture class="hero-holiday" slot="hero-img">
           <source
@@ -467,6 +467,7 @@
     .above-the-fold-wrapper {
       background: linear-gradient(105deg, #e8a456, #ffd7a6 94%);
       transition: background 0.5s ease 0s;
+      max-height: 693px;
     }
     .product_hero .hero-safe img {
       @media (min-width: 501px) {
@@ -598,6 +599,5 @@
         }
       }
     }
-
   </style>
   
