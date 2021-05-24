@@ -285,9 +285,9 @@
         <div class="aside-item">
           <h4>Tentang Super You</h4>
           <ul>
-            <li><a href="/">Apa itu Super You</a></li>
+            <li><a href="{`${APP_URL}/tentang-kami`}">Apa itu Super You</a></li>
             <li>
-              <a href="https://superyou.co.id/tentang-kami">Visi & Misi</a>
+              <a href={`${APP_URL}/tentang-kami`}>Visi & Misi</a>
             </li>
           </ul>
         </div>
@@ -345,15 +345,26 @@
       <div
         class="socmed"
         style="display:inline-flex;justify-content:space-between;width:80px;">
-        <BaseCircleSocmed />
-        <BaseCircleSocmed>
-          <img
-            slot="icon"
-            src="/icons/socialmedia/twitter.svg"
-            width="15"
-            height="13"
-            alt="Superyou Twitter" />
-        </BaseCircleSocmed>
+        <a href="https://www.facebook.com/OfficialSuperYouID/">
+          <BaseCircleSocmed>
+            <img
+              slot="icon"
+              src="/icons/socialmedia/facebook.svg"
+              width="8"
+              height="17"
+              alt="Superyou Facebook" />
+          </BaseCircleSocmed>
+        </a>
+        <a href="https://www.instagram.com/superyouid">
+          <BaseCircleSocmed>
+            <img
+              slot="icon"
+              src="/icons/socialmedia/instagram.svg"
+              width="15"
+              height="13"
+              alt="Superyou Instagram" />
+          </BaseCircleSocmed>
+        </a>
       </div>
       <p class="text-bluegray">Hubungi Kami di <b>(021) 2994 2929</b></p>
       <div class="links">
