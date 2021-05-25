@@ -1,66 +1,68 @@
 {
-  "slug": "super-life-protection",
-  "rip_link": "products/rip/super-life-protection.pdf",
-  "benefit_groups": [
-    {
-      "name": "",
-      "tooltip_text": null,
-      "order": null,
-      "id": "_blank",
-      "benefits": [
+    "slug": "super-life-protection",
+    "rip_link": "products/rip/super-life-protection.pdf",
+    "benefit_groups": [
         {
-          "id": "401cf9f6-45e2-4516-8d4e-bb8b37ac5ebb",
-          "name": "Santunan Cacat, Total & Tetap",
-          "product_benefit_group_id": "_blank",
-          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-life-protection1.png",
-          "tooltip_text": "Cacat Total & Tetap berarti kehilangan fungsi anggota gerak, kedua kaki atau kedua tangan, atau satu kaki dan satu tangan, atau kehilangan fungsi kedua belah mata.",
-          "product_id": "a5fe23f1-fd8e-41af-87ee-05af2d380fbc",
-          "benefit": "<div>Mendapat Uang Pertanggungan hingga <strong>Rp300 Juta</strong> bila Tertanggung mengalami risiko Cacat Total & Tetap.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-life-protection1.svg",
-          "order": null,
-          "product_benefit_group": {
+            "name": "",
             "tooltip_text": null,
             "order": null,
             "id": "_blank",
-            "name": ""
-          }
-        },
-        {
-          "id": "f9ff6bd7-190f-4e28-8a36-cb2ba761cf17",
-          "name": "Santunan Kematian Bukan Karena Kecelakaan",
-          "product_benefit_group_id": "_blank",
-          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-life-protection2.png",
-          "tooltip_text": "Tertanggung adalah orang yang jiwanya diasuransikan.<br/><br/>Masa Pertanggungan adalah Masa berlakunya perlindungan asuransi",
-          "product_id": "a5fe23f1-fd8e-41af-87ee-05af2d380fbc",
-          "benefit": "<div> Mendapat Uang Pertanggungan hingga <strong>Rp300 Juta</strong> bila Tertanggung meninggal selama Masa Pertanggungan.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-life-protection2.svg",
-          "order": null,
-          "product_benefit_group": {
-            "tooltip_text": null,
-            "order": null,
-            "id": "_blank",
-            "name": ""
-          }
-        },
-        {
-          "id": "df8254be-7f0d-4b18-a084-73fedc268b3a",
-          "name": "Santunan Kematian Akibat Kecelakaan",
-          "product_benefit_group_id": "_blank",
-          "icon_etc": "https://staging.superyou.co.id/products/benefits/super-life-protection3.png",
-          "tooltip_text": "",
-          "product_id": "a5fe23f1-fd8e-41af-87ee-05af2d380fbc",
-          "benefit": "<div>Uang pertanggungan dibayarkan 2x lipat atau 200% yaitu hingga  <strong>Rp300 Juta</strong> apabila penyebab kematian adalah kecelakaan.</div>",
-          "icon_svg": "https://staging.superyou.co.id/products/benefits/super-life-protection3.svg",
-          "order": null,
-          "product_benefit_group": {
-            "tooltip_text": null,
-            "order": null,
-            "id": "_blank",
-            "name": ""
-          }
+            "benefits": [
+                {
+                    "product_id": "0b8e5918-7a1c-43d6-958b-64438ce6187d",
+                    "benefit": "<div> Mendapat Uang Pertanggungan hingga <strong>Rp300 Juta</strong> bila Tertanggung mengalami risiko Cacat Total & Tetap.</div>",
+                    "icon_svg": "https://superyou.co.id/products/benefits/super-life-protection1.svg",
+                    "tooltip_text": "Cacat Total & Tetap berarti kehilangan fungsi anggota gerak, kedua kaki atau kedua tangan, atau satu kaki dan satu tangan, atau kehilangan fungsi kedua belah mata.",
+                    "order": 1,
+                    "name": "Santunan Cacat, Total & Tetap",
+                    "id": "b3cb78a1-5099-442d-bbe2-847640bdaf65",
+                    "product_benefit_group_id": "_blank",
+                    "icon_etc": "https://superyou.co.id/products/benefits/super-life-protection1.png",
+                    "tooltip_text_description": null,
+                    "product_benefit_group": {
+                        "order": null,
+                        "id": "_blank",
+                        "name": "",
+                        "tooltip_text": null
+                    }
+                },
+                {
+                    "product_id": "0b8e5918-7a1c-43d6-958b-64438ce6187d",
+                    "benefit": "<div> Mendapat Uang Pertanggungan hingga <strong>Rp300 Juta</strong> bila Tertanggung meninggal selama Masa Pertanggungan.</div>",
+                    "icon_svg": "https://superyou.co.id/products/benefits/super-life-protection2.svg",
+                    "tooltip_text": "Tertanggung adalah orang yang jiwanya diasuransikan.<br/></br/>Masa Pertanggungan adalah Masa berlakunya perlindungan asuransi",
+                    "order": 2,
+                    "name": "Santunan Kematian Bukan Karena Kecelakaan",
+                    "id": "eeb60b1c-58d0-4d30-82d4-6a9de1e2820c",
+                    "product_benefit_group_id": "_blank",
+                    "icon_etc": "https://superyou.co.id/products/benefits/super-life-protection2.png",
+                    "tooltip_text_description": null,
+                    "product_benefit_group": {
+                        "order": null,
+                        "id": "_blank",
+                        "name": "",
+                        "tooltip_text": null
+                    }
+                },
+                {
+                    "product_id": "0b8e5918-7a1c-43d6-958b-64438ce6187d",
+                    "benefit": "<div> Uang pertanggungan dibayarkan 2x lipat atau 200% yaitu hingga <strong>Rp600 Juta</strong> apabila penyebab kematian adalah kecelakaan. </div>",
+                    "icon_svg": "https://superyou.co.id/products/benefits/super-life-protection3.svg",
+                    "tooltip_text": "",
+                    "order": 3,
+                    "name": "Santunan Kematian Akibat Kecelakaan",
+                    "id": "440427a4-37a0-45b5-9b38-b65199d56a5c",
+                    "product_benefit_group_id": "_blank",
+                    "icon_etc": "https://superyou.co.id/products/benefits/super-life-protection3.png",
+                    "tooltip_text_description": null,
+                    "product_benefit_group": {
+                        "order": null,
+                        "id": "_blank",
+                        "name": "",
+                        "tooltip_text": null
+                    }
+                }
+            ]
         }
-        
-      ]
-    }
-  ]
+    ]
 }
