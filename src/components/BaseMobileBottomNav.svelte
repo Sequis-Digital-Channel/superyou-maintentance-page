@@ -20,7 +20,6 @@
 <style lang="postcss">
   nav {
     padding-bottom: env(safe-area-inset-bottom);
-    height: 5rem;
     z-index: 14;
     border-top: 1px solid rgb(226, 232, 240);
     .nav-item {

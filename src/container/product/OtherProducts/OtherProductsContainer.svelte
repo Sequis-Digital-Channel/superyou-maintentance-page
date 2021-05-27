@@ -33,9 +33,11 @@
         const idx = products.findIndex(p => p.slug === slug);
         psrt.push(products[idx]);
       });
-      sortedProducts = psrt.filter(p => p.slug !== 'super-care-protection');
       // temporary for disable super-care
-      sortedProducts.splice(3, 0, products[1]);
+      let filterSuperCare = psrt.filter(p => p.slug !== 'super-care-protection');
+      let safeIndex = products.findIndex(p => p.slug === 'super-safe-protection');
+      filterSuperCare.splice(3, 0, products[safeIndex]);
+      sortedProducts = filterSuperCare;
     } else {
       sortedProducts = products;
     }
