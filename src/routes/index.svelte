@@ -40,10 +40,12 @@
 
   // Temporary list of product
   let otherproductsOrder = [
+    'super-safe-protection',
     'super-life-protection',
     'my-hospital-protection',
+    'super-well-protection',
     'super-strong-protection',
-    'super-safe-protection',
+    'super-care-protection',
   ]
 
   const logError = (err) => {

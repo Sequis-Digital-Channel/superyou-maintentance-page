@@ -296,12 +296,13 @@
         </span>
       </div>
       <ul class:show={footerNav.blog}>
-        <li><a href={`${APP_URL}/blog/category/keuangan/`}>Keuangan</a></li>
-        <li><a href={`${APP_URL}/blog/category/kesehatan/`}>Kesehatan</a></li>
-        <li>
-          <a href={`${APP_URL}/blog/category/gayahidup/`}>Gaya Hidup & Keluarga</a>
-        </li>
-        <li><a href={`${APP_URL}/blog/category/promo/`}>Berita & Promo</a></li>
+        <li><a href={`${APP_URL}/blog/`}>Beranda</a></li>
+        <li><a href={`${APP_URL}/blog/category/keuangan`}>Keuangan</a></li>
+        <li><a href={`${APP_URL}/blog/category/kesehatan`}>Kesehatan</a></li>
+        <li><a href={`${APP_URL}/blog/catagory/gayahidup`}>Gaya Hidup & Keluarga</a></li>
+        <li><a href={`${APP_URL}/blog/category/berita`}>Berita</a></li>
+        <li><a href={`${APP_URL}/blog/category/promo`}>Promo</a></li>
+        <li><a href={`${APP_URL}/blog/category/superyou-quiz`}>Quiz</a></li>
       </ul>
     </div>
 

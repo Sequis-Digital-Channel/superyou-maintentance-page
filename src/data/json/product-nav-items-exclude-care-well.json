@@ -48,6 +48,15 @@
       "self": true
     },
     {
+      "icon": "/icons/products/well/super-well.svg",
+      "name": "Super Well Protection",
+      "desc": "Perawatan 10 Penyakit Kritis",
+      "info": "Mulai Dari Rp 50.000/Bulan",
+      "product_type": "basic",
+      "url": "/produk/super-well-protection",
+      "self": true
+    },
+    {
       "icon": "/icons/products/strong/super-strong.svg",
       "name": "Super Strong Protection",
       "desc": "Proteksi Jiwa + 3 Penyakit Kritis",
