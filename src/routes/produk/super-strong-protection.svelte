@@ -58,8 +58,11 @@
     // Temporary list of product
     let otherproductsOrder = [
       'super-safe-protection',
-      'my-hospital-protection',
       'super-life-protection',
+      'my-hospital-protection',
+      'super-strong-protection',
+      'super-well-protection',
+      'super-care-protection',
     ]
   
     const logError = (err) => {
@@ -320,7 +323,8 @@
         appUrl={app_url}
         productName="Super Strong"
         productsOrder={otherproductsOrder}
-        slugException={slug} />
+        slugException={''} />
+        <!-- slugException={slug} -->
     {:else}
       <div class="otherproduct_progress" />
     {/if}

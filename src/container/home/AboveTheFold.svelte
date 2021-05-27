@@ -48,10 +48,10 @@
       </div>
       <div class="atf_products flex items-end justify-end">
         <div class="atf_products-wrapper overflow-hidden mx-auto lg:mx-0 rounded-xl pb-5 px-3 lg:px-0">
-          <!-- <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3"> -->
+          <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3">
 
           <!-- Temporary code for disabled product super care and well -->
-          <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4">
+          <!-- <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4"> -->
           <!-- Temporary code for disabled product super care and well -->
 
             <!-- <a class="p-box-link" rel="external" href="/produk/super-care-protection">
@@ -94,7 +94,7 @@
                 <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Jiwa</span>
               </div>
             </a>
-            <!-- <a class="p-box-link" rel="external" href="/produk/super-well-protection">
+            <a class="p-box-link" rel="external" href="/produk/super-well-protection">
               <div class="p-box">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-well-protection_nICWi8R4nF.svg"
@@ -103,7 +103,7 @@
                   alt="Super Well">
                 <span class="text-darkblue font-bold text-center text-tiny">Perawatan 10 Penyakit Kritis</span>
               </div>
-            </a> -->
+            </a>
             <a class="p-box-link" rel="external" href="/produk/super-safe-protection">
               <div class="p-box">
                 <img
