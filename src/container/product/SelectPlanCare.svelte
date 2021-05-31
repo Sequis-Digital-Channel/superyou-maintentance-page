@@ -96,15 +96,17 @@
   ];
 
   const claim_method = [
-    {
-      val: "cashless",
-      label: "Cashless",
-      selected: true,
-    },
+    /* Temporary disable cashless plan */
+    
+    // {
+    //   val: "cashless",
+    //   label: "Cashless",
+    //   selected: true,
+    // },
     {
       val: "reimbursement",
       label: "Reimbursement",
-      selected: false,
+      selected: true,
     },
   ];
 
@@ -159,6 +161,7 @@
   async function handleSubmittedForm() {
     if (handleValidationForm()) return;
     const selectedPlanData = filterPlanCashlessOrNotByPlanNameSlug();
+    console.log(selectedPlanData, 'here');
     const insuredDob = formatDob(calculationData.insured_dob.val);
 
     if (

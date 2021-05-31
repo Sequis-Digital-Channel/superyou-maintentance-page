@@ -6,8 +6,7 @@
   onMount(() => {
     pSlideCenter.scrollBy({
       top: 0,
-      // left: 160,
-      left: 120, // Temporary code for disabled product super care and well
+      left: 160,
       behavior: 'smooth'
     })
   })
@@ -54,7 +53,7 @@
           <!-- <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4"> -->
           <!-- Temporary code for disabled product super care and well -->
 
-            <!-- <a class="p-box-link" rel="external" href="/produk/super-care-protection">
+            <a class="p-box-link" rel="external" href="/produk/super-care-protection">
               <div class="p-box covid-scope">
                 <img
                   src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-care-protection_45SOWUY6X.svg"
@@ -63,7 +62,7 @@
                   alt="Super Care">
                 <span class="text-darkblue font-bold text-center text-tiny care-name">Perawatan Infeksi & Kecelakaan</span>
               </div>
-            </a> -->
+            </a>
             <a class="p-box-link" rel="external" href="/produk/my-hospital-protection">
               <div class="p-box">
                 <img
@@ -295,13 +294,11 @@
                     font-size: 9px;
                   }
                 }
-                /*
-                Temporary code for disabled product super care and well
                 .care-name {
                   @media (max-width: 1024px) {
                     font-size: 7.2px;
                   }
-                } */
+                }
               }
             }
           }

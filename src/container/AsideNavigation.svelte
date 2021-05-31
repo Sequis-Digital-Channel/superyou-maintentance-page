@@ -5,7 +5,7 @@
   import { actionShowAndCloseModalLogin, actionLogout } from "../stores/auth/actions";
   import BaseCircleSocmed from "../components/BaseCircleSocmed.svelte";
   import IcLock from "../components/svg/IcLock.svelte";
-  import productNavItems from "../data/json/product-nav-items-exclude-care-well.json";
+  import productNavItems from "../data/json/product-nav-items.json";
   
   export let APP_URL;
 

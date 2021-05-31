@@ -29,24 +29,24 @@
 
   let OtherProductsContainer;
   let isFlicktyLoaded = false;
-  // let otherproductsOrder = [
-  //   'super-life-protection',
-  //   'super-strong-protection',
-  //   'super-care-protection',
-  //   'super-safe-protection',
-  //   'super-well-protection',
-  //   'my-hospital-protection',
-  // ];
-
-  // Temporary list of product
   let otherproductsOrder = [
-    'super-safe-protection',
     'super-life-protection',
-    'my-hospital-protection',
-    'super-well-protection',
     'super-strong-protection',
     'super-care-protection',
-  ]
+    'super-safe-protection',
+    'super-well-protection',
+    'my-hospital-protection',
+  ];
+
+  // Temporary list of product
+  // let otherproductsOrder = [
+  //   'super-safe-protection',
+  //   'super-life-protection',
+  //   'my-hospital-protection',
+  //   'super-well-protection',
+  //   'super-strong-protection',
+  //   'super-care-protection',
+  // ]
 
   const logError = (err) => {
     console.error((err && err.stack) || err);
