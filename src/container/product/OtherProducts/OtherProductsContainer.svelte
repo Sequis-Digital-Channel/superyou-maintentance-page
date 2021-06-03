@@ -34,10 +34,10 @@
         psrt.push(products[idx]);
       });
       // temporary for disable super-care
-      let filterSuperCare = psrt.filter(p => p.slug !== 'super-care-protection');
-      let safeIndex = products.findIndex(p => p.slug === 'super-safe-protection');
-      filterSuperCare.splice(3, 0, products[safeIndex]);
-      sortedProducts = filterSuperCare;
+      // let filterSuperCare = psrt.filter(p => p.slug !== 'super-care-protection');
+      // let safeIndex = products.findIndex(p => p.slug === 'super-safe-protection');
+      // filterSuperCare.splice(3, 0, products[safeIndex]);
+      sortedProducts = psrt;
     } else {
       sortedProducts = products;
     }

@@ -1,9 +1,15 @@
 <script context="module">
-  import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
-  import tnc from "../../data/json/products/super-care/tnc.json";
+  // import heroMeta from "../../data/json/products/super-care/abovethefold-meta.json";
+  import heroMeta from "../../data/json/products/super-care/abovethefold-meta-hidecashles.json";
+
+  // import tnc from "../../data/json/products/super-care/tnc.json";
+  import tnc from "../../data/json/products/super-care/tnc-hide-cashless.json";
+
+  // import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
+  import dataFaqSuperCare from "../../data/json/products/super-care/faq-hide-cashless.json";
+
   import notcovered from "../../data/json/products/super-care/not-covered.json";
   import superCareProtection from "../../data/json/products/super-care/api.json";
-  import heroMeta from "../../data/json/products/super-care/abovethefold-meta.json";
   
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL, SUPER_API_URL } = session;

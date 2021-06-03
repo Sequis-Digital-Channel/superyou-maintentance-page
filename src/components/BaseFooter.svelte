@@ -1,5 +1,5 @@
 <script>
-  import productNavItems from "../data/json/product-nav-items-exclude-care-well.json";
+  import productNavItems from "../data/json/product-nav-items.json";
   import BaseCircleSocmed from "./BaseCircleSocmed.svelte";
   export let APP_URL;
   let outerWidth;

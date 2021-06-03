@@ -47,22 +47,22 @@
     let OtherProductsContainer;
     let WhatsAppChat;
     let isFlicktyLoaded = false;
-    // let otherproductsOrder = [
-    //   'super-strong-protection',
-    //   'super-care-protection',
-    //   'my-hospital-protection',
-    //   'super-well-protection',
-    //   'super-safe-protection',
-    // ]
+    let otherproductsOrder = [
+      'super-strong-protection',
+      'super-care-protection',
+      'my-hospital-protection',
+      'super-well-protection',
+      'super-safe-protection',
+    ]
     
     // Temporary list of product
-    let otherproductsOrder = [
-      'super-safe-protection',
-      'super-strong-protection',
-      'my-hospital-protection',
-      'super-life-protection',
-      'super-well-protection'
-    ]
+    // let otherproductsOrder = [
+    //   'super-safe-protection',
+    //   'super-strong-protection',
+    //   'my-hospital-protection',
+    //   'super-life-protection',
+    //   'super-well-protection'
+    // ]
   
     const logError = (err) => {
       console.error((err && err.stack) || err);
@@ -329,8 +329,7 @@
         appUrl={app_url}
         productName="Super Life"
         productsOrder={otherproductsOrder}
-        slugException={''} />
-        <!-- slugException={slug} -->
+        slugException={slug} />
     {:else}
       <div class="otherproduct_progress" />
     {/if}

@@ -5,8 +5,12 @@
   import { getFormEncryption } from "../../api/superyou.service";
   import { formatDobHash } from "../../utils/_date";
   import { getCookie } from "../../utils/_cartcookie";
-  import { onlyOneValidationProductList, cartErrorMessages } from "../../stores/cart/store";
-  import { addToCart } from "../../stores/cart/actions";
+  import {
+    onlyOneValidationProductList,
+    cartErrorMessages,
+    derivedTotalQuantity
+  } from "../../stores/cart/store";
+  import { addToCart, fetchProductsCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
   import BaseInputRadio from "../../components/BaseInputRadio.svelte";
@@ -307,17 +311,28 @@
   }
 
   function validationPlanNotPassed() {
+    // check quantity validation
+    if ($derivedTotalQuantity >= 5) {
+      cartErrorMessages.update(errors => {
+        if(errors.findIndex(error => error.type === 'max_sum_assured') === -1) {
+          return [...errors, {
+            'type': 'max_quantity',
+            'msg' : 'Jumlah maksimal dalam 1x transaksi pembelian adalah 5 buah produk'
+          }];
+        } 
+      })
+
+      return true;
+    }
+
     const {
       validation_type,
       product_slug
     } = basePlanResultData;
-    console.log(validation_type);
+
     switch(validation_type) {
       case "only_one":
         if($onlyOneValidationProductList.includes(product_slug)) {
-          addToCartBtn.disabled = true;
-          addToCartBtn.msg = `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`;
-
           cartErrorMessages.update(errors => {
             if(errors.findIndex(err => err.type === product_slug) === -1) {
               return [...errors, {
@@ -330,8 +345,6 @@
         }
         return $onlyOneValidationProductList.includes(product_slug);
       default:
-        addToCartBtn.disabled = false;
-        addToCartBtn.msg = ``;
         return false;
     }
   }
@@ -355,6 +368,15 @@
           return errors.filter(error => error.type !== basePlanResultData.product_slug);
         });
       } 
+    }
+  });
+
+  // Cart quantity validation
+  derivedTotalQuantity.subscribe($total => {
+    if ($total <= 5) {
+      cartErrorMessages.update($errors => {
+        return $errors.filter(error => error.type !== "max_quantity");
+      })
     }
   });
 
@@ -383,6 +405,7 @@
         productPlans = [...productPlans, currentPlan];
       }
     });
+    fetchProductsCart(api_product_url, true);
   });
 </script>
 
@@ -459,17 +482,17 @@
             />
           {/if}
 
-          {#if addToCartBtn.disabled}
-            <p class="text-red-600 px-1 my-3 text-sm">
-            {addToCartBtn.msg}
-            </p>
+          {#if $cartErrorMessages.length}
+            {#each $cartErrorMessages as error (error.type) }
+              <p class="text-red-600 px-1 my-3 text-sm mb-2">{error.msg}</p>
+            {/each}
           {/if}
 
           <BaseButton
             on:click={(e) => handleClickAddToCart(e)}
             style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
-            bgColor={addToCartBtn.disabled ? '#708697' : '#00aaae'}
-            disabled={addToCartBtn.disabled}
+            bgColor={$cartErrorMessages.length? '#708697' : '#00aaae'}
+            disabled={$cartErrorMessages.length}
           >
             TAMBAH KE KERANJANG
             <img
@@ -485,7 +508,7 @@
             on:click={(e) => payNow(e)}
             style="max-width: 330px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
             bgColor={"transparent"}
-            disabled={addToCartBtn.disabled}>
+            disabled={$cartErrorMessages.length}>
             BAYAR SEKARANG
           </BaseButton>
 
