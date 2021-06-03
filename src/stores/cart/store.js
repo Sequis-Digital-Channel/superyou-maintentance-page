@@ -10,6 +10,7 @@ export const cartStore = writable({
 export const paymentTermYearly = writable(false);
 export const cartShow = writable(false);
 export const cartErrorMessages = writable([]);
+export const disabledBtnNextPurchase = writable(false);
 
 export const derivedTotalPricePerPlan = derived(cartStore, $cartStore => {
   

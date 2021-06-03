@@ -10,6 +10,8 @@
     paymentTermYearly,
     derivedTotalPricePerPlan,
     derivedTotalQuantity,
+    cartShow,
+    disabledBtnNextPurchase
   } from "../../stores/cart/store";
   import {
     addQuantityPlan,
@@ -31,6 +33,7 @@
   let btnSubstractQty = false;
   let basePrice = 0;
   let term = "Bulan";
+
   paymentTermYearly.subscribe((isYearlyPayment) => {
     if (isYearlyPayment) {
       term = "Tahun";
@@ -100,12 +103,17 @@
     ({ planId }) => planId === item.id
   )[0].totalPricePerPlan;
 
+  $: isCartItemError = item.validations?.length ? true : false;
+  $: if (isCartItemError) {
+    disabledBtnNextPurchase.update(() => true)
+  }
+
   onMount(() => {
     selectedRiders = Object.keys($cartStore.products[item.id].riders);
   });
 </script>
 
-<div class="cart-item bg-white rounded-xl w-full relative">
+<div class="cart-item bg-white rounded-xl w-full relative" class:cart-error={isCartItemError}>
   <div class="p-3 cart-item-grid">
     <div class="item-icon pt-1">
       <img src={item.icon_svg} alt={item.productName} width="48" height="48" />
@@ -340,10 +348,21 @@
   {/if}
 </div>
 
+{#if isCartItemError}
+  {#each item.validations as error, i (`${error.loc}-${i}`) }
+    <p class="text-xs text-red-600 mt-1">
+      {error.msg}
+    </p>
+  {/each}
+{/if}
+
 <style lang="postcss">
   .cart-item {
     &:not(:first-child) {
       margin-top: 12px;
+    }
+    &.cart-error {
+      @apply border-2 border-red-600
     }
     .cart-item-grid {
       display: grid;

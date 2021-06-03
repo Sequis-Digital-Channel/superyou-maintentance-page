@@ -10,7 +10,8 @@
     derivedTotalQuantity,
     derivedTotalSumAssured,
     derivedTotalPricePerPlan,
-    cartErrorMessages
+    cartErrorMessages,
+    disabledBtnNextPurchase
   } from "../../stores/cart/store";
   import { addToCart } from "../../stores/cart/actions";
   import { getCookie } from "../../utils/_cartcookie";
@@ -21,6 +22,10 @@
 
   let superApiUrl;
   let appUrl;
+  let validation = {
+    sum_assured_passed: false,
+    quantity_passed: false
+  }
 
   const { session } = stores();
   session.subscribe((value) => {
@@ -29,7 +34,6 @@
   });
 
   let isDOMloaded = false;
-  let isNextStepToBuyValid;
   const handleCartToggleShow = () => {
     cartShow.update((cartShow) => !cartShow);
   };
@@ -67,8 +71,50 @@
     bodyScroll.update(() => true);
   }
 
-  $: if ($derivedTotalSumAssured > 1500000000) {
-    isNextStepToBuyValid = true;
+  derivedTotalSumAssured.subscribe(($totalSumAssured) => {
+    if ($totalSumAssured > 1500000000) {
+      validationBtn.sum_assured_passed = false;
+      cartErrorMessages.update(errors => {
+        if(errors.findIndex(err => err.type === 'max_sum_assured') === -1) {
+          return [...errors, {
+            'type': 'max_sum_assured',
+            'msg' : 'Kamu tidak dapat lanjut ke step selanjutnya, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar. Silakan untuk menghapus / mengurangi jumlah product dari salah satu plan di keranjang'
+          }];
+        } 
+        return errors;
+      })
+      cartShow.update(() => true);
+    } else {
+      cartErrorMessages.update(errors => {
+        return errors.filter(err => err.type !== 'max_sum_assured');
+      })
+      validation.sum_assured_passed = true;
+    }
+  });
+
+  derivedTotalQuantity.subscribe($totalQty => {
+    if ($totalQty > 5) {
+      validation.quantity_passed = false;
+      cartErrorMessages.update(errors => {
+        if(errors.findIndex(error => error.type === 'max_quantity') === -1) {
+          return [...errors, {
+            'type': 'max_quantity',
+            'msg' : 'Jumlah maksimal dalam 1x transaksi pembelian adalah 5 buah produk'
+          }];
+        } 
+      })
+    } else {
+      cartErrorMessages.update(errors => {
+        return errors.filter(err => err.type !== 'max_quantity');
+      });
+      validation.quantity_passed = true;
+    }
+  });
+
+  $: if (validation.sum_assured_passed && validation.quantity_passed) {
+    disabledBtnNextPurchase.update(() => false);
+  } else {
+    disabledBtnNextPurchase.update(() => true);
   }
 
   let grandTotal = 0;
@@ -85,6 +131,7 @@
 
       if (cartCookie) {
         cartCookie = JSON.parse(cartCookie);
+
         cartCookie.products.forEach((product) => {
           const { planId, qty, price, chosenRider, sumAssured, product_slug, validationType: validation_type } = product;
           let selectedRiders = {};
@@ -105,7 +152,7 @@
               validation_type,
               sum_assured: 0 // initial load
             },
-            product.insuredFor,
+            cartCookie.insuredFor,
             cartCookie.dobString,
             null,
             product_slug
@@ -153,6 +200,14 @@
             >
           </div>
 
+          {#if $cartErrorMessages && $cartErrorMessages.length}
+            <ul class="text-xs">
+              {#each $cartErrorMessages as cartError, i (`err-msg-${i}`) }
+                <li class="text-red-600 mb-2">{ cartError.msg }</li>
+              {/each}
+            </ul>
+          {/if}
+
           <div class="cart-body mt-2">
             <span class="block text-white font-bold"> Informasi Produk </span>
             <hr class="my-3" />
@@ -166,14 +221,6 @@
             <BaseSwitch bind:checked={$paymentTermYearly} />
           </div>
         </div>
-
-        {#if $cartErrorMessages && $cartErrorMessages.length}
-          <ul class="px-3 md:px-4 text-xs -mt-32 md:-mt-16 pb-12">
-            {#each $cartErrorMessages as cartError, i (`err-msg-${i}`) }
-              <li class="text-red-600 mb-2">{ cartError.msg }</li>
-            {/each}
-          </ul>
-        {/if}
 
         <div
           class="cart-bottom fixed h-16 bg-darkblue px-3 py-2 md:px-4 inset-x-0 flex justify-between items-center"
@@ -192,7 +239,7 @@
             class="bg-teal rounded-lg py-2 px-4 font-bold text-white text-sm flex justify-between items-center"
             style="width:9rem;"
             aria-label="buy action"
-            disabled={isNextStepToBuyValid}
+            disabled={$disabledBtnNextPurchase}
             on:click={(e) => {
               handleSubmitCart(e);
             }}>

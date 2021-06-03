@@ -5,7 +5,6 @@
     cartShow,
   } from "../../stores/cart/store";
   import { fetchProductsCart } from "../../stores/cart/actions";
-  import { formatDobHash } from "../../utils/_date";
   import { onDestroy } from "svelte";
 
   let cartItem;
@@ -59,7 +58,7 @@
 </script>
 
 {#each Object.keys($cartStore.products) as planid (planid)}
-  {#if $cartStore.products[planid].fetched && cartItem && itemsDetail[planid]}
+  {#if cartItem && itemsDetail[planid]}
     <svelte:component this={cartItem} item={itemsDetail[planid]} />
   {:else}
     <div class="cart-item-load bg-white mt-4 p-3" style="height: 85px;">

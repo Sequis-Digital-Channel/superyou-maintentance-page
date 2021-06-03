@@ -5,9 +5,13 @@
   import { getFormEncryption } from "../../api/superyou.service";
   import { formatDobHash } from "../../utils/_date";
   import { getCookie } from "../../utils/_cartcookie";
-  import { onlyOneValidationProductList, cartErrorMessages, derivedTotalSumAssured } from "../../stores/cart/store";
-  import { fetchProductsCart } from "../../stores/cart/actions";
-  import { addToCart } from "../../stores/cart/actions";
+  import {
+    onlyOneValidationProductList,
+    cartErrorMessages,
+    derivedTotalSumAssured,
+    derivedTotalQuantity
+  } from "../../stores/cart/store";
+  import { addToCart, fetchProductsCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
   import BaseSelectMenu from "../../components/BaseSelectMenu.svelte";
@@ -296,6 +300,7 @@
     isAddToCartSuccess = true;
     setTimeout(() => {
       isAddToCartSuccess = false;
+      fetchProductsCart(api_product_url, true);
     }, 600);
   }
 
@@ -312,6 +317,20 @@
   }
 
   function validationPlanNotPassed() {
+    // check quantity validation
+    if ($derivedTotalQuantity >= 5) {
+      cartErrorMessages.update(errors => {
+        if(errors.findIndex(error => error.type === 'max_sum_assured') === -1) {
+          return [...errors, {
+            'type': 'max_quantity',
+            'msg' : 'Jumlah maksimal dalam 1x transaksi pembelian adalah 5 buah produk'
+          }];
+        } 
+      })
+
+      return true;
+    }
+    // check plan validations
     const {
       validation_type,
       product_slug,
@@ -321,8 +340,6 @@
     switch(validation_type) {
       case "only_one":
         if($onlyOneValidationProductList.includes(product_slug)) {
-          addToCartBtn.disabled = true;
-          addToCartBtn.msg = `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`
           cartErrorMessages.update(errors => {
             if(errors.findIndex(err => err.type === product_slug) === -1) {
               return [...errors, {
@@ -337,8 +354,6 @@
       case "sum_assured":
         let assuredTotal = $derivedTotalSumAssured + sum_assured;
         if (assuredTotal > 1500000000) {
-          addToCartBtn.disabled = true;
-          addToCartBtn.msg = `Kamu tidak dapat menambah produk lagi, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar`;
           cartErrorMessages.update(errors => {
             if(errors.findIndex(err => err.type === product_slug) === -1) {
               return [...errors, {
@@ -396,6 +411,15 @@
           return errors.filter(error => error.type !== "sum_assured");
         });
       }
+    }
+  })
+
+  // Cart quantity validation
+  derivedTotalQuantity.subscribe($total => {
+    if ($total <= 5) {
+      cartErrorMessages.update($errors => {
+        return $errors.filter(error => error.type !== "max_quantity");
+      })
     }
   })
 
@@ -504,17 +528,23 @@
             />
           {/if}
 
-          {#if addToCartBtn.disabled}
+          <!-- {#if addToCartBtn.disabled}
             <p class="text-red-600 px-1 my-3 text-sm">
             {addToCartBtn.msg}
             </p>
+          {/if} -->
+
+          {#if $cartErrorMessages.length}
+            {#each $cartErrorMessages as error (error.type) }
+              <p class="text-red-600 px-1 my-3 text-sm mb-2">{error.msg}</p>
+            {/each}
           {/if}
 
           <BaseButton
             on:click={(e) => handleClickAddToCart(e)}
             style="max-width: 383px;font-size:14px;margin:30px auto 20px;"
-            bgColor={addToCartBtn.disabled ? '#708697' : '#00aaae'}
-            disabled={addToCartBtn.disabled}
+            bgColor={$cartErrorMessages.length ? '#708697' : '#00aaae'}
+            disabled={$cartErrorMessages.length}
           >
             TAMBAH KE KERANJANG
             <img
@@ -530,7 +560,7 @@
             on:click={(e) => payNow(e)}
             style="max-width: 383px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
             bgColor='transparent'
-            disabled={addToCartBtn.disabled}
+            disabled={$cartErrorMessages.length}
           >
             BAYAR SEKARANG
           </BaseButton>

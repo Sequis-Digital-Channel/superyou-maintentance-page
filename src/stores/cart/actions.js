@@ -19,12 +19,6 @@ export function addToCart({planId, quantity, price, riders, validation_type, sum
   // { planId: string, fetched: boolean, quantity: number, price: number, riders: object}
   let updatedCart;
   cartStore.update(($cartStore) => {
-    const p_ids = Object.keys($cartStore.products);
-    if($cartStore.insuredDob !== insuredDob && p_ids.length) {
-      p_ids.forEach(id => {
-        $cartStore.products[id].fetched = false;
-      })
-    }
     updatedCart = $cartStore;
     updatedCart.insuredFor = insuredFor;
     updatedCart.insuredDob = insuredDob;
@@ -160,7 +154,6 @@ export function addRemoveUpdateRider(actionType, planId, riderId, riderPrice, ri
 }
 
 export function deleteCartItem(planId, sumAssuredPlan) {
-  console.log(planId, sumAssuredPlan);
   cartStore.update($cartStore => {
     let updatedCart = $cartStore;
     // const planQuantity = updatedCart.products[planId].quantity;
@@ -201,34 +194,24 @@ export function setToLocalStorage() {
 }
 
 export async function fetchProductsCart(productApiUrl, refetch = false) {
-    // let totalSumAssured = 0;
     let cartData;
     let itemsDetail = {};
 
     cartStore.subscribe(cart => {
       cartData = cart;
     })
-    const productsNotYetFetched = Object.keys(cartData.products).filter(
-      (planId) => cartData.products[planId].fetched === false
-    );
-
-    // stop if all products already fetech
-    if (!productsNotYetFetched.length) return {};
 
     const productsDetails = await Promise.all(
-      productsNotYetFetched.map((planId) =>
+      Object.keys(cartData.products).map((planId) =>
         getPlanById(productApiUrl, planId, `${cartData.insuredDob}`)
       )
     );
-    productsDetails.forEach(function (response, index) {
-      itemsDetail[response.id] = response;
+    
+    cartStore.update((cart) => {
+      productsDetails.forEach(function (response, index) {
+        itemsDetail[response.id] = response;
 
-      cartStore.update((cart) => {
-        if (refetch) {
-          cart.products[response.id].fetched = false;  
-        } else {
-          cart.products[response.id].fetched = true;
-        }
+        cart.products[response.id].fetched = false;
         cart.products[response.id].validation_type = response.validation_type;
         cart.products[response.id].product_slug = response.product_slug;
         cart.products[response.id].price =
@@ -251,12 +234,10 @@ export async function fetchProductsCart(productApiUrl, refetch = false) {
             product_code: rider.product_code
           };
         });
-        return cart;
+        
+        
       });
+      return cart;
     });
-
-    // sumAssuredTotal.update(() => {
-      
-    // });
     return itemsDetail
   }
