@@ -11,6 +11,7 @@ export const paymentTermYearly = writable(false);
 export const cartShow = writable(false);
 export const cartErrorMessages = writable([]);
 export const disabledBtnNextPurchase = writable(false);
+export const isFetchProductCatalogueApi = writable(false);
 
 export const derivedTotalPricePerPlan = derived(cartStore, $cartStore => {
   
@@ -69,3 +70,7 @@ export const onlyOneValidationProductList = derived(cartStore, $cartStore => {
   }
   return listOnlyOnePlan;
 });
+
+export const derivedCartErrorMsgGeneral = derived(cartErrorMessages, $cartErrorMessages => {
+  return $cartErrorMessages.filter(error => error.id === null);
+})

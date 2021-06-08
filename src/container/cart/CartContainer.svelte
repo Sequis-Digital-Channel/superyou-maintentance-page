@@ -11,6 +11,7 @@
     derivedTotalSumAssured,
     derivedTotalPricePerPlan,
     cartErrorMessages,
+    derivedCartErrorMsgGeneral,
     disabledBtnNextPurchase
   } from "../../stores/cart/store";
   import { addToCart } from "../../stores/cart/actions";
@@ -26,6 +27,7 @@
     sum_assured_passed: false,
     quantity_passed: false
   }
+  let isLoading;
 
   const { session } = stores();
   session.subscribe((value) => {
@@ -78,7 +80,8 @@
         if(errors.findIndex(err => err.type === 'max_sum_assured') === -1) {
           return [...errors, {
             'type': 'max_sum_assured',
-            'msg' : 'Kamu tidak dapat lanjut ke step selanjutnya, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar. Silakan untuk menghapus / mengurangi jumlah product dari salah satu plan di keranjang'
+            'msg' : 'Kamu tidak dapat lanjut ke step selanjutnya, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar. Silakan untuk menghapus / mengurangi jumlah product dari salah satu plan di keranjang',
+            'id': null
           }];
         } 
         return errors;
@@ -99,7 +102,8 @@
         if(errors.findIndex(error => error.type === 'max_quantity') === -1) {
           return [...errors, {
             'type': 'max_quantity',
-            'msg' : 'Jumlah maksimal dalam 1x transaksi pembelian adalah 5 buah produk'
+            'msg' : 'Jumlah maksimal dalam 1x transaksi pembelian adalah 5 buah produk',
+            'id': null
           }];
         } 
       })
@@ -111,7 +115,7 @@
     }
   });
 
-  $: if (validation.sum_assured_passed && validation.quantity_passed) {
+  $: if (validation.sum_assured_passed && validation.quantity_passed && $cartErrorMessages.length === 0 && !isLoading) {
     disabledBtnNextPurchase.update(() => false);
   } else {
     disabledBtnNextPurchase.update(() => true);
@@ -200,9 +204,9 @@
             >
           </div>
 
-          {#if $cartErrorMessages && $cartErrorMessages.length}
+          {#if $derivedCartErrorMsgGeneral}
             <ul class="text-xs">
-              {#each $cartErrorMessages as cartError, i (`err-msg-${i}`) }
+              {#each $derivedCartErrorMsgGeneral as cartError, i (`cart-general-err-msg-${i}`) }
                 <li class="text-red-600 mb-2">{ cartError.msg }</li>
               {/each}
             </ul>
@@ -211,7 +215,7 @@
           <div class="cart-body mt-2">
             <span class="block text-white font-bold"> Informasi Produk </span>
             <hr class="my-3" />
-            <CartItems />
+            <CartItems bind:isLoading={isLoading}/>
           </div>
         </div>
 

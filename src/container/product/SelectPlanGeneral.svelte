@@ -8,10 +8,12 @@
   import {
     onlyOneValidationProductList,
     cartErrorMessages,
+    derivedCartErrorMsgGeneral,
     derivedTotalSumAssured,
-    derivedTotalQuantity
+    derivedTotalQuantity,
+    isFetchProductCatalogueApi
   } from "../../stores/cart/store";
-  import { addToCart, fetchProductsCart } from "../../stores/cart/actions";
+  import { addToCart } from "../../stores/cart/actions";
   import BaseCircleSocmed from "../../components/BaseCircleSocmed.svelte";
   import BaseInputDate from "../../components/BaseInputDate.svelte";
   import BaseSelectMenu from "../../components/BaseSelectMenu.svelte";
@@ -33,6 +35,7 @@
   let basePlanResultCard;
   let selectedDob = "";
   let isBtnDisabled = false;
+  let isBtnLoading = false;
 
   let addToCartBtn = {
     disabled: false,
@@ -145,61 +148,101 @@
     },
   };
   let selectedRiders = [];
+  let selectedRidersErrorMsg = [];
 
   function handleClickRider({ target }, riderSlug) {
     if (target.checked) {
       selectedRiders = [...selectedRiders, riderSlug]
     } else {
       selectedRiders = selectedRiders.filter((rider_slug) => target.value !== rider_slug);
+      if(selectedRidersErrorMsg.length && selectedRidersErrorMsg.some(error => error.rider_slug === riderSlug)) {
+        calculationData.insured_dob.error.status = false;
+        selectedRidersErrorMsg = selectedRidersErrorMsg.filter((err) => err.rider_slug !== riderSlug);
+      }
     }
+  }
+
+  function checkBasicPlanAgeValidation(planDetail) {
+    // check insrured age criteria plan
+    if (planDetail.validations && planDetail.validations.length) {
+      let errorMessage = "";
+      planDetail.validations.forEach(err => {
+        errorMessage += err.msg + " ";
+      })
+      calculationData.insured_dob.error.status = true;
+      calculationData.insured_dob.error.msg = errorMessage;
+      return false;
+    }
+
+    return true;
+  }
+
+  function checkRidersPlanAgeValidation(listRidersDetail) {
+    // check insrured age criteria plan with riders
+    if (selectedRiders.length) {
+      listRidersDetail.forEach(rider => {
+        if (selectedRiders.includes(rider.product_slug) && rider.validations && rider.validations.length) {
+          console.log(rider.validations);
+          rider.validations.forEach(validation => {
+            selectedRidersErrorMsg = [...selectedRidersErrorMsg, {
+              rider_slug: rider.product_slug,
+              ...validation
+            }];
+          })
+        } 
+      });
+
+      if (selectedRidersErrorMsg.length) {
+        calculationData.insured_dob.error.status = true;
+        return false;
+      }
+    }
+    return true;
   }
 
   async function handleSubmittedForm() {
     if (handleValidationForm()) return;
+
+    isBtnDisabled = true;
+    isBtnLoading = true;
     const insuredDob = formatDob(calculationData.insured_dob.val);
+    selectedRidersErrorMsg = [];
+    basePlanResultData = await getPlanById(
+      api_product_url,
+      calculationData.plan.val.value,
+      insuredDob
+    );
 
-    if (
-        basePlanResultData
-        && basePlanResultData.id === calculationData.plan.val.value
-        && insuredDob === selectedDob
-        && basePlanResultData.validations === null
-      ) {
-      planSelected = true;
-      focusView();
-    } else {
-      basePlanResultData = await getPlanById(
-        api_product_url,
-        calculationData.plan.val.value,
-        insuredDob
-      );
-
-      // check insrured age criteria
-      if (basePlanResultData.validations && basePlanResultData.validations.length) {
-        let errorMessage = "";
-        basePlanResultData.validations.forEach(err => {
-          errorMessage += err.msg + " ";
-        })
-        calculationData.insured_dob.error.status = true;
-        calculationData.insured_dob.error.msg = errorMessage;
-        return false;
-      }
-      loadBasePlanResultCard();
-      planSelected = true;
-      focusView();
-      selectedDob = insuredDob;
-      if (
-          basePlanResultData.validation_type === "sum_assured"
-          && basePlanResultData.sum_assured + $derivedTotalSumAssured <= 1500000000
-        ) {
-        addToCartBtn = {
-          disabled: false,
-          msg: ""
-        }
-        cartErrorMessages.update(errors => {
-          return errors.filter(error => error.type !== "sum_assured");
-        });
-      }
+    if (!checkBasicPlanAgeValidation(basePlanResultData)) {
+      isBtnDisabled = false;
+      isBtnLoading = false;
+      return false
     }
+
+    if (!checkRidersPlanAgeValidation(basePlanResultData.riders)) {
+      isBtnDisabled = false;
+      isBtnLoading = false;
+      return false
+    }
+
+    loadBasePlanResultCard();
+    planSelected = true;
+    focusView();
+    selectedDob = insuredDob;
+    if (
+        basePlanResultData.validation_type === "sum_assured"
+        && basePlanResultData.sum_assured + $derivedTotalSumAssured <= 1500000000
+      ) {
+      addToCartBtn = {
+        disabled: false,
+        msg: ""
+      }
+      cartErrorMessages.update(errors => {
+        return errors.filter(error => error.type !== "sum_assured");
+      });
+    }
+    isBtnDisabled = false;
+    isBtnLoading = false;
   }
 
   function handleValidationForm() {
@@ -300,7 +343,7 @@
     isAddToCartSuccess = true;
     setTimeout(() => {
       isAddToCartSuccess = false;
-      fetchProductsCart(api_product_url, true);
+      isFetchProductCatalogueApi.update(() => true);
     }, 600);
   }
 
@@ -323,7 +366,8 @@
         if(errors.findIndex(error => error.type === 'max_sum_assured') === -1) {
           return [...errors, {
             'type': 'max_quantity',
-            'msg' : 'Jumlah maksimal dalam 1x transaksi pembelian adalah 5 buah produk'
+            'msg' : 'Jumlah maksimal dalam 1x transaksi pembelian adalah 5 buah produk',
+            'id': null
           }];
         } 
       })
@@ -344,7 +388,8 @@
             if(errors.findIndex(err => err.type === product_slug) === -1) {
               return [...errors, {
                 "type": product_slug,
-                "msg": `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`
+                "msg": `Kamu hanya dapat memiliki 1 Polis ${basePlanResultData.product_name} untuk 1 Tertanggung.`,
+                'id': null
               }]
             }
             return errors;
@@ -358,7 +403,8 @@
             if(errors.findIndex(err => err.type === product_slug) === -1) {
               return [...errors, {
                 "type": 'sum_assured',
-                "msg": `Kamu tidak dapat menambah produk lagi, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar`
+                "msg": `Kamu tidak dapat menambah produk lagi, uang pertanggungan yang didapat sudah mencapai batas limit 1.5 Milyar`,
+                'id': null
               }]
             }
             return errors;
@@ -437,7 +483,7 @@
       };
       productPlans = [...productPlans, currentPlan];
     });
-    fetchProductsCart(api_product_url, true);
+    isFetchProductCatalogueApi.update(() => true);
   });
 </script>
 
@@ -469,7 +515,7 @@
       <BaseInputDate
         label="Tanggal Lahir Tertanggung"
         name="insured_dob"
-        minAge={1}
+        minAge={0}
         maxAge={80}
         bind:value={calculationData.insured_dob.val}
         bind:error={calculationData.insured_dob.error}
@@ -505,16 +551,32 @@
                   >{rider.product_name}</span>
               </div>
             </BaseInputCheck>
+            {#if selectedRidersErrorMsg.length}
+              {#each selectedRidersErrorMsg as error, i (`${error.loc}-${i}`)}
+                {#if error.rider_slug === rider.product_slug}
+                <p class="text-xs text-red-600 pl-10 -mt-1">{error.msg}</p>
+                {/if}
+              {/each}
+            {/if}
             
           {/each}
         </div>
       {/if}
       <br />
+      {#if isBtnLoading}
       <BaseButton
         style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
-        disabled={isBtnDisabled}
-        >HITUNG BIAYA PREMI</BaseButton
-      >
+        disabled={isBtnDisabled}>
+        HITUNG BIAYA PREMI
+        <img slot="icon" src="/icons/loading/equalizer-load.svg" alt="Hitung biaya premi Loading">
+      </BaseButton>
+      {:else}
+      <BaseButton
+        style="max-width: 330px;font-size:14px;margin:30px auto 20px;"
+        disabled={isBtnDisabled}>
+        HITUNG BIAYA PREMI
+      </BaseButton>
+      {/if}
     </form>
 
     <div class="plan-result">
@@ -528,14 +590,8 @@
             />
           {/if}
 
-          <!-- {#if addToCartBtn.disabled}
-            <p class="text-red-600 px-1 my-3 text-sm">
-            {addToCartBtn.msg}
-            </p>
-          {/if} -->
-
-          {#if $cartErrorMessages.length}
-            {#each $cartErrorMessages as error (error.type) }
+          {#if $derivedCartErrorMsgGeneral.length}
+            {#each $derivedCartErrorMsgGeneral as error, i (`select-plan-cart-err-${i}`) }
               <p class="text-red-600 px-1 my-3 text-sm mb-2">{error.msg}</p>
             {/each}
           {/if}
@@ -543,8 +599,8 @@
           <BaseButton
             on:click={(e) => handleClickAddToCart(e)}
             style="max-width: 383px;font-size:14px;margin:30px auto 20px;"
-            bgColor={$cartErrorMessages.length ? '#708697' : '#00aaae'}
-            disabled={$cartErrorMessages.length}
+            bgColor={$derivedCartErrorMsgGeneral.length ? '#708697' : '#00aaae'}
+            disabled={$derivedCartErrorMsgGeneral.length}
           >
             TAMBAH KE KERANJANG
             <img
@@ -560,7 +616,7 @@
             on:click={(e) => payNow(e)}
             style="max-width: 383px;font-size:14px; color:#0d294a; border: 1px solid #0d294a;margin: 20px auto 30px;"
             bgColor='transparent'
-            disabled={$cartErrorMessages.length}
+            disabled={$derivedCartErrorMsgGeneral.length}
           >
             BAYAR SEKARANG
           </BaseButton>
