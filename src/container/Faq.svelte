@@ -1,10 +1,12 @@
 <script>
   import BaseAccordion from "../components/BaseAccordion.svelte";
   import BaseButton from "../components/BaseButton.svelte";
+  import BaseList from "../components/BaseList.svelte";
 
   export let FAQtitle = "";
   export let accordionData = [];
   export let appUrl = "";
+  export let type = "";
 </script>
 
 <style lang="postcss">
@@ -16,8 +18,13 @@
 </style>
 
 <div class="product-faq">
+  {#if type == "list"}
+  <h2 class="text-center text-darkblue font-bold text-lg md:text-2xl">{FAQtitle}</h2>
+  <BaseList {accordionData} />
+  {:else}
   <h4 class="text-xl text-center font-bold mb-6 lg:mb-6">{FAQtitle}</h4>
   <BaseAccordion {accordionData} />
+  {/if}
 
   <div class="lg:mt-12">
     <BaseButton
