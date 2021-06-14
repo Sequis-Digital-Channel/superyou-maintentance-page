@@ -103,17 +103,15 @@
   ];
 
   const claim_method = [
-    /* Temporary disable cashless plan */
-    
-    // {
-    //   val: "cashless",
-    //   label: "Cashless",
-    //   selected: true,
-    // },
+    {
+      val: "cashless",
+      label: "Cashless",
+      selected: true,
+    },
     {
       val: "reimbursement",
       label: "Reimbursement",
-      selected: true,
+      selected: false,
     },
   ];
 

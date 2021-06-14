@@ -169,7 +169,7 @@
       {#if selected_riders_slug.includes(rider.product_slug)}
       <div class="bg-darkblue text-white py-2 px-4 flex justify-between">
         <div class="flex items-center">
-          <img src={`https://superyou.co.id/${rider.icon_svg}`} alt="Rider Icon" width="30x" height=30px; class="transform scale-125">
+          <img src={rider.icon_svg} alt="Rider Icon" width="30x" height=30px; class="transform scale-125">
           <span class="inline-block ml-2 sm:ml-3">{rider.product_name}</span>
         </div>
         <p class="text-right font-bold text-lg self-center">{moneyFormat(rider.monthly_premium)}</p>
