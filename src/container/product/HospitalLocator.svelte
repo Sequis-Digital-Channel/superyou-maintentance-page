@@ -13,13 +13,6 @@
         margin: 0 auto;
         padding: 40px 0 55px 0;
         
-        .Footer-Line {
-          @media (min-width: 768px) {
-            width: 100%;
-            margin: 39px 0 2px;
-            border: solid 0.3px #979797;
-          }
-        }
         .locator-item {
             align-items: center;
             margin: 0 auto 37px auto;
@@ -83,24 +76,25 @@
 </style>
 
 <div class="hospital-locator">
-    <div class="locator-item">
-        <div class="locator-item__icon lazy-image">
-            <img
-              src={lazySrc}
-              data-src="../../../icons/hospital-locator/hospital-location.svg"
-              width="42"
-              height="42"
-              alt="hospital-location" />
-          </div>
-          <h2 class="locator-item__desc text-left font-bold">{@html info}</h2>
+  <div class="locator-item">
+    <div class="locator-item__icon lazy-image">
+      <img
+        class="mb-2 sm:mb-0"
+        src={lazySrc}
+        data-src="../../../icons/hospital-locator/hospital-location.svg"
+        width="42"
+        height="42"
+        alt="hospital-location" />
     </div>
-    <BaseButton 
-      bgColor=#00aaae
-      style="max-width:314px;font-size:14px;font-weight:bold;margin-bottom:15px;margin:0 auto;"
-      on:click={() => {
-        window.location.href = `${appUrl}/rumah-sakit-terdekat`;
-      }}>
-        CEK RUMAH SAKIT TERDEKAT DISINI
-    </BaseButton>
+    <h2 class="locator-item__desc text-left font-bold">{@html info}</h2>
   </div>
-  <hr class="Footer-Line">
+  <BaseButton 
+    bgColor=#00aaae
+    style="max-width:314px;font-size:14px;font-weight:bold;margin-bottom:15px;margin:0 auto;"
+    on:click={() => {
+      window.location.href = `${appUrl}/rumah-sakit-terdekat`;
+    }}>
+      CEK RUMAH SAKIT TERDEKAT DISINI
+  </BaseButton>
+</div>
+<hr class="footer-line">

@@ -1,7 +1,3 @@
-<script context="module">
-  import safeRiders from "../../data/json/super-safe-riders.json";
-</script>
-
 <script>
   import { slide } from "svelte/transition";
   import {
@@ -10,7 +6,7 @@
     paymentTermYearly,
     derivedTotalPricePerPlan,
     derivedTotalQuantity,
-    cartShow,
+    cartErrorMessages,
     disabledBtnNextPurchase
   } from "../../stores/cart/store";
   import {
@@ -33,7 +29,9 @@
   let btnSubstractQty = false;
   let basePrice = 0;
   let term = "Bulan";
-
+  let cartItemRiderErrorMsg = [];
+  let cartItemErrorMsg = [];
+  
   paymentTermYearly.subscribe((isYearlyPayment) => {
     if (isYearlyPayment) {
       term = "Tahun";
@@ -71,6 +69,7 @@
       }
     }
   });
+  
 
   function handleClickRider({ target }, planId, riderId, riderPrice, riderCode) {
     if (target.checked) {
@@ -79,6 +78,9 @@
     } else {
       selectedRiders = selectedRiders.filter((id) => target.value !== id);
       addRemoveUpdateRider("REMOVE_RIDER", planId, riderId, riderPrice, riderCode);
+      cartErrorMessages.update(errors => {
+        return errors.filter(err => err.id !== item.id && err.type === 'cart_item_rider');
+      });
     }
   }
 
@@ -87,6 +89,8 @@
       ? (expandRiders = expandRiders.filter((id) => id !== riderId))
       : (expandRiders = [...expandRiders, riderId]);
   }
+
+  $: basePrice = $paymentTermYearly ? item.yearly_premium : item.monthly_premium;
 
   $: btnSubstractQty = $cartStore.products[item.id].quantity <= 1;
   $: if (
@@ -105,8 +109,63 @@
 
   $: isCartItemError = item.validations?.length ? true : false;
   $: if (isCartItemError) {
-    disabledBtnNextPurchase.update(() => true)
+    cartErrorMessages.update(errors => {
+      if(errors.findIndex(err => err.id === item.id) === -1) {
+        let errorFields = [];
+        item.validations.forEach(errData => {
+          errorFields.push({
+            "type": 'cart_item',
+            "msg": errData.msg,
+            'id': item.id
+          })
+        })
+        return [...errors, ...errorFields]
+      }
+
+      return errors;
+    })
+  } else {
+    cartErrorMessages.update(errors => {
+      return errors.filter(err => err.id !== item.id && (err.type === 'cart_item' || err.type === 'cart_item_rider'));
+    });
   }
+
+  $: if (selectedRiders.length && item.riders.length) {
+    cartItemRiderErrorMsg = [];
+    item.riders.forEach(rider => {
+      if (rider.validations && rider.validations.length && selectedRiders.includes(rider.id)) {
+        isCartItemError = true;
+        cartItemRiderErrorMsg = [...cartItemRiderErrorMsg, ...rider.validations];
+      }
+    });
+    
+    if (cartItemRiderErrorMsg.length) {
+      let errorFields = [];
+      cartErrorMessages.update(errors => {
+        if(errors.findIndex(err => err.id === item.id && err.type === 'cart_item_rider') === -1) {
+          cartItemRiderErrorMsg.forEach(errData => {
+            errorFields.push({
+              'type': 'cart_item_rider',
+              'msg': errData.msg,
+              'id': item.id
+            })
+          });
+          return [...errors, ...errorFields]
+        }
+  
+        return errors;
+      })
+    }
+  }
+  
+  // cartErrorMessages.subscribe(cartErrorMessages => {
+  //   cartItemErrorMsg = cartErrorMessages.filter(error => error.id !== null);
+  //   if (cartItemErrorMsg.length) {
+  //     disabledBtnNextPurchase.update(() => true);
+  //   } else {
+  //     disabledBtnNextPurchase.update(() => false);
+  //   }
+  // })
 
   onMount(() => {
     selectedRiders = Object.keys($cartStore.products[item.id].riders);
@@ -240,7 +299,7 @@
         </div>
         <div class="item-pdf px-3">
           <a
-            href={item.pdfUrl}
+            href={item.rip_link}
             class="text-teal text-xs font-bold"
             target="_blank">
             RINGKASAN PRODUK
@@ -281,7 +340,7 @@
                   >
                     <img
                       class="select-none"
-                      src={safeRiders.riders[i].icon}
+                      src={rider.icon_svg}
                       width="30px"
                       height="30px"
                       alt="Pilih Rider"
@@ -348,11 +407,13 @@
   {/if}
 </div>
 
-{#if isCartItemError}
-  {#each item.validations as error, i (`${error.loc}-${i}`) }
-    <p class="text-xs text-red-600 mt-1">
-      {error.msg}
-    </p>
+{#if $cartErrorMessages.length}
+  {#each $cartErrorMessages as error, i (`cart-item-error-${i}`) }
+    {#if error.id && error.id === item.id}
+      <p class="text-xs text-red-600 mt-1">
+        {error.msg}
+      </p>
+    {/if}
   {/each}
 {/if}
 

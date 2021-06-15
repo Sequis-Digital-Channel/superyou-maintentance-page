@@ -1,12 +1,7 @@
 <script context="module">
-  // import heroMeta from "../../data/json/products/super-care/abovethefold-meta.json";
-  import heroMeta from "../../data/json/products/super-care/abovethefold-meta-hidecashles.json";
-
-  // import tnc from "../../data/json/products/super-care/tnc.json";
-  import tnc from "../../data/json/products/super-care/tnc-hide-cashless.json";
-
-  // import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
-  import dataFaqSuperCare from "../../data/json/products/super-care/faq-hide-cashless.json";
+  import heroMeta from "../../data/json/products/super-care/abovethefold-meta.json";
+  import tnc from "../../data/json/products/super-care/tnc.json";
+  import dataFaqSuperCare from "../../data/json/products/super-care/faq.json";
 
   import notcovered from "../../data/json/products/super-care/not-covered.json";
   import superCareProtection from "../../data/json/products/super-care/api.json";
@@ -168,7 +163,7 @@
   <link rel="canonical" href="{app_url}/produk/super-care-protection" />
 </svelte:head>
 
-<section class="above-the-fold-wrapper">
+<section class="above-the-fold-wrapper super-care">
   <AboveTheFold meta={heroMeta}>
     <picture slot="hero-img">
       <source
@@ -396,6 +391,15 @@
 
     :global(.super-care .t-wrapper.bene-tooltip-2 .tooltip-holder) {
       left: -170px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :global(.above-the-fold-wrapper.super-care .product_icon) {
+      padding-top: 4px !important;
+    }
+    :global(.above-the-fold-wrapper.super-care .product_meta) {
+      padding-top: 30px !important;
     }
   }
 </style>

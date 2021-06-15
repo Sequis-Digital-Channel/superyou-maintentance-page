@@ -3,12 +3,16 @@
   import {
     cartStore,
     cartShow,
+    isFetchProductCatalogueApi,
   } from "../../stores/cart/store";
   import { fetchProductsCart } from "../../stores/cart/actions";
   import { onDestroy } from "svelte";
 
+  export let isLoading = false;
+
   let cartItem;
   let productApiUrl = "";
+  let subscribedFetchingProduct = false;
   const { session } = stores();
   const unsubscribe = session.subscribe((value) => {
     productApiUrl = value.API_PRODUCT_CATALOGUE;
@@ -29,19 +33,32 @@
   let itemsDetail = {};
 
   $: if ($cartShow) {
-     fetchProductsCart(productApiUrl)
-     .then(plans => {
-       if(Object.keys(plans).length) {
-         Object.keys(plans).forEach(planId => {
-           itemsDetail[planId] = plans[planId];
-         });
-       }
-     })
+    if (!subscribedFetchingProduct) {
+      subscribedFetchingProduct = true;
+      isFetchProductCatalogueApi.update(() => true);
+    }
 
     if(!cartItem) {
       loadCartItem();
     }
   }
+
+  isFetchProductCatalogueApi.subscribe(isFetching => {
+    if (isFetching) {
+      itemsDetail = {};
+      isLoading = true;
+      fetchProductsCart(productApiUrl)
+      .then(plans => {
+        if(Object.keys(plans).length) {
+          Object.keys(plans).forEach(planId => {
+            itemsDetail[planId] = plans[planId];
+          });
+        }
+        isLoading = false;
+        isFetchProductCatalogueApi.update(() => false);
+      })
+    }
+  });
 
   cartStore.subscribe(cart => {
     let listId = Object.keys(itemsDetail);

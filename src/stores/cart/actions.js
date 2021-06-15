@@ -1,4 +1,4 @@
-import {cartStore, derivedTotalSumAssured, paymentTermYearly, derivedTotalQuantity} from "./store";
+import {cartStore, derivedTotalSumAssured, derivedTotalQuantity, isFetchProductCatalogueApi, disabledBtnNextPurchase, cartErrorMessages} from "./store";
 import { cookieAddAndSubstractQuantity, cookieDeleteCartPlan, cookieAddToCart, cookieAddAndRemoveChoosenRider } from "../../utils/_cartcookie";
 import { getPlanById } from "../../api/products.service";
 
@@ -29,7 +29,7 @@ export function addToCart({planId, quantity, price, riders, validation_type, sum
         quantity: updatedCart.products[planId].quantity + quantity,
         price: updatedCart.products[planId].price + price,
         riders,
-        fetched: false,
+        // fetched: false,
         validation_type,
         product_slug: productSlug,
         sum_assured
@@ -40,7 +40,7 @@ export function addToCart({planId, quantity, price, riders, validation_type, sum
         quantity,
         price,
         riders,
-        fetched: false,
+        // fetched: false,
         validation_type,
         product_slug: productSlug,
         sum_assured
@@ -161,39 +161,16 @@ export function deleteCartItem(planId, sumAssuredPlan) {
     return updatedCart;
   })
 
+  cartErrorMessages.update(errors => errors.filter(err => err.id !== planId));
+
   // save to cookie
   setTimeout(() => {
     cookieDeleteCartPlan(planId, totalSumAssured, totalQuantity)
   }, 100)
 }
 
-export function getCartLocalStorage(name) {
-  let cartStorage = localStorage.getItem(name);
-  if(cartStorage) {
-    const {products, payment_term_yearly} = JSON.parse(cartStorage);
-
-    // reset fetch to false for initial load always update product data to API
-    const productsPlanIdArr = Object.keys(products);
-    if(productsPlanIdArr.length) {
-      productsPlanIdArr.forEach(planId => {
-        products[planId].fetched = false;
-      })
-    }
-    cartStore.set({products});
-    paymentTermYearly.set(payment_term_yearly);
-  } 
-}
-
-export function setToLocalStorage() {
-  if(process.browser) {
-    window.localStorage.setItem(
-      "cart",
-      JSON.stringify(cartData)
-    );
-  }
-}
-
 export async function fetchProductsCart(productApiUrl, refetch = false) {
+    disabledBtnNextPurchase.update(() => true);
     let cartData;
     let itemsDetail = {};
 
@@ -211,7 +188,7 @@ export async function fetchProductsCart(productApiUrl, refetch = false) {
       productsDetails.forEach(function (response, index) {
         itemsDetail[response.id] = response;
 
-        cart.products[response.id].fetched = false;
+        // cart.products[response.id].fetched = true;
         cart.products[response.id].validation_type = response.validation_type;
         cart.products[response.id].product_slug = response.product_slug;
         cart.products[response.id].price =
@@ -239,5 +216,6 @@ export async function fetchProductsCart(productApiUrl, refetch = false) {
       });
       return cart;
     });
+    isFetchProductCatalogueApi.update(() => refetch);
     return itemsDetail
   }

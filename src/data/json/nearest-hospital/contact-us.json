@@ -1,0 +1,19 @@
+{
+	"boxes": [
+		{
+			"icon": "/icons/nearest-hospital/icon-hotline-service.svg",
+			"title": "Telpon & Email Super You",
+			"content": "(021) 2994 292<br />superyou@sequislife.com "
+		},
+		{
+			"icon": "/icons/nearest-hospital/icon-chat-call.svg",
+			"title": "Call Center Ad Medika",
+			"content": "Indonesia: (021) 29647300<br />IA Malaysia: 1800220911<br />IA Singapura: 8004922252<br />Worldwide: +60379621814"
+		},
+		{
+			"icon": "/icons/nearest-hospital/icon-whatsapp.svg",
+			"title": "Chat Via Whatsapp",
+			"content": "+62 899-2325-566"
+		}
+	]
+}
