@@ -101,7 +101,7 @@
 
   <svelte:head> 
     <title>Rumah Sakit Terdekat</title>
-		<!-- <script src={`https://maps.googleapis.com/maps/api/js?key=${gmaps_key}&libraries=&v=weekly`} /> -->
+		<script src={`https://maps.googleapis.com/maps/api/js?key=${gmaps_key}&libraries=&v=weekly`} />
   </svelte:head>
 
 <section id="superyou-home" class="above-the-fold-wrapper"></section>
