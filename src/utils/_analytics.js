@@ -5,7 +5,7 @@ export class Analytics {
     this.isGTMLoaded = false;
   }
 
-  loadGTM = () => {
+  loadGTM() {
     if (!this.isGTMLoaded) {
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -22,14 +22,22 @@ export class Analytics {
     }
   }
 
-  destroyListener = () => {
-    window.removeEventListener('touchstart', this.loadGTM);
-    window.removeEventListener('mousemove', this.loadGTM);
+  destroyListener() {
+    window.removeEventListener('touchstart', () => {
+      this.loadGTM();
+    });
+    window.removeEventListener('mousemove', () => {
+      this.loadGTM();
+    });
   }
 
-  initGTMEvent = () => {
-    window.addEventListener('touchstart', this.loadGTM);
-    window.addEventListener('mousemove', this.loadGTM);
+  initGTMEvent() {
+    window.addEventListener('touchstart', () => {
+      this.loadGTM()
+    });
+    window.addEventListener('mousemove', () => {
+      this.loadGTM()
+    });
   }
 }
 
