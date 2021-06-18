@@ -30,7 +30,6 @@
   import HospitalLocator from "../../container/product/HospitalLocator.svelte";
 
   import { getProductBySlugNameClient } from "../../api/products.service";
-  import { loadFlickity } from "../../utils/_loadflickity";
   import IcPdf from "../../components/svg/IcPdf.svelte";
   import Analytics from "../../components/Analytics.svelte";
   
@@ -131,12 +130,19 @@
       const otherProdObserver = new IntersectionObserver((entries) => {
         const el = entries[0];
         if(el.isIntersecting) {
-          if (!isFlicktyLoaded) {
-            loadFlickity();
-            isFlicktyLoaded = true;
-            loadOtherProductsContainer();
-          }
           otherProdObserver.unobserve(otherProd);
+          if (!isFlicktyLoaded) {
+            import('../../utils/_loadflickity')
+            .then(module => {
+              const { loadFlickity } = module;
+              loadFlickity();
+              isFlicktyLoaded = true;
+              loadOtherProductsContainer();
+            })
+            .catch(error => {
+              console.error('Failed to fetch _loadflickity', error);
+            });
+          }
         }
       },
       {rootMargin: "-300px 0px 0px 0px"}
