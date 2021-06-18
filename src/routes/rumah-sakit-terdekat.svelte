@@ -5,7 +5,7 @@
 
   export async function preload(page, session) {
     const { API_PRODUCT_CATALOGUE, APP_URL, GMAPS_KEY } = session;
-	
+
     return {
       api_product_url: API_PRODUCT_CATALOGUE,
 			app_url : APP_URL,

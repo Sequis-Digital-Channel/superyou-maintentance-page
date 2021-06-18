@@ -30,7 +30,6 @@
     import Leadgen from "../../container/Leadgen.svelte";
     import HospitalLocator from "../../container/product/HospitalLocator.svelte";
   
-    import { loadFlickity } from "../../utils/_loadflickity";
     import { getProductBySlugNameClient } from "../../api/products.service";
     import Analytics from "../../components/Analytics.svelte";
   
@@ -132,9 +131,16 @@
           if(el.isIntersecting) {
             otherProdObserver.unobserve(otherProd);
             if (!isFlicktyLoaded) {
-              loadFlickity();
-              isFlicktyLoaded = true;
-              loadOtherProductsContainer();
+              import('../../utils/_loadflickity')
+              .then(module => {
+                const { loadFlickity } = module;
+                loadFlickity();
+                isFlicktyLoaded = true;
+                loadOtherProductsContainer();
+              })
+              .catch(error => {
+                console.error('Failed to fetch _loadflickity', error);
+              });
             }
           }
         },
