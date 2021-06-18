@@ -40,7 +40,7 @@
     <!-- SMALL CARD ROUNDED -->
     {#each data as val, i (`box-${i}`)}
     <div class="box bg-white rounded-2xl mb-5 lazy-image">
-      <img class="w-12 h-12 object-contain" srcsrc="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="{val.icon}" alt="" />
+      <img class="w-16 h-16 object-contain" srcsrc="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="{val.icon}" alt="" />
       <div class="flex flex-col w-full pl-4 content">
         <h3 class="text-lg text-darkblue font-bold">{@html val.title}</h3>
         <p class="text-sm content__body">{@html val.content}</p>

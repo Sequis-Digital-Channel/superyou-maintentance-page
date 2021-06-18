@@ -116,6 +116,10 @@
         align-items: center;
         flex-direction: column;
 
+        @media (max-width: 640px) {
+          margin-bottom: 57px;
+        }
+
         @media (min-width: 1024px) {
           flex-direction: row;
           justify-content: space-between;
@@ -311,30 +315,23 @@
         <div class="aside-item">
           <h4>Supports</h4>
           <ul>
-              <li><a href={`${APP_URL}/blog/`}>Beranda</a></li>
-              <li><a href={`${APP_URL}/blog/category/keuangan`}>Keuangan</a></li>
-              <li><a href={`${APP_URL}/blog/category/kesehatan`}>Kesehatan</a></li>
-              <li><a href={`${APP_URL}/blog/catagory/gayahidup`}>Gaya Hidup & Keluarga</a></li>
-              <li><a href={`${APP_URL}/blog/category/berita`}>Berita</a></li>
-              <li><a href={`${APP_URL}/blog/category/promo`}>Promo</a></li>
-              <li><a href={`${APP_URL}/blog/category/superyou-quiz`}>Quiz</a></li>
+              <li><a href={`${APP_URL}/hubungi-kami`}>Hubungi Kami</a></li>
+              <li><a href={`${APP_URL}/faq`}>FAQ</a></li>
+              <li><a href={`${APP_URL}/rumah-sakit-terdekat`}>Rumah Sakit Terdekat</a></li>
+              <li><a href={`${APP_URL}/blog/superyou-quiz/bmi-kalkulator`}>Kalkulator Berat Badan Ideal</a></li>
           </ul>
         </div>
 
         <div class="aside-item">
           <h4>Blog</h4>
           <ul>
-            <li><a href={`${APP_URL}/blog/category/keuangan/`}>Keuangan</a></li>
-            <li>
-              <a href={`${APP_URL}/blog/category/kesehatan/`}>Kesehatan</a>
-            </li>
-            <li>
-              <a href={`${APP_URL}/blog/category/gayahidup/`}>Gaya Hidup &
-                Keluarga</a>
-            </li>
-            <li>
-              <a href={`${APP_URL}/blog/category/promo/`}>Berita & Promo</a>
-            </li>
+            <li><a href={`${APP_URL}/blog`}>Beranda</a></li>
+            <li><a href={`${APP_URL}/blog/category/keuangan`}>Keuangan</a></li>
+            <li><a href={`${APP_URL}/blog/category/kesehatan`}>Kesehatan</a></li>
+            <li><a href={`${APP_URL}/blog/catagory/gayahidup`}>Gaya Hidup & Keluarga</a></li>
+            <li><a href={`${APP_URL}/blog/category/berita`}>Berita</a></li>
+            <li><a href={`${APP_URL}/blog/category/promo`}>Promo</a></li>
+            <li><a href={`${APP_URL}/blog/category/superyou-quiz`}>Quiz</a></li>
           </ul>
         </div>
       </div>
