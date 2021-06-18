@@ -1,7 +1,8 @@
 <script>
   import { onMount } from "svelte";
 
-  import HospitalList from "./HospitalList.svelte";
+  import HospitalItems from "../../data/json/nearest-hospital/hospital-list.json";
+  import HospitalSearch from "./HospitalSearch.svelte";
 
   let container;
   let map;
@@ -23,9 +24,9 @@
   });
 </script>
 
-<div class="w-full relative inline">
+<div class="w-full relative">
   <div id="map" class="map" bind:this={container}></div>
-  <HospitalList />
+  <HospitalSearch data={HospitalItems.hospitals} />
 </div>
 
 <style lang="postcss">
@@ -34,5 +35,8 @@
     left: 0;
     width: 100%;
     height: 670px;
+    @media only screen and (max-width: 600px) {
+      height: 315px;
+    }
   }
 </style>
