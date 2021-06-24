@@ -14,7 +14,7 @@
     "compression": "^1.7.1",
     "polka": "next",
     "sirv": "^1.0.0",
-    "svelte-imask": "^1.2.0"
+    "validator": "^13.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

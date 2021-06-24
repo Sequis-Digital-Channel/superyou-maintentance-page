@@ -9,13 +9,10 @@ import { json } from "body-parser";
 const {
 	PORT,
 	NODE_ENV,
-	API_PRODUCT_CATALOGUE,
 	APP_URL,
-	SUPER_API_URL,
-	LEADGEN_CLIENT_KEY,
+	LEADGEN_URL,
 	APP_ENV,
 	GTM_ID,
-	GMAPS_KEY
 } = process.env;
 const dev = NODE_ENV === "development";
 
@@ -26,14 +23,11 @@ polka() // You can also use Express
 		sirv("static", { dev }),
 		sapper.middleware({
 			session: () => ({
-				API_PRODUCT_CATALOGUE,
 				APP_URL,
-				SUPER_API_URL,
-				LEADGEN_CLIENT_KEY,
+				LEADGEN_URL,
 				NODE_ENV,
 				APP_ENV,
 				GTM_ID,
-				GMAPS_KEY
 			})
 		})
 	)

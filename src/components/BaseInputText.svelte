@@ -75,11 +75,11 @@
 <style lang="postcss">
   .base-input-text {
     position: relative;
-    height: 64px;
+    height: 54px;
 
     & > label {
       display: block;
-      font-size: 14px;
+      font-size: 12px;
       color: #708697;
     }
 
@@ -124,7 +124,7 @@
     .input-text {
       display: flex;
       width: 100%;
-      min-height: 40px;
+      min-height: 38px;
       padding: 8px 0;
     }
 
