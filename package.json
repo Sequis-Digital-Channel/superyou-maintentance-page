@@ -1,9 +1,9 @@
 {
-  "name": "frontend-superyou",
+  "name": "superyou-maintenance-page",
   "description": "TODO",
   "version": "0.0.1",
   "scripts": {
-    "dev": "PORT=$(grep APP_PORT .env | cut -d '=' -f2) sapper dev",
+    "dev": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "PORT=$(grep APP_PORT .env | cut -d '=' -f2) node __sapper__/build"
