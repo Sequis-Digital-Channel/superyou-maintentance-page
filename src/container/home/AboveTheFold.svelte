@@ -130,7 +130,7 @@
       }
 
       .err_img {
-        max-width: 100%;
+        max-width: 110%;
         max-height: 100%;
         justify-content: center;
         display: flex;
@@ -148,8 +148,8 @@
           }
 
           @media (min-width: 1280px) {
-            height: 100%;
-            /* margin-left: 100px; */
+            height: 91%;
+            margin-left: 100px;
           }
         }
       }
