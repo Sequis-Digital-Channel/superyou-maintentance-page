@@ -11,7 +11,6 @@
   <div class="mx-auto max-w-screen-xl w-full h-full">
     <div class="err_wrapper lg:grid md:mt-10 lg:mt-0 lg:grid-cols-2">
       <div class="flex md:items-start md:justify-start flex-col items-center justify-center lg:ml-12">
-        
           <div class="err-meta mx-auto lg:pr-4 xl:pr-6">
             {#if !contactHasbeenSubmited}
             <h1 class="font-bold leading-snug text-center lg:text-left">Oops..</h1>
@@ -30,7 +29,38 @@
             <ErrorContact on:submit-success={handleSubmitSuccess}/>
           </div>
           {/if}
-
+            <p
+            style="display:flex;align-items:center;text-align:center;justify-content:center;font-weight:bold;color:#0d294a;margin:10px 0;font-size:14px;margin-right:165px"
+          >
+            <svg
+                class="mobile_button"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12">
+                <defs>
+                  <path
+                    id="xopfgbdqwa"
+                    d="M7.253.293c.423.39.423 1.024 0 1.414l-3.558 3.29h7.224c.597 0 1.081.448 1.081 1s-.484 1-1.081 1h-7.23l3.564 3.296c.423.39.423 1.024 0 1.414-.422.39-1.107.39-1.53 0l-5.406-5c-.423-.39-.423-1.024 0-1.414l5.407-5c.422-.39 1.107-.39 1.53 0z"
+                  />
+                </defs>
+                <g fill="none" fill-rule="evenodd">
+                  <g>
+                    <g transform="translate(-20 -42) translate(20 42)">
+                      <use
+                        fill="#0D294A"
+                        fill-rule="nonzero"
+                        transform="matrix(1 0 0 -1 0 12)"
+                        xlink:href="#xopfgbdqwa"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            <span class="mobile_button ml-4">
+                KEMBALI KE HOME</span>
+            </p>
       </div>
       <div class="err_img">
         <picture>
@@ -41,6 +71,10 @@
           <source
             srcset="img/error-500.png"
             media="(min-width: 601px)"
+          >
+          <source
+            srcset="img/error-500@3x.png"
+            media="(min-width: 2480px)"
           >
           <img
             class="inside_img"
@@ -71,7 +105,6 @@
     .err-meta {
       max-width: 630px;
 
-      
       @media (max-width: 640px) {
         margin-top: 80px;
         max-width: 330px;
@@ -82,10 +115,6 @@
       @media (max-width: 375px){
         max-width: 306px;
       }
-
-      /* @media (min-width: 1440px) {
-        margin-top: 80px;
-      } */
       @media (min-width: 1500px) {
         margin-top: 50px;
       }
@@ -112,6 +141,16 @@
       justify-content: center;
       max-height: 100%;
       min-height: 100vh;
+
+      .mobile_button {
+        @media (max-width: 640px) {
+          display: inline-block;
+        }
+
+        @media (min-width: 1280px) {
+          display: none;
+        }
+      }
 
       @media (max-width: 640px) {
         justify-content: center;
@@ -144,12 +183,17 @@
         .inside_img {
           @media (max-width: 600px) {
             max-width: 106%;
-            margin-left: -28px;
+            margin-left: -5px;
           }
 
           @media (min-width: 1280px) {
             height: 91%;
             margin-left: 100px;
+          }
+
+          @media (min-width: 2480px) {
+            height: 93%;
+            max-width: 190% !important;
           }
         }
       }
