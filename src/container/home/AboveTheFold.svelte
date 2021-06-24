@@ -1,320 +1,120 @@
 <script>
-  import { onMount } from "svelte";
-
-  let pSlideCenter;
-
-  onMount(() => {
-    pSlideCenter.scrollBy({
-      top: 0,
-      left: 160,
-      behavior: 'smooth'
-    })
-  })
+  import ErrorContact from "../error-contact.svelte";
 </script>
 
-<div id="home_atf" class="flex">
-  <div class="mx-auto max-w-screen-xl mt-auto w-full">
-    <div class="atf-meta lg:pr-4 xl:pr-6">
-      <h1 class="text-white font-bold text-2xl lg:text-3xl xl:text-4xl leading-snug text-center lg:text-right">ASURANSI ONLINE<br>UNTUK PERLINDUNGAN OPTIMAL</h1>
-      <p class="text-darkblue text-sm md:text-base xl:text-xl text-center lg:text-right mt-3 mb-4">
-        Bebas pilih asuransi sesuai kebutuhan kamu hanya dalam beberapa klik.
-      </p>
-    </div>
-    <div class="atf_wrapper grid">
-      <div class="atf_img">
-        <picture class="hero-home">
-          <source
-            media="(min-width: 801px)"
-            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-70 1x, https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-95 2x"
-          >
-          <source
-            media="(min-width: 501px) and (max-width: 800px)"
-            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-75"
-          >
-          <source
-            media="(max-width: 500px)"
-            srcset="https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-75,w-280"
-          >
-          <img
-            src="https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/ds-hero-home_bDZYSYZFJW.png?tr=q-70"
-            alt="Super Life Hero"
-            width="622"
-            height="507"
-            loading="lazy"
-            decoding="async"
-          > 
-        </picture>
-      </div>
-      <div class="atf_products flex items-end justify-end">
-        <div class="atf_products-wrapper overflow-hidden mx-auto lg:mx-0 rounded-xl pb-5 px-3 lg:px-0">
-          <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-4 lg:gap-3">
-
-          <!-- Temporary code for disabled product super care and well -->
-          <!-- <div bind:this={pSlideCenter} class="p-boxes overflow-x-scroll lg:overflow-x-hidden flex py-4 px-0 lg:p-5 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4"> -->
-          <!-- Temporary code for disabled product super care and well -->
-
-            <a class="p-box-link" rel="external" href="/produk/super-care-protection">
-              <div class="p-box covid-scope">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-care-protection_45SOWUY6X.svg"
-                  width="42px"
-                  height="42px"
-                  alt="Super Care">
-                <span class="text-darkblue font-bold text-center text-tiny care-name">Perawatan Infeksi & Kecelakaan</span>
-              </div>
-            </a>
-            <a class="p-box-link" rel="external" href="/produk/my-hospital-protection">
-              <div class="p-box">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/my-hospital-protection_IL89WHs9l.svg"
-                  width="42px"
-                  height="42px"
-                  alt="My Hospital">
-                <span class="text-darkblue font-bold text-center text-tiny">Santunan<br>Rawat Inap</span>
-              </div>
-            </a>
-            <a class="p-box-link" rel="external" href="/produk/super-strong-protection">
-              <div class="p-box covid-scope">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-strong-protection_JIJupTKZSZ.svg"
-                  width="42px"
-                  height="42px"
-                  alt="Super Strong">
-                <span class="text-darkblue font-bold text-center text-tiny">Proteksi Jiwa + 3 Penyakit Kritis</span>
-              </div>
-            </a>
-            <a class="p-box-link" rel="external" href="/produk/super-life-protection">
-              <div class="p-box covid-scope">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-life-protection_jWgDexeIBJ.svg"
-                  width="42px"
-                  height="42px"
-                  alt="Super Life">
-                <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Jiwa</span>
-              </div>
-            </a>
-            <a class="p-box-link" rel="external" href="/produk/super-well-protection">
-              <div class="p-box">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-well-protection_nICWi8R4nF.svg"
-                  width="42px"
-                  height="42px"
-                  alt="Super Well">
-                <span class="text-darkblue font-bold text-center text-tiny">Perawatan 10 Penyakit Kritis</span>
-              </div>
-            </a>
-            <a class="p-box-link" rel="external" href="/produk/super-safe-protection">
-              <div class="p-box">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-holiday-protection_OkWDc8G_he8.svg"
-                  width="42px"
-                  height="42px"
-                  alt="Super Holiday">
-                <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br> Saat Liburan</span>
-              </div>
-            </a>
-            <a class="p-box-link" rel="external" href="/produk/super-safe-protection">
-              <div class="p-box">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-safe-protection_Gnfr4rz7aX5p.svg"
-                  width="42px"
-                  height="42px"
-                  alt="Super Safe">
-                <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Kecelakaan</span>
-              </div>
-            </a>
-            <a class="p-box-link" rel="external" href="/produk/super-safe-protection">
-              <div class="p-box">
-                <img
-                  src="https://ik.imagekit.io/oc2o82pyjsh/superyou/icons/super-motor-protection_e-b5QAcBRx.svg"
-                  width="42px"
-                  height="42px"
-                  alt="Super Motor">
-                <span class="text-darkblue font-bold text-center text-tiny">Proteksi<br>Berkendara</span>
-              </div>
-            </a>
+<div id="home_err" class="flex">
+  <div class="mx-auto max-w-screen-xl w-full h-full">
+    <div class="err_wrapper grid">
+      <div class="flex md:items-start md:justify-start flex-col items-center justify-center ml-12">
+        
+          <div class="err-meta lg:pr-4 xl:pr-6 mt-10">
+            <h1 class="font-bold leading-snug text-center lg:text-left">Oops..</h1>
+            <p class="text-darkblue text-center lg:text-left mt-3 mb-4">
+              Mohon maaf, kami sedang melakukan peningkatan layanan  pembelian di website Super You dan kamu dapat berdansa sebentar sambil menunggu kami. Jika kamu membutuhkan bantuan hubungi Customer Service kami di <strong>021 2994 2929</strong>, chat nomor Whatsapp di <strong>0899 2325 566</strong> atau tinggalkan kontak untuk kami hubungi.
+            </p>
+          </div>
+          <div class="mx-auto lg:mx-0 rounded-xl pb-5 px-5 lg:px-0 w-full mt-4">
+            <ErrorContact />
           </div>
 
-          <a class="start-now relative w-56 block mx-auto bg-darkblue px-5 py-2 mt-4 rounded-xl text-sm xl:text-base text-white font-bold" href="/isi-data">MULAI SEKARANG <span class="arr">&rarr;</span></a>
-        </div>
+      </div>
+      <div class="err_img">
+        <picture>
+          <img
+            class="inside_img"
+            src="img/error-500.png"
+            alt="Super You Error"
+            
+          > 
+        </picture>
       </div>
     </div>
   </div>
 </div>
 
 <style lang="postcss">
-  #home_atf {
-    /* min-height: 658px; */
-    padding: 74px 20px 32px 20px;
+  #home_err {
+    background: linear-gradient(134deg, #ffffff, #ffffff 39%, #c3c3c3 109%);
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     @media (min-width: 1024px) {
       padding: 90px 20px 0 20px;
     }
     @media (min-width: 1280px) {
       padding: 96px 20px 0 20px;
     }
-    background: linear-gradient(116deg, #009496 -33%, rgba(0, 220, 223, 0.5) 64%), linear-gradient(114deg, rgba(255, 255, 255, 0) 37%, rgba(255, 255, 255, 0.69)), linear-gradient(to bottom, #00b7ba, #00b7ba);
 
-    .atf-meta {
-      @media (min-width: 1024px) {
-        margin-bottom: -80px;
+    .err-meta {
+      max-width: 630px;
+
+      
+      @media (max-width: 640px) {
+        margin-top: 100px;
+        max-width: 306px;
+        align-items: center;
+        justify-items: center;
       }
-      @media (min-width: 1200px) {
-        margin-bottom: -122px;
-      }
-      @media (min-width: 1280px) {
-        margin-bottom: -100px;
+
+      /* @media (min-width: 1440px) {
+        margin-top: 80px;
+      } */
+      @media (min-width: 1500px) {
+        margin-top: 50px;
       }
       h1 {
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        color: #708697;
         @media (max-width: 375px) {
           font-size: 20px;
+        }
+        @media (min-width:740px) {
+          font-size: 48px;
+        }
+      }
+
+      p {
+        color:#0d294a;
+        @media (min-width:1280px) {
+          width: 630px;
+          font-size: 16px;
         }
       }
     }
 
-    .atf_wrapper {
+    .err_wrapper {
       justify-content: center;
-      @media (min-width: 1024px) {
+      max-height: 100%;
+
+      @media (max-width: 640px) {
+        justify-content: center;
+      }
+
+      @media (min-width: 1440px) {
         justify-content: flex-start;
         grid-template-columns: 45% 1fr;
-      }
-      .atf_img {
-        max-width: 70.3%;
-        margin: 0 auto;
-        @media (min-width: 1024px) {
-          max-width: 622px;
-        }
+        height: 94%;        
       }
 
-      .atf_products {
-        @media (min-width: 1024px) {
-          padding-right: 26px;
-        }
+      @media (min-width: 1500px) {
+        justify-content: flex-start;
+        grid-template-columns: 45% 1fr;
+        height: 100%;
+      }
 
-        .atf_products-wrapper {
-          min-width: 310px;
+      .err_img {
+        max-width: 100%;
+        max-height: 100%;
+        justify-content: center;
+        display: flex;
 
-          -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-          box-shadow: 0 2px 20px 0 rgba(170, 170, 170, 0.5);
-          background-color: rgba(255, 255, 255, 0.15);
 
-          @media (max-width: 1023px) {
-            max-width: 400px;
-          }
+        .inside_img {
 
-          @media (max-width: 600px) {
-            max-width: 350px;
-          }
-
-          @media (max-width: 375px) {
-            max-width: 320px;
-          }
-
-          @media (min-width: 1024px) {
-            margin-bottom: 20px;
-          }
-          @media (min-width: 1100px) {
-            margin-bottom: 30px;
-          }
           @media (min-width: 1280px) {
-            margin-bottom: 40px;
-          }
-          .p-boxes {
-            
-            &::-webkit-scrollbar {
-              display: none;
-            }
-            -ms-overflow-style: none; /* IE 11 */
-            scrollbar-width: none; /* Firefox 64 */
-
-            /* scroll-snap-type: x mandatory; */
-            scroll-snap-type: x proximity;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-
-            .p-box-link {
-              display: inline-block;
-              scroll-snap-align: center;
-              scroll-behavior: smooth;
-
-              @media (max-width: 1023px) {
-                padding: 0 4px;
-                &:last-child{
-                  padding-right: 4px;;
-                }
-              }
-              .p-box {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 74px;
-                height: 74px;
-                cursor: pointer;
-                border-radius: 12px;
-                padding: 4px;
-                background: radial-gradient(circle at 50% 1%,#fff,#c1f4f7 139%);
-
-                &::after {
-                  content: "";
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  height: 100%;
-                  width: 100%;
-                  border-radius: 12px;
-                  box-shadow: 0 5px 20px 3px rgb(0 0 0 / 14%);
-                }
-
-                &.covid-scope::before {
-                  content: "";
-                  position: absolute;
-                  z-index: 1;
-                  top: 0;
-                  background-image: url('https://ik.imagekit.io/oc2o82pyjsh/superyou/homepage/covid-badge_LlomYRoW8avR.png?tr=q-70');
-                  background-repeat: no-repeat;
-                  background-size: contain;
-                  top: -6px;
-                  right: -6px;
-                  width: 22px;
-                  height: 22px;
-                }
-                @media (min-width: 1280px) {
-                  width: 94px;
-                  height: 94px;
-                  padding-left: 4px;
-                  padding-right: 4px;
-
-                  & > img {
-                    width: 50px;
-                    height: 50px;
-                  }
-                  & > span {
-                    font-size: 9px;
-                  }
-                }
-                .care-name {
-                  @media (max-width: 1024px) {
-                    font-size: 7.2px;
-                  }
-                }
-              }
-            }
-          }
-
-          .start-now {
-            .arr {
-              transition: 0.4s;
-              position: absolute;
-              right: 22px;
-            }
-
-            &:hover {
-              .arr {
-                right: 14px;
-              }
-            }
+            height: 100%;
+            margin-left: 100px;
           }
         }
       }
