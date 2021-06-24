@@ -1,5 +1,5 @@
 <script>
-    import ErrorContact from "../error-contact.svelte";
+    import ErrorContact from "../ErrorContact.svelte";
   
   </script>
   
