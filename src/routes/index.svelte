@@ -1,4 +1,4 @@
-<script context="module">
+<!-- <script context="module">
   import AboveTheFold from "../container/home/AboveTheFold.svelte";
 </script>
 
@@ -21,4 +21,4 @@
       .above-the-fold-wrapper {
           height: 100%;
       }
-  </style>
+  </style> -->
